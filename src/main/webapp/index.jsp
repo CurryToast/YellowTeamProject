@@ -12,13 +12,41 @@
 	<meta http-equiv="Expires" content="0">
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="stylesheet" href="assets/css/main.css?v=3" />
-	<link rel="stylesheet" href="css/layout.css?v=3" />
+    <link rel="icon" type="image/png" href="assets/img/favcion.png" />
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" media="all" />
+	<!-- Slick nav CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/slicknav.min.css" media="all" />
+	<!-- Iconfont CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/icofont.css" media="all" />
+	<!-- Owl carousel CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+	<!-- Popup CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/magnific-popup.css">
+	<!-- Main style CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all" />
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css" media="all" />
 </head>
 <body>
 	<%@ include file="./layout/header.jsp" %>
-
-	<!-- Scripts -->
-	<script src="js/nav.js"></script>
+	<footer class="footer">
+		<div class="container">
+		</div>
+	</footer>
+<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!-- Slick nav JS -->
+	<script src="assets/js/jquery.slicknav.min.js"></script>
+	<!-- owl carousel JS -->
+	<script src="assets/js/owl.carousel.min.js"></script>
+	<!-- Popup JS -->
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<!-- Isotope JS -->
+	<script src="assets/js/isotope.pkgd.min.js"></script>
+	<!-- main JS -->
+	<script src="assets/js/main.js"></script>
 </body>
 </html>
