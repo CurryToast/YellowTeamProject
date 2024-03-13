@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<link rel="stylesheet" href="../assets/css/header.css" /> 
 <!-- Header -->
 <div id="header">
 	<!-- Nav -->
@@ -41,10 +42,10 @@
 				</ul>
 			</li>
 			<li>
-				<a class="mainmenu" href="${pageContext.request.contextPath}/movie/reserve">영화예매</a>
+				<a class="mainmenu" href=>영화예매</a>
 				<ul class="submenu">
-					<li><a href="">하위메뉴 1</a></li>
-					<li><a href="">하위메뉴 1</a></li>
+					<li><a href="${pageContext.request.contextPath}/movie/reserve">예매하기</a></li>
+					<li><a href="${pageContext.request.contextPath}/movie/complete">예매확인</a></li>
 				</ul>
 			</li>
 		</ul>
