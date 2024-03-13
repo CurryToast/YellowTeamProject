@@ -1,13 +1,9 @@
-body
-{
-}
 
-#Username
-{
-  border:none;
-  border-bottom:1px solid;
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
-
 .screen
 {
   width:100%;
@@ -48,8 +44,6 @@ body
   border:1px solid red;background:yellow;
 } 
 
-
-
 .seatGap
 {
   width:40px;
@@ -65,7 +59,6 @@ table
   text-align:center;
 }
 
-
 .Displaytable
 {
   text-align:center;
@@ -74,21 +67,18 @@ table
     border: 1px solid;
     text-align: left;
 }
-
 textarea
 {
   border:none;
   background:transparent;
 }
 
-
-
-input[type=checkbox] {
+input[type=radio] {
     width:0px;
     margin-right:18px;
 }
 
-input[type=checkbox]:before {
+input[type=radio]:before {
     content: "";
     width: 15px;
     height: 15px;
@@ -99,9 +89,29 @@ input[type=checkbox]:before {
     background-color:#ccc;
 }
 
-input[type=checkbox]:checked:before {
+input[type=radio]:checked:before {
     background-color:Green;
     font-size: 15px;
 }
 
+table#seatsBlock {
+    display: flex;
+    justify-content: center;
+}
 
+.inputForm {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+button#complete {
+    display: flex;
+    margin: auto;
+}
+
+
+.seatStructure {
+    display: flex;
+    flex-direction: column-reverse;}
+    
+    

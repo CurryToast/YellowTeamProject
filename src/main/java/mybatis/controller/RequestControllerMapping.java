@@ -5,6 +5,7 @@ import java.util.Map;
 
 import mybatis.controller.api.ApiGetAllMembersController;
 import mybatis.controller.movie.MovieReserveController;
+import mybatis.controller.movie.MoviecompleteController;
 
 
 public class RequestControllerMapping {

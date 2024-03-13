@@ -25,12 +25,23 @@ public class MovieReserveController implements Controller {
 		}else if(method.equals("POST")) {
 			request.setCharacterEncoding("UTF-8");
 			
-			String temp= request.getParameter("rcode");
-			String member_code= request.getParameter("member_code");
-			String temp2= request.getParameter("theater");
-			String movie_code= request.getParameter("movie_code");
-			String temp3= request.getParameter("schedule");
+			
+			String temp= "4";
+			String member_code= "admin";
+			String temp2= "2";
+			String movie_code= "10037";
+			String temp3= request.getParameter("2024-03-13");
 			String seat= request.getParameter("seat");
+			
+			
+			
+//실제 적용용			
+//			String temp= request.getParameter("rcode");
+//			String member_code= request.getParameter("member_code");
+//			String temp2= request.getParameter("theater");
+//			String movie_code= request.getParameter("movie_code");
+//			String temp3= request.getParameter("schedule");
+//			String seat= request.getParameter("seat");
 			
 			int rcode = 0;
 			if(temp.length() != 0) rcode= Integer.parseInt(temp);
@@ -57,7 +68,6 @@ public class MovieReserveController implements Controller {
 				response.sendRedirect("reserve");
 			}
 			response.sendRedirect("complete");}
-			else {System.out.println("잘못됨");}
 		}
 	}
 		
