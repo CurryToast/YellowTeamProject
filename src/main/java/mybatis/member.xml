@@ -7,7 +7,7 @@
  		SELECT * FROM tbl_member
  	</select>
  	<select id="getById" resultType="mybatis.vo.Member" parameterType="String">
- 		SELECT * FROM tbl_member WHERE code=#{code} 
+ 		SELECT * FROM tbl_member WHERE code= 
  	</select>
  </mapper>
  
