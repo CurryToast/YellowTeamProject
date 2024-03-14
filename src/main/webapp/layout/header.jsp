@@ -28,17 +28,17 @@
 			<li><a class="mainmenu" href="${pageContext.request.contextPath}">Home</a></li>								
 			<li>
 				<a class="mainmenu" href="${pageContext.request.contextPath}/movie/list">상영일정</a>
-				<ul class="submenu">
+			<!-- 	<ul class="submenu">
 					<li><a href="">하위메뉴 1</a></li>
 					<li><a href="">하위메뉴 1</a></li>
-				</ul>
+				</ul> -->
 			</li>
 			<li>
 				<a class="mainmenu" href="${pageContext.request.contextPath}/movie/search">영화검색</a>
-				<ul class="submenu">
+				<!-- <ul class="submenu">
 					<li><a href="">하위메뉴 1</a></li>
 					<li><a href="">하위메뉴 1</a></li>
-				</ul>
+				</ul> -->
 			</li>
 			<li>
 				<a class="mainmenu" href="${pageContext.request.contextPath}/movie/reserve">영화예매</a>

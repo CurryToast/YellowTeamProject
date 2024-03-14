@@ -3,6 +3,76 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="movies">
+ 	<select id="getList" resultType="mybatis.vo.Movie" 
+ 			parameterType="mybatis.vo.Paging" >
+ 		SELECT * FROM 
+			(SELECT rownum r ,f.* from
+				(SELECT * 
+				 FROM tbl_movie 
+				<if test="column != null and column != 'release_date'">
+				 WHERE ${column} LIKE '%' || #{findText} || '%'
+				 </if>
+				  <if test="column != null and column == 'release_date'">
+				 WHERE TO_CHAR(release_date,'YYYY-MM-DD') = #{findText}
+				 </if>
+				 ORDER BY mcode DESC) f
+		 	)
+		WHERE r BETWEEN #{startNo} AND #{endNo}	
+ 	</select>
+ 	<select id="count" resultType="int" 
+ 			parameterType="java.util.Map" >
+ 		SELECT count(*) 
+		FROM tbl_movie 
+		 <if test="column != null and column != 'release_date'">
+		 WHERE ${column} LIKE '%' || #{findText} || '%'
+		 </if>
+		  <if test="column != null and column == 'release_date'">
+		 WHERE TO_CHAR(release_date,'YYYY-MM-DD') = #{findText}
+		 </if>
+ 	</select>
+ 	<select id="getOne" parameterType="int" resultType="mybatis.vo.Movie">
+ 		SELECT * 
+		FROM tbl_movie
+		WHERE mcode = #{mcode} 
+ 	</select>
+ 	<insert id="insert" parameterType="mybatis.vo.Movie">
+ 		INSERT INTO tbl_movie 
+ 		VALUES (movie_idx_seq.nextval,
+		 		#{mname},
+                 #{genre},
+                  #{director},
+                   #{release_date},
+                   #{producer},
+                   #{running_time},
+                   #{rating},
+                   #{synopsys},
+                   #{mgrade},
+                   #{conutry},
+                   #{mcast},
+              
+		 		#{attachFile,jdbcType=VARCHAR},
+		 		#{uploadFile,jdbcType=VARCHAR})
+ 	</insert>
+ 	<update id="update" parameterType="mybatis.vo.Movie">
+ 		UPDATE tbl_movie
+ 		SET manme=#{mname},
+            genre=#{genre},
+            director=#{director},
+            release_date=#{release_date},
+            producer=#{producer},
+            running_time=#{running_time},
+            rating=#{rating},
+            synopsys=#{synopsys},
+             mgrade=#{mgrade},
+             conutry=#{conutry},
+             mcast=#{mcast},
+ 			attachFile=#{attachFile,jdbcType=VARCHAR},
+ 			uploadFile=#{uploadFile,jdbcType=VARCHAR}
+		WHERE mcode = #{mcode}
+ 	</update>
+ 	<delete id="delete" parameterType="int">
+ 		DELETE FROM tbl_movie WHERE mcode=#{mcode}
+ 	</delete>
  </mapper>
  
  
