@@ -1,4 +1,4 @@
-package mybatis.moviesearch;
+package mybatis.movie;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -13,26 +13,25 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import mybatis.controller.Controller;
-import mybatis.dao.MovieSearchDao;
+
+import mybatis.dao.MovieSearchDao3;
 import mybatis.vo.Movie;
 
 
-public class MovieListController implements Controller {
+
+public class MovieSearchListController3 implements Controller {
 
 	@Override
  	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-		MovieSearchDao dao = MovieSearchDao.getInstance();
+		MovieSearchDao3 dao = MovieSearchDao3 .getInstance();
 		List<Movie> list = dao.saleList(null);
 		
-		request.setAttribute("list", list);
+		request.setAttribute("saleList", list);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("bookcase.jsp");
 		dispatcher.forward(request, response);
-	}
-
+	 
+ 	}	
 }
