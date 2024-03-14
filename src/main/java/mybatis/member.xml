@@ -9,6 +9,13 @@
  	<select id="getById" resultType="mybatis.vo.Member" parameterType="String">
  		SELECT * FROM tbl_member WHERE code=#{code} 
  	</select>
+ 	<insert id="join" parameterType="mybatis.vo.Member">
+ 		insert into 
+ 		member(code,password,name,age,regdate)
+ 		values
+ 		(#{code},#{password},#{name},#{age},sysdate);
+ 	</insert>
+ 	
  </mapper>
  
  

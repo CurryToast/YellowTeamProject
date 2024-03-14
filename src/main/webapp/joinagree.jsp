@@ -1,66 +1,72 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>스타라이트 시네마</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<title>스타라이트 시네마 회원가입</title>
 </head>
 <body>
 <div class="join">
-	<div class = "pop-wrap">
-	<div class = "pop=title">
-	
-	<button class = "close" type="button" onclick="$('#chkPop').removeClass('active');"></button>
-	</div>
-	<div class="pop-cont"></div>
-	</div>
-	</div>
-	<div class ="con cecter">
-	<ul class="join-title">
-	<li>
-		<hr>
-		<h6>회원가입</h6>
-		<p>영화와 함께할 당신을 환영합니다.</p>
-	</li>
-	</ul>
-	<div class="tab-container">
-	<div class = "cont active" id="stage1">
-	<div class = "join-check02">
-	<input type = "radio" name = "adultYn" id="chk01" value="N"><label for = "chk01">만 14세 미만입니다.</label>
-	<input type = "radio" name = "adultYn" id="chk01" value="Y"><label for = "chk01">만 14세 이상입니다.</label>
-	</div>
-	<form id ="formTerms">
-	<ul class = "join-check01">
-		<li>약관동의</li>
-		 <li>
+       <div id="chkPop" class="popup">
+        <div class="pop-wrap">
+            <div class="pop-title">
+                <h6></h6>
+                <button class="close" type="button" onclick="$('#chkPop').removeClass('active');"></button>
+            </div>
+            <div class="pop-cont"></div>
+        </div>
+    	</div>
+    	<div class="con center">
+        <ul class="join-title">
+            <li>
+            	<hr>
+                <h6>회원가입</h6>
+                <p>영화와 함께할 당신을 환영합니다.</p>
+            </li>
+        </ul>
+        <div class="tab-container">
+            <div class="cont active" id="stage1">
+                <div class="join-check02">
+                    <input type="radio" name="adultYn" id="chk01" value="N"><label for="chk01">만 14세 미만입니다.</label>
+                    <input type="radio" name="adultYn" id="chk02" value="Y"><label for="chk02">만 14세 이상입니다.</label>
+                </div>
+                <form id="formTerms">
+                <ul class="join-check01">
+                    <li>약관동의</li>
+                    <li>
                         <input type="checkbox" id="all" name="all" onchange="allChanged(this);"><label for="all"><span>모두 동의</span></label>
                     </li>
-		<li>
-		<input type = "checkbox" name="terms06" id="terms06" onchange="onTermsChanged(this,true);">
-		<label for = "terms06"><span>스타라이트 시네마 통합 서비스(필수)</span></label><a href="#" onclick="$('#06').addClass('active');">(상세보기)</a>
-		
-		<div id ="06" class="popup">
-		<div class = "pop-wrap">
-		<div class = "pop-title">
-			<h6>스타 라이트 시네마 통합 서비스</h6>
-			<button class = "close" type = "button" onclick="$('#06').removeClass('active');"></button>
-		</div>
-		<div class = "pop-cont">
-				<p style = "font-size: 16px; font-weight: 500;">스타 라이트 시네마 통합 서비스</p><br>
-				 <p style="font-size: 14px; font-weight: 500;">제 1 조 (목적)</p>
+                    
+                        <li>
+                            <input type="checkbox" name="terms06" id="terms06" onchange="onTermsChanged(this, true);">
+                            <label for="terms06"><span>스타라이트 시네마 통합 서비스(필수)</span></label><a href="#" onclick="$('#06').addClass('active');">(상세보기)</a>
+                            
+                                
+                            <div id="06" class="popup">
+                                <div class="pop-wrap">
+                                    <div class="pop-title">
+                                        <h6>스타라이트 시네마 통합 서비스</h6>
+                                        <button class="close" type="button" onclick="$('#06').removeClass('active');"></button>
+                                    </div>
+                                    <div class="pop-cont">
+                                            <p style="font-size: 16px; font-weight: 500;">스타라이트 시네마 통합 서비스</p><br>
+        <p style="font-size: 14px; font-weight: 500;">제 1 조 (목적)</p>
         본 약관은 스타라이트 시네마가 통합 서비스 회원(이하 "회원")에게 다양한 서비스를 제공하고, 고객서비스 증진을 도모함에 있어 필요한 제반 사항을 정하는데 그 목적이 있습니다.<br>
         <br><br>
         <p style="font-size: 14px; font-weight: 500;">제 2 조 (용어의 정의)</p>
         1) "스타라이트 시네마 통합 서비스"란 통합 서비스(웹, 앱) 가입자에게 제공하는 고객관리 프로그램으로서 커뮤니티 서비스를 제공하는 경우 각종 혜택을 받거나 이벤트에 참여할 수 있도록 하는 서비스를 말합니다. <br>
-        2) "회원"이란  스타라이트 시네마가 정한 기준 및 절차에 따라 가입을 완료하고 통합 서비스를 이용할 수 있는 권한을 획득한 고객을 말합니다. 단, 회원자격은 제 3 조 이하에서 규정합니다. <br>
+        2) "회원"이란 스타라이트 시네마가 정한 기준 및 절차에 따라 가입을 완료하고 통합 서비스를 이용할 수 있는 권한을 획득한 고객을 말합니다. 단, 회원자격은 제 3 조 이하에서 규정합니다. <br>
         3) "제휴가맹점"이란 스타라이트 시네마와 계약 또는 협약을 통해 "스타라이트 시네마 통합 서비스"를 제공하는 자를 말합니다. <br>
         4) "적립포인트"란 회원이 스타라이트 시네마에서 진행하는 이벤트에 참여하면서 고지한 기준에 따라 부여되는 포인트를 말합니다. <br>
         5) "잔여포인트"란 회원이 적법하게 획득한 포인트 중 이미 사용한 포인트를 제외한 유효기간 내의 포인트를 말합니다. <br>
         <br>
         <br>
-        <p style="font-size: 14px; font-weight: 500;">제 3 조(회원가입)</p>
-         1) 회원이 될 수 있는 자격은 다음 각 호와 같습니다.<br>
+        <p style="font-size: 14px; font-weight: 500;">제 3 조 (회원가입)</p>
+        1) 회원이 될 수 있는 자격은 다음 각 호와 같습니다.<br>
         &nbsp;- 스타라이트 시네마 통합 서비스에 가입한 명의자 본인<br>
         &nbsp;- 만 14세 미만의 가입자의 경우 법정 대리인의 인증 후, 회원이 될 수 있습니다.<br>
         &nbsp;- 법인은 가입할 수 없습니다.<br>
@@ -70,35 +76,36 @@
         <br>
         <br>
         <p style="font-size: 14px; font-weight: 500;">제 4 조 (스타라이트 시네마 회원 바코드의 이용 등)</p>
-         1) 스타라이트 시네마 회원 바코드는 회원 본인에 한하여 사용이 가능하며, 타인에게 대여하거나 양도 또는 담보의 목적으로 이용할 수 없습니다.<br>
-         2) 회원은 주소, 전화번호 등 개인정보가 변경된 경우 웹 홈페이지에서 즉시 변경하여야 하며 회원이 통지하지 않음으로써 발생되는 모든 결과는 회원의 책임입니다.<br>
-         3) 스타라이트 시네마 통합 서비스 이용에 따라 발생될 수 있는 제세공과는 회원이 부담합니다.<br>
-         <br>
-         <br>
-         <p style="font-size: 14px; font-weight: 500;">제 5 조 (스타라이트 시네마 통합 서비스 및 제휴가맹점)</p>
-         1) 스타라이트 시네마 통합 서비스와 제휴가맹점 현황 및 각종 이벤트 행사는 웹 홈페이지에서 확인이 가능합니다.<br>
-         2) 회원이 제휴가맹점에서 스타라이트 시네마 통합 서비스를 이용하거나, 이벤트 행사에 참가하고자 하는 때에는 스타라이트 시네마 회원 바코드를 제시하여야 하며, 회원 본인 여부 확인을 위하여 제휴가맹점이나 이벤트 진행자가 신분증의 제시 등을 요구할 수 있습니다.<br>
-         <br>
-         <br>
-         <p style="font-size: 14px; font-weight: 500;">제 6 조 (탈퇴 및 환불)</p>
-         1) 스타라이트 시네마 통합 서비스를 탈퇴하고자 할 때는 웹 홈페이지에서 신청하면 즉시 처리됩니다.<br>
-         2) 스타라이트 시네마 회원을 탈퇴하면 적립포인트는 소멸됩니다.<br>
-         <br>
-         <br>
-         <p style="font-size: 14px; font-weight: 500;">제 7 조 (스타라이트 시네마 통합 서비스 이용 제한 등)</p>
-         1) 회원이 다음 각 호에 해당할 경우 회원가입 또는 스타라이트 시네마 통합 서비스 이용이 제한됩니다.<br>
-          &nbsp;- 회원이 스스로 회원탈퇴 의사를 밝힌 경우<br>
-          &nbsp;- 타인의 명의를 이용한 회원가입으로 인하여 명의자와 다툼이 발생한 경우 명의를 이용한 해당 회원은 이와 관련한 모든 문제에 대하여 책임을 부담하며, 해당 회원의 회원자격 및 스타라이트 시네마 통합 서비스 이용을 직권으로 정지 또는 박탈하는 등의 제한을 가할 수 있습니다.<br>
-         <br>
-         <br>
-         <p style="font-size: 14px; font-weight: 500;">제 8 조 (개인정보보호)</p>
-        1) 구단은 회원의 가입신청 또는 스타라이트 시네마 통합 서비스 제공에 필요한 회원의 개인정보(가입신청서에 기재된 가입신청자의 정보 및 스타라이트 시네마 통합 서비스 이용에 관한 정보 등)를 수집, 이용할 수 있으며, 이를 분석하여 보다 향상된 서비스를 제공하기 위한 마케팅 활동에 사용하거나 스타라이트 시네마 통합 서비스 관련 업무의 위탁업체, 제휴가맹점 등 제 3자에게 제공할 수 있습니다.<br>
+        1) 스타라이트 시네마 회원 바코드는 회원 본인에 한하여 사용이 가능하며, 타인에게 대여하거나 양도 또는 담보의 목적으로 이용할 수 없습니다.<br>
+        2) 회원은 주소, 전화번호 등 개인정보가 변경된 경우 웹 홈페이지에서 즉시 변경하여야 하며 회원이 통지하지 않음으로써 발생되는 모든 결과는 회원의 책임입니다.<br>
+        3) 스타라이트 시네마 통합 서비스 이용에 따라 발생될 수 있는 제세공과는 회원이 부담합니다.<br>
+        <br>
+        <br>
+        <p style="font-size: 14px; font-weight: 500;">제 5 조 (스타라이트 시네마 통합 서비스 및 제휴가맹점)</p>
+        1) 스타라이트 시네마 통합 서비스와 제휴가맹점 현황 및 각종 이벤트 행사는 웹 홈페이지에서 확인이 가능합니다.<br>
+        2) 회원이 제휴가맹점에서 스타라이트 시네마 통합 서비스를 이용하거나, 이벤트 행사에 참가하고자 하는 때에는 스타라이트 시네마 회원 바코드를 제시하여야 하며, 회원 본인 여부 확인을 위하여 제휴가맹점이나 이벤트 진행자가 신분증의 제시 등을 요구할 수 있습니다.<br>
+        <br>
+        <br>
+        <p style="font-size: 14px; font-weight: 500;">제 6 조 (탈퇴 및 환불)</p>
+        1) 스타라이트 시네마 통합 서비스를 탈퇴하고자 할 때는 웹 홈페이지에서 신청하면 즉시 처리됩니다.<br>
+        2) 스타라이트 시네마 회원을 탈퇴하면 적립포인트는 소멸됩니다.<br>
+
+        <br>
+        <br>
+        <p style="font-size: 14px; font-weight: 500;">제 7 조 (스타라이트 시네마 통합 서비스 이용 제한 등)</p>
+        1) 회원이 다음 각 호에 해당할 경우 회원가입 또는 스타라이트 시네마 통합 서비스 이용이 제한됩니다.<br>
+        &nbsp;- 회원이 스스로 회원탈퇴 의사를 밝힌 경우<br>
+        &nbsp;- 타인의 명의를 이용한 회원가입으로 인하여 명의자와 다툼이 발생한 경우 명의를 이용한 해당 회원은 이와 관련한 모든 문제에 대하여 책임을 부담하며, 해당 회원의 회원자격 및 스타라이트 시네마 통합 서비스 이용을 직권으로 정지 또는 박탈하는 등의 제한을 가할 수 있습니다.<br>
+        <br>
+        <br>
+        <p style="font-size: 14px; font-weight: 500;">제 8 조 (개인정보보호)</p>
+        1) 구단은 회원의 가입신청 또는 스타라이트 시네마 통합 서비스 제공에 필요한 회원의 개인정보(가입신청서에 기재된 가입신청자의 정보 및 커피24 북카페 통합 서비스 이용에 관한 정보 등)를 수집, 이용할 수 있으며, 이를 분석하여 보다 향상된 서비스를 제공하기 위한 마케팅 활동에 사용하거나 스타라이트 시네마 통합 서비스 관련 업무의 위탁업체, 제휴가맹점 등 제 3자에게 제공할 수 있습니다.<br>
         2) 구단은 회원의 개인정보를 수집, 이용, 위탁하거나 제 3자에게 제공하고자 하는 회원으로부터 개인정보의 수집, 이용, 위탁, 및 제공에 관한 동의를 얻어야 합니다.<br>
-        3) 회원의 개인정보가 제공되는 스타라이트 시네마 통합 서비스 관련 업무의 위탁업체 및 제휴가맹점 등은 스타라이트 시네마 웹 홈페이지에서 확인이 가능합니다.<br>
+        3) 회원의 개인정보가 제공되는 스타라이트 시네마 통합 서비스 관련 업무의 위탁업체 및 제휴가맹점 등은 커피24 북카페 웹 홈페이지에서 확인이 가능합니다.<br>
         <br>
         <br>
-         <p style="font-size: 14px; font-weight: 500;">제 9 조 (SMS, 카카오 알림톡, e-mail 수신 동의 등)</p>
-        커피24 북카페 통합 서비스는 제공 및 이용과 관련된 정보 제공을 위한 SMS(LMS, MMS 포함), 카카오 알림톡, e-mail 수신에 동의한 회원에게 해당 채널을 통해 커피24 북카페 통합 서비스와 관련된 각종 정보를 제공할 수 있습니다.<br>
+        <p style="font-size: 14px; font-weight: 500;">제 9 조 (SMS, 카카오 알림톡, e-mail 수신 동의 등)</p>
+        스타라이트 시네마 통합 서비스는 제공 및 이용과 관련된 정보 제공을 위한 SMS(LMS, MMS 포함), 카카오 알림톡, e-mail 수신에 동의한 회원에게 해당 채널을 통해 스타라이트 시네마 통합 서비스와 관련된 각종 정보를 제공할 수 있습니다.<br>
         <br>
         <br>
         <p style="font-size: 14px; font-weight: 500;">제 10 조 (약관 개정)</p>
@@ -113,11 +120,13 @@
         <br>
         <p style="font-size: 14px; font-weight: 500;">제 12 조 (분쟁의 해결 및 관할법원)</p>
         스타라이트 시네마 통합 서비스와 관련하여 회원과 구단간에 분쟁이 발생하는 경우 당사자 간의 성실한 상호 협의에 따라 해결함을 원칙으로 합니다. 다만, 협의가 이루어지지 아니한 경우에는 양 당사자는 민사소송상의 관할법원에 소송을 제기할 수 있습니다.<br>
-		</div>
-		</div>
-		</div>
-		</li>
-		 <li>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                    
+                        <li>
                             <input type="checkbox" name="terms05" id="terms05" onchange="onTermsChanged(this, true);">
                             <label for="terms05"><span>개인정보 수집 및 이용 동의(필수)</span></label><a href="#" onclick="$('#05').addClass('active');">(상세보기)</a>
                             
@@ -128,7 +137,7 @@
                                         <h6>개인정보 수집 및 이용 동의</h6>
                                         <button class="close" type="button" onclick="$('#05').removeClass('active');"></button>
                                     </div>
-                                    <div class="pop-cont"></div>
+                                    <div class="pop-cont">
                                             <p style="font-size: 16px; font-weight: 500;">개인정보 수집 및 이용 동의</p><br>
 
         '스타라이트 시네마' (이하 '회사')는 회원의 개인정보를 중요시하며, 「개인정보보호법」등 회사가 준수하여야 할 관련 법령상의 개인정보보호 규정을 준수하고 있습니다. 회사는 개인정보처리방침을 통하여 회원님께서 제공하시는 개인 정보가 어떠한 용도와 방식으로 이용되고 있으며, 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다. 회사는 개인정보처리방침을 개정하는 경우 모바일앱 공지사항(또는 개별공지)을 통하여 사전 공지할 것입니다.
@@ -141,6 +150,7 @@
         <br>
         <p style="font-weight: 500;">2. 개인정보의 수집 및 이용항목</p>
         회사는 회원가입, 상담, 서비스 제공 등을 위해 아래와 같은 개인정보를 수집하고 있습니다.<br>
+
         <table cellpadding="0" cellspacing="0" style="width:100%;border-top:1px solid #eee;">
             <tr>
                 <th style="border-right:1px solid #eee;padding:10px;border-bottom: 1px solid #eee;font-weight: 500">구분</th>
@@ -212,6 +222,7 @@
                 <td style="border-right:1px solid #eee;padding:10px;border-bottom: 1px solid #eee;">이용자 상담을 통해 생성되는 문의/상담 정보</td>
             </tr>
         </table>
+
         <br>
         <p style="font-weight: 500;">3. 개인정보의 보유 및 이용기간</p>
         <p style="font-size: 16px; font-weight: 500; line-height: 2em;">
@@ -225,12 +236,13 @@
             - 웹사이트 방문에 관한 기록 : 3개월 (통신비밀보호법)</p>
         <br>
         고객님께서는 이와 같은 개인정보 수집 및 이용에 동의하지 않으실 수 있습니다. 단, 동의 거부 시 회원가입이 제한됩니다.
-	</div>
-	</div>
-</div>
+                                    </div>
+                                </div>
+                            </div>
 
-</li>
-<li>
+                        </li>
+                    
+                        <li>
                             <input type="checkbox" name="terms07" id="terms07" onchange="onTermsChanged(this, false);">
                             <label for="terms07"><span>마케팅 정보 활용 동의(선택)</span></label><a href="#" onclick="$('#07').addClass('active');">(상세보기)</a>
                             
@@ -245,6 +257,8 @@
                                         <input type="checkbox" id="adsEmail" name="adsEmail" onchange="marketingChanged(this, 'adsEmail');"><label for="adsEmail"><span>E-mail</span></label>
                                     </li>
                                 </ul>
+                            
+                                
                             <div id="07" class="popup">
                                 <div class="pop-wrap">
                                     <div class="pop-title">
@@ -253,12 +267,13 @@
                                     </div>
                                     <div class="pop-cont">
                                              <p style="font-size: 16px; font-weight: 500;">마케팅 정보 활용 동의</p><br>
-                               · SMS 수신 동의(선택) <br>
+
+        · SMS 수신 동의(선택) <br>
         · 카카오 알림톡 수신 동의(선택) <br>
         · e-mail 수신 동의(선택) <br><br>
 
-        스타라이트 시네마는 마케팅 정보 안내를 위한 광고성 정보 수신에 동의하신 분을 대상으로 서비스에 대한 새로운 소식이나 이벤트 정보를 전달하고자 합니다.
-        귀하는 ㈜엔씨다이노스가 발송하는 광고성 정보를 수신할 수 있으며, 광고성 정보에 기재되어 있는 수신거부 안내방법에 따라 수신을 거부하실 수 있습니다.
+       스타라이트 시네마는 마케팅 정보 안내를 위한 광고성 정보 수신에 동의하신 분을 대상으로 서비스에 대한 새로운 소식이나 이벤트 정보를 전달하고자 합니다.
+       귀하는 스타라이트 시네마가 발송하는 광고성 정보를 수신할 수 있으며, 광고성 정보에 기재되어 있는 수신거부 안내방법에 따라 수신을 거부하실 수 있습니다.
                                     </div>
                                 </div>
                             </div>
@@ -293,80 +308,35 @@
             </div>
             <div class="cont" id="stage2">
                 <form id="form">
-                 <div>
+                    <div>
                     	<!-- PASS 본인 인증시에만 사용 -->
                        <!--  <input type="hidden" id="responseNumber" name="responseNumber"> -->
                     </div>
                     <ul class="join-wrap">
                         <li>아이디</li>
                         <li>
-                            <input class="id-input" id="username" name="userid" type="text" onchange="resetCheckId();" placeholder="아이디를 입력해 주세요."/>
+                            <input class="id-input" id="username" name="code" type="text" onchange="resetCheckId();" placeholder="아이디를 입력해 주세요."/>
                             <button type="button" onclick="checkId();">중복확인</button>
                             <hr>
                         </li>
-                        <li>비밀번호 <label>(영문 대/소문자, 특수문자를 포함 10-20자로 입력해주세요.)</label>-<label>사용가능 특수문자 : !@#$%^&* </label></li>
+                        <li>비밀번호 <label>(영문 대/소문자,숫자, 특수문자를 포함  10-20자로 입력해주세요.)</label>-<label>사용가능 특수문자 : !@#$%^&* </label></li>
                         <li><input name="password" type="password" placeholder="비밀번호를 입력해 주세요."/></li>
                         <li>비밀번호 확인</li>
                         <li><input name="password2" type="password" placeholder="비밀번호를 다시 한번 입력해 주세요."/></li>
                         <li>이름</li>
                         <li><input id="name" name="name" type="text" placeholder="이름" /></li>
-                        <li>생년월일</li>
-                        <li id="birthChk"><input id="birth" name="birth" type="text" placeholder="생일" /></li>
-                        <li>성별</li>
-                        <li>
-                            <input type="radio" id="male" name="gender" value="MALE">
-                            <label for="male">남자</label>
-                            <input type="radio" id="female" name="gender" value="FEMALE">
-                            <label for="female">여자</label>
-                        </li>
-                        <li>전화번호</li>
-                        <li><input id="phone" name="phone" type="text"  placeholder="연락처"/></li>
-                        <li>이메일</li>
-                        <li><input id="email" name="email" type="text" placeholder="이메일을 입력해 주세요." /></li>
-                        <li>주소<label> (선택)</label></li>
-                        <li>
-                            <input class="post-input" id="postalCode" name="postalCode" type="text" placeholder="우편번호" readonly/>
-                            <button type="button" onclick="showPostCode()" class="btn-m">검색</button>
-                        </li>
-                        <li><input id="address1" name="address1" type="hidden" placeholder="시/도" />
-                            <input id="address2" name="address2" type="hidden" placeholder="구"/>
-                            <input id="address3" name="address3" type="text" placeholder="주소" readonly/>
-                        </li>
-                        <li><input id="address4" name="address4" type="text" placeholder="주소 검색 후 상세주소를 입력해 주세요." readonly/></li>
-						<li>관심 분야</li>
-						<li>
-						<div id="selfavorites">
-	                        <div class="form-check form-check-inline">
-	                            <input type="checkbox" class="form-check-input" value="소설" id="novel">
-	                            <label  for="novel">소설</label>
-	                            </div>
-	                        
-	                        <div class="form-check form-check-inline">
-	                            <input type="checkbox" class="form-check-input" value="시" id="poet">
-	                            <label class="form-check-label" for="poet">시</label>
-	                        </div>
-	                        <div class="form-check form-check-inline">
-	                            <input type="checkbox" class="form-check-input" value="만화" id="comic">
-	                            <label class="form-check-label" for="comic">만화</label>
-	                        </div>
-	                        <div class="form-check form-check-inline">
-	                            <input type="checkbox" class="form-check-input" value="에세이" id="essay">
-	                            <label class="form-check-label" for="essay">에세이</label>
-	                        </div>
-                    <div class="col-auto">
-                    		<input type="text" class="subjects form-control-sm" id="etc" placeholder="기타 관심분야">
-                    </div>
-                		</div>
-						</li>
+                        <li>나이</li>
+                        <li id="age"><input id="age" name="age" type="number" placeholder="1~99세" min="1" max="100" /></li>
+                 
                     </ul>
                     <div class="hidden">
                         <input id="adultYn" name="adultYn" type="hidden"/>
                         <input id="channel" name="channel" type="hidden"/>
-                        <input id="favorites" name="favorites" type="hidden"/>
+                       
                     </div>
                     <button type="button" class="join-btn" onclick="join()">회원가입</button>
                 </form>
-                 </div>
+            </div>
             <hr>
             <div>
             🤩 <a href="login">계정이 있으시면 로그인 하세요.</a>
@@ -374,6 +344,5 @@
         </div>
     </div>
     </div>
-
 </body>
 </html>

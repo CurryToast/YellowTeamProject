@@ -29,8 +29,16 @@
 			<button id="confirm" class="btn btn-primary">인증번호 확인</button><br>
 			</div>
 		</div>		
-		
+		<div>인증과정 단계만 추가한 테스트용-확인버튼 클릭만 하세요.</div>
 </div>
-
+<script>
+	document.querySelector('#confirm').addEventListener('click',()=>{
+		var message = {successYn : 'Y'};
+		message = JSON.stringify(message)
+		var targetOrigin = 'http://localhost:8080/YellowTeamProject/join';
+		window.opener.postMessage(message,targetOrigin);
+		self.close();
+	})
+</script>
 </body>
 </html>
