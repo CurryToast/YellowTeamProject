@@ -13,9 +13,12 @@ public class RequestControllerMapping {
 
 	public static void init() {
 		mapping.put(new RequestKeyValue("/api/member", "POST"), new ApiGetAllMembersController());
+		mapping.put(new RequestKeyValue("/movie/list", "GET"), new MovieListController() );
+		mapping.put(new RequestKeyValue("/movie/list", "POST"), new MovieListController() );
 		mapping.put(new RequestKeyValue("/movie/reserve", "GET"), new MovieReserveController() );
 		mapping.put(new RequestKeyValue("/movie/reserve", "POST"), new MovieReserveController() );
 		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MoviecompleteController() );
+//		mapping.put(new RequestKeyValue("/movie/complete", "POST"), new MoviecompleteController() );
 	}
 
 	// url,method 필드를 저장하는 key 를 전달받아 HashMap에서 value(컨트롤러)를 리턴

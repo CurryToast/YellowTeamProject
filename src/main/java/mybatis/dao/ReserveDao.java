@@ -40,6 +40,14 @@ public class ReserveDao {
 		return list;
 	}
 	
+	public List<Object> select(String id){
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		List<Object> list = sqlSession.selectList("reserves.select",id);
+		log.info("select :{}", list);
+		sqlSession.close();
+		return list;
+	}
+	
 	
 	
 	
