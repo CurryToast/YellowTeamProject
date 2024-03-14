@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+#current:focus, #current:hover {
+	text-decoration: underline; text-decoration-thickness: 2px;
+}
+#upcoming:focus, #upcoming:hover {
+	text-decoration: underline; text-decoration-thickness: 2px;
+}
+#end:focus, #end:hover {
+	text-decoration: underline; text-decoration-thickness: 2px;
+}
+
+#allmovie:focus, #allmovie:hover {
+	text-decoration: underline; text-decoration-thickness: 2px;
+}
+
+
+li {
+	list-style-type: none;
+    float: left;
+    margin-right: 20px;
+}
+
+#current {
+	border: none; background: none;
+}
+#upcoming {
+	border: none; background: none;
+}
+	
+#end {
+	border: none; background: none;
+}
+
+#allmovie {
+	border: none; background: none;
+}
+
+button {
+	 cursor: pointer;
+}
+
+.content {
+    display: none;
+}
+
+span {
+	font-size: 12pt; 
+}
+

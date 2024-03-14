@@ -3,6 +3,21 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="movies">
+ 
+ 		<select id = "selectAllMovies" resultType="controller.vo.Movie" parameterType="String">
+ 				SELECT mname, running_time, rating, mgrade, poster
+ 				FROM TBL_MOVIE
+ 		</select>
+ 		
+ 		<select id = "selectMovieById" parameterType = "long" resultType="controller.vo.Movie">
+ 				SELECT mcode, genre, release_date, synopsys, country, mcast
+ 				FROM TBL_MOVIE
+ 				WHERE 
+ 					mcode=#{mcode}
+ 		</select>
+ 		
+ 
+ 
  </mapper>
  
  
