@@ -2568,56 +2568,7 @@ input, select, textarea {
 			margin-top: -1px;
 		}
 
-/* Banner */
 
-#banner {
-	background-image: url("../../images/banner.jpg");
-	background-position: center center;
-	background-size: cover;
-	height: 18em;
-	text-align: center;
-	position: relative;
-}
-
-#banner .movieCard > img {
-	width: 300px;
-	height: auto;
-}
-
-#banner header {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	background: #212121;
-	background: rgba(27, 27, 27, 0.75);
-	color: #fff;
-	padding: 1.5em 0;
-}
-
-#banner header h2 {
-	display: inline-block;
-	margin: 0;
-	font-size: 1.25em;
-	vertical-align: middle;
-}
-
-#banner header h2 em {
-	opacity: 0.75;
-}
-
-#banner header h2 a {
-	border-bottom-color: rgba(255, 255, 255, 0.5);
-}
-
-#banner header h2 a:hover {
-	border-bottom-color: transparent;
-}
-
-#banner header .button {
-	vertical-align: middle;
-	margin-left: 1em;
-}
 
 /* Wrapper */
 
@@ -2728,12 +2679,6 @@ input, select, textarea {
 				line-height: 1.5em;
 			}
 
-		/* Banner */
-
-			#banner {
-				height: 24em;
-			}
-
 	}
 
 /* Normal */
@@ -2772,12 +2717,6 @@ input, select, textarea {
 				#header h1 {
 					padding: 0 0 1.75em 0;
 				}
-
-		/* Banner */
-
-			#banner {
-				height: 40rem;
-			}
 
 		/* Wrapper */
 
@@ -2884,20 +2823,6 @@ input, select, textarea {
 			#header {
 				display: none;
 			}
-
-		/* Banner */
-
-			#banner {
-				height: 40rem;
-			}
-
-				#banner header h2 {
-					display: block;
-				}
-
-				#banner header .button {
-					margin: 1em 0 0 0;
-				}
 
 		/* CTA */
 
@@ -3179,12 +3104,6 @@ input, select, textarea {
 				line-height: 2em;
 			}
 
-		/* Banner */
-
-			#banner {
-				height: 18em;
-			}
-
 		/* Wrapper */
 
 			.wrapper {
@@ -3194,11 +3113,8 @@ input, select, textarea {
 	}
 
 /* Mobile (Portrait) */
-
 	@media screen and (max-width: 480px) {
-
 		/* Icon */
-
 			.icon.major {
 				width: 4em;
 				height: 4em;
@@ -3211,7 +3127,6 @@ input, select, textarea {
 				}
 
 		/* Button */
-
 			input[type="submit"],
 			input[type="reset"],
 			input[type="button"],
@@ -3235,33 +3150,20 @@ input, select, textarea {
 				width: 30%;
 			}
 
-		/* Banner */
 
-#banner {
-	height: 40rem;
-}
-
-#banner header {
-	padding: 20px;
-}
-
-		/* Wrapper */
-
+			/* Wrapper */
 			.wrapper {
 				padding: 2em 20px 1px 20px;
 			}
-
-		/* CTA */
-
+			
+			/* CTA */
 			#cta {
 				padding: 20px;
 			}
-
-		/* Footer */
-
+			
+			/* Footer */
 			#footer {
 				padding: 2em 20px;
 				text-align: left;
 			}
-
-	}
+}
