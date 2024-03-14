@@ -15,8 +15,8 @@
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Expires" content="0">
-      	<meta name="description" content="" />
-      	<meta name="author" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 	<link rel="stylesheet" href="assets/css/main.css?v=3" />
 	<link rel="stylesheet" href="css/layout.css?v=3" />
 	<link rel="stylesheet" href="assets/css/header.css" />
@@ -35,8 +35,7 @@
 	<!-- Header -->
 	<%@ include file="./layout/header.jsp" %>
 	<!-- Banner -->
-	<section id="banner">
-			<img alt="" src="images/bookmain.png" width="100%" height="75%" style="object-fit: cover;">
+	<section id="banner" style="width: 60%; margin: 0 auto; display: flex; overflow-x: auto;">
 	</section>
 	<!-- Highlights -->
 	<section class="wrapper style1">
@@ -183,5 +182,6 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/home.js"></script>
 </body>
 </html>
