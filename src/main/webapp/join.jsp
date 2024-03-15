@@ -272,7 +272,7 @@
     <hr>
   	<jsp:include page="joinagree.jsp"/>
     <hr>
-    <%@include file="../layout/footer.jsp" %>
+  <%--   <%@include file="../layout/footer.jsp" %> --%>
 </div>    
  
 <!-- Scripts -->
