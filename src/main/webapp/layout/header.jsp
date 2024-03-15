@@ -47,4 +47,3 @@
 		</ul>
 	</nav>
 </div>
->>>>>>> refs/heads/home

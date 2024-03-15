@@ -23,6 +23,17 @@ public class MemberService {
 			e.printStackTrace();
 		}
 	}
+	public void adminJoin(Member member) {
+		String password;
+		try {
+			password = encrypt(member.getPassword());
+			member.setPassword(password);
+			dao.adminJoin(member);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	public Member login(Map<String,String> map) {
 		Member result=null;
 		String password;

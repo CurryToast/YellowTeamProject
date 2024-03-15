@@ -13,6 +13,7 @@
 	content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />	
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="css/layout.css" />
 </head>
@@ -22,45 +23,24 @@
 		<div class="mycol-2" style="width: 600px;">
 			<div class="login">
 				<h2>예매 내역</h2>
-				<c:if test="${sessionScope.user.isadmin = Y }">
+				<c:if test="${sessionScope.user.isadmin == 'Y' }">
 				<form id="cont">
-				<button>관리자 등록</button>
-				<button class="join-btn  "type="button" onclick="drop()">관리자 탈퇴</button>
+				<button class="join-btn  "type="button" onclick="location.href='admin/join.jsp'">관리자 등록</button>
+				<button class="join-btn  "type="button" onclick="drop()">관리자 해지</button>
 				</form>
 				</c:if>
 			</div>
 		</div>
 	</div>
 <script type="text/javascript">
-		
-	function modify() {
-       favorites.value =favorites.value + "," +etc.value
-        const data = $('#form').serializeObject();
-        console.log('modify',data);
-        $.ajax({
-          url        : '../api/modify',
-          data       : JSON.stringify(data),
-          dataType       : 'text',
-          type       : 'post',
-         contentType: 'application/json', 
-          success : function(res){
-            alert(res);
-            location.href = "modify";
-          },
-          error : function(xhr){
-            console.log(xhr);
-          }
-        });
-      }
-
-      function drop() {
-    	  const res = prompt('회원 탈퇴를 하시겠습니까? \'회원탈퇴\' 라고 입력해주세요.')
-    	  if(res==='회원탈퇴')
-    		  location.href='drop'
-    	  else
-    		  alert('입력하신 글자를 다시 확인하세요.')
-      }
-     
+  function drop() {
+	  const res = prompt('관리자 권환을 해지 하시겠습니까?  \'해지\' 라고 입력해주세요.')
+	  if(res==='해지')
+		  location.href='member/drop'
+	  else
+		  alert('입력하신 글자를 다시 확인하세요.')
+  }
+ 
  </script>	
  <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/jquery.dropotron.min.js"></script>

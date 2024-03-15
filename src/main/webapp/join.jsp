@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="css/join.css" /> 
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
     <script>
     /* sms.jsp 에서 인증하기 성공하면 메시지를 보낸것 window.opener.postMessage(~~~)을 받는 이벤트 입니다.  */
       window.addEventListener('message', (e) => {			//윈도우에서 메시지 수신이 있을 때
@@ -272,7 +273,7 @@
     <hr>
   	<jsp:include page="joinagree.jsp"/>
     <hr>
-</div>    
+	</div>    
  
 <!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

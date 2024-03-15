@@ -35,7 +35,7 @@
 	document.querySelector('#confirm').addEventListener('click',()=>{
 		var message = {successYn : 'Y'};
 		message = JSON.stringify(message)
-		var targetOrigin = 'http://localhost:8080/YellowTeamProject/join';
+		var targetOrigin = window.location.origin + '/YellowTeamProject/join';
 		window.opener.postMessage(message,targetOrigin);
 		self.close();
 	})

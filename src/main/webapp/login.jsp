@@ -14,6 +14,7 @@
 		<meta http-equiv="Expires" content="0">
   <link rel="stylesheet" href="assets/css/main.css" />
  <link rel="stylesheet" href="css/layout.css" />
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />	
 </head>
 <body class="is-preload">
 			<%@ include file="./layout/header.jsp" %>

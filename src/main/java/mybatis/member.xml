@@ -14,7 +14,12 @@
  	<insert id="join" parameterType="mybatis.vo.Member">
  	INSERT INTO 
  		TBL_MEMBER(CODE,NAME,ISADMIN,AGE,REGDATE,PASSWORD) VALUES
- 		(#{CODE},#{NAME},'N',#{AGE},SYSDATE,#{PASSWORD})
+ 		(#{code},#{name},'N',#{age},SYSDATE,#{password})
+ 	</insert>
+ 	<insert id="adminJoin" parameterType="mybatis.vo.Member">
+ 	INSERT INTO 
+ 		TBL_MEMBER(CODE,NAME,ISADMIN,AGE,REGDATE,PASSWORD) VALUES
+ 		(#{code},#{name},'N','99',SYSDATE,#{password})
  	</insert>
  	
  	<select id="login" resultType="mybatis.vo.Member" parameterType="java.util.Map">

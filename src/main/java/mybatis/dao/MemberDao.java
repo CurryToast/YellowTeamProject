@@ -24,7 +24,6 @@ public class MemberDao {
 		sqlSession.close();
 		return list;
 	}
-	
 	public List<Member> selectById(String code) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		List<Member> list = sqlSession.selectList("members.getById", code);
@@ -35,6 +34,12 @@ public class MemberDao {
 	public void join(Member member) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		sqlSession.insert("members.join", member);
+		sqlSession.commit();
+		sqlSession.close();
+	}
+	public void adminJoin(Member member) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		sqlSession.insert("members.adminJoin", member);
 		sqlSession.commit();
 		sqlSession.close();
 	}
