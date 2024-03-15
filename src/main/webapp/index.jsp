@@ -17,7 +17,7 @@
 	<meta http-equiv="Expires" content="0">
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=MaterialSymbols+Outlined" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css?v=3" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css?v=3" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/label.css">
 	<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
 </head>
-<body class="is-preload">
+<body class="is-preload">+
 <div id="page-wrapper" class="home">
 	<script>
 		/* 로그인 후 글쓰기로 돌아가기 */

@@ -14,7 +14,7 @@
 					<li><a href="${pageContext.request.contextPath }/login">로그인</a></li>
 				</c:if>	
 				<c:if test="${sessionScope.user != null }">		
-					<li><a class="mainmenu" href="#"><span>마이페이지</span></a>
+					<li><a class="mainmenu" href="${pageContext.request.contextPath }/myPage"><span>마이페이지</span></a>
 						
 						
 					<li><a href="${pageContext.request.contextPath }/logout">로그아웃</a></li>

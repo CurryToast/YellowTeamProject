@@ -7,9 +7,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>mypage</title>
+<title>my page</title>
+<h3>결제내역</h3>
+<hr>
 </head>
 <body>
-
+</head>
+<body class="is-preload">
+<%@include file="../layout/header.jsp" %>
+<div id="page-wrapper">
+<hr>
+<%-- <%@include file="../layout/footer.jsp" %> --%>
+</div>
 </body>
 </html>
