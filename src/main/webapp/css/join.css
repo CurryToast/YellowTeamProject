@@ -187,4 +187,7 @@ h1 em, h2 em, h3 em, h4 em, h5 em, h6 em {
 .join-wrap input[type='radio']:nth-child(1) + label {margin-right: 1em;}
 .join-wrap input[type='radio']:checked + label {border-color: #661b07; font-weight: 700; color: #bf4c43; border-width: 2px;}
 /* .join-check02 input[type='radio']:nth-child(1):checked ~ label {border-left-color: #bf4c43;} */
+<<<<<<< HEAD
 		
+=======
+>>>>>>> branch 'dudu' of https://github.com/CurryToast/YellowTeamProject.git
