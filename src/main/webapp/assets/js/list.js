@@ -1,31 +1,27 @@
-// 페이지 로드될 때 초기 내용 설정
-document.addEventListener("DOMContentLoaded", function(){
-	// 현재 상영작 내용을 보이도록 설정
-	document.getElementById("currentContent").style.display="block";
-});
+function allmovie() {
+    // AJAX 요청 생성
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/movie/list", true);  // GET 방식으로 '/movie/list' URL에 요청을 보냄
 
-document.getElementById("current").addEventListener("click", function() {
-    showContent("currentContent");
-});
+    // 요청이 완료되었을 때의 콜백 함수 설정
+    xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            // 요청이 성공한 경우
+            var movies = JSON.parse(xhr.responseText);  // 서버에서 받은 JSON 데이터 파싱
+            // 가져온 영화 목록을 처리하는 함수 호출
+            displayMovies(movies);
+        } else {
+            // 요청이 실패한 경우
+            console.error('Request failed. Status: ' + xhr.status);
+        }
+    };
 
-
-document.getElementById("upcoming").addEventListener("click", function() {
-    showContent("upcomingContent");
-});
-
-document.getElementById("end").addEventListener("click", function() {
-    showContent("endContent");
-});
-
-function showContent(contentId) {
-    // 모든 컨텐츠 숨기기
-    var contents = document.getElementsByClassName("content");
-    for (var i = 0; i < contents.length; i++) {
-        contents[i].style.display = "none";
-    }
-
-    // 선택한 컨텐츠 보이기
-    document.getElementById(contentId).style.display = "block";
+    // 요청 보내기
+    xhr.send();
 }
 
-
+// 서버로부터 받은 영화 목록을 처리하는 함수
+function displayMovies(movies) {
+    // 영화 목록을 처리하는 코드 작성
+    // 예: 영화 목록을 화면에 표시하는 등의 작업 수행
+}

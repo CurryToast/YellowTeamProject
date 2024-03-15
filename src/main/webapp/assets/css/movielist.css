@@ -15,10 +15,14 @@
 }
 
 
-li {
+#choose {
 	list-style-type: none;
     float: left;
     margin-right: 20px;
+}
+
+li {
+	list-style-type: none;
 }
 
 #current {
@@ -40,11 +44,26 @@ button {
 	 cursor: pointer;
 }
 
-.content {
+/* .content {
     display: none;
-}
+} */
 
 span {
 	font-size: 12pt; 
 }
 
+img {
+    border: none;
+    vertical-align: top;
+}
+
+ .movie-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    .movie-container img {
+        width: 184px;
+        height: 262.85px;
+        margin-right: 10px; /* 이미지와 텍스트 사이의 간격 조절 */
+    }

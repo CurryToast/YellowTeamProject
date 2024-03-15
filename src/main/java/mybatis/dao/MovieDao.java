@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
@@ -11,6 +13,12 @@ import mybatis.vo.Movie;
 
 @Slf4j
 public class MovieDao {
+	private static final Logger logger = LoggerFactory.getLogger(MovieDao.class);
+	private static MovieDao dao = new MovieDao();
+	private MovieDao() {}
+		public static MovieDao getInstance() {
+			return dao;
+	}
 	
 	// 영화 전체 보기
 	public List<Movie> selectAllMovies(){
@@ -56,6 +64,7 @@ public class MovieDao {
 		sqlSession.close();
 		return movie;
 	}
+
 	
 	
 }

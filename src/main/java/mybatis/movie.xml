@@ -4,18 +4,29 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="movies">
  
- 		<select id = "selectAllMovies" resultType="controller.vo.Movie" parameterType="String">
+ 		<select id = "selectAll" resultType="mybatis.vo.Movie">
+ 				SELECT mname, poster
+ 				FROM TBL_MOVIE
+ 		</select>
+ 		
+ 		<!-- <select id = "selectUpcomingMovies" resultType="mybatis.vo.Movie" parameterType="String">
  				SELECT mname, running_time, rating, mgrade, poster
  				FROM TBL_MOVIE
  		</select>
  		
- 		<select id = "selectMovieById" parameterType = "long" resultType="controller.vo.Movie">
- 				SELECT mcode, genre, release_date, synopsys, country, mcast
+ 		<select id = "selectEndMovies" resultType="mybatis.vo.Movie" parameterType="String">
+ 				SELECT mname, running_time, rating, mgrade, poster
  				FROM TBL_MOVIE
- 				WHERE 
- 					mcode=#{mcode}
  		</select>
  		
+ 		<select id = "selectMovieById" parameterType = "long" resultType="mybatis.vo.Movie">
+ 				SELECT *
+ 				FROM 
+ 						TBL_MOVIE
+ 				WHERE 
+ 						mcode=#{mcode}
+ 		</select>
+ 		 -->
  
  
  </mapper>
