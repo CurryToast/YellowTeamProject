@@ -47,14 +47,4 @@ public class ReserveDao {
 		sqlSession.close();
 		return list;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
