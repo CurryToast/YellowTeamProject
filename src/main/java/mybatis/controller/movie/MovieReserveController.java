@@ -51,6 +51,12 @@ public class MovieReserveController implements Controller {
 			request.setAttribute("reserve", reserve);
 			
 			
+			Map<String, String> map = new HashMap<>();
+			map.put("movie_code", movie_code);
+			map.put("member_code", member_code);
+			
+			List<String> list= dao.select(map);
+			request.setAttribute("list", list);
 
 			
 			logger.info("Reserve: {}", reserve);

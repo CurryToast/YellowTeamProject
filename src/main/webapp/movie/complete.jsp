@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="../assets/css/complete.css" />
 </head>
 <body>
-<%@ include file="../layout/header2.jsp" %>
- <c:forEach var="list" items="${list}"> 
+<%@ include file="../layout/header.jsp" %>
+<%--  <c:forEach var="list" items="${list}">  --%>
      <div class="container">
       <!-- TOP CONTAINER -->
       <div class="top-container">
@@ -51,8 +51,8 @@
             <p class="canceltext"><i>예매 취소는 상영 시작 하루전까지만 가능합니다.</i></p>
           </div>
           </div>
-           </c:forEach>
-           
+      <%--      </c:forEach>
+            --%>
            
            
           <%-- 	<c:forEach var="list" items="${list}"> 

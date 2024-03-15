@@ -41,9 +41,9 @@ public class ReserveDao {
 		return list;
 	}
 	
-	public List<Object> select(Map<String, String> map){
+	public List<String> select(Map<String, String> map){
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		List<Object> list = sqlSession.selectList("reserves.select",map);
+		List<String> list = sqlSession.selectList("reserves.select",map);
 		log.info("select :{}", list);
 		sqlSession.close();
 		return list;

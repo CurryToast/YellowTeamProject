@@ -11,29 +11,24 @@
 <title>스타 라이트 시네마</title>
 </head>
 <body>
-<%@ include file="../layout/header2.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 
 
-
+<!--disabled 는 데이터를 넘길 수 없기에 고객이 볼 외관용과 넘기기용 hidden 두개  -->
 <form method="post" action="reserve">
 	<div class="inputForm">
-	  ID : <input type="text" name="member_code" id="member_code" value="admin" >
-	  영화 제목 : <input type="text" name="MoiveName" id="MoiveName" value="마더"  >
-	  영화 시간 : <input type="date" name="schedule" id="schedule" value="2024-03-13">
-	  <input type="number" id="movie_code" name="movie_code" value="100036"  >
-	  <input type="text" id="theater" name="theater" value="2">
+	  ID : <input type="text" name="member_code"  value="admin" disabled >
+	  영화 제목 : <input type="text" name="mname"  value="마더" disabled >
+	  영화 시간 : <input type="date" name="schedule" value="2024-03-13" disabled>
 	  <br/><br/>
 	  
-	  
-	  <!-- 이후 hidden
-	 <input type="number" id="movie_code" name="movie_code" value="100036"  disabled>
-	  <input type="text" id="theater" name="theater" value="2"  disabled>  -->
-	  
-	<!--   ID : <input type="text" id="Username" value ="${member.code}" disabled>
-	  영화 제목 : <input type="text" id="MoiveName" value ="${movie.code}" disabled>
-	  영화 시간 : <input type="text" id="MoiveName" value ="${movie.schedule}" disabled>
-	  <br/><br/> -->
-	
+	  <!--hidden  -->
+	  <input hidden type="text" id="theater" name="theater" value="2" >  
+	  <input hidden type="text" name="mname" id="mname" value="마더">
+	  <input hidden type="text" name="member_code" id="member_code" value="admin">
+	  <input hidden type="number" id="movie_code" name="movie_code" value="100036">
+	  <input hidden type="date" name="schedule" id="schedule" value="2024-03-13">
+	  <br/><br/>
 	</div>
 	  
 	<div class="seatStructure">
@@ -226,12 +221,11 @@
 	    <td><input type="radio" class="seats" value="J9" name="seat"></td>
 	    <td><input type="radio" class="seats" value="J10" name="seat"></td>
 	    <td class="seatGap">
-		<button id="complete" type="button">선택완료</button>
 	    </td>
 	</tr>
-      
 	</table>
 	</div>
+		<button id="complete" type="button">선택완료</button>
 </form>
 <script src="../assets/js/reserve.js"></script>
  

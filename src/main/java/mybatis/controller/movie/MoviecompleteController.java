@@ -23,21 +23,22 @@ public class MoviecompleteController implements Controller {
 public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			System.out.println("---------------------------");
 		
-			String movie_code = request.getParameter("movie_code");
-			String member_code = request.getParameter("member_code");
+			request.setAttribute("list2", request.getAttribute("list"));
+			/*
+			 * String movie_code = request.getParameter("movie_code"); String member_code =
+			 * request.getParameter("member_code");
+			 * 
+			 * ReserveDao dao = new ReserveDao(); Map<String, String> map = new HashMap<>();
+			 * map.put("movie_code", movie_code); map.put("member_code", member_code);
+			 * 
+			 * List<String> list= dao.select(map); request.setAttribute("list", list);
+			 */
 			
-			ReserveDao dao = new ReserveDao();
-			Map<String, String> map = new HashMap<>();
-			map.put("movie_code", "100036");
-			map.put("member_code", "admin");
+			Object list = request.getAttribute("list");
+			Object list2 = request.getAttribute("list2");
 			
-			List<Object> list= dao.select(map);
-			request.setAttribute("list", list);
-			
-			
-			
-			logger.info("reserve: {}", map);
             logger.info("list: {}", list);
+            logger.info("list2: {}", list2);
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("complete.jsp");
 			dispatcher.forward(request, response);
