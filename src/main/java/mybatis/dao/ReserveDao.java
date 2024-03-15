@@ -1,6 +1,5 @@
 package mybatis.dao;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
 import mybatis.vo.Reserve;
+import mybatis.vo.ReserveList;
 
 @Slf4j
 public class ReserveDao {
@@ -41,9 +41,9 @@ public class ReserveDao {
 		return list;
 	}
 	
-	public List<String> select(Map<String, String> map){
+	public List<ReserveList> select(Map<String, String> map){
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		List<String> list = sqlSession.selectList("reserves.select",map);
+		List<ReserveList> list = sqlSession.selectList("reserves.select",map);
 		log.info("select :{}", list);
 		sqlSession.close();
 		return list;

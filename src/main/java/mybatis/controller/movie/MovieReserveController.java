@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import mybatis.controller.Controller;
 import mybatis.dao.ReserveDao;
 import mybatis.vo.Reserve;
+import mybatis.vo.ReserveList;
 
 public class MovieReserveController implements Controller {
 
@@ -51,14 +52,17 @@ public class MovieReserveController implements Controller {
 			request.setAttribute("reserve", reserve);
 			
 			
-			Map<String, String> map = new HashMap<>();
-			map.put("movie_code", movie_code);
-			map.put("member_code", member_code);
+			/*
+			 * Map<String, String> map = new HashMap<>(); map.put("movie_code", movie_code);
+			 * map.put("member_code", member_code);
+			 * 
+			 * List<ReserveList> list= dao.select(map); request.setAttribute("list", list);
+			 * request.setAttribute("list.scheduleDate", scheduleDate);
+			 * request.setAttribute("list.movie_code", movie_code);
+			 * 
+			 */
 			
-			List<String> list= dao.select(map);
-			request.setAttribute("list", list);
-
-			
+			//logger.info("list: {}", list);
 			logger.info("Reserve: {}", reserve);
             logger.info("Result: {}", result);
 			System.out.println(reserve);
@@ -67,7 +71,8 @@ public class MovieReserveController implements Controller {
 				response.setContentType("text/html; charset=UTF-8");
 				response.sendRedirect("reserve");
 			}
-			response.sendRedirect("complete");
+			
+			response.sendRedirect("complete"+"?movie_code="+movie_code+"&member_code="+member_code);
 		}
 
 	}

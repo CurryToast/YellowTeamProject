@@ -13,7 +13,6 @@ function reserve() {
         if (yn) {
             const form = document.forms[0]  
             form.submit(); 
-
             alert('예매가 완료되었습니다.');
         } else {
             alert("취소되었습니다.");

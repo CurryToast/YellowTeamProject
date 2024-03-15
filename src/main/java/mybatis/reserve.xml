@@ -17,7 +17,7 @@
 		FROM TBL_RESERVE
 		WHERE MEMBER_CODE = #{member_code}
  	</select>
- 	<select id="select" parameterType="java.util.Map" resultType="String">
+ 	<select id="select" parameterType="java.util.Map" resultType="mybatis.vo.ReserveList">
  		SELECT TR.MEMBER_CODE,TM.MNAME , TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TR.THEATER,TR.RCODE, TR.SEAT 
 		FROM TBL_MOVIE tm , TBL_RESERVE tr 
 		WHERE TM.MCODE = TR.MOVIE_CODE

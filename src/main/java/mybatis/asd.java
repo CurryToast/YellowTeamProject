@@ -5,19 +5,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class asd {
-    public static void main(String[] args) {
-        String temp3 = "2009-12-24 12:00:42";
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        // 한국 시간대 설정
-        format.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+import javax.servlet.ServletException;
 
-        Date schedule;
+public class asd {
+    public static void main(String[] args) throws ServletException {
+    	String temp2="2024-03-13";
+    	Date schedule = null;
         try {
-            schedule = format.parse(temp3);
-            System.out.println(schedule);
+            schedule = new SimpleDateFormat("yyyy-MM-dd").parse(temp2);
         } catch (ParseException e) {
-            e.printStackTrace();
+            throw new ServletException("Error parsing schedule date", e);
         }
-    }
+        System.out.println(schedule);
+}
 }
