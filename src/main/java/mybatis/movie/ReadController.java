@@ -33,7 +33,7 @@ public class ReadController implements Controller {
 			logger.debug("::::::: bo-{}:::::::",bo);
 			request.setAttribute("bo", bo);
 			
-			//현재페이지를 list.jsp에서 받아서 read.jsp로 전달합니다.
+		
 			request.setAttribute("page", request.getParameter("page"));    //현재페이지 번호 전달 -순서2)
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("read.jsp");

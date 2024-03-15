@@ -62,41 +62,29 @@
 					<section id="searchlist">
 					</section>
 					<hr>
-					<div>
-						<ul id="main">
+					<div id="listpro">
 							<c:forEach var="vo" items="${list}">
-								<li>
-									<ul class="row">
-										<li> <!-- 현재페이지 번호 세션에 저장했으므로 파라미터 전달 삭제 -->
-							
-												<a href="read?mcode=${vo.mcode }&page=${paging.currentPage}" class="mname">
-												<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${vo.poster }.jpg" >
-												</a>
+									 <!-- 현재페이지 번호 세션에 저장했으므로 파라미터 전달 삭제 -->
+		<a href="read?mcode=${vo.mcode}&page=${paging.currentPage}" class="mname">
+			<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${vo.poster}.jpg" >
+		</a>
 												<%-- <c:out value="${vo.mname }" />
 												개봉일 : <c:out value="${vo.release_date }" />
 												상영시간 : <c:out value="${vo.running_time }" />
 												관람등급 : <c:out value="${vo.rating }" />
 												평점 : <c:out value="${vo.mgrade }" /> --%>
-												
-												
-										
-										</li>
-										
-									</ul>
-								</li>
 							</c:forEach>
-						</ul>
 					</div>
 				</div>
 			</div>
-			<div style="float: right; margin: 40px;">
-							<%-- 		<a href="write?page=${paging.currentPage }" class="button" >글쓰기</a> --%>
+			<%-- <div style="float: right; margin: 40px;">
+									<a href="write?page=${paging.currentPage }" class="button" >글쓰기</a>
 							<!-- 로그인 상태가 아니면 로그인으로 이동으로 변경 -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 							<c:if test="${user.userid=='admin' }">
 							<a href="write" class="write-btn">관리자 :: 글쓰기</a> 
 							</c:if>
-			</div>
-		</section>
+			</div>--%>
+		</section> 
 		<!--  -->
 			<div style="width:100%;margin: auto;padding: 10px;text-align: center;float: none;" class="list">
 				전체 글 개수 : <c:out value="${paging.totalCount }"/> <br>

@@ -17,12 +17,18 @@
 <body class="is-preload">
 <div id="page-wrapper">
 	<%@include file="../layout/header.jsp" %>
-	<section id="read" style="overflow: hidden;">
+	<section id="read" >
 	<hr style="color:white;">
 	<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${bo.poster }.jpg" >
 	<h5><c:out value="${bo.mname}"/></h5>
 	<h6>관람등급 : <c:out value="${bo.rating}"/></h6>
 	<h5>개봉일 : <c:out value="${bo.release_date }"/></h5>
+	<p>장르 : <c:out value="${bo.genre}"/></p>	
+	<p>상영 시간 : <c:out value="${bo.running_time}"/></p>
+	<p>감독 : <c:out value="${bo.director}"/></p>	
+	<p>제작사 및 배급사 : <c:out value="${bo.producer}"/></p>	
+	<p>평점 : <c:out value="${bo.rating}"/></p>	
+	<p>제작 국가 : <c:out value="${bo.country}"/></p>	
 	<p>줄거리 : <c:out value="${bo.synopsys}"/></p>	
 			
 <!-- <textarea rows="20" disabled="disabled" 

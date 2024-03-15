@@ -7,10 +7,15 @@ const createMovieList = (arr) => {
 		const card = document.createElement('div');
 		card.className = 'movieCard';
 		
+		const anchor = document.createElement('a');
+		anchor.href=`read?mcode=${el.mcode}`;
+		
 		const poster = document.createElement('img');
 		poster.src = `https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${el.poster}.jpg`;
 		poster.alt = el.mcode;
-		card.appendChild(poster);
+		anchor.appendChild(poster);
+
+		card.appendChild(anchor);
 		
 		const name = document.createElement('h3');
 		name.innerHTML = el.mname;
@@ -28,7 +33,9 @@ const createMovieList = (arr) => {
 	});
 }
 
-
+		document.querySelector('img').addEventListener('click', function() {
+    	location.href = `read?mcode=${vo.mcode}&page=${paging.currentPage}`;
+		});
 
 
 const loadMoviesaerchList = () => {
@@ -50,7 +57,8 @@ document.querySelectorAll('option').forEach(ele => {
 		ele.selected=true;
 	else	
 		ele.selected=false;
-})
+});
+
 document.querySelector('#search-btn').addEventListener('click', () => {
 	const find = document.forms[0].findText;
 	const column = document.forms[0].column;
