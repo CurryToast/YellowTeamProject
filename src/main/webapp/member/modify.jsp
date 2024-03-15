@@ -42,12 +42,10 @@
                         </li>
                         <li>이름</li>
                         <li><input id="name" name="name" type="text" value="${sessionScope.user.name}" disabled/></li>
-                        <li>생년월일</li>
-                        <li id="birthChk"><input id="birth" name="birth" type="text" value="${sessionScope.user.age }" disabled /></li>
                         <li>나이</li>
+                        <li id="birthChk"><input id="birth" name="birth" type="text" value="${sessionScope.user.age }" disabled /></li>
                     </ul>
-                    <button type="button" class="join-btn" onclick="modify()">저장</button>
-                    <button class="join-btn drop "type="button" onclick="drop()">회원 탈퇴</button>
+                    <button class="join-btn  "type="button" onclick="drop()">회원 탈퇴</button>
                 </form>
             </div>
     <hr>

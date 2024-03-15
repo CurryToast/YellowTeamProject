@@ -1,22 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
-<title>영화관</title>
+<title>스타라이트 시네마</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta http-equiv="Expires" content="0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+ <!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />  
+  <link rel="stylesheet" href="assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="css/join.css" /> 
     <script>
-      window.addEventListener('message', (e) => {
+    /* sms.jsp 에서 인증하기 성공하면 메시지를 보낸것 window.opener.postMessage(~~~)을 받는 이벤트 입니다.  */
+      window.addEventListener('message', (e) => {			//윈도우에서 메시지 수신이 있을 때
 		  console.log('-->',e.data);
         if (e && e.data) {
           const res = JSON.parse(e.data);
@@ -24,6 +26,8 @@
           if (res.successYn === 'Y') {
             $("#stage1").removeClass("active");
             $("#stage2").addClass("active");
+
+        
           } else {
             alert(data.message);
             location.reload();
@@ -79,17 +83,13 @@
       var isChecked = false;
 
       function join() {
-    	  
-    	const fav =  document.querySelector('#favorites')	  
-    	fav.value = fav.value + ',' + document.querySelector('#etc').value
+    	 
     	  
         const data = $('#form').serializeObject();
 
         var adultYn = $('input:radio[name="adultYn"]:checked').val();
-        data.adultYn = adultYn;
-        data.gender = $('input:radio[name="gender"]:checked').val();
-        console.log(data);
-
+     
+        
         if(data.username == "") {
           alert("아이디를 입력하세요.");
           return;
@@ -98,7 +98,7 @@
         if(!isChecked) {
           alert("아이디 중복확인을 해주세요.");
           return;
-        }
+        }	//isChecked 가 참일때 중복검사했던 아이디와 현재 username이 같은지 비교 필요합니다.
 
         if(data.password == "") {
           alert("비밀번호를 입력하세요.");
@@ -116,31 +116,23 @@
           return;
         }
 
-        if(data.email == "") {
-          alert("이메일을 입력하세요.")
-          return;
-        }
+ 	
 
-        if(!data.birth) {
-          alert("생년월일을 입력하세요.")
-          return;
+           if(!data.age) {
+          alert("나이를 입력하세요.")
+        }else 
+        	if(data.age < 1  || data.age > 99){
+ 		alert("알맞은 나이를 입력하세요")
+        	return;
         }
-
-        if(!checkEmail(data.email))	{
-          alert("이메일 형식이 올바르지 않습니다.");
-          return;
-        }
+		     
 
         if (!checkPassword(data.password)) {
-          alert("비밀번호는 영문 대문자 또는 소문자, 특수문자를 포함 10-20자로 입력해주세요.");
+          alert("비밀번호는 영문 대문자 또는 소문자,숫자, 특수문자를 포함 10-20자로 입력해주세요.");
           return;
         }
 
-        if(!data.gender) {
-          alert("성별을 확인해주세요.")
-          return;
-        }
-
+       
         if ($("#adsSms").prop("checked")) {
           data.smsAgree = 'Y';
         } else {
@@ -158,6 +150,12 @@
         } else {
           data.emailAgree = 'N';
         }
+        data.adultYn=undefined;
+		data.channel=undefined;
+		data.smsAgree=undefined;
+		data.kakaoAgree=undefined;
+		data.emailAgree=undefined;
+        data.password2=undefined;
 		console.log('join',data);
         $.ajax({
           url        : './api/auth/join',
@@ -175,27 +173,32 @@
         });
       }
 
+    
+
       function checkId() {
         if($("#username").val() == "") {
           alert("아이디를 입력하세요.");
           $("#username").focus();
           return;
         }
-
+        // form 태그안의 모든 요소값을 자바스크립트 객체로 생성합니다.
         const data = $('#form').serializeObject();
         var idRule = /^[a-z]+[a-z0-9]{5,11}$/g;
-        if(!idRule.test(data.username)){
+        if(!idRule.test(data.code)){
             alert("아이디는 영문자로 시작하는 영문자 또는 숫자 6~12자로 입력해주세요.");
             $("#username").focus();
             return;
         }
 		console.log('request data',data);
+		// 비동기 통신을 위한 jquerry (순수자바스크립트의 XMLHttpRequest 를 쉽게 사용하도록 합니다.)
         $.ajax({
           url        : './api/auth/checkId',
           data       : data,
           dataType: 'json',
           type       : 'post',
-          success : function(res){
+        /* json 으로 직렬화 하지 않고 보내기 */
+        /*   contentType: 'application/json', */
+          success : function(res){	//요청 성공하면 응답을 res 변수에 저장.
         	console.log('/api/auth/checkId',res) ;
         	if (!res.isExist) {
 	            alert("사용 가능한 아이디입니다.");
@@ -258,14 +261,17 @@
         }
 
         alert(msg);
+
       }
+
     </script>
  </head>
 <body class="is-preload">
 	<%@include file="../layout/header.jsp" %>
 	<div id="page-wrapper">
     <hr>
-  	<jsp:include page="joinplus.jsp"/>
+  	<jsp:include page="joinagree.jsp"/>
+    <hr>
 </div>    
  
 <!-- Scripts -->
@@ -278,7 +284,8 @@
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/map.daum.js"></script>
 			<script src="assets/js/script.js"></script>
-			<script src="js/join.js"></script>
+		
 			
+<!-- 계정 : wonder , 패스워드 : thGH123!@4 -->
 </body>
 </html>

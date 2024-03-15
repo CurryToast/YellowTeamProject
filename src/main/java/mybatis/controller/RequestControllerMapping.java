@@ -15,6 +15,7 @@ import mybatis.controller.member.MemberDropController;
 import mybatis.controller.member.MemberJoinController;
 import mybatis.controller.member.MemberModifyController;
 import mybatis.controller.member.MemberSaveController;
+import mybatis.controller.member.MypageViewController;
 
 
 public class RequestControllerMapping {
@@ -35,7 +36,9 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/login", "GET"), new LoginViewController());
 		mapping.put(new RequestKeyValue("/login", "POST"), new LoginActionController());
 		mapping.put(new RequestKeyValue("/logout", "GET"), new LogoutController());
-
+//		마이페이지
+		mapping.put(new RequestKeyValue("/mypage", "GET"), new MypageViewController());
+		
 //		api 
 		mapping.put(new RequestKeyValue("/api/auth/checkId", "POST"), new ApiCheckIdController());
 		mapping.put(new RequestKeyValue("/api/auth/join", "POST"), new ApiMemberJoinController());

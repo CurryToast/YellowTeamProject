@@ -16,9 +16,8 @@
  <link rel="stylesheet" href="css/layout.css" />
 </head>
 <body class="is-preload">
-<div id="page-wrapper">
-			<!-- Header -->
 			<%@ include file="./layout/header.jsp" %>
+<div id="page-wrapper">
 		<div class="mycol-2" style="width:450px;">
 		</div>
 		<div class="mycol-2" style="width:600px;">				

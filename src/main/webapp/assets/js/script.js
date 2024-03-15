@@ -1,14 +1,14 @@
 /**
  * 
  */
- // header\
+ // header
+					
 function header(){
   $('.menu-wrap').hover(function(){
     $('.header-wrap').addClass('hover');
   },function(){
     $('.header-wrap').removeClass('hover');
   });
- 
 }
 
 function newsSlider(){

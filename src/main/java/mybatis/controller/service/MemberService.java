@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 import mybatis.dao.MemberDao;
 import mybatis.vo.Member;
 
-public class Memberservice {
-	private static final Logger logger = LoggerFactory.getLogger(Memberservice.class);
+public class MemberService {
+	private static final Logger logger = LoggerFactory.getLogger(MemberService.class);
 	private MemberDao dao = MemberDao.getInstance();
 	
 	public void join(Member member)	{

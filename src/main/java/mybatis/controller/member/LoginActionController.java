@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import mybatis.controller.Controller;
-import mybatis.controller.service.Memberservice;
+import mybatis.controller.service.MemberService;
 import mybatis.vo.Member;
 
 public class LoginActionController implements Controller {
@@ -29,7 +29,7 @@ public class LoginActionController implements Controller {
 		Map<String, String> map = new HashMap<>();
 		map.put("code", id);
 		map.put("password", password);
-		Memberservice pas = new Memberservice();
+		MemberService pas = new MemberService();
 		Member user = pas.login(map);
 		
 		String url = request.getContextPath();
