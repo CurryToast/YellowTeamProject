@@ -8,7 +8,7 @@ const createMovieList = (arr) => {
 		card.className = 'movieCard';
 		
 		const anchor = document.createElement('a');
-		anchor.href=`read?mcode=${el.mcode}`;
+		anchor.href=`read?mcode=${el.mcode}&page=1`;
 		
 		const poster = document.createElement('img');
 		poster.src = `https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${el.poster}.jpg`;
@@ -17,25 +17,25 @@ const createMovieList = (arr) => {
 
 		card.appendChild(anchor);
 		
-		const name = document.createElement('h3');
+		/*const name = document.createElement('p');
 		name.innerHTML = el.mname;
-		card.appendChild(name);
+		card.appendChild(name);*/
 		
-		const release_date = document.createElement('ul');
+	/*	const release_date = document.createElement('ul');
 		release_date.innerHTML = el.release_date;
 		card.appendChild(release_date);
 		
 		const synopsys = document.createElement('p');
 		synopsys.innerHTML = el.synopsys;
-		card.appendChild(synopsys);
+		card.appendChild(synopsys);*/
 		
 		movieBanner.appendChild(card);
 	});
 }
 
-		document.querySelector('img').addEventListener('click', function() {
+		/*document.querySelector('img').addEventListener('click', function() {
     	location.href = `read?mcode=${vo.mcode}&page=${paging.currentPage}`;
-		});
+		});*/
 
 
 const loadMoviesaerchList = () => {
@@ -59,7 +59,7 @@ document.querySelectorAll('option').forEach(ele => {
 		ele.selected=false;
 });
 
-document.querySelector('#search-btn').addEventListener('click', () => {
+document.querySelector('#search-btn').addEventListener('click',  () => {
 	const find = document.forms[0].findText;
 	const column = document.forms[0].column;
 	let obj = {};
@@ -104,6 +104,7 @@ document.querySelector('#search-btn').addEventListener('click', () => {
 		    break;
 		}
 	}
+	
 	
 	const xhr = new XMLHttpRequest();
 	xhr.open('PUT', '/YellowTeamProject/api/movie');

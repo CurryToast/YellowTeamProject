@@ -60,20 +60,23 @@
 						</form>
 					</div>
 					<section id="searchlist">
-					</section>
+					
+					</section> 
 					<hr>
+					<h3 id="listpage"></h3>
 					<div id="listpro">
-							<c:forEach var="vo" items="${list}">
+					
+							<%-- <c:forEach var="vo" items="${list}"> --%>
 									 <!-- 현재페이지 번호 세션에 저장했으므로 파라미터 전달 삭제 -->
-		<a href="read?mcode=${vo.mcode}&page=${paging.currentPage}" class="mname">
-			<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${vo.poster}.jpg" >
-		</a>
+		<%-- <a href="read?mcode=${vo.mcode}&page=${paging.currentPage}" class="mname"> --%>
+			<%-- <img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${vo.poster}.jpg" > --%>
+		<!-- </a> -->
 												<%-- <c:out value="${vo.mname }" />
 												개봉일 : <c:out value="${vo.release_date }" />
 												상영시간 : <c:out value="${vo.running_time }" />
 												관람등급 : <c:out value="${vo.rating }" />
 												평점 : <c:out value="${vo.mgrade }" /> --%>
-							</c:forEach>
+						<%-- 	</c:forEach> --%>
 					</div>
 				</div>
 			</div>
@@ -84,7 +87,7 @@
 							<a href="write" class="write-btn">관리자 :: 글쓰기</a> 
 							</c:if>
 			</div>--%>
-		</section> 
+	<%-- 	</section> 
 		<!--  -->
 			<div style="width:100%;margin: auto;padding: 10px;text-align: center;float: none;" class="list">
 				전체 글 개수 : <c:out value="${paging.totalCount }"/> <br>
@@ -106,7 +109,7 @@
 						
 				<a class="pagenum" href="?page=${paging.totalPage }">&gt;&gt;</a>  <!--(5) 가장 마지막 페이지로 이동 -->
 			</div>
-	</div>
+	</div> --%>
 <!-- 	<div class="mycol-2" style="width:20rem;height: 50rem;float:right;">
 			<img alt=""  width="100%" height="100%"style="object-fit:cover;" src="../images/bookcafe2.jpg">
 	</div> -->

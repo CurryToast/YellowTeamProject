@@ -12,6 +12,7 @@
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Expires" content="0"> -->
 	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/style.css" />
 <!-- 	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 <body class="is-preload">
@@ -29,6 +30,7 @@
 	<p>제작사 및 배급사 : <c:out value="${bo.producer}"/></p>	
 	<p>평점 : <c:out value="${bo.rating}"/></p>	
 	<p>제작 국가 : <c:out value="${bo.country}"/></p>	
+	<p>출연 : <c:out value="${bo.mcast}"/></p>	
 	<p>줄거리 : <c:out value="${bo.synopsys}"/></p>	
 			
 <!-- <textarea rows="20" disabled="disabled" 
