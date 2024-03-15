@@ -17,7 +17,7 @@
 	<meta http-equiv="Expires" content="0">
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=MaterialSymbols+Outlined" />
+   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css?v=3" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css?v=3" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />

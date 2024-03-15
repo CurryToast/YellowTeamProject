@@ -1,5 +1,6 @@
 @charset "UTF-8";
-@charset "UTF-8";
+@import url("../assets/css/fontawesome-all.min.css");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
 @font-face {
 		    font-family: 'SUIT-Regular';
 		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
@@ -12,9 +13,7 @@ section {
 }
 h1 a , div.container,h3 ,th {
 			font-family: 'SUIT-Regular';
-}
-@import url("../assets/css/fontawesome-all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");		
+}		
 
   .login h2{
   		margin: 5rem 0;

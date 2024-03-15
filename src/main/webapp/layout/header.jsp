@@ -46,6 +46,4 @@
 			</li>
 		</ul>
 	</nav>
-	
-	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/header.js"></script>
 </div>
