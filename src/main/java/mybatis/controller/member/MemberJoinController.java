@@ -9,6 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import mybatis.controller.Controller;
 
+<<<<<<< HEAD
+public class MemberJoinController implements Controller {
+
+	@Override
+	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("join.jsp");
+		dispatcher.forward(request, response);
+
+	}
+
+=======
 public class MemberJoinController implements Controller{
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -16,4 +27,5 @@ public class MemberJoinController implements Controller{
 		dispatcher.forward(request, response);
 	
 }
+>>>>>>> branch 'dudu' of https://github.com/CurryToast/YellowTeamProject.git
 }
