@@ -32,12 +32,32 @@ public class MovieDao {
 		sqlSession.close();
 		return vo;
 	}
+	public Movie selectByIdx(long mcode) {
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		Movie bo = mapperSession.selectOne("movies.selectByIdx",mcode);
+		log.info("selectByIdx :{}", bo);
+		mapperSession.close();
+		return bo;
+	}
 	
 	public List<Movie> getSearch(Map<String, Object> map) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		List<Movie> list = sqlSession.selectList("movies.search", map);
 		log.info("getOne :{}", list);
 		sqlSession.close();
+		return list;
+	}
+	public int count() {
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		int result = mapperSession.selectOne("movies.count");
+		mapperSession.close();
+		return result;
+	}
+	
+	public List<Movie> pagelist(Map<String,Integer> map) {
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		List<Movie> list = mapperSession.selectList("movies.pagelist",map);
+		mapperSession.close();
 		return list;
 	}
 }

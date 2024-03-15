@@ -16,6 +16,10 @@ const createMovieList = (arr) => {
 		name.innerHTML = el.mname;
 		card.appendChild(name);
 		
+		const release_date = document.createElement('ul');
+		release_date.innerHTML = el.release_date;
+		card.appendChild(release_date);
+		
 		const synopsys = document.createElement('p');
 		synopsys.innerHTML = el.synopsys;
 		card.appendChild(synopsys);
@@ -63,6 +67,31 @@ document.querySelector('#search-btn').addEventListener('click', () => {
 		  case 'genre':
 			obj.genre = find.value;
 		    break;
+		  case 'director':
+			obj.director = find.value;
+		    break;
+		  case 'release_date':
+			obj.release_date = find.value;
+		    break;
+		  case 'producer':
+			obj.producer = find.value;
+		    break;
+		   case 'rating':
+			obj.rating = find.value;
+		    break;
+		    case 'running_time':
+			obj.running_time = find.value;
+		    break;
+		    case 'mgrade':
+			obj.mgrade = find.value;
+		    break;
+		    case 'country':
+			obj.country = find.value;
+		    break;
+		    case 'mcast':
+			obj.mcast = find.value;
+		    break;
+		    
 		  default:
 		    break;
 		}

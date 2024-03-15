@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+form{
+	margin-bottom: 1em;
+}
+
+#searchlist{
+
+	display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 5rem;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1rem;
+    justify-items: center;
+}
+
+
+
+.movieCard{
+	display: contents;
+
+}
+
+.movieCard>ul{
+	width:50px;
+	padding:0;
+	margin:0;
+	display:flex;
+}
+
+.movieCard>img{
+	width: 500px;
+	display: flex;
+	align-items: center;
+}
+
+.movieCard>p{
+	width: 300px;
+    text-align: center;
+    margin:0;    
+    
+}
+
+.movieCard>h3{
+	width:250px;
+	height:200px;
+	margin:0;
+	text-align: center;
+	/* grid-column: span 2; */
+
+}
+
+#main>li>ul{
+	list-style: none;
+}
+
+#main>li>ul>li>a>img{
+	
+	width: 500px;
+	display: block;
+	align-items: center;
+}

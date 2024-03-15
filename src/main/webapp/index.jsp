@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="assets/css/main.css?v=3" />
 	<link rel="stylesheet" href="css/layout.css?v=3" />
 	<link rel="stylesheet" href="assets/css/header.css" />
-	<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
+	<!-- <script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script> -->
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
