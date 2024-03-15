@@ -12,7 +12,7 @@
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Expires" content="0"> -->
 	<link rel="stylesheet" href="../assets/css/main.css" />
-	<link rel="stylesheet" href="../assets/css/style.css" />
+	<link rel="stylesheet" href="../assets/css/search.css" />
 <!-- 	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 <body class="is-preload">
@@ -21,17 +21,49 @@
 	<section id="read" >
 	<hr style="color:white;">
 	<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${bo.poster }.jpg" >
-	<h5><c:out value="${bo.mname}"/></h5>
-	<h6>관람등급 : <c:out value="${bo.rating}"/></h6>
-	<h5>개봉일 : <c:out value="${bo.release_date }"/></h5>
-	<p>장르 : <c:out value="${bo.genre}"/></p>	
-	<p>상영 시간 : <c:out value="${bo.running_time}"/></p>
-	<p>감독 : <c:out value="${bo.director}"/></p>	
-	<p>제작사 및 배급사 : <c:out value="${bo.producer}"/></p>	
-	<p>평점 : <c:out value="${bo.rating}"/></p>	
-	<p>제작 국가 : <c:out value="${bo.country}"/></p>	
-	<p>출연 : <c:out value="${bo.mcast}"/></p>	
-	<p>줄거리 : <c:out value="${bo.synopsys}"/></p>	
+	
+	<div id=box>
+	<h1><c:out value="${bo.mname}"/>
+	
+	</h1>
+	
+	관람등급
+	<h5><c:out value="${bo.rating}"/>세 이용가</h5>
+	개봉일
+
+	<h5><c:out value="${bo.release_date }"/></h5>
+	장르 
+	
+	<h5><c:out value="${bo.genre}"/></h5>	
+	<div id=box2>
+	
+	<br>
+	상영 시간
+	<h5><c:out value="${bo.running_time}"/>분</h5>
+	감독
+
+	<h5><c:out value="${bo.director}"/></h5>	
+	제작사 및 배급사
+
+	<h5><c:out value="${bo.producer}"/></h5>	
+	
+	</div>
+	</div>
+	<div id=box3>
+	평점
+	<h5><c:out value="${bo.mgrade}"/></h5>	
+	
+	제작 국가
+
+	<h5><c:out value="${bo.country}"/></h5>	
+	출연
+	
+	<h5><c:out value="${bo.mcast}"/></h5>	
+	</div>
+	<div>
+	줄거리
+	<h5 id=synopsys><c:out value="${bo.synopsys}"/></h5>	
+	</div>
 			
 <!-- <textarea rows="20" disabled="disabled" 
 style="background-color:#f3f3f3;font-size:inherit;resize: none;border:none;"> -->

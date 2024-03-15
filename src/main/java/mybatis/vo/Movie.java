@@ -24,5 +24,6 @@ public class Movie {
 	private double mgrade;	//평점
 	private String country;	//국가
 	private String mcast;	//배우
-	private String poster;        // 포스터
+	private String poster; // 포스터
+	
 }

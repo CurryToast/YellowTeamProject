@@ -20,7 +20,7 @@
 	<link rel="stylesheet"
 		href="${pageContext.request.contextPath }/css/list.css?v=3">
 		
-		<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>	
+<!-- 		<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>	 -->
 </head>
 <body class="is-preload">
 	<div id="page-wrapper">
@@ -85,10 +85,11 @@
 							<!-- 로그인 상태가 아니면 로그인으로 이동으로 변경 -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 							<c:if test="${user.userid=='admin' }">
 							<a href="write" class="write-btn">관리자 :: 글쓰기</a> 
-							</c:if>
-			</div>--%>
-	<%-- 	</section> 
-		<!--  -->
+							</c:if>--%>
+			</section> 	
+			</div>
+
+	<%-- 	<!--  -->
 			<div style="width:100%;margin: auto;padding: 10px;text-align: center;float: none;" class="list">
 				전체 글 개수 : <c:out value="${paging.totalCount }"/> <br>
 				<hr>
@@ -109,7 +110,7 @@
 						
 				<a class="pagenum" href="?page=${paging.totalPage }">&gt;&gt;</a>  <!--(5) 가장 마지막 페이지로 이동 -->
 			</div>
-	</div> --%>
+	</div> --%> --%>
 <!-- 	<div class="mycol-2" style="width:20rem;height: 50rem;float:right;">
 			<img alt=""  width="100%" height="100%"style="object-fit:cover;" src="../images/bookcafe2.jpg">
 	</div> -->
