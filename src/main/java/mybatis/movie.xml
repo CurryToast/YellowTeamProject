@@ -3,6 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="movies">
+ 	<select id="selectAll" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM TBL_MOVIE
+ 	</select>
+ 	<select id="search" resultType="mybatis.vo.Movie" parameterType="java.util.Map">
+ 		SELECT * FROM TBL_MOVIE
+ 		<where>
+	 		<if test="mname!=null">
+	 			mname = #{mname}
+	 		</if>
+	 		<if test="genre!=null">
+	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
+					genre like '%' || #{genre} || '%'				
+	 			</trim>
+	 		</if>
+ 		</where>
+ 	</select>
+ 	<select id="getOne" parameterType="int" resultType="mybatis.vo.Movie">
+ 		SELECT * 
+		FROM tbl_movie
+		WHERE mcode = #{mcode} 
+ 	</select>
+ 	<delete id="delete" parameterType="int">
+ 		DELETE FROM tbl_movie WHERE mcode=#{mcode}
+ 	</delete>
  </mapper>
  
  
