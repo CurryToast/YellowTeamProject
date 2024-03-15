@@ -15,15 +15,19 @@
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Expires" content="0">
-      	<meta name="description" content="" />
-      	<meta name="author" content="" />
-	<link rel="stylesheet" href="assets/css/main.css?v=3" />
-	<link rel="stylesheet" href="css/layout.css?v=3" />
-	<link rel="stylesheet" href="assets/css/header.css" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css?v=3" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css?v=3" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/banner.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/movieCard.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/label.css">
 	<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
 </head>
 <body class="is-preload">
-<div id="page-wrapper">
+<div id="page-wrapper" class="home">
 	<script>
 		/* 로그인 후 글쓰기로 돌아가기 */
 		var back = sessionStorage.getItem('back');
@@ -36,7 +40,6 @@
 	<%@ include file="./layout/header.jsp" %>
 	<!-- Banner -->
 	<section id="banner">
-			<img alt="" src="images/bookmain.png" width="100%" height="75%" style="object-fit: cover;">
 	</section>
 	<!-- Highlights -->
 	<section class="wrapper style1">
@@ -142,6 +145,5 @@
 		</div>
 	</section>
 	<div data-num="0" id="datanum"></div>
-
 </body>
 </html>

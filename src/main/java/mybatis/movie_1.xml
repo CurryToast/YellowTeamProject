@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="movies">
+ <select id="saleList" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM tbl_movie
+ </select>
+ <select id="getBymname" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM tbl_movie WHERE mname=#{mname}
+ </select>
+ <select id="getBygenre" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM tbl_movie WHERE genre=#{genre}
+ </select>
+ <select id="getBydirector" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM tbl_movie WHERE director=#{director}
+ </select>
+ <select id="getByrelease_date" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM tbl_movie WHERE release_date=#{release_date}
+ </select>
+ <select id="getByproducer" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM tbl_movie WHERE producer=#{producer}
+ </select>
+ <select id="getByrunning_time" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM tbl_movie WHERE running_time=#{running_time}
+ </select>
+  <select id="getByrating" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM tbl_movie WHERE rating=#{rating}
+ </select>
+  <select id="getBymgrade" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM tbl_movie WHERE mgrade=#{mgrade}
+ </select>
+  <select id="getBycountry" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM tbl_movie WHERE country=#{country}
+ </select>
+  <select id="getBymcast" resultType="mybatis.vo.Movie">
+ 		SELECT * FROM tbl_movie WHERE mcast=#{mcast}
+ </select>
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
