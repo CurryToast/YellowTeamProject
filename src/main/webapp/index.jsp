@@ -140,7 +140,7 @@
 	<section id="cta" class="wrapper style3">
 		<div class="container">
 			<header>
-					<h3 style="margin:0 auto;">책과 함께 힐링하세요!</h3>
+				<h3 style="margin:0 auto;">책과 함께 힐링하세요!</h3>
 			</header>
 		</div>
 	</section>

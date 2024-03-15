@@ -77,8 +77,9 @@
           alert("보호자 개인정보 수집 및 이용에 동의해주세요.")
           return;
         }
+
         $('#under14Popup').removeClass('active');
-        window.open('auth/cert/sms?certType=JOIN&adultYn=N', '본인 인증', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no')
+        window.open('auth/cert/sms?certType=JOIN&adultYn=N', '본인 인증', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no');
       }
 
       var isChecked = false;
