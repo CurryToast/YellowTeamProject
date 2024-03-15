@@ -63,8 +63,8 @@
 					<a href="showMovieDetail?mcode=${movie.mcode}">
 					<img src = "https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster}.jpg" alt="${movie.mname}"> 
 					</a>
-				<p>${movie.mname}</p>
-				<p>${movie.mcode}</p>
+				<p class = "mname">${movie.mname}</p>
+				<p class= "runt">${movie.running_time}분</p>
 			</div>
 		</li>
 				</c:forEach>

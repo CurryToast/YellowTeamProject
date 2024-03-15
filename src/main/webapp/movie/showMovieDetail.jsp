@@ -30,7 +30,7 @@
            <%--  <p>감독: ${ movie.director}</p>
             <p>제작사/배급사: ${ movie.producer}</p> --%>
             <p>상영 시간: ${ movie.running_time}분</p>
-            <p>평점 | ☆ 10.0 / ${ movie.mgrade}</p>
+            <p>평점 | ★ ${ movie.mgrade} / 10.0 </p>
             <a href="reserve" class="btn-design">예매하기</a>
             <hr>
             <p class = "p2">영화 정보</p>

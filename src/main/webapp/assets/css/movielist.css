@@ -108,4 +108,14 @@ img {
  .movie-container img:hover {
     cursor: pointer;
 }
+
+.mname {
+	font-weight: bold;
+	margin: 8px 0px 8px 0px; line-height: 120%;
+}
+
+.runt {
+	font-size: 10pt;
+	margin: 8px 0px 8px 0px; line-height: 120%;
+}
     
