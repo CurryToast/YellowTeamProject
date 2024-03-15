@@ -9,7 +9,7 @@
 -->
 <html>
 <head>
-	<title>커피24 북카페</title>
+	<title>스타 라이트 시네마</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">

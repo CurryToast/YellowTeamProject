@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+@import url("fontawesome-all.min.css");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
+
 #current:focus, #current:hover {
 	text-decoration: underline; text-decoration-thickness: 2px;
 }
@@ -57,13 +60,52 @@ img {
     vertical-align: top;
 }
 
- .movie-container {
-        display: flex;
-        align-items: center;
-    }
+ /* movielist.css */
+
+/* .movie-container 클래스의 요소들을 가로로 배치 */
+.movie-container {
+    display: flex;
+    flex-direction: column; /* 내부 요소들을 세로로 배치 */
+    align-items: center; /* 내부 요소들을 가운데 정렬 */
+}
+
+
+/* 각 포스터 이미지의 스타일 */
+.movie-container img {
+   /*  width: 100%; 이미지를 부모 요소의 너비에 맞게 조정 */
+    width: 184px;
+    height: 262.85px;
+    margin-bottom: 10px;
+}
     
-    .movie-container img {
-        width: 184px;
-        height: 262.85px;
-        margin-right: 10px; /* 이미지와 텍스트 사이의 간격 조절 */
-    }
+.movie-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    margin-bottom: 20px; 
+    padding: 0; /* ul의 내부 간격 제거 */
+}
+
+
+.movie-item {
+    width: calc(20% - 10px); /* 한 줄에 5개씩 배치되므로 각 요소의 너비는 20% */
+    margin-bottom: 20px; /* 아래 여백 추가 */
+    list-style: none; /* li의 기본 리스트 스타일 제거 */
+}
+
+/* 포스터 이미지의 크기 및 간격 조정 */
+.movie-item img {
+    width: 100%; /* 부모 요소에 맞게 이미지 크기 조정 */
+    height: auto; /* 가로 세로 비율 유지 */
+    margin-right: 0; /* 이미지와 텍스트 사이 간격 제거 */
+}
+    
+    
+ .choice {
+ 	font-size: 16pt;
+ }
+ 
+ .movie-container img:hover {
+    cursor: pointer;
+}
+    

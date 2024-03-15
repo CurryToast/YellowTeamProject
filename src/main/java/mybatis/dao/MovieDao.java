@@ -15,10 +15,12 @@ import mybatis.vo.Movie;
 public class MovieDao {
 	private static final Logger logger = LoggerFactory.getLogger(MovieDao.class);
 	private static MovieDao dao = new MovieDao();
-	private MovieDao() {}
-		public static MovieDao getInstance() {
-			return dao;
-	}
+	
+	public MovieDao() {}		
+	
+		   public static MovieDao getInstance() {
+		        return dao;
+		    }
 	
 	// 영화 전체 보기
 	public List<Movie> selectAllMovies(){

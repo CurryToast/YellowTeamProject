@@ -13,7 +13,7 @@ import lombok.ToString;
 @Builder
 public class Movie {
 	
-	private int mcode;				// 영화 코드	
+	private long mcode;				// 영화 코드	
 	private String mname;			// 영화 제목
 	private String genre;			// 영화 장르
 	private String director;			// 영화 감독

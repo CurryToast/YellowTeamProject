@@ -5,28 +5,26 @@
  <mapper namespace="movies">
  
  		<select id = "selectAll" resultType="mybatis.vo.Movie">
+ 				SELECT *
+ 				FROM TBL_MOVIE
+ 		</select>
+ 		
+ 		 <!-- <select id = "selectUpcomingMovies" resultType="mybatis.vo.Movie" parameterType="String">
  				SELECT mname, poster
  				FROM TBL_MOVIE
  		</select>
  		
- 		<!-- <select id = "selectUpcomingMovies" resultType="mybatis.vo.Movie" parameterType="String">
- 				SELECT mname, running_time, rating, mgrade, poster
- 				FROM TBL_MOVIE
- 		</select>
- 		
  		<select id = "selectEndMovies" resultType="mybatis.vo.Movie" parameterType="String">
- 				SELECT mname, running_time, rating, mgrade, poster
+ 				SELECT mname, poster
  				FROM TBL_MOVIE
- 		</select>
+ 		</select> -->
  		
  		<select id = "selectMovieById" parameterType = "long" resultType="mybatis.vo.Movie">
  				SELECT *
- 				FROM 
- 						TBL_MOVIE
- 				WHERE 
- 						mcode=#{mcode}
+ 				FROM TBL_MOVIE
+ 				WHERE mcode=#{mcode}
  		</select>
- 		 -->
+ 		
  
  
  </mapper>

@@ -1,5 +1,6 @@
 package mybatis.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,10 +13,10 @@ import mybatis.vo.Reserve;
 @Slf4j
 public class ReserveDao {
 
-	public int insert(List<Reserve> reserve){
+	public int insert(Reserve vo){
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		int result = 0;
-		result = sqlSession.insert("reserves.insert",reserve);
+		result = sqlSession.insert("reserves.insert",vo);
 		log.info("insert :{}", result);
 		sqlSession.commit();
 		sqlSession.close();
@@ -40,13 +41,13 @@ public class ReserveDao {
 		return list;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	public List<String> select(Map<String, String> map){
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		List<String> list = sqlSession.selectList("reserves.select",map);
+		log.info("select :{}", list);
+		sqlSession.close();
+		return list;
+	}
 	
 	
 }

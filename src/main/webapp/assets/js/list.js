@@ -22,6 +22,5 @@ function allmovie() {
 
 // 서버로부터 받은 영화 목록을 처리하는 함수
 function displayMovies(movies) {
-    // 영화 목록을 처리하는 코드 작성
-    // 예: 영화 목록을 화면에 표시하는 등의 작업 수행
 }
+

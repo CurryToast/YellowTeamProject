@@ -17,59 +17,60 @@
 <section id = "movieList">
 			<h3>상영 일정</h3>
 			<hr style="color:white;">
-	<!-- 전체 목록 -->
+			
+<!-- 전체 -->
 <ul>
 	<li id = "choose">
 			<button onclick = "allmovie()" id = "allmovie" type = "button">
-				<span>전체</span>
+				<span class ="choice">전체</span>
 			</button>
 	</li>
 </ul>
+
 <ul>
+	<li id = "choose">
+		<button id = "current" type="button">
+				<span class = "choice">현재 상영작</span>
+		</button>
+		</li>
+</ul>
+
+<ul>
+	<li id = "choose">
+		<button id = "current" type="button">
+				<span class = "choice">상영 예정작</span>
+		</button>
+		</li>
+</ul>
+
+<ul>
+	<li id = "choose"> 
+		<button id = "current" type="button">
+				<span class = "choice">상영 종료</span>
+		</button>
+		</li>
+</ul>
+<br>
+<br>
+<hr>
+<p style = "font-size: 10pt; font-color:gray;">&nbsp; &nbsp; &nbsp; &nbsp; 클릭 시 상세 페이지로 넘어갑니다.</p>
+
+<!-- 영화 출력 시작 -->
+<ul class="movie-list">
 				<c:forEach var="movie" items="${selectAllmovies}">
-		<li>
+		<li class = "movie-item">
 			<div class="movie-container">
-					<%-- <img src = "../upload/${movie.poster}.jpg" alt="${movie.mname}">  --%>
+					<a href="showMovieDetail?mcode=${movie.mcode}">
 					<img src = "https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster}.jpg" alt="${movie.mname}"> 
-				<span>${movie.mname}</span>
+					</a>
+				<p>${movie.mname}</p>
+				<p>${movie.mcode}</p>
 			</div>
 		</li>
 				</c:forEach>
 	</ul>
-<%-- 	<!-- 현재 상영작 -->
-<ul>
-	<li id = "choose">
-		<button id = "current" type="button">
-				<span>현재 상영작</span>
-		</button>
-	</li>
-</ul>
-	<ul>
-		<li>
-			<div>
-				<span> 
-					<img src = "../images/${bo.poster}" alt="${bo.title}">
-				</span>
-			</div>
-		</li>
-	</ul>
-	<!-- 상영 예정작 -->
-<ul>
-	<li id = "choose">
-		<button id = "upcoming" type="button">
-			<span>상영 예정작</span>
-		</button>
-	</li>
-</ul>
-	<!-- 상영 종료 -->
-<ul>
-	<li id = "choose">
-		<button id = "end" type="button">
-			<span>상영 종료</span>
-		</button>
-	</li>
-</ul>
- --%>
+
+ 
 	<!-- <div id = "allContent" class="content">전체</div>
 	<div id = "currentContent" class="content">현재 상영작 정보</div>
 	<div id = "upcomingContent" class="content">예정 상영작 정보</div>
@@ -86,8 +87,6 @@
 		</section>
 		
 		<script src="../assets/js/list.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-		
 
 </body>
 </html>
