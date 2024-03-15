@@ -11,7 +11,6 @@ import mybatis.vo.Reserve;
 
 @Slf4j
 public class ReserveDao {
-
 	public int insert(Reserve vo){
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		int result = 0;
@@ -47,14 +46,4 @@ public class ReserveDao {
 		sqlSession.close();
 		return list;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

@@ -42,13 +42,15 @@
 }
 
 #nav > ul {
+	display: inline-block;
 	margin: 0;
 }
 
 #nav > ul > li {
 	position: relative;
 	display: inline-block;
-	margin-left: 1em;
+	margin-left: 1.5em;
+	padding-left: 0;
 }
 
 #nav > ul > li a {
@@ -65,7 +67,7 @@
 }
 
 #nav > ul > li > ul.submenu a {
-	color: black;
+	color: white;
 }
 
 #nav > ul > li.current {
@@ -89,18 +91,25 @@
 	background-image: url("images/bg01.png");
 }
 
-nav > ul#menu > li > ul.submenu {
+nav > ul > li > ul.submenu {
 	display: none;
+	list-style: none;
+	padding-left: 0;
 }
 
-nav > ul#menu > li:hover > ul.submenu {
+nav > ul > li:hover > ul.submenu {
 	display: flex;
 	flex-direction: column;
 	position: absolute;
 	z-index: 9999;
 	min-width: 150%;
+	background-color: #333;
 }
 
+ul.submenu > li {
+	padding-left: 0;
+}
 ul.submenu > li:hover {
 	font-weight: 900;
 }
+

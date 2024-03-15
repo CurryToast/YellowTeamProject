@@ -1,4 +1,5 @@
 package mybatis.vo;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,7 +10,6 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-
 public class Reserve {
 	private int rcode;
 	private String member_code;

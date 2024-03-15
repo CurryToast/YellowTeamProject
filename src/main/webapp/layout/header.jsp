@@ -6,23 +6,20 @@
 	<!-- Nav -->
 	<nav id="nav">
 		<ul id="user">
-			<li><a href="${pageContext.request.contextPath }/join"><span>회원가입</span></a></li>
-			<li><a href="${pageContext.request.contextPath }/login">로그인</a></li>
-			<!--
+			<%-- <li><a href="${pageContext.request.contextPath }/join"><span>회원가입</span></a></li>
+			<li><a href="${pageContext.request.contextPath }/login">로그인</a></li> --%>
+			
 				<c:if test="${sessionScope.user == null }">		
 					<li><a href="${pageContext.request.contextPath }/join"><span>회원가입</span></a></li>
 					<li><a href="${pageContext.request.contextPath }/login">로그인</a></li>
 				</c:if>	
 				<c:if test="${sessionScope.user != null }">		
-					<li><a href="#"><span>${user.name }님</span></a>
-						<ul id="bookcafe">
-							<li><a href="${pageContext.request.contextPath }/member/modify">회원정보</a></li>
-							<li><a href="#">마이페이지</a></li>
-						</ul>
-					</li>
+					<li><a class="mainmenu" href="#"><span>마이페이지</span></a>
+						
+						
 					<li><a href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
 				</c:if>	
-			-->
+			
 		</ul>
 		<ul id="menu">
 			<li><a class="mainmenu" href="${pageContext.request.contextPath}">Home</a></li>								
@@ -49,5 +46,6 @@
 			</li>
 		</ul>
 	</nav>
+	
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/header.js"></script>
 </div>
