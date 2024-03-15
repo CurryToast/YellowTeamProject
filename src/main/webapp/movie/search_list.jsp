@@ -16,8 +16,10 @@
 		content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="../assets/css/main.css" />
 	<link rel="stylesheet" href="../css/layout.css" />
+	<link rel="stylesheet" href="../assets/css/search.css">
 	<link rel="stylesheet"
 		href="${pageContext.request.contextPath }/css/list.css?v=3">
+		
 		<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>	
 </head>
 <body class="is-preload">
@@ -57,7 +59,7 @@
 							<button type="button" onclick="location.href='search'">전체보기</button>
 						</form>
 					</div>
-					<section id="searchlist" style="width: 60%; margin: 0 auto; display: flex; overflow-x: auto;">
+					<section id="searchlist">
 					</section>
 					<hr>
 					<div>
@@ -65,15 +67,21 @@
 							<c:forEach var="vo" items="${list}">
 								<li>
 									<ul class="row">
-										<li><c:out value="${vo.mcode }" /></li>
-										<li><a href="read?idx=${vo.mcode }" class="title"> <!-- 현재페이지 번호 세션에 저장했으므로 파라미터 전달 삭제 -->
-												<c:out value="${vo.mname }" />
-											</a>
+										<li> <!-- 현재페이지 번호 세션에 저장했으므로 파라미터 전달 삭제 -->
+							
+												<a href="read?mcode=${vo.mcode }&page=${paging.currentPage}" class="mname">
+												<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${vo.poster }.jpg" >
+												</a>
+												<%-- <c:out value="${vo.mname }" />
+												개봉일 : <c:out value="${vo.release_date }" />
+												상영시간 : <c:out value="${vo.running_time }" />
+												관람등급 : <c:out value="${vo.rating }" />
+												평점 : <c:out value="${vo.mgrade }" /> --%>
+												
+												
+										
 										</li>
-										<li>
-											<fmt:formatDate value="${vo.release_Date }" pattern="yyyy-MM-dd"
-												var="release_Date" /> 
-										</li>
+										
 									</ul>
 								</li>
 							</c:forEach>
@@ -90,8 +98,46 @@
 			</div>
 		</section>
 		<!--  -->
-	<div data-num="1" id="datanum"></div>
+			<div style="width:100%;margin: auto;padding: 10px;text-align: center;float: none;" class="list">
+				전체 글 개수 : <c:out value="${paging.totalCount }"/> <br>
+				<hr>
+				<a class="pagenum" href="?page=1">&lt;&lt;</a>   <!--(1) 첫번째 페이지 1번으로 이동 -->
+				
+				<!--(2)  실행하면서 파악해보세요. --> <!-- 요청은 ListController가 받음.page파라미터 변경됨. -->
+				<a class="pagenum" href="?page=${paging.startPage-1 }"      
+						style='<c:if test="${paging.startPage==1 }">display:none;</c:if>' >&lt;</a>
+				
+				<!--(3) 페이지 범위 startPage 부터 endPage 까지 반복 -->
+				<c:forEach var="i" begin="${paging.startPage }" end="${paging.endPage }">
+					<a class="pagenum ieach" href="?page=${i }"><c:out value="${i }"/></a>
+				</c:forEach>
+				
+				<!--(4)  실행하면서 파악해보세요. -->
+				<a class="pagenum" href="?page=${paging.endPage+1 }"
+						style='<c:if test="${paging.endPage==paging.totalPage }">display:none;</c:if>'	>&gt;</a>
+						
+				<a class="pagenum" href="?page=${paging.totalPage }">&gt;&gt;</a>  <!--(5) 가장 마지막 페이지로 이동 -->
+			</div>
 	</div>
+<!-- 	<div class="mycol-2" style="width:20rem;height: 50rem;float:right;">
+			<img alt=""  width="100%" height="100%"style="object-fit:cover;" src="../images/bookcafe2.jpg">
+	</div> -->
+	<div data-num="5" id="datanum"></div>
+
+
+ <script type="text/javascript">
+	const pnums = document.querySelectorAll('.ieach');
+	pnums.forEach(function(item){
+		console.log(item);
+		/* item 번호가 현재 페이지 이면 글꼴 스타일을 다르게함. */
+		if(item.innerHTML=='${paging.currentPage}') {    
+			item.classList.add('current')
+		}else{
+			item.classList.remove('current')
+		}
+	});
+
+	
 
 	<!-- Scripts -->
 	<script src="../assets/js/jquery.min.js"></script>

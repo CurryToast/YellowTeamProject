@@ -3,11 +3,10 @@ package mybatis.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import mybatis.controller.RequestKeyValue;
+
 import mybatis.controller.member.LoginActionController;
 import mybatis.controller.member.LoginViewController;
 import mybatis.controller.member.LogoutController;
-
 import mybatis.controller.api.ApiCheckIdController;
 import mybatis.controller.api.ApiGetAllMembersController;
 import mybatis.controller.api.ApiMemberJoinController;
@@ -18,7 +17,7 @@ import mybatis.controller.member.MemberSaveController;
 import mybatis.movie.ApiGetAllMoviesController;
 import mybatis.movie.ApiMovieSearchController;
 import mybatis.movie.MovieSearchController;
-
+import mybatis.movie.ReadController;
 
 
 public class RequestControllerMapping {
@@ -44,6 +43,7 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/movie/search", "PUT"), new MovieSearchController());
 		mapping.put(new RequestKeyValue("/api/movie", "GET"), new ApiGetAllMoviesController());
 		mapping.put(new RequestKeyValue("/api/movie", "PUT"), new ApiMovieSearchController());
+		mapping.put(new RequestKeyValue("/movie/read", "GET"), new ReadController() );
 	}
 
 	// url,method 필드를 저장하는 key 를 전달받아 HashMap에서 value(컨트롤러)를 리턴

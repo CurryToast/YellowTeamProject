@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<meta charset="UTF-8">
-		<title>스타라이트 시네마</title>
+<meta charset="UTF-8">
+<title>스타라이트 시네마</title>
 </head>
 <body>
 	<script type="text/javascript">

@@ -8,17 +8,18 @@
 <head>
 <title>영화관</title>
 <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Expires" content="0">
-  <link rel="stylesheet" href="assets/css/main.css" />
- <link rel="stylesheet" href="css/layout.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
-			<!-- Header -->
-			<%@ include file="./layout/header.jsp" %>
+		<!-- Header -->
+		<%@ include file="./layout/header.jsp" %>
 		<div class="mycol-2" style="width:450px;">
 		</div>
 		<div class="mycol-2" style="width:600px;">				
@@ -48,26 +49,28 @@
 				</div>
 		</div>
 </div>
-<script>
-console.log('${cookie.incorrect}')
-var cookies = document.cookie.split(';');
-cookies.forEach(function(cookie) {
-    if (cookie.trim().startsWith('incorrect=')) {
-        var value = cookie.split('=')[1];
-        if (value === 'y') {
-            document.getElementById('incorrect').style.display = 'inline-block';
-            document.cookie = 'incorrect' + "=; expires=Thu, 01 Jan 1970 00:00:10 GMT; path=/;";
-        }
-    }
-});
+<script type="text/javascript">
+	console.log('${cookie.incorrect}')
+	var cookies = document.cookie.split(';');
+	cookies.forEach(function(cookie) {
+	    if (cookie.trim().startsWith('incorrect=')) {
+	        var value = cookie.split('=')[1];
+	        if (value === 'y') {
+	            document.getElementById('incorrect').style.display = 'inline-block';
+	            document.cookie = 'incorrect' + "=; expires=Thu, 01 Jan 1970 00:00:10 GMT; path=/;";
+	        }
+	    }
+	});
 </script>
-  		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/script.js"></script>
+
+<!-- Scripts -->
+<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
 </body>
 </html>
+>>>>>>> refs/heads/home
