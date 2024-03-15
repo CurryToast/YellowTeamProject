@@ -1,1 +1,0 @@
-// const menu = document.querySelectorAll('nav > ul#menu > li')
