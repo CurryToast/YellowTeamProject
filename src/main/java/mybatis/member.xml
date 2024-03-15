@@ -9,6 +9,29 @@
  	<select id="getById" resultType="mybatis.vo.Member" parameterType="String">
  		SELECT * FROM tbl_member WHERE code=#{code} 
  	</select>
+ 	<insert id="join" parameterType="mybatis.vo.Member">
+ 		insert into 
+ 		tbl_member(code,name,isadmin,age,regdate,password) values
+ 		(#{code},#{name},'N',#{age},sysdate,#{password})
+ 	</insert>
+ 	<delete id="drop">
+		DELETE FROM  TBL_MEMBER WHERE code=#{code}
+	</delete>
+	<update id="modify" parameterType="mybatis.vo.Member">
+		UPDATE TBL_MEMBER
+		SET isadmin=#{isadmin},
+			age=#{age},
+			regdate=#{regdate}
+	  WHERE
+	  		code=#{code}		
+	</update>
+	<select id="login" resultType="mybatis.vo.Member" parameterType="java.util.Map">
+ 	SELECT * 
+		FROM 
+			tbl_member
+		WHERE 
+			code=#{code} and password=#{password}
+ 	</select>
  </mapper>
  
  
