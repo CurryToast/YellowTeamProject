@@ -2,8 +2,17 @@
 
 nav > ul#menu > li > ul.submenu {
 	display: none;
+	
 }
 
 nav > ul#menu > li:hover > ul.submenu {
-	display: block;
+	display: block !important;
+}
+
+nav > ul#user > li > ul.submenu {
+	display: none;
+}
+
+nav > ul#user > li:hover > ul.submenu {
+	display: block !important;
 }

@@ -55,5 +55,17 @@ public class MemberDao {
 		Member vo = sqlSession.selectOne("members.getById",id);
 		return vo;
 	}
+	public void modify(Member member) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		sqlSession.update("members.modify",member);
+		sqlSession.commit();
+		sqlSession.close();
+	}
+	public void drop(String id) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		sqlSession.update("members.drop",id);
+		sqlSession.commit();
+		sqlSession.close();
+	}
 	}
 

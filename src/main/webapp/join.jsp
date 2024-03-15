@@ -184,7 +184,7 @@
         // form 태그안의 모든 요소값을 자바스크립트 객체로 생성합니다.
         const data = $('#form').serializeObject();
         var idRule = /^[a-z]+[a-z0-9]{5,11}$/g;
-        if(!idRule.test(data.username)){
+        if(!idRule.test(data.code)){
             alert("아이디는 영문자로 시작하는 영문자 또는 숫자 6~12자로 입력해주세요.");
             $("#username").focus();
             return;
