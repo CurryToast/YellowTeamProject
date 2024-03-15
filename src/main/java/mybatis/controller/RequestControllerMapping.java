@@ -7,6 +7,7 @@ import mybatis.controller.api.ApiCheckIdController;
 import mybatis.controller.api.ApiGetAllMembersController;
 import mybatis.controller.api.ApiMemberJoinController;
 import mybatis.controller.api.ApiMemberModifyController;
+import mybatis.controller.api.ApiMyPageController;
 import mybatis.controller.member.AuthCertSMSController;
 import mybatis.controller.member.LoginActionController;
 import mybatis.controller.member.LoginViewController;
@@ -15,7 +16,8 @@ import mybatis.controller.member.MemberDropController;
 import mybatis.controller.member.MemberJoinController;
 import mybatis.controller.member.MemberModifyController;
 import mybatis.controller.member.MemberSaveController;
-import mybatis.controller.member.MypageViewController;
+import mybatis.controller.member.MyPageDropController;
+import mybatis.controller.member.MyPageViewController;
 
 
 public class RequestControllerMapping {
@@ -37,7 +39,9 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/login", "POST"), new LoginActionController());
 		mapping.put(new RequestKeyValue("/logout", "GET"), new LogoutController());
 //		마이페이지
-		mapping.put(new RequestKeyValue("/mypage", "GET"), new MypageViewController());
+		mapping.put(new RequestKeyValue("/myPage", "GET"), new MyPageViewController());
+		mapping.put(new RequestKeyValue("/api/myPage","POST"),new ApiMyPageController());
+		mapping.put(new RequestKeyValue("/myPage/drop","GET"),new MyPageDropController());
 		
 //		api 
 		mapping.put(new RequestKeyValue("/api/auth/checkId", "POST"), new ApiCheckIdController());

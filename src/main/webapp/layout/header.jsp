@@ -6,7 +6,6 @@
 	<!-- Nav -->
 	<nav id="nav">
 		<ul id="user">
-<<<<<<< HEAD
 		    <c:if test="${sessionScope.user == null }">        
 		        <li><a href="${pageContext.request.contextPath }/join"><span>회원가입</span></a></li>
 		        <li><a href="${pageContext.request.contextPath }/login">로그인</a></li>
@@ -16,29 +15,12 @@
 			        <a class="mainmenu" href="#">${user.name }님</a>
 		            <ul id="bookcafe" class="submenu">
 		                <li><a href="${pageContext.request.contextPath }/member/modify">회원정보</a></li>
-		                <li><a href="${pageContext.request.contextPath }/mypage">마이페이지</a></li>
+		                <li><a href="${pageContext.request.contextPath }/myPage">마이페이지</a></li>
 		            </ul>
 		        </li>
 		        <li><a href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
 		    </c:if>
-		</ul>	
-=======
-			<%-- <li><a href="${pageContext.request.contextPath }/join"><span>회원가입</span></a></li>
-			<li><a href="${pageContext.request.contextPath }/login">로그인</a></li> --%>
-			
-				<c:if test="${sessionScope.user == null }">		
-					<li><a href="${pageContext.request.contextPath }/join"><span>회원가입</span></a></li>
-					<li><a href="${pageContext.request.contextPath }/login">로그인</a></li>
-				</c:if>	
-				<c:if test="${sessionScope.user != null }">		
-					<li><a class="mainmenu" href="#"><span>마이페이지</span></a>
-						
-						
-					<li><a href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
-				</c:if>	
-			
 		</ul>
->>>>>>> branch 'dudu' of https://github.com/CurryToast/YellowTeamProject.git
 		<ul id="menu">
 			<li><a class="mainmenu" href="${pageContext.request.contextPath}">Home</a></li>								
 			<li>
