@@ -6,7 +6,7 @@
  
   	<select id="insert" resultType="int" parameterType="mybatis.vo.Reserve">
  		INSERT INTO TBL_RESERVE
-  		VALUES(reserve_idx_seq.nextval, #{member_code}, #{theater}, #{movie_code}, sysdate ,#{schedule}, #{seat})
+  		VALUES(reserve_idx_seq.nextval, #{member_code}, #{theater}, #{movie_code}, sysdate ,#{scheduleDate}, #{seat})
  	</select>
  	<select id="delete" resultType="int" parameterType="java.util.Map">
  		DELETE FROM TBL_RESERVE
@@ -17,8 +17,8 @@
 		FROM TBL_RESERVE
 		WHERE MEMBER_CODE = #{member_code}
  	</select>
- 	<select id="select" parameterType="String" resultType="Object">
- 		SELECT TR.MEMBER_CODE,TM.MNAME , TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TR.THEATER,TR.RCODE 
+ 	<select id="select" parameterType="java.util.Map" resultType="Object">
+ 		SELECT TR.MEMBER_CODE,TM.MNAME , TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TR.THEATER,TR.RCODE, TR.SEAT 
 		FROM TBL_MOVIE tm , TBL_RESERVE tr 
 		WHERE TM.MCODE = TR.MOVIE_CODE
 		AND TR.MEMBER_CODE = #{member_code}

@@ -1,10 +1,9 @@
 package mybatis.controller.movie;
 
 import java.io.IOException;
-import java.util.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,37 +33,29 @@ public class MovieReserveController implements Controller {
 			request.setCharacterEncoding("UTF-8");
 	  
 			  String member_code= request.getParameter("member_code"); 
-			  Object temp2=request.getAttribute("theater"); 
+			  String temp2=request.getParameter("theater"); 
 			  String movie_code=request.getParameter("movie_code"); 
-			  String temp3=request.getParameter("schedule"); 
+			  String scheduleDate=request.getParameter("schedule"); 
 			  String seat= request.getParameter("seat");
-			  
+			  logger.info("reserve POST : {} {} {} {} {}"
+					  ,member_code,temp2,movie_code,scheduleDate,seat);
 			  int theater = 0;
-			  if (((String) temp2).length() != 0)
-				  theater = Integer.parseInt(((String) temp2));
+			  if (temp2.length() != 0)
+				  theater = Integer.parseInt(temp2);
 			  
-			  Date schedule = null;
-	            try {
-	                schedule = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(temp3);
-	            } catch (ParseException e) {
-	                logger.error("Error parsing schedule date", e);
-	                throw new ServletException("Error parsing schedule date", e);
-	            }
 			
 
 			ReserveDao dao = new ReserveDao();
-			Reserve reserve = new Reserve(0, member_code, theater, movie_code, null, schedule, seat);
-			request.setAttribute("reserve", reserve);
+			Reserve reserve = new Reserve(0, member_code, theater, movie_code, scheduleDate, null, seat);
 			result = dao.insert(reserve);
+			request.setAttribute("reserve", reserve);
 			
-			List<Object> list= dao.select(member_code);
-			request.setAttribute("list", list);
+			
 
 			
 			logger.info("Reserve: {}", reserve);
             logger.info("Result: {}", result);
 			System.out.println(reserve);
-			System.out.println(result);
 
 			if (result == 0) {
 				response.setContentType("text/html; charset=UTF-8");

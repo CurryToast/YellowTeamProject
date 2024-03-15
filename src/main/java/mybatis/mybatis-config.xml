@@ -43,6 +43,7 @@ https://mybatis.org/mybatis-3/ko/getting-started.html 참고
     <mapper resource="mybatis/cinema.xml"/>
     <mapper resource="mybatis/schedule.xml"/>
     <mapper resource="mybatis/reserve.xml"/>
+    <mapper resource="mybatis/movie.xml"/>
   </mappers>
 </configuration>
 

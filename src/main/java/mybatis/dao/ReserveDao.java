@@ -1,5 +1,6 @@
 package mybatis.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,9 +41,9 @@ public class ReserveDao {
 		return list;
 	}
 	
-	public List<Object> select(String id){
+	public List<Object> select(Map<String, String> map){
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		List<Object> list = sqlSession.selectList("reserves.select",id);
+		List<Object> list = sqlSession.selectList("reserves.select",map);
 		log.info("select :{}", list);
 		sqlSession.close();
 		return list;

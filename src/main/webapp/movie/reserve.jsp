@@ -15,11 +15,11 @@
 
 
 
-<form>
+<form method="post" action="reserve">
 	<div class="inputForm">
 	  ID : <input type="text" name="member_code" id="member_code" value="admin" >
 	  영화 제목 : <input type="text" name="MoiveName" id="MoiveName" value="마더"  >
-	  영화 시간 : <input type="text" name="schedule" id="schedule" value="2024-03-13">
+	  영화 시간 : <input type="date" name="schedule" id="schedule" value="2024-03-13">
 	  <input type="number" id="movie_code" name="movie_code" value="100036"  >
 	  <input type="text" id="theater" name="theater" value="2">
 	  <br/><br/>
@@ -225,13 +225,14 @@
 	    <td><input type="radio" class="seats" value="J8" name="seat"></td>
 	    <td><input type="radio" class="seats" value="J9" name="seat"></td>
 	    <td><input type="radio" class="seats" value="J10" name="seat"></td>
-	    <td class="seatGap"></td>
+	    <td class="seatGap">
 		<button id="complete" type="button">선택완료</button>
+	    </td>
 	</tr>
       
 	</table>
 	</div>
-	</form>
+</form>
 <script src="../assets/js/reserve.js"></script>
  
 </body>
