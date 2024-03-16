@@ -1,4 +1,4 @@
-package mybatis.controller.movie;
+package mybatis.controller.member;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -18,8 +18,8 @@ import mybatis.controller.Controller;
 import mybatis.dao.ReserveDao;
 import mybatis.vo.ReserveList;
 
-public class ReserveAllController implements Controller {
-	private static final Logger logger = LoggerFactory.getLogger(ReserveAllController.class);
+public class MemberReserveController implements Controller {
+	private static final Logger logger = LoggerFactory.getLogger(MemberReserveController.class);
 
 	@Override
 public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,7 +33,7 @@ public void handle(HttpServletRequest request, HttpServletResponse response) thr
 			List<ReserveList> list= dao.reserveAll(member_code); 
 			request.setAttribute("list", list);
 			 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("complete.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("reserve.jsp");
             dispatcher.forward(request, response);
 		}
 	}

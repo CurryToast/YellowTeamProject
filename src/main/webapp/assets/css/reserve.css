@@ -118,10 +118,10 @@ button{
     display: flex;
     align-items: center;
     border-radius: 4px;
-    background-color: #FFFFFF;
-    font-style: #58D3F7;
+    background-color: #4388cc;
     height: 30px;
-    border: 1.5px solid #58d3f7;
+    border: 1.5px solid #4388cc;
+    color: #FFFFFf;
     }
   
     
@@ -129,14 +129,13 @@ form{
 	display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 40px;
 }
 img{
 	width: 300px;
     height: 430px;
 }
 .poster {
-	padding-right: -10px;
+	padding-left: 110px
 }
 
 .smallBox {
