@@ -12,18 +12,23 @@
  		DELETE FROM TBL_RESERVE
 		WHERE RCODE=#{rcode} AND MEMBER_CODE= #{member_code} 
  	</select>
- 	<select id="searchId" resultType="mybatis.vo.Reserve" parameterType="String">
- 		SELECT RCODE, MEMBER_CODE, THEATER, MOVIE_CODE, RESERVE_DATE, SCHEDULE, SEAT
-		FROM TBL_RESERVE
-		WHERE MEMBER_CODE = #{member_code}
+
+ 	<select id="reserveAll" parameterType="String" resultType="mybatis.vo.ReserveList">
+ 		SELECT TR.MEMBER_CODE, TM.MNAME , TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TC.NAME ,TR.RCODE, TR.SEAT 
+		FROM TBL_MOVIE tm , TBL_RESERVE tr, TBL_CINEMA tc 
+		WHERE TM.MCODE = TR.MOVIE_CODE
+		AND TR.MEMBER_CODE = #{member_code}
  	</select>
- 	<select id="select" parameterType="java.util.Map" resultType="mybatis.vo.ReserveList">
- 		SELECT TR.MEMBER_CODE,TM.MNAME , TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TR.THEATER,TR.RCODE, TR.SEAT 
-		FROM TBL_MOVIE tm , TBL_RESERVE tr 
+ 	<select id="reserve" parameterType="java.util.Map" resultType="mybatis.vo.ReserveList">
+ 		SELECT TR.MEMBER_CODE, TM.MNAME , TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TC.NAME ,TR.RCODE, TR.SEAT 
+		FROM TBL_MOVIE tm , TBL_RESERVE tr, TBL_CINEMA tc 
 		WHERE TM.MCODE = TR.MOVIE_CODE
 		AND TR.MEMBER_CODE = #{member_code}
 		AND tr.MOVIE_CODE =#{movie_code}
+		AND TO_CHAR(TR.RESERVE_DATE,'YYYY-MM-DD')=TO_CHAR(SYSDATE,'YYYY-MM-DD')
  	</select>
+ 
+ 
  
  </mapper>
  

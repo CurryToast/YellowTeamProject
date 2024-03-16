@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<head>
+<style>
+#header{
+background-color: #F2F5A9;
+}
+ul#menu {
+    display: flex;
+    justify-content: space-evenly
+}
+</style>
+</head>
+
 <!-- Header -->
 <div id="header">
 	<!-- Nav -->

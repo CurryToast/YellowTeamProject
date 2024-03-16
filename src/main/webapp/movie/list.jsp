@@ -11,7 +11,7 @@
 <link rel = "stylesheet" href="../assets/css/movielist.css"/>
 </head>
 <body>
-<%@ include file="../layout/header2.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 <section id = "movielist">
          <h3>상영 일정</h3>
          <hr style="color:white;">

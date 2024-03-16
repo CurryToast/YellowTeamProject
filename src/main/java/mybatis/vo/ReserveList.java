@@ -14,11 +14,11 @@ import lombok.ToString;
 @Getter
 public class ReserveList {
 	private String member_code;
-	private String MNAME;
+	private String mname;
 	private String schedule;
 	private Date reserve_date;
 	private int rating;
-	private int theater;
+	private String name;
 	private int rcode;
 	private String seat;
 //	private String movie_code;

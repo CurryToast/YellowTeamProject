@@ -33,18 +33,18 @@ public class ReserveDao {
 		return result;
 	}
 
-	public List<Reserve> searchId(String id){
+	public List<ReserveList> reserveAll(String member_code){
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		List<Reserve> list = sqlSession.selectList("reserves.searchId",id);
-		log.info("searchId :{}", list);
+		List<ReserveList> list = sqlSession.selectList("reserves.reserveAll",member_code);
+		log.info("reserveAll :{}", list);
 		sqlSession.close();
 		return list;
 	}
 	
-	public List<ReserveList> select(Map<String, String> map){
+	public List<ReserveList> reserve(Map<String,String> map){
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		List<ReserveList> list = sqlSession.selectList("reserves.select",map);
-		log.info("select :{}", list);
+		List<ReserveList> list = sqlSession.selectList("reserves.reserve",map);
+		log.info("reserve :{}", list);
 		sqlSession.close();
 		return list;
 	}

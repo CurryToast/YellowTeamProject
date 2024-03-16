@@ -33,7 +33,7 @@
 		}
 	</script>
 	<!-- Header -->
-	<%@ include file="./layout/header2.jsp" %>
+	<%@ include file="./layout/header.jsp" %>
 	<!-- Banner -->
 	<section id="banner">
 			<img alt="" src="images/bookmain.png" width="100%" height="75%" style="object-fit: cover;">
