@@ -15,7 +15,7 @@
             </div>
         <ul class="menu">
                     <ul class="site-tab">
-                        <img src="${pageContext.request.contextPath}/assets/img/logo.png" alt="logo" onclick="location.href='${pageContext.request.contextPath}/YellowTeamProject/index.jsp'"></li>
+                        <img src="${pageContext.request.contextPath}/assets/img/logo.png" alt="logo" onclick="location.href='${pageContext.request.contextPath}/index.jsp'"></li>
                     </ul>
 			<li>
 				<a class="mainmenu" href="/movie/list">상영일정</a>

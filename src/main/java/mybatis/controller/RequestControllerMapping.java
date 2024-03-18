@@ -5,6 +5,8 @@ import java.util.Map;
 
 import mybatis.controller.api.ApiGetAllMembersController;
 import mybatis.controller.member.MemberReserveController;
+import mybatis.controller.movie.MovieCommentsGetController;
+import mybatis.controller.movie.MovieCommentsPOSTController;
 import mybatis.controller.movie.MovieReserveController;
 import mybatis.controller.movie.MoviecompleteController;
 
@@ -18,6 +20,8 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/movie/list", "POST"), new MovieListController() );
 		mapping.put(new RequestKeyValue("/movie/reserve", "GET"), new MovieReserveController() );
 		mapping.put(new RequestKeyValue("/movie/reserve", "POST"), new MovieReserveController() );
+		mapping.put(new RequestKeyValue("/movie/comments", "GET"), new MovieCommentsGetController() );
+		mapping.put(new RequestKeyValue("/movie/comments", "POST"), new MovieCommentsPOSTController() );
 		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MoviecompleteController() );
 		mapping.put(new RequestKeyValue("/member/reserve","GET"), new MemberReserveController());
 	}

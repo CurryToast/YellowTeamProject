@@ -35,8 +35,11 @@ body {
 
 ol, ul {
 	list-style: none;
+	
 }
-
+a {
+	text-decoration-line: none;
+}
 blockquote, q {
 	quotes: none;
 }
@@ -2542,51 +2545,6 @@ input, select, textarea {
 			margin-top: -1px;
 		}
 
-/* Banner */
-
-	#banner {
-		background-image: url("../../images/banner.jpg");
-		background-position: center center;
-		background-size: cover;
-		height: 18em;
-		text-align: center;
-		position: relative;
-	}
-
-		#banner header {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			background: #212121;
-			background: rgba(27, 27, 27, 0.75);
-			color: #fff;
-			padding: 1.5em 0;
-		}
-
-			#banner header h2 {
-				display: inline-block;
-				margin: 0;
-				font-size: 1.25em;
-				vertical-align: middle;
-			}
-
-				#banner header h2 em {
-					opacity: 0.75;
-				}
-
-				#banner header h2 a {
-					border-bottom-color: rgba(255, 255, 255, 0.5);
-				}
-
-					#banner header h2 a:hover {
-						border-bottom-color: transparent;
-					}
-
-			#banner header .button {
-				vertical-align: middle;
-				margin-left: 1em;
-			}
 
 /* Wrapper */
 
@@ -3211,4 +3169,28 @@ input, select, textarea {
 				text-align: left;
 			}
 
+
 	}
+	
+	
+	
+	
+hr[role="tournament4"] {
+    border: 0px solid;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 140, 186, 0.75), rgba(0, 0, 0, 0));
+    margin: 32px 0px;
+    display: block;
+}
+hr[role="tournament4"]::before {
+    position: absolute;
+    background-color: #efefef;
+    border: 10px solid #008cba;
+    border-top: 10px solid transparent;
+    border-radius: 2px;
+    padding: 0px;
+    transform: rotate(180deg);
+    left: 50%;
+    margin: -5px 0px 0px -21px;
+    content: "";
+}
