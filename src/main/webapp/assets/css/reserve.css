@@ -5,6 +5,7 @@ body{
 }
 
 .wrap {
+	padding-top: 150px;
     display: flex;
     justify-content: space-around;
 }
@@ -135,7 +136,8 @@ img{
     height: 430px;
 }
 .poster {
-	padding-left: 110px
+	padding-left: 110px;
+	padding-top: 20px;
 }
 
 .smallBox {
