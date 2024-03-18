@@ -11,7 +11,7 @@
 <body>
 <div class="card">
 <div class = "card-header" id="messageBot">
-		<h3><em>본인인증</em></h3>
+<h3><em>본인인증</em></h3>
 </div>
 		<div class = "form-group card-body">
 				<div class ="form-text" id="idMessage">
@@ -34,8 +34,8 @@
 <script>
 	document.querySelector('#confirm').addEventListener('click',()=>{
 		var message = {successYn : 'Y'};
-		message = JSON.stringify(message)
-		var targetOrigin = 'http://localhost:8080/YellowTeamProject/join';
+		message = JSON.stringify(message);
+		var targetOrigin = window.location.origin + '/YellowTeamProject/join';
 		window.opener.postMessage(message,targetOrigin);
 		self.close();
 	})

@@ -1,4 +1,4 @@
-package mybatis.movie;
+package mybatis.controller.api;
 
 import java.io.IOException;
 import java.io.PrintWriter;

@@ -24,16 +24,28 @@ public class MemberDao {
 		sqlSession.close();
 		return list;
 	}
-	
-	/*
-	 * public List<Member> selectById(String code) { SqlSession sqlSession =
-	 * SqlSessionBean.getSession(); List<Member> list =
-	 * sqlSession.selectList("members.getById", code); log.info("selectById :{}",
-	 * list); sqlSession.close(); return list; }
-	 */
+	public List<Member> selectById(String code) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		List<Member> list = sqlSession.selectList("members.getById", code);
+		log.info("selectById :{}", list);
+		sqlSession.close();
+		return list;
+	}
 	public void join(Member member) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		sqlSession.insert("members.join",member);
+		sqlSession.insert("members.join", member);
+		sqlSession.commit();
+		sqlSession.close();
+	}
+	public void adminJoin(Member member) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		sqlSession.insert("members.adminJoin", member);
+		sqlSession.commit();
+		sqlSession.close();
+	}
+	public void modify(Member member) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		sqlSession.update("members.modify",member);
 		sqlSession.commit();
 		sqlSession.close();
 	}
@@ -44,22 +56,17 @@ public class MemberDao {
 		return vo;
 	}
 	public boolean isExistId(String id) {
-		SqlSession sqlsession = SqlSessionBean.getSession();
-		Member vo = sqlsession.selectOne("members.getById",id);
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		Member vo = sqlSession.selectOne("members.getById", id);
 		boolean result = false;
-		if(vo!=null) result = true;
+		if (vo!=null) result = true;
 		return result;
 	}
+	
 	public Member getById(String id) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		Member vo = sqlSession.selectOne("members.getById",id);
 		return vo;
-	}
-	public void modify(Member member) {
-		SqlSession sqlSession = SqlSessionBean.getSession();
-		sqlSession.update("members.modify",member);
-		sqlSession.commit();
-		sqlSession.close();
 	}
 	public void drop(String id) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
@@ -67,5 +74,5 @@ public class MemberDao {
 		sqlSession.commit();
 		sqlSession.close();
 	}
-	}
-
+	
+}

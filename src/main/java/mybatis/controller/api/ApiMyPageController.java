@@ -1,4 +1,4 @@
-package mybatis.controller.member;
+package mybatis.controller.api;
 
 import java.io.IOException;
 
@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import mybatis.controller.Controller;
 
-public class MemberJoinController implements Controller {
+public class ApiMyPageController implements Controller {
 
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("join.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/myPage.jsp");
 		dispatcher.forward(request, response);
 
 	}

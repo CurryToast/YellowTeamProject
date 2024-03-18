@@ -10,12 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import mybatis.controller.Controller;
 
 public class AuthCertSMSController implements Controller {
-
 	@Override
-public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("../sms.jsp");
 		dispatcher.forward(request, response);
-	
-}
+	}
 }
