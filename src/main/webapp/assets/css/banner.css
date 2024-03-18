@@ -6,9 +6,9 @@
 
 /* Banner */
 #banner {
-	width: 70%;
+	width: 75%;
 	margin: 0 auto;
-	height: 720px;
+	height: 840px;
 	text-align: center;
 	position: relative;
 
@@ -122,6 +122,6 @@
 	/* Banner */
 	#banner {
 		width: 1240px;
-		height: 700px;
+		height: 800px;
 	}
 }

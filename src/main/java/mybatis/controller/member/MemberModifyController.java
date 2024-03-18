@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import mybatis.controller.Controller;
 
-public class MemberJoinController implements Controller {
+public class MemberModifyController implements Controller {
 
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("join.jsp");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/modify.jsp");
 		dispatcher.forward(request, response);
-
+		
 	}
 
 }

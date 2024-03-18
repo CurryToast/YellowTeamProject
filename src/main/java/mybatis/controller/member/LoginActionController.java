@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import mybatis.controller.Controller;
-import mybatis.service.MemberService;
+import mybatis.controller.service.MemberService;
 import mybatis.vo.Member;
 
 public class LoginActionController implements Controller {
