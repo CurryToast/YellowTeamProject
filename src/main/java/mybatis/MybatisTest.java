@@ -1,15 +1,17 @@
 package mybatis;
 
+import java.util.List;
+
 import lombok.extern.slf4j.Slf4j;
-import mybatis.dao.MovieDao;
-import mybatis.vo.Movie;
+import mybatis.dao.MemberDao;
+import mybatis.vo.Member;
 
 @Slf4j
 public class MybatisTest {
 	public static void main(String[] args) {
-		MovieDao dao = MovieDao.getInstance();
-		Movie vo = dao.getOne(100023);
+		MemberDao dao = MemberDao.getInstance();
+		List<Member> list = dao.selectAll();
 
-		log.info("vo : {}", vo);
+		log.info("list 0 name : {}", list.get(1).getName());
 	}
 }

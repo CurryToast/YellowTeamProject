@@ -6,18 +6,31 @@
  	<select id="selectAll" resultType="mybatis.vo.Member">
  		SELECT * FROM tbl_member
  	</select>
+ 	
  	<select id="getById" resultType="mybatis.vo.Member" parameterType="String">
  		SELECT * FROM tbl_member WHERE code=#{code} 
  	</select>
+ 	
  	<insert id="join" parameterType="mybatis.vo.Member">
- 		insert into 
- 		tbl_member(code,name,isadmin,age,regdate,password) values
- 		(#{code},#{name},'N',#{age},sysdate,#{password})
+ 	INSERT INTO 
+ 		TBL_MEMBER(CODE,NAME,ISADMIN,AGE,REGDATE,PASSWORD) VALUES
+ 		(#{code},#{name},'N',#{age},SYSDATE,#{password})
  	</insert>
- 	<delete id="drop">
-		DELETE FROM  TBL_MEMBER WHERE code=#{code}
-	</delete>
-	<update id="modify" parameterType="mybatis.vo.Member">
+ 	<insert id="adminJoin" parameterType="mybatis.vo.Member">
+ 	INSERT INTO 
+ 		TBL_MEMBER(CODE,NAME,ISADMIN,AGE,REGDATE,PASSWORD) VALUES
+ 		(#{code},#{name},'N','99',SYSDATE,#{password})
+ 	</insert>
+ 	
+ 	<select id="login" resultType="mybatis.vo.Member" parameterType="java.util.Map">
+ 	SELECT * 
+		FROM 
+			tbl_member
+		WHERE 
+			code=#{code} and password=#{password}
+ 	</select>
+ 	
+ 	<update id="modify" parameterType="mybatis.vo.Member">
 		UPDATE TBL_MEMBER
 		SET isadmin=#{isadmin},
 			age=#{age},
@@ -25,13 +38,11 @@
 	  WHERE
 	  		code=#{code}		
 	</update>
-	<select id="login" resultType="mybatis.vo.Member" parameterType="java.util.Map">
- 	SELECT * 
-		FROM 
-			tbl_member
-		WHERE 
-			code=#{code} and password=#{password}
- 	</select>
+	
+ 	<delete id="drop">
+		DELETE FROM  TBL_MEMBER WHERE code=#{code}
+	</delete>
+	
  </mapper>
  
  

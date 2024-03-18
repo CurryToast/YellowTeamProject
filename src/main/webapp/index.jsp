@@ -9,7 +9,7 @@
 -->
 <html>
 <head>
-	<title>커피24 북카페</title>
+	<title>영화관</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -29,7 +29,6 @@
 <body class="is-preload">+
 <div id="page-wrapper" class="home">
 	<script>
-		/* 로그인 후 글쓰기로 돌아가기 */
 		var back = sessionStorage.getItem('back');
 		if(back) {
 			location.href=back;
@@ -47,7 +46,7 @@
 			<div class="row gtr-200">
 				<section class="col-4 col-12-narrower">
 					<div class="box highlight">
-						<i class="icon solid major fa-book"></i>
+						<i class="icon solid major fa- book"></i>
 						<h3>책장</h3>
 						<p>커피24에서 함께 보는<br> 책들 구경오세요.<br>
 						회원님들의 소장 도서를 판매합니다.
