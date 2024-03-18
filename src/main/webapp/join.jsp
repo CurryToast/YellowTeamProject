@@ -193,7 +193,7 @@
 		console.log('request data',data);
 		// 비동기 통신을 위한 jquerry (순수자바스크립트의 XMLHttpRequest 를 쉽게 사용하도록 합니다.)
         $.ajax({
-          url        : './api/auth/	',
+          url        : './api/auth/checkId',
           data       : data,
           dataType: 'json',
           type       : 'post',

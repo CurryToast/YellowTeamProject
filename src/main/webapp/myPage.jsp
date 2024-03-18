@@ -23,14 +23,21 @@
 		<div class="mycol-2" style="width: 600px;">
 			<div class="login">
 				<h2>예매 내역</h2>
-				<c:if test="${sessionScope.user.isadmin == 'Y' }">
+				<button class="join-btn  "type="button" onclick="location.href='member/reserve.jsp'">예매/취소내역</button><br>
+				<button class="join-btn  "type="button" onclick="location.href=''">지난관람내역</button><br>
+				<button class="join-btn  "type="button" onclick="location.href='member/modify.jsp'">회원정보수정</button><br>
+				<c:if test="${sessionScope.user.code == 'chch' }">
 				<form id="cont">
-				<button class="join-btn  "type="button" onclick="location.href='admin/join.jsp'">관리자 등록</button>
-				<button class="join-btn  "type="button" onclick="drop()">관리자 해지</button>
+				<button class="join-btn  "type="button" onclick="location.href='admin/join.jsp'">관리자 등록</button><br>
+				<button class="join-btn  "type="button" id="delete">관리자 해지</button><br>
 				</form>
 				</c:if>
 			</div>
+			<button id="selectAdmin" class="join-btn" type="button">관리자 목록 가져오기</button>
 		</div>
+		<ul id="list">
+			
+		</ul>
 	</div>
 <script type="text/javascript">
   function drop() {
@@ -40,8 +47,10 @@
 	  else
 		  alert('입력하신 글자를 다시 확인하세요.')
   }
- 
+  
  </script>	
+ <script type="text/javascript" src="assets/js/adminlist.js"></script>
+ <script type="text/javascript" src="assets/js/admindelete.js"></script>
  <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/jquery.dropotron.min.js"></script>
 <script src="../assets/js/browser.min.js"></script>

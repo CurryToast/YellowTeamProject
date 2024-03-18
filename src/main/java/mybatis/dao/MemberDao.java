@@ -12,7 +12,7 @@ import mybatis.vo.Member;
 @Slf4j
 public class MemberDao {
 	private static MemberDao dao = new MemberDao();
-	private MemberDao() {}
+	public MemberDao() {}
 	public static MemberDao getInstance() {
 		return dao;
 	}
@@ -21,6 +21,13 @@ public class MemberDao {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		List<Member> list = sqlSession.selectList("members.selectAll");
 		log.info("selectAll :{}", list);
+		sqlSession.close();
+		return list;
+	}
+	public List<Member> selectAdmin() {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		List<Member> list = sqlSession.selectList("members.selectAdmin");
+		log.info("selectAdmin :{}", list);
 		sqlSession.close();
 		return list;
 	}
@@ -66,7 +73,7 @@ public class MemberDao {
 	public Member getById(String id) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		Member vo = sqlSession.selectOne("members.getById",id);
-		return vo;
+		return vo; 
 	}
 	public void drop(String id) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
@@ -74,5 +81,11 @@ public class MemberDao {
 		sqlSession.commit();
 		sqlSession.close();
 	}
-	
+	public int delete(String code) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		int result=1;
+		sqlSession.selectList("members.delete", code);
+		sqlSession.close();
+		return result;
+	}
 }

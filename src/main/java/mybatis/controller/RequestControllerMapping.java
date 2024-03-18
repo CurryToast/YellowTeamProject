@@ -35,9 +35,12 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/api/auth/join", "POST"), new ApiMemberJoinController());
 		mapping.put(new RequestKeyValue("/api/modify","POST"),new ApiMemberModifyController());
 		mapping.put(new RequestKeyValue("/api/auth/adminJoin", "POST"), new ApiAdminJoinController());
-		//회원가입
-		mapping.put(new RequestKeyValue("/admin/join","GET"), new AdminJoinController());
+		// 관리자
 		mapping.put(new RequestKeyValue("/admin/join","POST"), new AdminSaveController());
+		mapping.put(new RequestKeyValue("/admin/join","GET"), new AdminJoinController());
+		mapping.put(new RequestKeyValue("/admin/list","GET"), new AdminListController());
+		mapping.put(new RequestKeyValue("/api/admin","DELETE"), new ApiAdminDeleteController());
+		//회원가입
 		mapping.put(new RequestKeyValue("/join","GET"), new MemberJoinController());
 		mapping.put(new RequestKeyValue("/join","POST"), new MemberSaveController());
 		mapping.put(new RequestKeyValue("/auth/cert/sms","GET"), new AuthCertSMSController());
