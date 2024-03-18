@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+/* 리셋 CSS */
+html, body, div, span, ul, li, h2, h3, h4, h6 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* 기본 스타일 */
+body {
+    font-family: 'Roboto','Noto Sans KR';
+    letter-spacing: -0.02rem;
+    color: #222;
+    user-select: none;
+    font-size: 1.6rem;
+}
+
+ul {
+    list-style: none;
+    word-break: keep-all;
+}
+
+/* 헤더 스타일 */
+#header {
+    background-color: #0E2759;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+#header > .desktop-only > .sub-wrap {
+    width: 100%;
+    background-color: #04152b;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    color: #fff;
+    font: inherit;
+    display: inline-block;
+}
+
+.sub-wrap .sub-con {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+    height: 3rem;
+    padding: 0.5rem 4rem;
+    margin: 0;
+    letter-spacing: -.02rem;
+    user-select: none;
+    font: inherit;
+    align-items: center;
+    background-color: 0B0B3B;
+}
+
+.sub-wrap .sub-con .site-tab {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    align-items: center;
+}
+
+.sub-wrap .sub-con .user-tab {
+    display: flex;
+    margin: 0;
+}
+
+.sub-wrap .sub-con .site-tab > li {
+    height: 100%;
+    display:inline-block;
+    align-items: center;
+    line-height: 3.6rem;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+    vertical-align: baseline;
+    margin: 0;
+    border: 0;
+    text-decoration-line: none;
+}
+
+.sub-wrap .sub-con .user-tab > ul {
+    display: flex;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.sub-wrap .sub-con .user-tab > li {
+    position: relative;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+    border-left: 40rem;
+}
+
+.sub-wrap .sub-con .user-tab > li + li::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0.1rem;
+    height: 1rem;
+    background-color: rgba(255,255,255,0.5);
+    transform: translateY(-50%);
+}
+
+/* 메뉴 스타일 */
+.menu img {
+    height: 50px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: visible; /* overflow 속성을 visible로 변경 */
+    margin: 0px 20px;
+    height: 100px;
+}
+
+.menu > li {
+    width: 20%; /*20*5=100%*/
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    position: relative; /* 하위 .submenu에 절대 위치를 사용하기 위해 필요 */
+}
+
+.menu a {
+    color: #fff;
+    color:white;
+    text-decoration-line: none;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height ease-in-out; /* 높이 전환에 애니메이션 적용 */
+}
+.menu > li .submenu{
+	padding-top: 20px;
+}
+
+.menu > li:hover .submenu {
+    height: 150px; /* 서브메뉴 높이 설정 */
+    background-color: #0E2759;
+}
+
+#header{
+	margin-bottom: 50px;
+}

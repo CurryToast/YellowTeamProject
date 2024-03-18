@@ -8,58 +8,32 @@
 <head>
 <meta charset="UTF-8">
 <title>스타 라이트 영화관</title>
-<link rel="stylesheet" href="../assets/css/complete.css" />
+<link rel="stylesheet" href="../assets/css/memberReserve.css" />
 </head>
 <body>
 <%@ include file="../layout/header.jsp" %>
-<h3>예매 내역</h3>
-<p>예매 취소는 상영일 하루 전까지만 가능합니다.</p>
-<c:forEach items="${list}" var="ele">
-	<div class="wrap">
-		<!-- <div class="poster"> -->
-		<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${ele.mname}.jpg" alt="${ele.mname}">
-		<!-- </div> -->
+<div class="container">
+<h2>예매 내역</h2>
+<c:forEach var="ele" items="${list}">
+    <div class="wrap">
+		<img class="poster" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${ele.mname}.jpg" alt="${ele.mname}">
 	     <div class="container">
 	      <div class="top-container">
-	         <h1><c:out value="${ele.mname}"/></h1> 
+	         <h3><c:out value="${ele.mname}"/></h3><p><strong>예매번호</strong><c:out value="${ele.rcode}"/></p>
+	      </div>
+	      <hr>
 	        <div class="inform">
-	         <h2><c:out value="${ele.schedule}"/></h2>
-	          <div class="schedule"></div>
-	        </div>
-	
-	        <div class="info-container">
-	        	<div class="reserve_date">
-	            <p><c:out value="${ele.reserve_date}"/></p>
-	            <h4>예매일자</h4>
-	          </div>
-	          <div class="member_code">
-	            <p><c:out value="${ele.member_code}"/></p>
-	            <h4>ID</h4>
-	          </div>
-	          <div class="movie_age">
-	            <p><c:out value="${ele.rating}"/></p>
-	            <h4>관람등급</h4>
-	          </div>
-	          <div class="theater">
-	            <p><c:out value="${ele.name}"/> <c:out value="${ele.seat}"/> 좌석</p>
-	            <h4>상영관</h4>
-	          </div>
-	          <div class="rcode">
-	            <p><c:out value="${ele.rcode}"/></p>
-	            <h4>예매번호</h4>
-	          </div>
+	            <p><strong>관람일시</strong> <c:out value="${ele.schedule}"/></p>
+	            <p><strong>상 영 관 </strong>&nbsp;<c:out value="${ele.name}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	            <strong>좌석 </strong><c:out value="${ele.seat}"/></p>
+	            <p><strong>예매일자 </strong><c:out value="${strNewFormatDate}"/></p>
+	            <p><strong>고객  ID </strong><c:out value="${ele.member_code}"/></p>
+	            <p><strong>관람등급 </strong><c:out value="${ele.rating}"/>세</p>
 	         </div>
-	       </div> 
-	          <div class="cancel">
-	            <button>예매 취소</button>
-	          </div>
-	       </div>
-	       <p/><p/>
-       </div>
+        </div>
+    </div>
 </c:forEach>
+</div>
            
-           
-           
-      <button>홈으로 가기</button>
 </body>
 </html>

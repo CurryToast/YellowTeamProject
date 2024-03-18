@@ -1,15 +1,14 @@
 package mybatis.controller.member;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +18,6 @@ import mybatis.dao.ReserveDao;
 import mybatis.vo.ReserveList;
 
 public class MemberReserveController implements Controller {
-	private static final Logger logger = LoggerFactory.getLogger(MemberReserveController.class);
 
 	@Override
 public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,7 +29,18 @@ public void handle(HttpServletRequest request, HttpServletResponse response) thr
 				
 			ReserveDao dao = new ReserveDao(); 
 			List<ReserveList> list= dao.reserveAll(member_code); 
+			String strNewFormatDate =null;
+			if (!list.isEmpty()) {
+			    ReserveList firstReserve = list.get(0); // 첫 번째 ReserveList 객체 가져오기
+			    Date reserveDate = firstReserve.getReserve_date(); // reserve_date 속성 가져오기
+			    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			    strNewFormatDate = formatter.format(reserveDate); // 포맷팅된 예약 날짜
+			    
+			    System.out.println(strNewFormatDate); // 포맷팅된 예약 날짜 출력
+			    
+			}
 			request.setAttribute("list", list);
+			request.setAttribute("strNewFormatDate", strNewFormatDate);
 			 
             RequestDispatcher dispatcher = request.getRequestDispatcher("reserve.jsp");
             dispatcher.forward(request, response);

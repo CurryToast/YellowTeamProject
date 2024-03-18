@@ -14,7 +14,6 @@
       	<meta name="author" content="" />
 	<link rel="stylesheet" href="assets/css/main.css?v=3" />
 	<link rel="stylesheet" href="css/layout.css?v=3" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header2.css" /> 
 	<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
 </head>
 <body class="is-preload">
