@@ -5,23 +5,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Cache-Control"
+	content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>스타라이트 시네마</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 <link rel="stylesheet" href="../css/layout.css" />
-<link rel="stylesheet" href="../assets/css/style.css" />  
+<link rel="stylesheet" href="../assets/css/style.css" />
 <link rel="stylesheet" href="../assets/css/main.css" />
-<link rel="stylesheet" href="../css/join.css" /> 
+<link rel="stylesheet" href="../css/join.css" />
 <style type="text/css">
-.change{
+.change {
 	background-color: bisque !important;
 }
-button.drop{
-	font-size:0.85em;
-	border:none;
+
+button.drop {
+	font-size: 0.85em;
+	border: none;
 	background-color: transparent;
 	color: gray;
 }
@@ -33,12 +37,11 @@ button.drop{
 		<h1>관리자 등록</h1>
 		<form id="form">
 			<ul class="join-wrap">
-			
+
 				<li>아이디</li>
-				<li>
-					<input class="id-input" id="username" name="code"
-					type="text" onchange="resetCheckId();" placeholder="아이디를 입력해 주세요." />
-					<button type="button" onclick="checkId();">중복확인</button>
+				<li><input class="id-input" id="username" name="code"
+					type="text" onchange="resetCheckId()" placeholder="아이디를 입력해 주세요." />
+					<button type="button" onclick="checkId()">중복확인</button>
 					<hr></li>
 				<li>비밀번호 <label>원하시는 비밀번호를 입력해주세요.</label></li>
 				<li><input name="password" type="password"
@@ -49,7 +52,11 @@ button.drop{
 				<li>이름</li>
 				<li><input id="name" name="name" type="text" placeholder="이름" /></li>
 			</ul>
-				<button class="join-btn  "type="button" onclick="adminJoin">등록</button>
+			<div class="hidden">
+				<input id="adultYn" name="adultYn" type="hidden" /> <input
+					id="channel" name="channel" type="hidden" />
+			</div>
+			<button class="join-btn  " type="button" onclick="adminJoin()">등록</button>
 		</form>
 	</div>
 	<script src="assets/js/jquery.min.js"></script>
@@ -71,10 +78,10 @@ button.drop{
 			alert("아이디를 입력하세요.");
 			return;
 		}
-		if(!isChecked) {
-	          alert("아이디 중복확인을 해주세요.");
-	          return;
-	        }
+		if (!isChecked) {
+			alert("아이디 중복확인을 해주세요.");
+			return;
+		}
 		if (data.password == "") {
 			alert("비밀번호를 입력하세요.");
 			return;
@@ -84,7 +91,14 @@ button.drop{
 			alert("비밀번호 확인을 입력하세요.");
 			return;
 		}
-
+		if (data.password != data.password2) {
+			alert("비밀번호 확인이 일치하지 않습니다.");
+			$('#password').focus();
+			return;
+		}
+		data.adultYn = undefined;
+		data.channel = undefined;
+		data.password2 = undefined;
 		console.log('join', data);
 		$.ajax({
 			url : './api/auth/join',
@@ -101,44 +115,39 @@ button.drop{
 			}
 		});
 	}
-	function resetCheckId() {
-        isChecked = false;
-    }
-
-	function checkId() {
-		if ($("#username").val() == "") {
-			alert("아이디를 입력하세요.");
-			$("#username").focus();
-			return;
-		}
-		const data = $('#form').serializeObject();
-		var idRule = /^[a-z]+[a-z0-9]{1,11}$/g;
-		if (!idRule.test(data.code)) {
-			alert("아이디는 영문자로 또는 숫자 포함해서 2~12자로 입력해주세요.");
-			$("#username").focus();
-			return;
-		}
-		console.log('request data', data);
-		$.ajax({
-			url : './api/auth/checkId',
-			data : data,
-			dataType : 'json',
-			type : 'post',
-			success : function(res) { 
-				console.log('/api/auth/checkId', res);
-				if (!res.isExist) {
-					alert("사용 가능한 아이디입니다.");
-					isChecked = true;
-				} else {
-					alert("이미 사용중인 아이디입니다.");
-				}
-			},
-			error : function(xhr, status, error) {
-				alert(xhr.responseJSON.message);
-			}
-		});
-	}
-
+	 function checkId() {
+	        if($("#username").val() == "") {
+	          alert("아이디를 입력하세요.");
+	          $("#username").focus();
+	          return;
+	        }
+	        const data = $('#form').serializeObject();
+	        var idRule = /^[a-z]+[a-z0-9]{5,11}$/g;
+	        if(!idRule.test(data.code)){
+	            alert("아이디는 영문자로 시작하는 영문자 또는 숫자 6~12자로 입력해주세요.");
+	            $("#username").focus();
+	            return;
+	        }
+			console.log('request data',data);
+	        $.ajax({
+	          url        : './api/auth/checkId',
+	          data       : data,
+	          dataType: 'json',
+	          type       : 'post',
+	          success : function(res){	//요청 성공하면 응답을 res 변수에 저장.
+	        	console.log('/api/auth/checkId',res) ;
+	        	if (!res.isExist) {
+		            alert("사용 가능한 아이디입니다.");
+		            isChecked = true;
+	        	}else {
+	        		alert("이미 사용중인 아이디입니다.");
+	        	}
+	          },
+	          error : function(xhr, status, error){
+	            alert(xhr.responseJSON.message);
+	          }
+	        });
+	      }
 	function resetCheckId() {
 		isChecked = false;
 	}
