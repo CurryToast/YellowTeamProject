@@ -19,7 +19,7 @@
 			<div class="file-wrapper">
 				<input type="file" id="poster" accept="image/jpg">
 				<label id="upload-section" for="poster">
-					<span id="upload-button">영화 포스터 등록</span>
+					<span id="upload-button">영화 포스터 업로드</span>
 				</label>
 			</div>
 			<div class="input-wrapper">
@@ -54,7 +54,7 @@
 			</div>
 			<div class="input-wrapper">
 				<p>상영시간</p>
-				<input type="number" name="running_time" placeholder="~분" min="0">
+				<input type="number" name="running_time" placeholder="단위: 분" min="0">
 			</div>
 			<div class="input-wrapper">
 				<p>줄거리</p>
