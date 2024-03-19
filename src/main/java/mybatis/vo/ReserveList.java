@@ -17,7 +17,7 @@ import lombok.ToString;
 public class ReserveList {
 	private String member_code;
 	private String mname;
-	private String full;
+	private String poster;
 	private String schedule;
 	private Date reserve_date;
 	private String reserve_datef;

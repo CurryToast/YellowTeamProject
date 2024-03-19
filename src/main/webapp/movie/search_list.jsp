@@ -10,7 +10,7 @@
 -->
 <html>
 <head>
-	<title>커피24 북카페</title>
+	<title>스타라이트 시네마</title>
 	<meta charset="utf-8" />
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -40,7 +40,7 @@
 					<!-- Content -->
 					<article>
 						<header class="guide">
-							<h3>스타 레이드 영화관</h3>
+							<h3>스타 라이트 영화관</h3>
 							<p>현재 상영중인 영화</p>
 						</header>
 					</article>

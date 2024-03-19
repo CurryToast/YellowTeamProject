@@ -48,21 +48,24 @@ ul#user {
     vertical-align: baseline;
     color: #fff;
     font: inherit;
-    display: inline-block;
-}
-
-.sub-wrap .sub-con {
     display: flex;
     justify-content: flex-end;
-    width: auto;
-    height: 3rem;
-    padding: 0.5rem 4rem;
-    margin: 0;
-    letter-spacing: -.02rem;
-    user-select: none;
-    font: inherit;
-    align-items: center;
     background-color: #000C4B;
+      padding: 0.5rem 4rem;
+}
+
+
+#user a {
+    color: white;
+    text-decoration: none;
+    padding-right: 20px;
+    font-size: 1.3rem;
+}
+#user span {
+    color: white;
+    text-decoration: none;
+    padding-right: 20px;
+    font-size: 1.3rem;
 }
 
 .sub-wrap .sub-con .site-tab {
@@ -125,7 +128,7 @@ ul#user {
 .menu img {
     height: 50px;
 }
-img :hover{
+img:hover{
 	cursor: pointer;
 }
 

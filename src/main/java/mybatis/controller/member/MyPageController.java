@@ -25,9 +25,6 @@ public void handle(HttpServletRequest request, HttpServletResponse response) thr
 			HttpSession session = request.getSession();
 			String member_code = ((Member)session.getAttribute("user")).getCode();
 			
-			int sTime = 60*60; 
-			session.setMaxInactiveInterval(sTime);
-			
 			ReserveDao dao = new ReserveDao(); 
 			List<ReserveList> list= dao.reserveAll(member_code); 
 			String strNewFormatDate = null;
@@ -39,18 +36,6 @@ public void handle(HttpServletRequest request, HttpServletResponse response) thr
 			        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			        strNewFormatDate = formatter.format(reserveDate); // 포맷팅된 예약 날짜
 			        firstReserve.setReserve_datef(strNewFormatDate); // 변환된 예약 날짜 설정
-			        
-			        String mname = "";
-			        String temp = firstReserve.getMname();
-			        if (temp != null && !temp.isEmpty()) {
-			        	for(int j=0; j<temp.length();j++) {
-			            char charAtIndex = temp.charAt(j); // 리스트의 인덱스를 이름의 길이로 나눈 나머지를 사용하여 mname의 각 문자에 접근
-			            if (charAtIndex != ' ') {
-			                mname += charAtIndex;
-			            }}
-			        }
-			        list.get(i).setMname(mname);
-			        System.out.println();
 			    }
 			}
 	

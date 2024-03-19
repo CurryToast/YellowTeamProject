@@ -9,7 +9,10 @@ import mybatis.controller.member.LoginViewController;
 import mybatis.controller.member.LogoutController;
 import mybatis.controller.member.MyPageController;
 import mybatis.controller.movie.MovieCommentsGetController;
+import mybatis.controller.movie.MovieDetailController;
+import mybatis.controller.movie.MovieListController;
 import mybatis.controller.movie.MovieReserveController;
+import mybatis.controller.movie.MovieReserveGetController;
 import mybatis.controller.movie.MoviecompleteController;
 
 
@@ -20,11 +23,12 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/api/member", "POST"), new ApiGetAllMembersController());
 		mapping.put(new RequestKeyValue("/movie/list", "GET"), new MovieListController() );
 		mapping.put(new RequestKeyValue("/movie/list", "POST"), new MovieListController() );
-		mapping.put(new RequestKeyValue("/movie/reserve", "GET"), new MovieReserveController() );
+		mapping.put(new RequestKeyValue("/movie/showMovieDetail", "GET"), new MovieDetailController());
+		mapping.put(new RequestKeyValue("/movie/reserve", "GET"), new MovieReserveGetController() );
 		mapping.put(new RequestKeyValue("/movie/reserve", "POST"), new MovieReserveController() );
+		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MoviecompleteController() );
 		mapping.put(new RequestKeyValue("/movie/comments", "GET"), new MovieCommentsGetController() );
 		//mapping.put(new RequestKeyValue("/movie/comments", "POST"), new MovieCommentsPOSTController() );
-		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MoviecompleteController() );
 		
 		//로그인
 		mapping.put(new RequestKeyValue("/login", "GET"), new LoginViewController());
@@ -40,6 +44,8 @@ public class RequestControllerMapping {
 		//mapping.put(new RequestKeyValue("/admin/save","POST"),new AdminSaveController());
 		//mapping.put(new RequestKeyValue("/api/auth/adminJoin","POST"),new ApiAdminJoinController());
 		
+		//결제
+		//mapping.put(new RequestKeyValue("/api/pay", "POST"), new ApiPaymentSaveController() );
 		
 	}
 

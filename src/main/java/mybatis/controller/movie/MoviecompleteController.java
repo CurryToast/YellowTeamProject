@@ -42,16 +42,6 @@ public void handle(HttpServletRequest request, HttpServletResponse response) thr
 			logger.info("member_code: {}", member_code);
             logger.info("list: {}", list);
             
-            ReserveList firstReserve = list.get(0);
-			String temp = firstReserve.getMname();
-            String mname="";
-			
-			for(int i = 0; i < temp.length(); i++) {
-				if(temp.charAt(i) != ' ')
-					mname += temp.charAt(i);
-			}		
-			request.setAttribute("mname", mname);
-			
             RequestDispatcher dispatcher = request.getRequestDispatcher("complete.jsp");
             dispatcher.forward(request, response);
 		

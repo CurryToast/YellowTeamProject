@@ -14,30 +14,45 @@
 <%@ include file="../layout/header.jsp" %>
 <br/><br/>
 
+
 <!--disabled 는 데이터를 넘길 수 없기에 고객이 볼 외관용과 넘기기용 hidden 두개  -->
-	<div class="wrap">
+	<div class="wrap"> 
 	<div class="poster">
-		<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/올드보이.jpg" alt="포스터">
+		<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster }.jpg" alt="${movie.mname }">
 	</div> 
 	<div class="inputForm">
-	  ID <input type="text" name="member_code"  value="admin" disabled >
-	  영화 제목 <input type="text" name="mname"  value="올드보이" disabled >
-	  영화 시간 <input type="date" name="schedule" value="2024-11-11" disabled>
-	  예매 인원 <input type="number" id="Numseats" required>
-  	  <button type="button" onclick="select()">인원 선택 완료</button>
-	  <br/><br/></div>
+	  ID &nbsp;<input class="in" type="text" name="member_code"  value="${member_code}" disabled >
+	  영화 제목 &nbsp; <input class="in"type="text" name="mname"  value="${movie.mname }" disabled >
+	  <input type="hidden" name="mname"  value="${movie.mcode }" disabled >
+	<%-- <c:forEach var="schedule" items="${schedules}"> --%>
+    <fmt:formatDate value="${schedule.schedule}" pattern="yyyy-MM-dd" />
+	<%-- </c:forEach> --%>
 	<form method="post" action="reserve">
-	  <!--hidden  -->
-	  <input hidden type="text" id="theater" name="theater" value="1" >  
-	  <input hidden type="text" name="mname" id="mname" value="사랑해도 괜찮아">
-	  <input hidden type="text" name="member_code" id="member_code" value="chchch">
-	  <input hidden type="number" id="movie_code" name="movie_code" value="100096">
-	  <input hidden type="date" name="schedule" id="schedule" value="2015-09-17">
+	<div class="cinema">
+	 영화관 선택 &nbsp;
+	  <select name="cinemas">
+         <option value="">영화관</option>
+         <c:forEach items="${cinelist}" var="cinema">
+            <option value="${cinema.idx}" >
+                <c:out value="${cinema.idx}" /> - <c:out value="${cinema.name}" />(<c:out value="${cinema.theater}" />관)
+            </option>
+         </c:forEach>
+      </select>
+      </div>
+	  영화 시간 &nbsp; <input class="in" type="date" name="schedule" value="${schedules.schedule }" disabled>
+	  예매 인원 &nbsp; <input class="in" type="number" id="Numseats" required>
+  	  &nbsp; <button type="button" onclick="select()">인원 선택 완료</button>	  <br/><br/></div>
+	  <!-- hidden -->
+	  <input hidden type="text" id="theater" name="theater" value="${param.theater }" >  
+	  <input hidden type="text" name="mname" id="mname" value="${movie.mname }">
+	  <input hidden type="text" name="member_code" id="member_code" value="${param.member_code }">
+	  <input hidden type="number" id="movie_code" name="movie_code" value="${movie.mcode }">
+	  <input hidden type="date" name="schedule" id="schedule" value="${schedules.schedule }">
 	  <input hidden type="number" id="Numseats">
 	  <input hidden type="text" id="seatsAll" name="seatsAll">
 	  <br/><br/>
 	
-	  
+	 <div class="wrap2">
 	<div class="seatStructure">
 	<table id="seatsBlock">
 	  <tr>
@@ -234,6 +249,7 @@
 	</div>
 	<br/>
 		<button id="complete" type="button">선택완료</button>
+	</div>	
 </form>
 </div>
 <script src="../assets/js/reserve.js"></script>
