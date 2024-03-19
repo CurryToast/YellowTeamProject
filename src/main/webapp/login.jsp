@@ -13,6 +13,7 @@
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta http-equiv="Expires" content="0">
   <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/login.css" />
  <link rel="stylesheet" href="css/layout.css" />
  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />	
 </head>
@@ -27,24 +28,28 @@
 				  <label id="incorrect">계정 정보가 일치하지 않습니다.</label>
 				  <form action="login" method="post">
 				    <div class="mb-3">
-				      <label for="code">아이디:</label>
+				      <label for="code" class="member-id">아이디</label>
 				      <input class="form-control" id="code" placeholder="Enter id" type="text" name="code" required>
 				    </div>
 				    <div class="mb-3">
-				      <label for="pwd">패스워드:</label>
+				      <label for="pwd">패스워드</label>
 				      <input type="password" class="form-control" id="password" placeholder="Enter password" 
 				      		name="password" required>
+				    </div>
+				    <div>
 				    </div>
 				    <div class="form-check mb-3">
 				      <label class="form-check-label">
 				        <input class="form-check-input" type="checkbox" name="remember"> Remember me
 				      </label>
 				    </div>
-				    <button class="btn btn-primary">로그인</button>
+				    <button class="btn-login">로그인</button>
 				  </form>
 				  <hr>
-				  <a href="join" class="f-sm">아직 회원이 아니시면 회원 가입을 해주세요.</a><br>
-            	  <a href="help" class="f-sm">😑 비밀번호 찾기가 필요하신가요?</a>
+				  <div class="find">
+				  <a href="join" class="f-sm">회원가입.</a>
+            	  <a href="help" class="f-sm">비밀번호 찾기</a>
+            	  </div>
 				</div>
 		</div>
 </div>

@@ -279,8 +279,8 @@
                             </div>
                         </li>
                 </ul>
+                <button class="btn-login" type="button" onclick="certPhone()">본인인증</button>
                 </form>
-                <button class="join-gor" type="button" onclick="certPhone()">본인인증</button>
 
                 <div class="popup" id="under14Popup">
                     <div class="pop-wrap">
@@ -334,12 +334,12 @@
                         <input id="channel" name="channel" type="hidden"/>
                        
                     </div>
-                    <button type="button" class="join-btn" onclick="join()">회원가입</button>
+                    <button type="button" class="btn-login" onclick="join()">회원가입</button>
                 </form>
             </div>
             <hr>
             <div>
-            🤩 <a href="login">계정이 있으시면 로그인 하세요.</a>
+            <a href="login">로그인</a>
         	</div>
         </div>
     </div>

@@ -83,8 +83,9 @@ public class MemberDao {
 	}
 	public int delete(String code) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		int result=1;
-		sqlSession.selectList("members.delete", code);
+		int result = 0;
+		result = sqlSession.delete("members.delete", code);
+		sqlSession.commit();
 		sqlSession.close();
 		return result;
 	}

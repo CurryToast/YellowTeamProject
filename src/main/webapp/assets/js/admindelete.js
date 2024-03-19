@@ -20,14 +20,12 @@ document.querySelector('#delete').addEventListener('click', function () {
         if (xhr.status === 200 || xhr.status === 201) { 
             console.log("DELETE 응답 :", xhr.response);
             const resultObj = JSON.parse(xhr.response);
-            if (resultObj.result == 1) {
+            if (resultObj.result === 1) {
                 alert('관리자 삭제가 완료되었습니다.');
                 clear();
                 modal.hide();
-            } else if (resultObj.result == 0){
-                alert('존재하지 않는 관리자입니다. code를 확인하세요');
             } else {
-                alert('관리자 삭제 중 오류가 발생했습니다.');
+                alert('존재하지 않는 관리자입니다. code를 확인하세요');
             }
         } else {
             console.error('오류1-', xhr.response);
