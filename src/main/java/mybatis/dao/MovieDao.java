@@ -60,4 +60,12 @@ public class MovieDao {
 		mapperSession.close();
 		return list;
 	}
+	
+	public int insert(Movie vo) {
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		int result = mapperSession.insert("movies.insert", vo);
+		mapperSession.commit();
+		mapperSession.close();
+		return result;
+	}
 }
