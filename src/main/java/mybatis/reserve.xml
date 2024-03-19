@@ -24,7 +24,9 @@
 		AND TR.MEMBER_CODE = #{member_code}
 		AND tr.MOVIE_CODE =#{movie_code}
  	</select>
- 
+ 	<select id="selectAll" resultType="mybatis.vo.Member">
+ 		SELECT * FROM tbl_reserve
+ 	</select>
  </mapper>
  
  

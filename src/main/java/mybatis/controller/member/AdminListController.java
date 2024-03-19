@@ -1,4 +1,4 @@
-package mybatis.controller;
+package mybatis.controller.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import mybatis.controller.Controller;
 import mybatis.dao.MemberDao;
 import mybatis.vo.Member;
 

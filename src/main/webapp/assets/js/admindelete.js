@@ -2,11 +2,20 @@ document.querySelector('#delete').addEventListener('click', function () {
     const code = prompt('삭제할 관리자 코드를 입력하세요');
     console.log('삭제 관리자 코드: ', code);
 
-    // DELETE 요청을 서버로 보내는 부분
-    const xhr = new XMLHttpRequest();
-    xhr.open('DELETE', '/api/admin?code=' + code);
-    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8'); // Content-Type 설정
-    xhr.send();
+    if (!code) {
+        alert('코드를 입력하세요.');
+        return;
+    }
+
+    const confirmDelete = confirm('정말로 관리자를 삭제하시겠습니까?');
+    if (!confirmDelete) {
+        alert('취소되었습니다.');
+        return;
+    }
+
+       const xhr = new XMLHttpRequest();
+    xhr.open('DELETE', 'api/admin?code=' + encodeURIComponent(code)); 
+    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8'); 
     xhr.onload = function () {
         if (xhr.status === 200 || xhr.status === 201) { 
             console.log("DELETE 응답 :", xhr.response);
@@ -15,15 +24,16 @@ document.querySelector('#delete').addEventListener('click', function () {
                 alert('관리자 삭제가 완료되었습니다.');
                 clear();
                 modal.hide();
-            }else if (resultObj.result == null || resultObj.result == ''){
-				alerf('관리자 코드를 입력해주세요.');
-			}
-             else {
-                alert('관리자 삭제 오류입니다. code를 확인하세요');
+            } else if (resultObj.result == 0){
+                alert('존재하지 않는 관리자입니다. code를 확인하세요');
+            } else {
+                alert('관리자 삭제 중 오류가 발생했습니다.');
             }
-        } else { 
+        } else {
             console.error('오류1-', xhr.response);
             console.error('오류2-', xhr.status);
+            alert('서버 오류 발생');
         }
     };
+    xhr.send();
 });

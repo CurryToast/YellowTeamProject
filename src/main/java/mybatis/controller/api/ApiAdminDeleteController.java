@@ -1,4 +1,4 @@
-package mybatis.controller;
+package mybatis.controller.api;
 
 import java.io.IOException;
 
@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import mybatis.controller.Controller;
 import mybatis.dao.MemberDao;
 
 public class ApiAdminDeleteController implements Controller {
-    private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory.getLogger(ApiAdminDeleteController.class);
 
     @Override
@@ -20,9 +20,7 @@ public class ApiAdminDeleteController implements Controller {
         MemberDao dao = new MemberDao();
         String code = request.getParameter("code");
         logger.info("\t 입력값 code : {}", code);
-
         int result = 0;
-
         try {
             result = dao.delete(code);
         } catch (Exception e) {
