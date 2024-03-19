@@ -16,7 +16,7 @@ document.querySelector('input#poster').addEventListener('change', (e) => {
 	    document.querySelector('#upload-button').innerHTML = "";
 	    document.querySelector('#upload-button').appendChild(img);
 	} else {
-		document.querySelector('#upload-button').innerHTML = "영화 포스터 등록";
+		document.querySelector('#upload-button').innerHTML = "영화 포스터 업로드";
 	}
 });
 

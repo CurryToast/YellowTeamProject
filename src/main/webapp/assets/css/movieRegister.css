@@ -7,6 +7,12 @@ form {
 form > .file-wrapper > label {
 	height: 920px;
 }
+form > h3 {
+	text-align: center;
+	margin-top: 30px;
+	margin-bottom: 0;
+}
+
 @media screen and (max-width: 480px) {
 	form {
 		width: 90%;
