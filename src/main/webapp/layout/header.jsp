@@ -5,20 +5,26 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 </head>
 <div id = "header">
-            <div class="sub-wrap">
-                <div class="sub-con">
-                        <ul class="user-tab">
-                        <li onclick="login()">로그인</li>
-                        <li onclick="join()">회원가입</li>
-                    </ul>
-                </div>
-            </div>
+          <ul id="user">
+			<%-- <li><a href="${pageContext.request.contextPath }/join"><span>회원가입</span></a></li>
+			<li><a href="${pageContext.request.contextPath }/login">로그인</a></li> --%>
+			
+				<c:if test="${sessionScope.user == null }">		
+					<li><a href="${pageContext.request.contextPath }/join"><span>회원가입</span></a></li>
+					<li><a href="${pageContext.request.contextPath }/login">로그인</a></li>
+				</c:if>	
+				<c:if test="${sessionScope.user != null }">		
+					<li><a class="mainmenu" href="${pageContext.request.contextPath }/myPage"><span>마이페이지</span></a>
+					<li><a href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
+				</c:if>	
+			
+			</ul>
         <ul class="menu">
                     <ul class="site-tab">
                         <img src="${pageContext.request.contextPath}/assets/img/logo.png" alt="logo" onclick="location.href='${pageContext.request.contextPath}/index.jsp'"></li>
                     </ul>
 			<li>
-				<a class="mainmenu" href="/movie/list">상영일정</a>
+				<a class="mainmenu" href="${pageContext.request.contextPath}/movie/list">상영일정</a>
 			<!-- 	<ul class="submenu">
 					<li><a href="">하위메뉴 1</a></li>
 					<li><a href="">하위메뉴 1</a></li>

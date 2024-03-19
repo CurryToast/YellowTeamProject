@@ -37,7 +37,8 @@ ul {
     z-index: 9999;
 }
 
-#header > .desktop-only > .sub-wrap {
+
+ul#user {
     width: 100%;
     background-color: #04152b;
     margin: 0;

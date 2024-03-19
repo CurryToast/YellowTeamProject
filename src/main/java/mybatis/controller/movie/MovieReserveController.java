@@ -64,6 +64,7 @@ public class MovieReserveController implements Controller {
 			    reservearr.add(reserve);
 			    System.out.println("reserve"+reserve);
 			}
+			
 			request.setAttribute("reserve", reservearr);
 			System.out.println("reservearr"+reservearr.toArray());
 			

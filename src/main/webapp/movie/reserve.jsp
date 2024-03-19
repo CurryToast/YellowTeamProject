@@ -28,11 +28,11 @@
 	  <br/><br/></div>
 	<form method="post" action="reserve">
 	  <!--hidden  -->
-	  <input hidden type="text" id="theater" name="theater" value="2" >  
-	  <input hidden type="text" name="mname" id="mname" value="올드보이">
-	  <input hidden type="text" name="member_code" id="member_code" value="admin">
-	  <input hidden type="number" id="movie_code" name="movie_code" value="100037">
-	  <input hidden type="date" name="schedule" id="schedule" value="2024-11-11">
+	  <input hidden type="text" id="theater" name="theater" value="1" >  
+	  <input hidden type="text" name="mname" id="mname" value="사랑해도 괜찮아">
+	  <input hidden type="text" name="member_code" id="member_code" value="chchch">
+	  <input hidden type="number" id="movie_code" name="movie_code" value="100096">
+	  <input hidden type="date" name="schedule" id="schedule" value="2015-09-17">
 	  <input hidden type="number" id="Numseats">
 	  <input hidden type="text" id="seatsAll" name="seatsAll">
 	  <br/><br/>
