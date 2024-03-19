@@ -48,25 +48,26 @@
 				</div>
 		</div>
 </div>
-<script>
-console.log('${cookie.incorrect}')
-var cookies = document.cookie.split(';');
-cookies.forEach(function(cookie) {
-    if (cookie.trim().startsWith('incorrect=')) {
-        var value = cookie.split('=')[1];
-        if (value === 'y') {
-            document.getElementById('incorrect').style.display = 'inline-block';
-            document.cookie = 'incorrect' + "=; expires=Thu, 01 Jan 1970 00:00:10 GMT; path=/;";
-        }
-    }
-});
+<script type="text/javascript">
+	console.log('${cookie.incorrect}')
+	var cookies = document.cookie.split(';');
+	cookies.forEach(function(cookie) {
+	    if (cookie.trim().startsWith('incorrect=')) {
+	        var value = cookie.split('=')[1];
+	        if (value === 'y') {
+	            document.getElementById('incorrect').style.display = 'inline-block';
+	            document.cookie = 'incorrect' + "=; expires=Thu, 01 Jan 1970 00:00:10 GMT; path=/;";
+	        }
+	    }
+	});
 </script>
   		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+		<script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
+		<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+		<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+		<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
+		<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+		<script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
 </body>
 </html>

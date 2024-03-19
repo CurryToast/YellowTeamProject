@@ -20,9 +20,13 @@ import mybatis.controller.member.AdminSaveController;
 import mybatis.controller.member.AuthCertSMSController;
 import mybatis.controller.member.MemberJoinController;
 import mybatis.controller.member.MemberModifyController;
+import mybatis.controller.member.MemberReserveController;
 import mybatis.controller.member.MemberSaveController;
 import mybatis.controller.member.MyPageViewController;
+import mybatis.movie.MovieListController;
+import mybatis.movie.MovieReserveController;
 import mybatis.movie.MovieSearchController;
+import mybatis.movie.MoviecompleteController;
 import mybatis.movie.ReadController;
 
 public class RequestControllerMapping {
@@ -35,7 +39,9 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/api/auth/join", "POST"), new ApiMemberJoinController());
 		mapping.put(new RequestKeyValue("/api/modify","POST"),new ApiMemberModifyController());
 		mapping.put(new RequestKeyValue("/api/auth/adminJoin", "POST"), new ApiAdminJoinController());
-
+		mapping.put(new RequestKeyValue("/api/movie", "GET"), new ApiGetAllMoviesController());
+		mapping.put(new RequestKeyValue("/api/movie", "PUT"), new ApiMovieSearchController());
+		
 		//회원가입
 		mapping.put(new RequestKeyValue("/admin/join","GET"), new AdminJoinController());
 		mapping.put(new RequestKeyValue("/admin/join","POST"), new AdminSaveController());
@@ -54,13 +60,23 @@ public class RequestControllerMapping {
 
 		//마이페이지
 		mapping.put(new RequestKeyValue("/myPage", "GET"), new MyPageViewController());
+		mapping.put(new RequestKeyValue("/member/reserve","GET"), new MemberReserveController());
+		mapping.put(new RequestKeyValue("/member/modify","GET"), new MemberModifyController());
+		mapping.put(new RequestKeyValue("/member/drop","GET"),new MemberDropController());
+		mapping.put(new RequestKeyValue("/admin/join","GET"),new AdminJoinController());
+		mapping.put(new RequestKeyValue("/admin/save","POST"),new AdminSaveController());
+
+	
 		
 		// Movie
 		mapping.put(new RequestKeyValue("/movie/search", "GET"), new MovieSearchController());
 		mapping.put(new RequestKeyValue("/movie/search", "PUT"), new MovieSearchController());
-		mapping.put(new RequestKeyValue("/api/movie", "GET"), new ApiGetAllMoviesController());
-		mapping.put(new RequestKeyValue("/api/movie", "PUT"), new ApiMovieSearchController());
 		mapping.put(new RequestKeyValue("/movie/read", "GET"), new ReadController() );
+		mapping.put(new RequestKeyValue("/movie/reserve", "GET"), new MovieReserveController() );
+		mapping.put(new RequestKeyValue("/movie/reserve", "POST"), new MovieReserveController() );
+		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MoviecompleteController() );
+		mapping.put(new RequestKeyValue("/movie/list", "GET"), new MovieListController() );
+		//mapping.put(new RequestKeyValue("/movie/list", "POST"), new MovieListController() );
 	}
 
 	// url,method 필드를 저장하는 key 를 전달받아 HashMap에서 value(컨트롤러)를 리턴

@@ -8,10 +8,16 @@
 <head>
 	<title>커피24 북카페</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Expires" content="0"> -->
-	<link rel="stylesheet" href="../assets/css/main.css" />
+	<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title></title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+<link rel="stylesheet" href="../css/layout.css" />
+<link rel="stylesheet" href="../assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
+<link rel="stylesheet" href="../assets/css/main.css" />
 	<link rel="stylesheet" href="../assets/css/search.css" />
 <!-- 	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
@@ -21,10 +27,15 @@
 	<section id="read" >
 	<!-- <hr style="color:white;"> -->
 	<div id=imgbox>
+	<div id=ima_size>
 	<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${bo.poster }.jpg" >
+	</div>
+	
 	<div id=box>
+		<!-- <div id=box_sizing> -->
 	<h1><c:out value="${bo.mname}"/>
 	</h1>
+	
 	관람등급
 	<h5><c:out value="${bo.rating}"/>세 이용가</h5>
 	개봉일
@@ -49,24 +60,20 @@
 	출연
 	<h5><c:out value="${bo.mcast}"/></h5>	
 	</div>
+<!-- 	</div> -->
 	<div id=synop_but>
 	줄거리
 	<h5 id=synopsys><c:out value="${bo.synopsys}"/></h5>	
 	<div id=buttons>
-		<a class="button" href="search?page=${page }">목록</a>   <!-- 현재페이지 번호 전달 - 순서3) -->
-		<a class="reverse_button" href="reserve?page=${page }">예약</a>	
+		<a class="button" href="search?page=${page }">목록</a> 
+		<a class="reverse_button" href="reserve">예매</a>	
 	</div>
 	</div>
 	</div>		
-<!-- <textarea rows="20" disabled="disabled" 
-style="background-color:#f3f3f3;font-size:inherit;resize: none;border:none;"> -->
-
-<!-- </textarea> -->
-		
 	
 	<!-- 메인글 출력 끝 -->
 </section>	
-<!-- <div data-num="5" id="datanum"></div> -->
+
 </div>
 <!-- <script src="../js/nav.js"></script> -->
 

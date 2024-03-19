@@ -14,18 +14,42 @@ const createMovieList = (arr) => {
 		poster.src = `https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${el.poster}.jpg`;
 		poster.alt = el.mcode;
 		anchor.appendChild(poster);
-
 		card.appendChild(anchor);
 		
-		/*const name = document.createElement('p');
+		const name = document.createElement('p');
 		name.innerHTML = el.mname;
-		card.appendChild(name);*/
+		anchor.appendChild(name);
+		card.appendChild(anchor);
 		
-	/*	const release_date = document.createElement('ul');
+		const release_date = document.createElement('p');
+		release_date.innerHTML='개봉일';
 		release_date.innerHTML = el.release_date;
-		card.appendChild(release_date);
+		anchor.appendChild(release_date);
+		card.appendChild(anchor);
 		
-		const synopsys = document.createElement('p');
+		let status = "playing";
+		let statusText = "상영중";
+
+				const today = new Date();
+				const startDate = new Date(el.release_date);
+				const endDate = new Date(el.release_date).setDate(startDate.getDate() + 14);
+
+				if (today > endDate) {
+					status = "closed";
+					statusText = "상영 종료";
+				} else if (today < startDate) {
+					status = "reserved";
+					statusText = "개봉 예정";
+				}
+		const statusLabel = document.createElement('span');
+			statusLabel.classList.add('p', status);
+			statusLabel.innerHTML = statusText;
+			anchor.appendChild(statusLabel);
+			card.appendChild(anchor);
+
+	
+		
+		/*const synopsys = document.createElement('p');
 		synopsys.innerHTML = el.synopsys;
 		card.appendChild(synopsys);*/
 		
@@ -33,9 +57,6 @@ const createMovieList = (arr) => {
 	});
 }
 
-		/*document.querySelector('img').addEventListener('click', function() {
-    	location.href = `read?mcode=${vo.mcode}&page=${paging.currentPage}`;
-		});*/
 
 
 const loadMoviesaerchList = () => {

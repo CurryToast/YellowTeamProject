@@ -8,10 +8,12 @@ import org.apache.ibatis.session.SqlSession;
 import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
 import mybatis.vo.Reserve;
+import mybatis.vo.ReserveList;
 
 @Slf4j
 public class ReserveDao {
-	public int insert(Reserve vo) {
+
+	public int insert(Reserve vo){
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		int result = 0;
 		result = sqlSession.insert("reserves.insert",vo);
@@ -31,19 +33,29 @@ public class ReserveDao {
 		return result;
 	}
 
-	public List<Reserve> searchId(String id){
+	public List<ReserveList> reserveAll(String member_code){
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		List<Reserve> list = sqlSession.selectList("reserves.searchId",id);
-		log.info("searchId :{}", list);
+		List<ReserveList> list = sqlSession.selectList("reserves.reserveAll",member_code);
+		log.info("reserveAll :{}", list);
 		sqlSession.close();
 		return list;
 	}
 	
-	public List<Object> select(String id){
+	public List<ReserveList> reserve(Map<String,String> map){
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		List<Object> list = sqlSession.selectList("reserves.select",id);
-		log.info("select :{}", list);
+		List<ReserveList> list = sqlSession.selectList("reserves.reserve",map);
+		log.info("reserve :{}", list);
 		sqlSession.close();
 		return list;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

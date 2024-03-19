@@ -14,8 +14,15 @@
 	<meta charset="utf-8" />
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="../assets/css/main.css" />
-	<link rel="stylesheet" href="../css/layout.css" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title></title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+<link rel="stylesheet" href="../css/layout.css" />
+<link rel="stylesheet" href="../assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
+<link rel="stylesheet" href="../assets/css/main.css" />
 	<link rel="stylesheet" href="../assets/css/search.css">
 	<link rel="stylesheet"
 		href="${pageContext.request.contextPath }/css/list.css?v=3">
@@ -59,12 +66,9 @@
 							<button type="button" onclick="location.href='search'">전체보기</button>
 						</form>
 					</div>
-					<section id="searchlist">
-					
-					</section> 
+					<section id="searchlist"></section> 					
 					<hr>
-					<h3 id="listpage"></h3>
-					<div id="listpro">
+					
 					
 							<%-- <c:forEach var="vo" items="${list}"> --%>
 									 <!-- 현재페이지 번호 세션에 저장했으므로 파라미터 전달 삭제 -->
