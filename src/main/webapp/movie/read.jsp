@@ -30,7 +30,7 @@
 	<div id=ima_size>
 	<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${bo.poster }.jpg" >
 	</div>
-	
+	<div id=x>
 	<div id=box>
 		<!-- <div id=box_sizing> -->
 	<h1><c:out value="${bo.mname}"/>
@@ -60,7 +60,7 @@
 	출연
 	<h5><c:out value="${bo.mcast}"/></h5>	
 	</div>
-<!-- 	</div> -->
+	</div> 
 	<div id=synop_but>
 	줄거리
 	<h5 id=synopsys><c:out value="${bo.synopsys}"/></h5>	

@@ -13,23 +13,26 @@
 		WHERE RCODE=#{rcode} AND MEMBER_CODE= #{member_code} 
  	</select>
 
- 	 <select id="reserveAll" parameterType="String" resultType="mybatis.vo.ReserveList">
-       SELECT TR.MEMBER_CODE, TM.MNAME , TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TC.NAME ,TR.RCODE, TR.SEAT 
-      FROM TBL_MOVIE tm , TBL_RESERVE tr, TBL_CINEMA tc 
-      WHERE TM.MCODE = TR.MOVIE_CODE
-      AND TR.THEATER = TC.IDX 
-      AND TR.MEMBER_CODE = #{member_code}
-    </select>
-    <select id="reserve" parameterType="java.util.Map" resultType="mybatis.vo.ReserveList">
-       SELECT TR.MEMBER_CODE, TM.MNAME , TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TC.NAME ,TR.RCODE, TR.SEAT 
-      FROM TBL_MOVIE tm , TBL_RESERVE tr, TBL_CINEMA tc 
-      WHERE TM.MCODE = TR.MOVIE_CODE
-      AND TR.THEATER = TC.IDX 
-      AND TR.MEMBER_CODE = #{member_code}
-      AND tr.MOVIE_CODE =#{movie_code}
-      AND TO_CHAR(TR.RESERVE_DATE,'YYYY-MM-DD')=TO_CHAR(SYSDATE,'YYYY-MM-DD')
-    </select>
- 
+ 	<select id="reserveAll" parameterType="String" resultType="mybatis.vo.ReserveList">
+ 		SELECT TR.MEMBER_CODE,  POSTER, TM.MNAME , TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TC.NAME ,TR.RCODE, TR.SEAT 
+		FROM TBL_MOVIE tm , TBL_RESERVE tr, TBL_CINEMA tc 
+		WHERE TM.MCODE = TR.MOVIE_CODE
+		AND TR.THEATER = TC.IDX 
+		AND TR.MEMBER_CODE = #{member_code}
+ 	</select>
+ 	<select id="reserve" parameterType="java.util.Map" resultType="mybatis.vo.ReserveList">
+ 		SELECT TR.MEMBER_CODE, POSTER ,TR.SCHEDULE , TR.RESERVE_DATE, TM.RATING, TC.NAME ,TR.RCODE, TR.SEAT 
+		FROM TBL_MOVIE tm , TBL_RESERVE tr, TBL_CINEMA tc 
+		WHERE TM.MCODE = TR.MOVIE_CODE
+		AND TR.THEATER = TC.IDX 
+		AND TR.MEMBER_CODE = #{member_code}
+		AND tr.MOVIE_CODE =#{movie_code}
+		AND TO_CHAR(TR.RESERVE_DATE,'YYYY-MM-DD')=TO_CHAR(SYSDATE,'YYYY-MM-DD')
+ 	</select>
+ 	<!-- <insert id="saleOne" parameterType="org.iclass.vo.SalePayDetails">
+ 		INSERT INTO sale_details 
+ 		VALUES (#{mcode},#{orderid},#{amount},#{paydate},#{buyuser},#{paytype},#{paymentkey})
+ 	</insert> -->
  </mapper>
  
  
