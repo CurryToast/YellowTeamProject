@@ -3,11 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
-<!--
-	Arcana by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
--->
 <html>
 <head>
 	<title>커피24 북카페</title>
@@ -17,15 +12,18 @@
 	<link rel="stylesheet" href="../assets/css/main.css" />
 	<link rel="stylesheet" href="../css/layout.css" />
 	<link rel="stylesheet" href="../assets/css/search.css">
+	<link rel="stylesheet" href="../assets/css/header.css">
 	<link rel="stylesheet"
 		href="${pageContext.request.contextPath }/css/list.css?v=3">
+		
 		
 <!-- 		<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>	 -->
 </head>
 <body class="is-preload">
+	<%@ include file="../layout/header.jsp"%>
 	<div id="page-wrapper">
 		<!-- Header -->
-		<%@ include file="../layout/header.jsp"%>
+		
 		<!-- Main -->
 		<section class="wrapper style1" id="moivesearch">
 			<div class="container">

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- Header -->
+
 <div id="header">
 	<!-- Nav -->
 	<nav id="nav">
@@ -22,7 +23,7 @@
 		    </c:if>
 		</ul>
 		<ul id="menu">
-			<li><a class="mainmenu" href="${pageContext.request.contextPath}">Home</a></li>								
+			<li><a class="mainmenu" href="${pageContext.request.contextPath}/#">Home</a></li>								
 			<li>
 				<a class="mainmenu" href="${pageContext.request.contextPath}/movie/list">상영일정</a>
 			<!-- 	<ul class="submenu">
