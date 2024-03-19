@@ -14,13 +14,12 @@
 	<meta charset="utf-8" />
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="../assets/css/main.css" />
-	<link rel="stylesheet" href="../css/layout.css" />
-	<link rel="stylesheet" href="../assets/css/search.css">
-	<link rel="stylesheet"
-		href="${pageContext.request.contextPath }/css/list.css?v=3">
-		
-<!-- 		<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>	 -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/search.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/list.css?v=3">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
+	<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
 </head>
 <body class="is-preload">
 	<div id="page-wrapper">
@@ -132,12 +131,12 @@
 	
 
 	<!-- Scripts -->
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/browser.min.js"></script>
-	<script src="../assets/js/breakpoints.min.js"></script>
-	<script src="../assets/js/main.js"></script>
-	<script src="../js/nav.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+	<script src="${pageContext.request.contextPath}/js/nav.js"></script>
 
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/moviesearch.js"></script>
 

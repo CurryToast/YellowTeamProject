@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Getter
@@ -25,5 +26,5 @@ public class Movie {
 	private String country;	//국가
 	private String mcast;	//배우
 	private String poster; // 포스터
-	
+	private String posterUrl;
 }

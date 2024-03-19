@@ -11,8 +11,10 @@
 <!-- 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Expires" content="0"> -->
-	<link rel="stylesheet" href="../assets/css/main.css" />
-	<link rel="stylesheet" href="../assets/css/search.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/search.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
 <!-- 	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 <body class="is-preload">

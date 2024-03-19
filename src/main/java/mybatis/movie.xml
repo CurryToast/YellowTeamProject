@@ -81,6 +81,14 @@
 								(SELECT * FROM tbl_movie ORDER BY mcode DESC) f)
 		WHERE r BETWEEN #{start} AND #{end}
  	</select>
+ 	<insert id="insert" parameterType="mybatis.vo.Movie">
+ 		INSERT INTO TBL_MOVIE
+		VALUES (
+			movie_idx_seq.nextval, #{mname}, #{genre}, #{director},
+			#{release_date}, #{producer}, #{running_time}, #{rating},
+			#{synopsys}, #{mgrade}, #{country}, #{mcast}, #{poster}
+		)
+ 	</insert>
  </mapper>
  
  
