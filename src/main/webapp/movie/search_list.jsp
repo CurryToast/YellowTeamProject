@@ -10,7 +10,7 @@
 -->
 <html>
 <head>
-	<title>커피24 북카페</title>
+	<title>영화 검색</title>
 	<meta charset="utf-8" />
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, user-scalable=no" />

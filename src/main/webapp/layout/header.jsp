@@ -38,7 +38,7 @@
 					<li><a href="">하위메뉴 1</a></li>
 				</ul> -->
 			<li>
-				<a class="mainmenu" href="${pageContext.request.contextPath}/movie/reserve">영화예매</a>
+	<%-- 			<a class="mainmenu" href="${pageContext.request.contextPath}/movie/reserve">영화예매</a> --%>
 				<li><a href="${pageContext.request.contextPath}/movie/list">상영일정</a></li>
 					<li><a href="${pageContext.request.contextPath}/movie/reserve">예매하기</a></li>
 					<li><a href="${pageContext.request.contextPath}/movie/complete">예매확인</a></li>
