@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +10,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
@@ -38,14 +37,14 @@
 				    </div>
 				    <div class="form-check mb-3">
 				      <label class="form-check-label">
-				        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+				        <input class="form-check-input" type="checkbox" name="remember"> remember me
 				      </label>
 				    </div>
 				    <button class="btn btn-primary">로그인</button>
 				  </form>
 				  <hr>
 				  <a href="join" class="f-sm">아직 회원이 아니시면 회원 가입을 해주세요.</a><br>
-            	  <a href="help" class="f-sm">😑 비밀번호 찾기가 필요하신가요?</a>
+            	 
 				</div>
 		</div>
 </div>

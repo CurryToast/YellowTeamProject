@@ -6,7 +6,7 @@
 <head>
 <title>스타라이트 시네마</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Expires" content="0">
@@ -184,9 +184,9 @@
         }
         // form 태그안의 모든 요소값을 자바스크립트 객체로 생성합니다.
         const data = $('#form').serializeObject();
-        var idRule = /^[a-z]+[a-z0-9]{5,11}$/g;
+        var idRule = /^[a-z]+[a-z0-9]{2,9}$/g;
         if(!idRule.test(data.code)){
-            alert("아이디는 영문자로 시작하는 영문자 또는 숫자 6~12자로 입력해주세요.");
+            alert("아이디는  영어 소문자 또는 숫자 3~8자로 입력해주세요.");
             $("#username").focus();
             return;
         }

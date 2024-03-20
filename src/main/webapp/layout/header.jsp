@@ -15,7 +15,7 @@
 				</c:if>	
 				<c:if test="${sessionScope.user != null }">		
 					<li><a class="mainmenu" href="${pageContext.request.contextPath }/myPage"><span>마이페이지</span></a>
-						
+						 
 						
 					<li><a href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
 				</c:if>	
@@ -32,18 +32,13 @@
 			</li>
 			<li>
 				<a class="mainmenu" href="${pageContext.request.contextPath}/movie/search">영화검색</a>
-				<!-- <ul class="submenu">
-					<li><a href="">하위메뉴 1</a></li>
-					<li><a href="">하위메뉴 1</a></li>
-				</ul> -->
-			</li>
+				<li><a href="${pageContext.request.contextPath}/member/reserve">예매 내역</a></li>
+			
 			<li>
 				<a class="mainmenu" href="${pageContext.request.contextPath}/movie/reserve">영화예매</a>
-				<ul class="submenu">
-					<li><a href="">하위메뉴 1</a></li>
-					<li><a href="">하위메뉴 1</a></li>
+				<li><a href="${pageContext.request.contextPath}/movie/list">상영일정</a></li>
+					
 				</ul>
-			</li>
-		</ul>
+		
 	</nav>
 </div>

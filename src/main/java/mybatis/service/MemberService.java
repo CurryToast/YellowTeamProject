@@ -47,4 +47,15 @@ public class MemberService {
 		}
 		return builder.toString();
 	}
+	public void adminJoin(Member member) {
+	      String password;
+	      try {
+	         password = encrypt(member.getPassword());
+	         member.setPassword(password);
+	         dao.adminJoin(member);
+	      } catch (NoSuchAlgorithmException e) {
+	         e.printStackTrace();
+	      }
+	      
+	   }
 }

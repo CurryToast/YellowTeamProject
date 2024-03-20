@@ -313,7 +313,7 @@
                        <!--  <input type="hidden" id="responseNumber" name="responseNumber"> -->
                     </div>
                     <ul class="join-wrap">
-                        <li>아이디</li>
+                        <li>아이디 <label>(영 소문자 혹은 숫자 3~8개까지 가능합니다.)</label></li>
                         <li>
                             <input class="id-input" id="username" name="code" type="text" onchange="resetCheckId();" placeholder="아이디를 입력해 주세요."/>
                             <button type="button" onclick="checkId();">중복확인</button>
