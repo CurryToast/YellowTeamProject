@@ -1,22 +1,10 @@
 @charset "UTF-8";
 
-@import url("fontawesome-all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
-
-#current:focus, #current:hover {
-	text-decoration: underline; text-decoration-thickness: 2px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+body{
+   font-family: 'Roboto', 'Noto Sans KR';
 }
-#upcoming:focus, #upcoming:hover {
-	text-decoration: underline; text-decoration-thickness: 2px;
-}
-#end:focus, #end:hover {
-	text-decoration: underline; text-decoration-thickness: 2px;
-}
-
-#allmovie:focus, #allmovie:hover {
-	text-decoration: underline; text-decoration-thickness: 2px;
-}
-
 
 #choose {
 	list-style-type: none;
@@ -28,83 +16,49 @@ li {
 	list-style-type: none;
 }
 
-#current {
-	border: none; background: none;
-}
-#upcoming {
-	border: none; background: none;
-}
-	
-#end {
-	border: none; background: none;
-}
-
-#allmovie {
-	border: none; background: none;
-}
-
-button {
-	 cursor: pointer;
-}
-
-/* .content {
-    display: none;
-} */
-
-span {
-	font-size: 12pt; 
-}
-
 img {
     border: none;
     vertical-align: top;
 }
 
- /* movielist.css */
-
-/* .movie-container 클래스의 요소들을 가로로 배치 */
 .movie-container {
     display: flex;
-    flex-direction: column; /* 내부 요소들을 세로로 배치 */
-    align-items: center; /* 내부 요소들을 가운데 정렬 */
+    flex-direction: column; 
+    align-items: center; 
 }
 
-
-/* 각 포스터 이미지의 스타일 */
-.movie-container img {
-   /*  width: 100%; 이미지를 부모 요소의 너비에 맞게 조정 */
-    width: 184px;
-    height: 262.85px;
-    margin-bottom: 10px;
+.img-style {
+    width: 184px; /* 고정된 가로 너비 */
+    height: 262.85px; /* 고정된 세로 높이 */
+    margin-bottom: 10px; /* 아래 여백 추가 */
+    border-radius: 5px; /* 둥근 테두리 적용 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* 그림자 효과 추가 */
+    object-fit: cover; /* 이미지를 가득 채우면서 비율 유지 */
 }
+
     
 .movie-list {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-    margin-bottom: 20px; 
-    padding: 0; /* ul의 내부 간격 제거 */
+    display: flex; /* Flexbox 사용 */
+    flex-wrap: wrap; /* 자식 요소들을 여러 줄에 걸쳐 표시 */
+    justify-content: space-between; /* 요소들을 가로로 고르게 분배 */
+    margin: 0 auto;
+    padding: 0;
 }
-
 
 .movie-item {
-    width: calc(20% - 10px); /* 한 줄에 5개씩 배치되므로 각 요소의 너비는 20% */
-    margin-bottom: 20px; /* 아래 여백 추가 */
-    list-style: none; /* li의 기본 리스트 스타일 제거 */
+    width: calc(20% - 4px); /* 여백을 10px에서 4px로 수정 */
+    margin-right: 20px; /* 오른쪽 마진을 그대로 유지하거나 조절 */
+    margin-bottom: 20px; /* 아래쪽 마진을 그대로 유지하거나 조절 */
+    list-style-type: none; /* 목록 표시 스타일 제거 */
+    text-align: center; /* 텍스트를 가운데 정렬하여 보기 좋게 표시 */
 }
 
-/* 포스터 이미지의 크기 및 간격 조정 */
 .movie-item img {
-    width: 100%; /* 부모 요소에 맞게 이미지 크기 조정 */
-    height: auto; /* 가로 세로 비율 유지 */
-    margin-right: 0; /* 이미지와 텍스트 사이 간격 제거 */
+    width: 100%;
+    height: auto; 
+    margin-right: 0; 
 }
     
-    
- .choice {
- 	font-size: 16pt;
- }
- 
  .movie-container img:hover {
     cursor: pointer;
 }
@@ -118,4 +72,5 @@ img {
 	font-size: 10pt;
 	margin: 8px 0px 8px 0px; line-height: 120%;
 }
+
     

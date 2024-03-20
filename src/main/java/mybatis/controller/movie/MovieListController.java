@@ -16,12 +16,34 @@ public class MovieListController implements Controller {
 
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		MovieDao dao = MovieDao.getInstance();
-		List<Movie> list = dao.selectAllMovies();
+		String type = 	request.getParameter("type");
+		List<Movie> list = null;
 		
-		request.setAttribute("selectAllmovies", list);
+		if (type == null) {
+	        list = dao.selectAllMovies();
+		} else {
+		switch (type) {
+		case "all": 
+			list = dao.selectAllMovies();
+			break;
+		case "ing": 
+			list = dao.selectCurrentMovies();
+			break;
+		case "later": 
+			list = dao.selectUpcomingMovies();
+			break;
+		case "end":
+			list = dao.selectEndMovies();
+			break;
+		default:
+			list = dao.selectAllMovies();
 		
+		}
+	}
+	    
+	    request.setAttribute("list", list);
+	    
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
 		dispatcher.forward(request, response);
 	}
