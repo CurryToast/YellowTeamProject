@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
 import mybatis.vo.Reserve;
 import mybatis.vo.ReserveList;
-import mybatis.vo.SalePayDetails;
 
 @Slf4j
 public class ReserveDao {
@@ -49,30 +48,6 @@ public class ReserveDao {
 		sqlSession.close();
 		return list;
 	}
-	
-	
-	public int saleOne(SalePayDetails movie) {
-		SqlSession sqlSession = SqlSessionBean.getSession();
-		int result=0;	
-		try{
-			result = sqlSession.insert("movie.saleOne",movie);
-			sqlSession.commit();
-		}catch(Exception e) {
-			log.warn("영화 결제 오류 : {}",e.getMessage());
-			sqlSession.rollback();
-		}finally {
-			sqlSession.close();
-		}	
-		return result;
-	}
-
-	public static ReserveDao getInstance() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-	
 	
 	
 	

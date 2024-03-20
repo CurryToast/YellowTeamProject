@@ -18,7 +18,6 @@
 <section id = "movieList">
 			<h3>상영 일정</h3>
 			<hr style="color:white;">
-			
 			<a href="list?type=all">전체 보기</a>
 			<a href="list?type=ing">현재 상영작</a>
 			<a href="list?type=later">상영 예정작</a>
@@ -38,6 +37,29 @@
        </ul>	
 </div>
 
+<ul>
+	<li id = "choose">
+		<a href="#" id = "current" type="button">
+				<span class = "choice">현재 상영작</span>
+		</a>
+		</li>
+</ul>
+
+<ul>
+	<li id = "choose">
+		<a href="#" id = "current" type="button">
+				<span class = "choice">상영 예정작</span>
+		</a>
+		</li>
+</ul>
+
+<ul>
+	<li id = "choose"> 
+		<button id = "current" type="button">
+				<span class = "choice">상영 종료</span>
+		</button>
+		</li>
+</ul>
 			
 <!-- 상세 페이지 안내 메시지 -->
 <br>
@@ -45,6 +67,20 @@
 <hr>
 <p style = "font-size: 10pt; font-color:gray;">&nbsp; &nbsp; &nbsp; &nbsp; 클릭 시 상세 페이지로 넘어갑니다.</p>
 
-		</section>
+<!-- 영화 출력 시작 -->
+<ul class="movie-list">
+				<c:forEach var="movie" items="${selectAllmovies}">
+		<li class = "movie-item">
+			<div class="movie-container">
+					<a href="showMovieDetail?mcode=${movie.mcode}">
+					<img src = "https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster}.jpg" alt="${movie.mname}"> 
+					</a>
+				<p class = "mname">${movie.mname}</p>
+				<p class= "runt">${movie.running_time}분</p>
+			</div>
+		</li>
+		</c:forEach>
+	</ul>
+</section>
 </body>
 </html>

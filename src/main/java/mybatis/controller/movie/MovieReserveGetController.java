@@ -46,5 +46,4 @@ public class MovieReserveGetController implements Controller {
 			  dispatcher.forward(request, response);
 
 	}
-
 }

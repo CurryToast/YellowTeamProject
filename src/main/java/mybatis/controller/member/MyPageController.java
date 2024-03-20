@@ -46,4 +46,3 @@ public void handle(HttpServletRequest request, HttpServletResponse response) thr
             dispatcher.forward(request, response);
 		}
 	}
-		

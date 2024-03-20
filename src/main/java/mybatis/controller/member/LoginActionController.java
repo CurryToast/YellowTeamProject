@@ -45,5 +45,4 @@ public class LoginActionController implements Controller {
 		}
 		response.sendRedirect(url);
 	}
-
 }

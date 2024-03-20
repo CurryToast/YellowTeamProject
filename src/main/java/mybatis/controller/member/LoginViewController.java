@@ -21,5 +21,4 @@ public class LoginViewController implements Controller {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 		dispatcher.forward(request, response);
 	}
-
 }

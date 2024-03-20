@@ -1,6 +1,5 @@
 package mybatis.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,13 +18,4 @@ public class ScheduleDao {
 	    sqlSession.close();
 	    return schedule;
 	}
-
-	public Date getMovieScheduleDate(long mcode) {
-		SqlSession sqlSession = SqlSessionBean.getSession();
-		Date scheduleDate = sqlSession.selectOne("schedules.selectScheduleDate", mcode);
-		sqlSession.close();
-		return scheduleDate;
 }
-
-}
-

@@ -21,5 +21,4 @@ public class LogoutController implements Controller {
 		dispatcher.forward(request, response);
 		
 	}
-
 }
