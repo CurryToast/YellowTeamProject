@@ -49,6 +49,7 @@
 	  <input  type=hidden name="schedule" id="schedule" value="${schedules.schedule }">
 	  <input  type="hidden" id="Numseats">
 	  <input  type="hidden" id="seatsAll" name="seatsAll">
+	  <input  type="hidden" name="price" value="10000">
 	  <br/><br/>
 	
 	<div class="wrap2">
@@ -250,10 +251,18 @@
 		<br/>
 		
 	<button id="complete" type="button">좌석 선택완료</button>
-<a data-all="${movie.mcode},${movie.mname},${member_code},${Numseats},10000"></a>
+	<a data-all="${movie.mcode},${movie.mname},${member_code},${Numseats},${price}"></a>
 	</form>
 	</div>
+<%
+String priceStr = request.getParameter("price");
+String countStr = request.getParameter("count");
 
+int price = Integer.parseInt(priceStr);
+int count = Integer.parseInt(countStr);
+
+int total = price * count;
+%>
 <!-- The Modal -->
 <div class="modal" tabindex="-1" id="modal">
 		<div class="modal-dialog">
@@ -266,9 +275,9 @@
 					<div class="pay">
 						<hr> 
 						<div>제목</div>
-						<h4 id="member_code"></h4>
+						<h4 id="movie.mcode"></h4>
 						<div>가격</div>
-						<h3 id="price" class="inline"></h3>원
+						<h3 id="price" class="inline"><%= total %></h3>원
 					</div>	
 					<div class="pay">
 							<!-- 결제 UI, 이용약관 UI 영역 -->
@@ -299,9 +308,5 @@
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<!-- 결제위젯 SDK 추가 -->
 	<script src="https://js.tosspayments.com/v1/payment-widget"></script>
-	<script type="text/javascript">
-		const obj ={}
-		let orderid=''
-	</script>		
 </body>
 </html>
