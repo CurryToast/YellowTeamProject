@@ -37,7 +37,7 @@ public void handle(HttpServletRequest request, HttpServletResponse response) thr
 			  
 			List<ReserveList> list= dao.reserve(map); 
 			request.setAttribute("list", list);
-			 
+			
 			logger.info("movie_code: {}", movie_code);
 			logger.info("member_code: {}", member_code);
             logger.info("list: {}", list);

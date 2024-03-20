@@ -1,73 +1,59 @@
 package mybatis.controller.movie;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import mybatis.controller.Controller;
-import mybatis.dao.ReserveDao;
-import mybatis.vo.Reserve;
+import mybatis.dao.MovieCommentsDao;
+import mybatis.vo.Member;
+import mybatis.vo.MovieComments;
 
 public class MovieCommentsPOSTController implements Controller {
 	private static final Logger logger = LoggerFactory.getLogger(MovieReserveController.class);
 
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
-		  
-		  String member_code= request.getParameter("member_code"); 
-		  String temp2=request.getParameter("theater"); 
-		  String movie_code=request.getParameter("movie_code"); 
-		  String scheduleDate=request.getParameter("schedule"); 
-		  String seatsAll= request.getParameter("seatsAll");
-		  //String seats= request.getParameter("seats");
-		  //logger.info("seat:{}",seats);
-		  //System.out.println("seat:"+seats);
-		  System.out.println("seatsAll:"+seatsAll);
-			/*
-			 * logger.info("reserve POST : {} {} {} {} {}"
-			 * ,member_code,temp2,movie_code,scheduleDate,seat);
-			 */			  
-		  int theater = 0;
-		  if (temp2.length() != 0)
-			  theater = Integer.parseInt(temp2);
-		  String[] seatarr= seatsAll.split(",");
+		HttpSession session = request.getSession();
+		String member_code = ((Member)session.getAttribute("user")).getCode();
 		
-
-		ReserveDao dao = new ReserveDao();
-		Reserve reserve=null;
-		List<Reserve> reservearr = new ArrayList<Reserve>();
+		request.setCharacterEncoding("UTF-8");		//항상 맨앞에. 주석처리는 필터 적용 확인목적
+		MovieCommentsDao dao = MovieCommentsDao.getInstance();
+		String f = request.getParameter("f");
+		String url=null;		//redirect url 변수
+		long mref = Long.parseLong(request.getParameter("mref"));   //메인글의 idx 를 댓글테이블 mref 컬럼에 저장해야 함.(댓글추가)
+		logger.info("::::::CommentesController  f={} :::::::",f);
 		
-		for (String seat : seatarr) {
-		    System.out.println(seat);
-		    reserve = new Reserve(0, member_code, theater, movie_code, scheduleDate, null, seat);
-		    result = dao.insert(reserve);
-		    reservearr.add(reserve);
-		    System.out.println("reserve"+reserve);
+		String page = request.getParameter("page");         // 현재페이지 번호 전달 - 순서9)
+		// 댓글 작성 추가
+		if(f.equals("1")) {
+			MovieComments vo =MovieComments.builder()
+									.mref(mref)
+									.writer(request.getParameter("writer"))
+									.content(request.getParameter("content"))
+									.ip(request.getRemoteAddr())
+									.build();
+			if(dao.insert(vo)==1) url="read?idx="+mref + "&page="+page;   // 현재페이지 번호 전달 - 순서9)
+			else url="list";
+			
+		}else if(f.equals("2")) {	
+		//댓글 삭제 - 해보세요.
+			int idx = Integer.parseInt(request.getParameter("idx"));	//삭제한 댓글idx
+			if(dao.delete(idx)==1) url="read?idx="+mref + "&page="+page;   // 현재페이지 번호 전달 - 순서9)
+			else url="list";
 		}
-		request.setAttribute("reserve", reservearr);
-		System.out.println("reservearr"+reservearr.toArray());
-		
-		//logger.info("list: {}", list);
-		logger.info("Reserve: {}", reserve);
-       logger.info("Result: {}", result);
-		System.out.println(reserve);
-
-		if (result == 0) {
-			response.setContentType("text/html; charset=UTF-8");
-			response.sendRedirect("reserve");
-		}
-		
-		response.sendRedirect("complete"+"?movie_code="+movie_code+"&member_code="+member_code);
-	}
-
+		//댓글 갯수 변경 dao 메소드는 편의상 CommunityCommentsDao 로 옮기기
+		//댓글 갯수 변경  
+		dao.setCommentCount(mref);
+		response.sendRedirect(url);
 	}
 
 }

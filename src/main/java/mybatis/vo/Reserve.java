@@ -20,9 +20,10 @@ public class Reserve {
 	private Date reserve_date;
 	private Date schedule;
 	private String seat;
+	private int price;
 	
 	public Reserve(int rcode, String member_code, int theater, String movie_code, String scheduleDate,
-			Date reserve_date, String seat) {
+			Date reserve_date, String seat, int price) {
 		super();
 		this.rcode = rcode;
 		this.member_code = member_code;
@@ -31,6 +32,7 @@ public class Reserve {
 		this.scheduleDate = scheduleDate;
 		this.reserve_date = reserve_date;
 		this.seat = seat;
+		this.price = price;
 	}
 	
 }

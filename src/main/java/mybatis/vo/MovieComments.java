@@ -21,5 +21,9 @@ public class MovieComments {
 	private Date createdat;
 	private int score ;
 	private int count;
+	public static Object builder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

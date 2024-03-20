@@ -49,7 +49,7 @@ public class MovieReserveController implements Controller {
 			
 			for (String seat : seatarr) {
 			    System.out.println(seat);
-			    reserve = new Reserve(0, member_code, theater, movie_code, scheduleDate, null, seat);
+			    reserve = new Reserve(0, member_code, theater, movie_code, scheduleDate, null, seat,0);
 			    result = dao.insert(reserve);
 			    reservearr.add(reserve);
 			    System.out.println("reserve"+reserve);

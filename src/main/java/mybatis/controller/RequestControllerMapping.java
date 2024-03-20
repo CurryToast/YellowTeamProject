@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mybatis.controller.api.ApiGetAllMembersController;
+import mybatis.controller.api.ApiPaymentSaveController;
 import mybatis.controller.member.LoginActionController;
 import mybatis.controller.member.LoginViewController;
 import mybatis.controller.member.LogoutController;
@@ -14,6 +15,8 @@ import mybatis.controller.movie.MovieListController;
 import mybatis.controller.movie.MovieReserveController;
 import mybatis.controller.movie.MovieReserveGetController;
 import mybatis.controller.movie.MoviecompleteController;
+import mybatis.controller.movie.PayRequestFailController;
+import mybatis.controller.movie.PayRequestSuccessController;
 
 
 public class RequestControllerMapping {
@@ -45,7 +48,10 @@ public class RequestControllerMapping {
 		//mapping.put(new RequestKeyValue("/api/auth/adminJoin","POST"),new ApiAdminJoinController());
 		
 		//결제
-		//mapping.put(new RequestKeyValue("/api/pay", "POST"), new ApiPaymentSaveController() );
+		mapping.put(new RequestKeyValue("/api/pay", "POST"), new ApiPaymentSaveController() );
+		mapping.put(new RequestKeyValue("/pay/success","GET"), new PayRequestSuccessController());
+		mapping.put(new RequestKeyValue("/pay/fail","GET"), new PayRequestFailController());
+		
 		
 	}
 

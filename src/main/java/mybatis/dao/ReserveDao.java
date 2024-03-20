@@ -7,9 +7,9 @@ import org.apache.ibatis.session.SqlSession;
 
 import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
+import mybatis.vo.Payment;
 import mybatis.vo.Reserve;
 import mybatis.vo.ReserveList;
-import mybatis.vo.SalePayDetails;
 
 @Slf4j
 public class ReserveDao {
@@ -51,7 +51,7 @@ public class ReserveDao {
 	}
 	
 	
-	public int saleOne(SalePayDetails movie) {
+	public int saleOne(Payment movie) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		int result=0;	
 		try{
@@ -70,13 +70,6 @@ public class ReserveDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

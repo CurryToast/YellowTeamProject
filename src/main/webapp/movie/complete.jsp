@@ -30,6 +30,14 @@
 	            <p><strong>관람등급 </strong><c:out value="${ele.rating}"/>세</p>
 	         </div>
         </div>
+        <hr>
+        <span>가격:</span>
+		<span class="title"><fmt:formatNumber value="${item.price }" pattern="###,###"/> 원</span>
+		<span>총 결제금액:</span>
+		<span class="title" id="amount"></span>
+		<br>
+		결제카드 : <span id="cardtype"></span> <span id="method"></span> (<span id="cardno"></span>)<br> 
+		승인날짜 : <span class="title" id="paydate"></span>
     </div>
     <hr>
 </c:forEach>

@@ -7,7 +7,7 @@ body{
 .wrap {
 	padding-top: 150px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly
 }
 .screen
 {
@@ -18,7 +18,6 @@ body{
   line-height:20px;
   font-size:15px;
 }
-
 .smallBox::before
 {
   content:".";
