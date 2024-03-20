@@ -2,10 +2,7 @@ package mybatis.vo;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Getter
 @AllArgsConstructor
@@ -32,8 +29,4 @@ public class Reserve {
 		this.reserve_date = reserve_date;
 		this.seat = seat;
 	}
-	
 }
-
-
-

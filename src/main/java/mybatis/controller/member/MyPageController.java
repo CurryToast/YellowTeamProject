@@ -3,15 +3,12 @@ package mybatis.controller.member;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import mybatis.controller.Controller;
 import mybatis.dao.ReserveDao;
 import mybatis.vo.Member;
@@ -39,7 +36,6 @@ public void handle(HttpServletRequest request, HttpServletResponse response) thr
 			    }
 			}
 	
-					
 			request.setAttribute("list", list);
 			 
             RequestDispatcher dispatcher = request.getRequestDispatcher("myPage.jsp");

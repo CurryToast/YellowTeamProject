@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>커피24 북카페</title>
+	<title>스타라이트 시네마</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -64,121 +64,16 @@
 	<div id=synop_but>
 	줄거리
 	<h5 id=synopsys><c:out value="${bo.synopsys}"/></h5>	
-	
-	
-	<!--  -->
-	<!-- 후기 등록 -->
-	<form action="comments" method="post">
-	<!-- 필요한 파라미터.화면에는 표시안함. -->
-	<input type="hidden" name="mcode" value="${cmt.mcode }">  <!-- 후기 추가할 영화의 코드(후기테이블 mref.고정값)  -->
-	<input type="hidden" name="score" value="${cmt.score }">  <!-- 현재페이지 번호 전달 - 순서8) -->
-	<input type="hidden" name="writer" class="input" value="${cmt.writer }">
-	<!-- 구현 완료 : 로그인한 사용자가 작성할때는 로그인 이메일,닉네임 가져와서 표시 -->			
-		<ul>
-			<%-- <li>${user.userid }</li> --%>
-			<li>
-				<ul style="display: flex;flex-direction: column;">
-					<li>
-						<textarea rows="5" cols="90" name="content" 
-						style="resize:none;margin-right:20px;" 
-						placeholder="로그인 후에 후기를 작성하세요." class="input"></textarea>
-					</li>				
-					<li style="align-self: center;margin-bottom: 20px;">
-<!-- 저장버튼 테스트를 위해 변경 --><c:if test="${sessionScope.user != null }">  <!-- 구현 완료 : 로그인 했을때 -->
-								<button type="button" onclick="executeCmt('1',0)">저장</button>  <!-- 2번째 인자 0은 의미없음. -->
-							</c:if>	
-							<c:if test="${sessionScope.user == null }">		<!-- 구현 완료  : 로그인 안했들때 -->
-								<button type="button" onclick="login()">로그인</button>
-							</c:if>
-					</li>
-				</ul>
-			</li>
-			<li>
-					<span>후기</span>
-					<span>[<c:out value="${cmt.Count }" />]</span> <!-- 후기갯수 -->
-				<hr>
-			</li>
-			
-			<!-- 후기 목록 -->
-			<c:forEach var="cmt" items="${cmtlist}">
-			<li>
-				<ul class="crow">
-					<li><c:out value="${cmt.writer }" /></li>				
-					<li><c:out value="${cmt.ip }" /></li>				
-					<li><c:out value="${cmt.createdAt }" /></li>	
-				<c:if test="${user.userid==cmt.writer }">  <!-- session 에 저장된 user애트리뷰트의 id와 작성자의 id 가 같은면 보이기 -->		
-					<li><a href="javascript:executeCmt('2','${cmt.idx }')">삭제</a></li>				
-				</c:if>	
-				</ul>
-			</li>
-			<li>
-				<textarea class="cmtcontent"
-						  style="border: none;resize: none;"
-				><c:out value="${cmt.content }" /></textarea>
-			</li>
-			</c:forEach>
-		</ul>	
-	</form>
 	<div id=buttons>
 		<a class="button" href="search?page=${page }">목록</a> 
 		<a class="reverse_button" href="reserve">예매</a>	
 	</div>
-</section>	
-<div data-num="5" id="datanum"></div>
-	
 	</div>
-
-
-
-<script type="text/javascript">
-	const user = '${member.code}'
-	const txtarea = document.querySelector('textarea[name="content"]')
-	if(user.length !=0)
-		txtarea.placeholder = user + '님 후기를 작성하세요.'
-
-	//후기 등록과 삭제 모두 post 방식으로 합니다.
-	function executeCmt(fval,cidx){	/* 후기 작성추가 와 삭제는 매개변수 f의 값으로 구별한다. idx는 매개변수는 삭제할 후기번호 */
-		console.log(fval)
-		document.forms[0].f.value=fval
-		if(fval==='2') {		//후기 삭제
-			document.forms[0].idx.value=cidx		/* hidden 타입 idx의 value 로 설정*/
-			const yn = confirm('후기 삭제하시겠습니까?')
-			if(yn)	document.forms[0].submit()	
-		}else if(fval==='1'){			//후기 등록
-			document.forms[0].submit()			
-		}
-	}
-	
-	function reset_content() {
-		document.forms[0].content.value=''
-	}
-	
-	function login() {
-		sessionStorage.setItem('back', location.href);		//location.href 는 현재의 요청 url 읽어옵니다.
-		location.href='../login'  // 로그인 후 글쓰기 url로 redirect 하기 위한 파라미터
-	}
-	
-	var back = sessionStorage.getItem('back');
-	if(back) {
-		location.href=back;
-		sessionStorage.removeItem('back');
-	}
-	
-	
-	
-		
-<!-- <textarea rows="20" disabled="disabled" 
-style="background-color:#f3f3f3;font-size:inherit;resize: none;border:none;"> -->
-
-<!-- </textarea> -->
-		
+	</div>		
 	
 	<!-- 메인글 출력 끝 -->
 </section>	
-<!-- <div data-num="5" id="datanum"></div> -->
 </div>
-<!-- <script src="../js/nav.js"></script> -->
-
 			
 </body>
 </html>

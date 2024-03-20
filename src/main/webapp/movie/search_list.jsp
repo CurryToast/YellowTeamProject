@@ -28,6 +28,7 @@
 		href="${pageContext.request.contextPath }/css/list.css?v=3">
 		
 <!-- 		<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>	 -->
+
 </head>
 <body class="is-preload">
 	<div id="page-wrapper">
@@ -40,7 +41,7 @@
 					<!-- Content -->
 					<article>
 						<header class="guide">
-							<h3>스타 라이트 영화관</h3>
+							<h3>스타라이트 영화관</h3>
 							<p>현재 상영중인 영화</p>
 						</header>
 					</article>
@@ -66,12 +67,9 @@
 							<button type="button" onclick="location.href='search'">전체보기</button>
 						</form>
 					</div>
-					<section id="searchlist">
-					
-					</section> 
+					<section id="searchlist"></section> 					
 					<hr>
-					<h3 id="listpage"></h3>
-					<div id="listpro">
+					
 					
 							<%-- <c:forEach var="vo" items="${list}"> --%>
 									 <!-- 현재페이지 번호 세션에 저장했으므로 파라미터 전달 삭제 -->
@@ -136,16 +134,13 @@
 		}
 	});
 
-	
-
 	<!-- Scripts -->
-	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.dropotron.min.js"></script>
-	<script src="../assets/js/browser.min.js"></script>
-	<script src="../assets/js/breakpoints.min.js"></script>
-	<script src="../assets/js/main.js"></script>
-	<script src="../js/nav.js"></script>
-
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+	<script src="${pageContext.request.contextPath}/js/nav.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/moviesearch.js"></script>
 
 </body>

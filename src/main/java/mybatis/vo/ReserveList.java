@@ -1,7 +1,6 @@
 package mybatis.vo;
 
 import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -25,9 +24,4 @@ public class ReserveList {
 	private String name;
 	private int rcode;
 	private String seat;
-//	private String movie_code;
-	
-	
-	
-	
 }

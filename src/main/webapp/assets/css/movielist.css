@@ -2,10 +2,10 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
 
-#movieList{
-	padding-top: 150px;
-	
+#movieList {
+    padding-top: 150px;
 }
+
 #current:focus, #current:hover {
 	text-decoration: underline; text-decoration-thickness: 2px;
 	}

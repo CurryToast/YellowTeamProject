@@ -30,14 +30,6 @@
 		AND tr.MOVIE_CODE =#{movie_code}
 		AND TO_CHAR(TR.RESERVE_DATE,'YYYY-MM-DD')=TO_CHAR(SYSDATE,'YYYY-MM-DD')
  	</select>
- 	<!-- <insert id="saleOne" parameterType="org.iclass.vo.SalePayDetails">
- 		INSERT INTO sale_details 
- 		VALUES (#{mcode},#{orderid},#{amount},#{paydate},#{buyuser},#{paytype},#{paymentkey})
- 	</insert> -->
  </mapper>
- 
- 
- 
- 
  
  

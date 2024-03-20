@@ -1,5 +1,5 @@
 /*
-	Elemental by Pixelarity
+	Arcana by Pixelarity
 	pixelarity.com | hello@pixelarity.com
 	License: pixelarity.com/license
 */
@@ -7,18 +7,16 @@
 (function($) {
 
 	var	$window = $(window),
-		$body = $('body'),
-		$header = $('#header'),
-		$main = $('#main');
+		$body = $('body');
 
 	// Breakpoints.
 		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ '361px',   '480px'  ],
-			xxsmall:  [ null,      '360px'  ]
+			wide:      [ '1281px',  '1680px' ],
+			normal:    [ '981px',   '1280px' ],
+			narrow:    [ '841px',   '980px'  ],
+			narrower:  [ '737px',   '840px'  ],
+			mobile:    [ '481px',   '736px'  ],
+			mobilep:   [ null,      '480px'  ]
 		});
 
 	// Play initial animations on page load.
@@ -30,30 +28,18 @@
 
 	// Dropdowns.
 		$('#nav > ul').dropotron({
-			alignment: 'center',
-			openerActiveClass: 'dropotron-active'
+			offsetY: -15,
+			hoverDelay: 0,
+			alignment: 'center'
 		});
 
-	// Header.
-		if ($header.hasClass('alt')) {
+	// Nav.
 
-			$window.on('resize', function() { $window.trigger('scroll'); });
-
-			$main.scrollex({
-				mode:		'top',
-				top:		'40vh',
-				enter:		function() { $header.removeClass('alt'); },
-				leave:		function() { $header.addClass('alt'); $header.addClass('reveal'); }
-			});
-
-		}
-
-	// Nav Panel.
-
-		// Button.
+		// Bar.
 			$(
-				'<div id="navButton">' +
+				'<div id="titleBar">' +
 					'<a href="#navPanel" class="toggle"></a>' +
+					'<span class="title">' + $('#logo').html() + '</span>' +
 				'</div>'
 			)
 				.appendTo($body);
@@ -64,7 +50,6 @@
 					'<nav>' +
 						$('#nav').navList() +
 					'</nav>' +
-					'<a href="#navPanel" class="close"></a>' +
 				'</div>'
 			)
 				.appendTo($body)
@@ -74,34 +59,8 @@
 					hideOnSwipe: true,
 					resetScroll: true,
 					resetForms: true,
-					side: 'left'
-					//target: $body,
-					//visibleClass: 'navPanel-visible'
+					side: 'left',
+					target: $body,
+					visibleClass: 'navPanel-visible'
 				});
-
-	// Spotlights.
-		$('.spotlight')
-			.each(function() {
-
-				var	$this = $(this),
-					$image = $this.find('.image'),
-					$img = $image.find('img'),
-					x;
-
-				// No image? Skip.
-					if ($image.length == 0)
-						return;
-
-				// Assign image.
-					$image.css('background-image', 'url(' + $img.attr('src') + ')');
-
-				// Set background position.
-					if (x = $img.data('position'))
-						$image.css('background-position', x);
-
-				// Hide <img>.
-					$img.hide();
-
-			});
-
 })(jQuery);

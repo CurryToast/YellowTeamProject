@@ -47,5 +47,3 @@ https://mybatis.org/mybatis-3/ko/getting-started.html 참고
     <!-- <mapper resource="mybatis/movieComments.xml"/> -->
   </mappers>
 </configuration>
-
-
