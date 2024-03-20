@@ -46,4 +46,5 @@
 					<li><a href="${pageContext.request.contextPath}/movie/complete">예매확인</a></li>
 				</ul>
 			</li>
-		</div>
+		</ul>
+</div>

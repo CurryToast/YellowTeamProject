@@ -14,7 +14,6 @@
 <%@ include file="../layout/header.jsp" %>
 <br/><br/>
 
-
 <!--disabled 는 데이터를 넘길 수 없기에 고객이 볼 외관용과 넘기기용 hidden 두개  -->
 	<div class="wrap"> 
 	<div class="poster">
@@ -43,16 +42,15 @@
 	  예매 인원 &nbsp; <input class="in" type="number" id="Numseats" required>
   	  &nbsp; <button type="button" onclick="select()">인원 선택 완료</button>	  <br/><br/></div>
 	  <!-- hidden -->
-	  <input hidden type="text" id="theater" name="theater" value="${param.theater }" >  
-	  <input hidden type="text" name="mname" id="mname" value="${movie.mname }">
-	  <input hidden type="text" name="member_code" id="member_code" value="${param.member_code }">
-	  <input hidden type="number" id="movie_code" name="movie_code" value="${movie.mcode }">
-	  <input hidden type="date" name="schedule" id="schedule" value="${schedules.schedule }">
-	  <input hidden type="number" id="Numseats">
-	  <input hidden type="text" id="seatsAll" name="seatsAll">
+	  <input type="hidden" id="theater" name="theater" value="${param.theater }" >  
+	  <input type="hidden" name="mname" id="mname" value="${movie.mname }">
+	  <input type="hidden" name="member_code" id="member_code" value="${param.member_code }">
+	  <input type="hidden" id="movie_code" name="movie_code" value="${movie.mcode }">
+	  <input type="hidden" name="schedule" id="schedule" value="${schedules.schedule }">
+	  <input type="hidden" id="Numseats">
+	  <input type="hidden" id="seatsAll" name="seatsAll">
 	  <br/><br/>
-	
-	 <div class="wrap2">
+	<div class="wrap2">
 	<div class="seatStructure">
 	<table id="seatsBlock">
 	  <tr>
@@ -62,9 +60,7 @@
 	      <div class="smallBox redBox">예약된 좌석</div><br/>
 	      <div class="smallBox emptyBox">빈좌석</div><br/>
 	    </td>
-	    
 	  </tr>
-	  
 	  <tr>
 	    <td></td>
 	    <td>1</td>
@@ -79,7 +75,6 @@
 	    <td>9</td>
 	    <td>10</td>
 	</tr>
-	  
 	<tr>
 	    <td>A</td>
 	    <td><input type="checkbox" class="seats" value="A1" name="seat"></td>
@@ -94,10 +89,8 @@
 	    <td><input type="checkbox" class="seats" value="A9" name="seat"></td>
 	    <td><input type="checkbox" class="seats" value="A10" name="seat"></td>
 	    <td class="seatGap"></td>
-	    
-	  </tr>
-	  
-	  <tr>
+	</tr>
+	<tr>
 	    <td>B</td>
 	    <td><input type="checkbox" class="seats" value="B1" name="seat"></td>
 	    <td><input type="checkbox" class="seats" value="B2" name="seat"></td>
@@ -111,10 +104,8 @@
 	    <td><input type="checkbox" class="seats" value="B9" name="seat"></td>
 	    <td><input type="checkbox" class="seats" value="B10" name="seat"></td>
 	    <td class="seatGap"></td>
-	    
-	  </tr>
-	  
-	  <tr>
+	</tr>
+	<tr>
 	    <td>C</td>
 	    <td><input type="checkbox" class="seats" value="C1" name="seat"></td>
 	    <td><input type="checkbox" class="seats" value="C2" name="seat"></td>
@@ -129,7 +120,6 @@
 	    <td><input type="checkbox" class="seats" value="C10" name="seat"></td>
 	    <td class="seatGap"></td>
 	</tr>
-	  
 	<tr>
 	    <td>D</td>
 	    <td><input type="checkbox" class="seats" value="D1" name="seat"></td>
@@ -144,9 +134,7 @@
 	    <td><input type="checkbox" class="seats" value="D9" name="seat"></td>
 	    <td><input type="checkbox" class="seats" value="D10" name="seat"></td>
 	    <td class="seatGap"></td>
-	    
-	</tr>
-	  
+	</tr> 
 	<tr>
 	    <td>E</td>
 	    <td><input type="checkbox" class="seats" value="E1" name="seat"></td>
@@ -162,9 +150,7 @@
 	    <td><input type="checkbox" class="seats" value="E10" name="seat"></td>
 		<td class="seatGap"></td>
 	</tr>
-	  
 	<tr class="seatVGap"></tr>
-	  
 	<tr>
 	    <td>F</td>
 	    <td><input type="checkbox" class="seats" value="F1" name="seat"></td>
@@ -180,7 +166,6 @@
 	    <td><input type="checkbox" class="seats" value="F10" name="seat"></td>
 	    <td class="seatGap"></td>
 	</tr>
-	  
 	<tr>
 	    <td>G</td>
 	    <td><input type="checkbox" class="seats" value="G1" name="seat"></td>
@@ -196,7 +181,6 @@
 	    <td><input type="checkbox" class="seats" value="G10" name="seat"></td>
 	    <td class="seatGap"></td>
 	</tr>
-	  
 	<tr>
 	    <td>H</td>
 	    <td><input type="checkbox" class="seats" value="H1" name="seat"></td>
@@ -212,7 +196,6 @@
 	    <td><input type="checkbox" class="seats" value="H10" name="seat"></td>
 	    <td class="seatGap"></td>
 	</tr>
-	  
 	<tr>
 	    <td>I</td>
 	    <td><input type="checkbox" class="seats" value="I1" name="seat"></td>
@@ -228,7 +211,6 @@
 	    <td><input type="checkbox" class="seats" value="I10" name="seat"></td>
 	    <td class="seatGap"></td>
 	</tr>
-	  
 	<tr>
 	    <td>J</td>
 	    <td><input type="checkbox" class="seats" value="J1" name="seat"></td>
@@ -247,9 +229,10 @@
 	</tr>
 	</table>
 	</div>
+	</div>	
 	<br/>
 		<button id="complete" type="button">선택완료</button>
-	</div>	
+		
 </form>
 </div>
 <script src="../assets/js/reserve.js"></script>

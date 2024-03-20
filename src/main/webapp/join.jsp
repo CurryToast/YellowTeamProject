@@ -6,17 +6,17 @@
 <head>
 <title>스타라이트 시네마</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
  <!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
- <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="stylesheet" href="css/join.css" /> 
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" /> 
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" /> 
     <script>
     /* sms.jsp 에서 인증하기 성공하면 메시지를 보낸것 window.opener.postMessage(~~~)을 받는 이벤트 입니다.  */
       window.addEventListener('message', (e) => {			//윈도우에서 메시지 수신이 있을 때
@@ -77,9 +77,8 @@
           alert("보호자 개인정보 수집 및 이용에 동의해주세요.")
           return;
         }
-
         $('#under14Popup').removeClass('active');
-        window.open('auth/cert/sms?certType=JOIN&adultYn=N', '본인 인증', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no');
+        window.open('auth/cert/sms?certType=JOIN&adultYn=N', '본인 인증', 'top=10, left=10, width=500, height=600, status=no, menubar=no, toolbar=no, resizable=no')
       }
 
       var isChecked = false;
@@ -185,9 +184,9 @@
         }
         // form 태그안의 모든 요소값을 자바스크립트 객체로 생성합니다.
         const data = $('#form').serializeObject();
-        var idRule = /^[a-z]+[a-z0-9]{5,11}$/g;
+        var idRule = /^[a-z]+[a-z0-9]{2,9}$/g;
         if(!idRule.test(data.code)){
-            alert("아이디는 영문자로 시작하는 영문자 또는 숫자 6~12자로 입력해주세요.");
+            alert("아이디는  영어 소문자 또는 숫자 3~8자로 입력해주세요.");
             $("#username").focus();
             return;
         }
@@ -269,25 +268,25 @@
     </script>
  </head>
 <body class="is-preload">
-	<%@include file="../layout/header.jsp" %>
-	<div id="page-wrapper">
-    <hr>
-  	<jsp:include page="joinagree.jsp"/>
-    <hr>
-	</div>    
+<%@include file="../layout/header.jsp" %>
+<div id="page-wrapper">
+<hr>
+<jsp:include page="joinagree.jsp"/>
+<hr>
+<%@include file="../layout/footer.jsp" %>
+</div>
  
 <!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/swipper.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/map.daum.js"></script>
-			<script src="assets/js/script.js"></script>
-		
-			
+<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/swipper.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/map.daum.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
+
 <!-- 계정 : wonder , 패스워드 : thGH123!@4 -->
 </body>
 </html>

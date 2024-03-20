@@ -35,9 +35,10 @@ public void handle(HttpServletRequest request, HttpServletResponse response) thr
 			        firstReserve.setReserve_datef(strNewFormatDate); // 변환된 예약 날짜 설정
 			    }
 			}
-	
+				
 			request.setAttribute("list", list);
-			 
+			request.setAttribute("isEmpty", list.isEmpty());
+					
             RequestDispatcher dispatcher = request.getRequestDispatcher("myPage.jsp");
             dispatcher.forward(request, response);
 		}
