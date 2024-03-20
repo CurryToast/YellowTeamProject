@@ -35,8 +35,11 @@ body {
 
 ol, ul {
 	list-style: none;
+	
 }
-
+a {
+	text-decoration-line: none;
+}
 blockquote, q {
 	quotes: none;
 }
@@ -1959,33 +1962,6 @@ input, select, textarea {
 		text-align: center;
 	}
 
-	header p {
-		color: #999;
-	/* 	font-size: 1.25em; */
-		position: relative;
-		margin-top: -1.25em;
-		margin-bottom: 2.25em;
-	}
-
-	header.major {
-		text-align: center;
-		margin: 0 0 2em 0;
-	}
-
-		header.major h2 {
-			font-size: 2.25em;
-		}
-
-		header.major p {
-			position: relative;
-			border-top: solid 1px #e0e0e0;
-			padding: 1em 0 0 0;
-			margin: 0;
-			top: -1em;
-			font-size: 1.5em;
-			letter-spacing: -0.025em;
-		}
-
 	footer {
 		margin: 0 0 3em 0;
 	}
@@ -2528,111 +2504,6 @@ input, select, textarea {
 			margin: 0;
 		}
 
-/* Header */
-
-	#header {
-		text-align: center;
-		padding: 3em 0 0 0;
-		background-color: #fff;
-		background-image: url("images/bg02.png"), url("images/bg02.png"), url("images/bg01.png");
-		background-position: top left,					top left,					top left;
-		background-size: 100% 6em,					100% 6em,					auto;
-		background-repeat: no-repeat,					no-repeat,					repeat;
-	}
-
-		#header h1 {
-			padding: 0 0 2.75em 0;
-			margin: 0;
-		}
-
-			#header h1 a {
-				font-size: 1.5em;
-				letter-spacing: -0.025em;
-				border: 0;
-			}
-
-	#nav {
-		cursor: default;
-		background-color: #333;
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
-		padding: 0;
-	}
-
-		#nav:after {
-			content: '';
-			display: block;
-			width: 100%;
-			height: 0.75em;
-			background-color: #de5e54;
-			background-image: url("images/bg01.png");
-		}
-
-		#nav > ul {
-			margin: 0;
-		}
-
-			#nav > ul > li {
-				position: relative;
-				display: inline-block;
-				margin-left: 1em;
-			}
-
-				#nav > ul > li a {
-					color: #c0c0c0;
-					text-decoration: none;
-					border: 0;
-					display: block;
-					padding: 1.1em 0.5em 1.1em 0.5em;
-					font-size: 0.9em;
-				}
-
-				#nav > ul > li:first-child {
-					margin-left: 0;
-				}
-
-				#nav > ul > li:hover a {
-					color: #fff;
-				}
-
-				#nav > ul > li.current {
-					font-weight: 600;
-				}
-
-					#nav > ul > li.current:before {
-						-moz-transform: rotateZ(45deg);
-						-webkit-transform: rotateZ(45deg);
-						-ms-transform: rotateZ(45deg);
-						transform: rotateZ(45deg);
-						width: 0.75em;
-						height: 0.75em;
-						content: '';
-						display: block;
-						position: absolute;
-						bottom: -0.5em;
-						left: 50%;
-						margin-left: -0.375em;
-						background-color: #de5e54;
-						background-image: url("images/bg01.png");
-					}
-
-					#nav > ul > li.current a {
-						color: #fff;
-					}
-
-				#nav > ul > li.active a {
-					color: #fff;
-				}
-
-				#nav > ul > li.active.current:before {
-					opacity: 0;
-				}
-
-				#nav > ul > li > ul {
-					display: none;
-				}
 
 /* Dropotron */
 
@@ -2674,51 +2545,6 @@ input, select, textarea {
 			margin-top: -1px;
 		}
 
-/* Banner */
-
-	#banner {
-		background-image: url("../../images/banner.jpg");
-		background-position: center center;
-		background-size: cover;
-		height: 18em;
-		text-align: center;
-		position: relative;
-	}
-
-		#banner header {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 100%;
-			background: #212121;
-			background: rgba(27, 27, 27, 0.75);
-			color: #fff;
-			padding: 1.5em 0;
-		}
-
-			#banner header h2 {
-				display: inline-block;
-				margin: 0;
-				font-size: 1.25em;
-				vertical-align: middle;
-			}
-
-				#banner header h2 em {
-					opacity: 0.75;
-				}
-
-				#banner header h2 a {
-					border-bottom-color: rgba(255, 255, 255, 0.5);
-				}
-
-					#banner header h2 a:hover {
-						border-bottom-color: transparent;
-					}
-
-			#banner header .button {
-				vertical-align: middle;
-				margin-left: 1em;
-			}
 
 /* Wrapper */
 
@@ -2939,23 +2765,6 @@ input, select, textarea {
 				margin-bottom: 0.5em;
 			}
 
-			header p {
-				margin-top: -0.75em;
-			}
-
-			header.major {
-				text-align: center;
-				margin: 0 0 2em 0;
-			}
-
-				header.major h2 {
-					font-size: 1.75em;
-				}
-
-				header.major p {
-					top: -0.25em;
-					font-size: 1.25em;
-				}
 
 		/* Box */
 
@@ -2980,11 +2789,6 @@ input, select, textarea {
 				width: 20%;
 			}
 
-		/* Header */
-
-			#header {
-				display: none;
-			}
 
 		/* Banner */
 
@@ -3365,4 +3169,28 @@ input, select, textarea {
 				text-align: left;
 			}
 
+
 	}
+	
+	
+	
+	
+hr[role="tournament4"] {
+    border: 0px solid;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 140, 186, 0.75), rgba(0, 0, 0, 0));
+    margin: 32px 0px;
+    display: block;
+}
+hr[role="tournament4"]::before {
+    position: absolute;
+    background-color: #efefef;
+    border: 10px solid #008cba;
+    border-top: 10px solid transparent;
+    border-radius: 2px;
+    padding: 0px;
+    transform: rotate(180deg);
+    left: 50%;
+    margin: -5px 0px 0px -21px;
+    content: "";
+}

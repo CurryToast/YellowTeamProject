@@ -2,31 +2,23 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE HTML>
-<!--
-	Arcana by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
--->
 <html>
 <head>
-	<title>영화관</title>
+	<title>스타 라이트 시네마</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Expires" content="0">
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-   	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css?v=3" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/banner.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/movieCard.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/label.css">
+      	<meta name="description" content="" />
+      	<meta name="author" content="" />
+	<link rel="stylesheet" href="assets/css/main.css?v=3" />
+	<link rel="stylesheet" href="css/layout.css?v=3" />
 	<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
 </head>
-<body class="is-preload">+
-<div id="page-wrapper" class="home">
+<body class="is-preload">
+<div id="page-wrapper">
+   <hr role="tournament4">
 	<script>
 		var back = sessionStorage.getItem('back');
 		if(back) {
@@ -38,6 +30,7 @@
 	<%@ include file="./layout/header.jsp" %>
 	<!-- Banner -->
 	<section id="banner">
+			<img alt="" src="images/bookmain.png" width="100%" height="75%" style="object-fit: cover;">
 	</section>
 	<!-- Highlights -->
 	<section class="wrapper style1">
