@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+body{
+   font-family: 'Roboto', 'Noto Sans KR';
+}
 
 .wrap {
+	padding-top: 150px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
 }
 .screen
@@ -73,12 +78,12 @@ textarea
   background:transparent;
 }
 
-input[type=radio] {
+input[type=checkbox] {
     width:0px;
     margin-right:18px;
 }
 
-input[type=radio]:before {
+input[type=checkbox]:before {
     content: "";
     width: 15px;
     height: 15px;
@@ -89,7 +94,7 @@ input[type=radio]:before {
     background-color:#ccc;
 }
 
-input[type=radio]:checked:before {
+input[type=checkbox]:checked:before {
     background-color:Green;
     font-size: 15px;
 }
@@ -101,17 +106,67 @@ table#seatsBlock {
 
 .inputForm {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: baseline;
 }
-button#complete {
+button{
+	border:0; 
+	background:transparent;
+	
+}
+button{
     display: flex;
-    margin: auto;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #4388cc;
+    height: 30px;
+    border: 1.5px solid #4388cc;
+    color: #FFFFFf;
+    }
+  
+    
+form{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.cinema {
+    display: flex;
+    flex-direction: column;
+}
+img{
+	width: 300px;
+    height: 430px;
+}
+select {
+    height: 30px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+.in {
+    height: 30px;
+    width: 200px;
+}
+.wrap2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.poster {
+	padding-left: 110px;
+	padding-top: 20px;
 }
 
+.smallBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
 .seatStructure {
     display: flex;
     flex-direction: column-reverse;}
-    
+   
     

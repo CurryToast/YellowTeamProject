@@ -1,6 +1,5 @@
 package mybatis.dao;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
 import mybatis.vo.Reserve;
+import mybatis.vo.ReserveList;
+import mybatis.vo.SalePayDetails;
 
 @Slf4j
 public class ReserveDao {
@@ -33,21 +34,49 @@ public class ReserveDao {
 		return result;
 	}
 
-	public List<Reserve> searchId(String id){
+	public List<ReserveList> reserveAll(String member_code){
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		List<Reserve> list = sqlSession.selectList("reserves.searchId",id);
-		log.info("searchId :{}", list);
+		List<ReserveList> list = sqlSession.selectList("reserves.reserveAll",member_code);
+		log.info("reserveAll :{}", list);
 		sqlSession.close();
 		return list;
 	}
 	
-	public List<String> select(Map<String, String> map){
+	public List<ReserveList> reserve(Map<String,String> map){
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		List<String> list = sqlSession.selectList("reserves.select",map);
-		log.info("select :{}", list);
+		List<ReserveList> list = sqlSession.selectList("reserves.reserve",map);
+		log.info("reserve :{}", list);
 		sqlSession.close();
 		return list;
 	}
+	
+	
+	public int saleOne(SalePayDetails movie) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		int result=0;	
+		try{
+			result = sqlSession.insert("movie.saleOne",movie);
+			sqlSession.commit();
+		}catch(Exception e) {
+			log.warn("영화 결제 오류 : {}",e.getMessage());
+			sqlSession.rollback();
+		}finally {
+			sqlSession.close();
+		}	
+		return result;
+	}
+
+	public static ReserveDao getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

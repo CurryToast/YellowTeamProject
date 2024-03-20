@@ -4,18 +4,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mybatis.controller.api.ApiGetAllMembersController;
+import mybatis.controller.member.LoginActionController;
+import mybatis.controller.member.LoginViewController;
+import mybatis.controller.member.LogoutController;
+import mybatis.controller.member.MemberReserveController;
+import mybatis.controller.member.MyPageController;
+import mybatis.controller.movie.MovieCommentsGetController;
 import mybatis.controller.movie.MovieDetailController;
 import mybatis.controller.movie.MovieListController;
 import mybatis.controller.movie.MovieReserveController;
+import mybatis.controller.movie.MovieReserveViewController;
 import mybatis.controller.movie.MoviecompleteController;
-import mybatis.controller.movie.MoviecompletePOSTController;
 
 
 public class RequestControllerMapping {
 	private static final Map<RequestKeyValue,Controller> mapping = new HashMap<>();
 
 	public static void init() {
-		// 테스트를 위해 매핑 : 모든 멤버 가져오는 비동기 api
 		mapping.put(new RequestKeyValue("/api/member", "POST"), new ApiGetAllMembersController());
 		mapping.put(new RequestKeyValue("/movie/list", "GET"), new MovieListController());
 		mapping.put(new RequestKeyValue("/movie/list", "POST"), new MovieListController() );
@@ -23,7 +28,31 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/movie/reserve", "GET"), new MovieReserveController() );
 		mapping.put(new RequestKeyValue("/movie/reserve", "POST"), new MovieReserveController() );
 		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MoviecompleteController() );
-		mapping.put(new RequestKeyValue("/movie/complete", "POST"), new MoviecompletePOSTController() );
+		mapping.put(new RequestKeyValue("/movie/comments", "GET"), new MovieCommentsGetController() );
+		//mapping.put(new RequestKeyValue("/movie/comments", "POST"), new MovieCommentsPOSTController() );
+
+		//로그인
+		mapping.put(new RequestKeyValue("/login", "GET"), new LoginViewController());
+		mapping.put(new RequestKeyValue("/login", "POST"), new LoginActionController());
+		mapping.put(new RequestKeyValue("/logout", "GET"), new LogoutController());
+		
+		// Movie
+		mapping.put(new RequestKeyValue("/movie/list", "GET"), new MovieListController() );
+		mapping.put(new RequestKeyValue("/movie/list", "POST"), new MovieListController() );
+		
+		//마이페이지
+		mapping.put(new RequestKeyValue("/myPage","GET"), new MyPageController());
+		//mapping.put(new RequestKeyValue("/member/modify","GET"), new MemberModifyController());
+		//mapping.put(new RequestKeyValue("/api/modify","POST"), new ApiMemberModifyController());
+		//mapping.put(new RequestKeyValue("/member/drop","GET"),new MemberDropController());
+		//mapping.put(new RequestKeyValue("/admin/join","GET"),new AdminJoinController());
+		//mapping.put(new RequestKeyValue("/admin/save","POST"),new AdminSaveController());
+		//mapping.put(new RequestKeyValue("/api/auth/adminJoin","POST"),new ApiAdminJoinController());
+				
+		//결제
+		//mapping.put(new RequestKeyValue("/api/pay", "POST"), new ApiPaymentSaveController() )
+		
+		
 	}
 
 	// url,method 필드를 저장하는 key 를 전달받아 HashMap에서 value(컨트롤러)를 리턴

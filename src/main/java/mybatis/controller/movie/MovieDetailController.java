@@ -21,7 +21,7 @@ public class MovieDetailController implements Controller {
 	   @Override
 	    public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		   MovieDao dao = MovieDao.getInstance();
-	        long mcode = Long.parseLong(request.getParameter("mcode"));		// mcode 전달
+	        long mcode = Long.parseLong(request.getParameter("mcode"));
 	        
 	        Movie movie = dao.selectMovieById(mcode);
 
