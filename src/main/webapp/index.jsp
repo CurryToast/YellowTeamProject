@@ -80,6 +80,8 @@
 	</section>
 	<!-- Posts -->
 	 <section class="wrapper style1">
+		<h2 style="text-align : center;">평론가들의 영화 한 마디</h2>
+		<hr>
 		<div class="container">
 			<div class="row">
 				<section class="col-6 col-12-narrower">
@@ -135,7 +137,7 @@
 				</section>
 			</div>
 		</div>
-	</section> -->
+	</section>
 	<!-- CTA -->
 	<section id="cta" class="wrapper style3">
 		<!-- <div class="container">
