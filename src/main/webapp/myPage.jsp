@@ -37,7 +37,7 @@
 	</div>
    	    
 	<div class="container">
-<h2>예매 내역</h2>
+<h3>${user.name } 님의 예매 내역 입니다.</h3>
 <c:forEach var="ele" items="${list}">
     <div class="wrap">
       <img class="poster" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${ele.poster}.jpg" alt="${ele.poster}">
