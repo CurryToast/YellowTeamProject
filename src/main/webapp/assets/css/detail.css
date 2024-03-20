@@ -2,8 +2,11 @@
 
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
-
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+body{
+   font-family: 'Roboto', 'Noto Sans KR';
+}
 #detail {
 	margin-top:20px; font-size:18px;
 	color: #FFA200;

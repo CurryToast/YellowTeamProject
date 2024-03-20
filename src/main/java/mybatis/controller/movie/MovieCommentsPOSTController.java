@@ -21,7 +21,7 @@ public class MovieCommentsPOSTController implements Controller {
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		  
+		 int result = 0; 
 		  String member_code= request.getParameter("member_code"); 
 		  String temp2=request.getParameter("theater"); 
 		  String movie_code=request.getParameter("movie_code"); 
@@ -70,4 +70,3 @@ public class MovieCommentsPOSTController implements Controller {
 
 	}
 
-}

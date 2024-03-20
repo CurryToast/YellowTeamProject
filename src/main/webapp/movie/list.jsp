@@ -1,4 +1,5 @@
-<%@page import="mybatis.dao.MovieDao"%>
+<%@ page import="mybatis.dao.MovieDao"%>
+<%@ page import="mybatis.vo.Schedule" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -8,8 +9,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상영 일정</title>
-			 <link rel = "stylesheet" href="../assets/css/movielist.css"/>
+<title>스타 라이트 시네마</title>
+	 <link rel = "stylesheet" href="../assets/css/movielist.css"/>
 </head>
 <body>
 	<%@ include file="../layout/header.jsp" %>
@@ -17,15 +18,24 @@
 <section id = "movieList">
 			<h3>상영 일정</h3>
 			<hr style="color:white;">
+			<a href="list?type=all">전체 보기</a>
+			<a href="list?type=ing">현재 상영작</a>
+			<a href="list?type=later">상영 예정작</a>
+			<a href="list?type=end">상영 종료작</a>
 			
-<!-- 전체 -->
-<ul>
-	<li id = "choose">
-			<a href="#"  onclick = "allmovie()" id = "allmovie" type = "button">
-				<span class ="choice">전체</span>
-			</a>
-	</li>
-</ul>
+<div class = "movie-container">
+		<ul class = "movie-list">
+			<li class = "movie-item">
+				<c:forEach var="movie" items = "${list}">
+                <a href="showMovieDetail?mcode=${movie.mcode}">
+                    <img class = "img-style" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster}.jpg" alt="${movie.mname}">
+                </a>
+                    <p class="mname">${movie.mname}</p>
+                    <p class="runt">${movie.running_time}분</p>
+	   		</c:forEach>
+	   		</li>
+       </ul>	
+</div>
 
 <ul>
 	<li id = "choose">
@@ -50,6 +60,8 @@
 		</button>
 		</li>
 </ul>
+			
+<!-- 상세 페이지 안내 메시지 -->
 <br>
 <br>
 <hr>
@@ -67,12 +79,8 @@
 				<p class= "runt">${movie.running_time}분</p>
 			</div>
 		</li>
-				</c:forEach>
+		</c:forEach>
 	</ul>
-
-		</section>
-		
-		<script src="../assets/js/list.js"></script>
-
+</section>
 </body>
 </html>
