@@ -56,10 +56,9 @@ h1 a , div.container,h3 ,th {
 	#user{ 
 		float:right;
 		font-size: 0.9em;
-		color : orange;
+		
 	}
-  	#user > li a {color : orange;}		
-  	#user > li span {color : orange;}		
+  			
 	.f-sm {
 		font-size: 0.9em;
 	}
