@@ -41,7 +41,7 @@
 </div>
 <div class="modal">
     <div class="modal_body">
-        <h2>모달창 제목</h2>
+        <h2>관리자 목록</h2>
         <ul class="list" id="list">
         </ul>
         <button class="btn-close-modal">CLOSE</button>
