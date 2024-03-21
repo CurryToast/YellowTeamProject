@@ -10,7 +10,8 @@
 <head>
 <meta charset="UTF-8">
 <title>스타 라이트 시네마</title>
-	 <link rel = "stylesheet" href="../assets/css/movieList.css"/>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+	<link rel ="stylesheet" href="../assets/css/movieList.css"/>
 </head>
 <body>
 	<%@ include file="../layout/header.jsp" %>
