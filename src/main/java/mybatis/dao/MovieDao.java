@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
 import mybatis.vo.Movie;
+import mybatis.vo.Schedule;
 
 @Slf4j
 public class MovieDao {
@@ -69,12 +70,23 @@ public class MovieDao {
 		return result;
 	}
 	
-	public Movie selectMovieById(long mcode) {
-		SqlSession sqlSession = SqlSessionBean.getSession();
-		Movie movie = sqlSession.selectOne("movies.selectMovieById", mcode);
-		sqlSession.close();
-		return movie;
-	}
+	
+	// 영화 전체 보기
+			public List<Movie> selectAllMovies(){
+				SqlSession sqlSession = SqlSessionBean.getSession();
+				List<Movie> movies = sqlSession.selectList("movies.selectAll");
+				sqlSession.close();
+				return movies;
+			}
+		
+		// mcode(클릭하게 되면) -> 영화 정보 가져오기
+		public Movie selectMovieById(long mcode) {
+			SqlSession sqlSession = SqlSessionBean.getSession();
+			Movie movie = sqlSession.selectOne("movies.selectMovieById", mcode);
+			sqlSession.close();
+			return movie;
+		}
+	
 			// 현재 상영 중
 		public List<Movie> selectCurrentMovies() {
 		    SqlSession sqlSession = SqlSessionBean.getSession();
