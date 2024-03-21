@@ -11,6 +11,7 @@
 		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta http-equiv="Expires" content="0">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	    <link rel="stylesheet" href="assets/css/header.css" />
 	    <link rel="stylesheet" href="assets/css/myPage.css" />
 		<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
