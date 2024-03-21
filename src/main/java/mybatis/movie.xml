@@ -10,7 +10,7 @@
  		SELECT * FROM TBL_MOVIE
  		<where>
 	 		<if test="mname!=null">
-	 			mname = #{mname}
+	 			mname like '%' || #{mname} || '%'	
 	 		</if>
 	 		<if test="genre!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
@@ -34,17 +34,17 @@
 	 		</if>
 	 		<if test="rating!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					rating = #{rating}					
+					rating like '%' || #{rating} || '%'			
 	 			</trim>
 	 		</if>
 	 		<if test="running_time!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					running_time = #{running_time}						
+					running_time like '%' || #{running_time} || '%'			
 	 			</trim>
 	 		</if>
 	 		<if test="mgrade!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					mgrade = #{mgrade}			
+					mgrade like '%' || #{mgrade} || '%'	
 	 			</trim>
 	 		</if>
 	 		<if test="country!=null">

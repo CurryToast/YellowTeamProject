@@ -33,9 +33,7 @@
 	<div id=x>
 	<div id=box>
 		<!-- <div id=box_sizing> -->
-	<h1><c:out value="${bo.mname}"/>
-	</h1>
-	
+	<h1><c:out value="${bo.mname}"/></h1>
 	관람등급
 	<h5><c:out value="${bo.rating}"/>세 이용가</h5>
 	개봉일
@@ -69,7 +67,9 @@
 		<a class="reverse_button" href="reserve">예매</a>	
 	</div>
 	</div>
+	<h5><c:out value="${reserve.content}"/></h5>	
 	</div>		
+	
 	
 	<!-- 메인글 출력 끝 -->
 </section>	
