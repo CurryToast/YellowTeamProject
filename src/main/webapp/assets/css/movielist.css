@@ -7,8 +7,9 @@
 }
 
 #current:focus, #current:hover {
-	text-decoration: underline; text-decoration-thickness: 2px;
-	}
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+}
 #choose {
 	list-style-type: none;
     float: left;
@@ -39,39 +40,39 @@ img {
     object-fit: cover; /* 이미지를 가득 채우면서 비율 유지 */
 
     
-.movie-list {
-    display: flex; /* Flexbox 사용 */
-    flex-wrap: wrap; /* 자식 요소들을 여러 줄에 걸쳐 표시 */
-    justify-content: space-between; /* 요소들을 가로로 고르게 분배 */
-    margin: 0 auto;
-    padding: 0;
-}
+	.movie-list {
+	    display: flex; /* Flexbox 사용 */
+	    flex-wrap: wrap; /* 자식 요소들을 여러 줄에 걸쳐 표시 */
+	    justify-content: space-between; /* 요소들을 가로로 고르게 분배 */
+	    margin: 0 auto;
+	    padding: 0;
+	}
 
-.movie-item {
-    width: calc(20% - 4px); /* 여백을 10px에서 4px로 수정 */
-    margin-right: 20px; /* 오른쪽 마진을 그대로 유지하거나 조절 */
-    margin-bottom: 20px; /* 아래쪽 마진을 그대로 유지하거나 조절 */
-    list-style-type: none; /* 목록 표시 스타일 제거 */
-    text-align: center; /* 텍스트를 가운데 정렬하여 보기 좋게 표시 */
-}
+	.movie-item {
+	    width: calc(20% - 4px); /* 여백을 10px에서 4px로 수정 */
+	    margin-right: 20px; /* 오른쪽 마진을 그대로 유지하거나 조절 */
+	    margin-bottom: 20px; /* 아래쪽 마진을 그대로 유지하거나 조절 */
+	    list-style-type: none; /* 목록 표시 스타일 제거 */
+	    text-align: center; /* 텍스트를 가운데 정렬하여 보기 좋게 표시 */
+	}
 
-.movie-item img {
-    width: 100%;
-    height: auto; 
-    margin-right: 0; 
-}
+	.movie-item img {
+	    width: 100%;
+	    height: auto; 
+	    margin-right: 0; 
+	}
     
- .movie-container img:hover {
-    cursor: pointer;
-}
+	 .movie-container img:hover {
+	    cursor: pointer;
+	}
 
-.mname {
-	font-weight: bold;
-	margin: 8px 0px 8px 0px; line-height: 120%;
-}
+	.mname {
+		font-weight: bold;
+		margin: 8px 0px 8px 0px; line-height: 120%;
+	}
 
-.runt {
-	font-size: 10pt;
-	margin: 8px 0px 8px 0px; line-height: 120%;
-}
+	.runt {
+		font-size: 10pt;
+		margin: 8px 0px 8px 0px; line-height: 120%;
+	}
 }

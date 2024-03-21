@@ -1,11 +1,10 @@
 @charset "UTF-8";
 
-form{
+form {
 	margin-bottom: 1em;
 }
 
-#searchlist{
-
+#searchlist {
 	display: grid;
     grid-template-rows: repeat(4, 1fr);
     row-gap: 5rem;
@@ -13,96 +12,27 @@ form{
     column-gap: 2rem;
 }
 
-.movieCard{
+.movieCard {
 	display: contents;
-
 }
 
-.movieCard>ul{
-	width:50px;
-	padding:0;
-	margin:0;
-	display:flex;
-}
-
-.movieCard>a>img{
-	width: 300px;
-	height: 380px;
-	box-shadow: 0px 12px 16px 2px #6d6d6d;
-}
-
-.movieCard>a>p{
-    text-align: center;
-   	color: black;
-   	margin: auto;
-    text-shadow: 1px 5px 12px #6d6d6d;
-    font-size: 16px;
-}
-.movieCard>a>span{
-	text-align: center;
-	display: block;
-   	color: white;
-   	margin: auto;
-   	width:80%;
-   	font-size: 16px;
-   	border-color: gray;
-    background-color: gray;
-	border-radius: 40px / 40px;
-	margin-right: 32px;
-    margin-left: 27px;
-}
-
-.movieCard>h3{
-	width:250px;
-	height:200px;
-	margin:0;
-	text-align: center;
-	/* grid-column: span 2; */
-
-}
-/* #listpro{
-	display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    row-gap: 5rem;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 1rem;
-    justify-items: center;
-	
-}
-#listpage{
-	text-align: center;
-}
-#listpro>a>img{
-	width: 200px;
-	display: block;
-	align-items: center;
-} */
-
-
-#read>#imgbox{
-	display: flex;    
-    /* grid-template-columns: repeat(3, 2fr); */
-	/* flex-direction: column; */
+#read > #imgbox {
+	display: flex;
   	padding:80px;
- 	/*   flex-direction: row;
-   flex-wrap: wrap; */
     align-items: center;
     justify-items: center;
-	box-sizing:border-box;
-	margin:5%;
+	box-sizing: border-box;
+	margin: 5%;
 	flex-wrap: wrap;
   	justify-content: center;
-
 }
 
-#read > #imgbox> #x{
+#read > #imgbox> #x {
 	display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
     flex-direction: row;
     margin: 0 0 5% 5%;
-   
-	
 }
 
 #read>#imgbox>#ima_size>img{
@@ -117,10 +47,9 @@ form{
 	font-size:50px;
 	margin-top: -50px;
 	text-align: start;
-	
 }
 
-#read > #imgbox > #x > #box{
+#read > #imgbox > #x > #box {
 	width:300px;
 	text-align: start;
  	text-wrap: balance;
@@ -137,7 +66,7 @@ form{
      align-items: flex-start;
 }
 
-#synop_but{
+#synop_but {
 	display: flex;
     justify-items: center;
     flex-direction: column;
@@ -149,7 +78,7 @@ form{
 #synop_but > * {
    justify-self: center;
 }
-#synopsys{
+#synopsys {
 	  text-align: center;
 	  text-wrap: balance;
 	  width:80%;
@@ -159,26 +88,18 @@ form{
 		box-shadow: 0px 5px 6px 0px #6d6d6d;
 }
 
-#buttons{
-	/* margin-left:30px; */
-	
-} 
-
-#page-wrapper{
+#page-wrapper {
 	background:white;
 }
 
-#read{
+#read {
 	margin : 5rem;
 	background:aliceblue;
 	border-radius: 40px / 40px;
 	box-shadow: 0px 5px 10px 0px #6d6d6d;
-	
 }
 
-
-
-.reverse_button{
+.reverse_button {
    background-color: #0D255E;
    border-bottom-color: #0D255E;
    border-bottom-left-radius: 60px;

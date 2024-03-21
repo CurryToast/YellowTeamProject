@@ -23,10 +23,7 @@
 		<a href="${pageContext.request.contextPath}/movie/search">영화검색</a>
 	</li>
 	<li>
-		<a class="mainmenu">영화예매</a>
-		<ul class="submenu">
-			<li><a href="${pageContext.request.contextPath}/movie/list">상영일정</a></li>
-		</ul>
+		<a class="mainmenu" href="${pageContext.request.contextPath}/movie/list">영화예매</a>
 	</li>
 	<li>
 		<a class="mainmenu" href="${pageContext.request.contextPath}/movie/list">영화후기</a>

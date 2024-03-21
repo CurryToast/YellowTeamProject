@@ -27,7 +27,7 @@
 	<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
 </head>
 <body class="is-preload">+
-<div id="page-wrapper" class="home">
+<div id="page-wrapper" class="home" style="padding-top: 150px;">
 	<script>
 		var back = sessionStorage.getItem('back');
 		if(back) {
