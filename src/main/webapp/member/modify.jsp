@@ -107,7 +107,7 @@
         	   if (res==='회원탈퇴')
         		   location.href='drop'
         		   else
-        			   alert('패스워드가 일치하지 않습니다')
+        			   alert('입력한 단어가 일치하지 않습니다')
            }
 
            $("#modify").on("click", () => { modify(); }); 
