@@ -6,18 +6,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import mybatis.controller.Controller;
-import mybatis.controller.service.MemberService;
+import mybatis.service.MemberService;
 import mybatis.vo.Member;
 
 public class ApiAdminJoinController implements Controller {

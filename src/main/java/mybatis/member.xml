@@ -6,6 +6,9 @@
  	<select id="selectAll" resultType="mybatis.vo.Member">
  		SELECT * FROM tbl_member
  	</select>
+ 	<select id="selectAdmin" resultType="mybatis.vo.Member">
+ 		SELECT * FROM TBL_MEMBER WHERE ISADMIN = 'Y'
+ 	</select>
  	<select id="getById" resultType="mybatis.vo.Member" parameterType="String">
  		SELECT * FROM tbl_member WHERE code=#{code} 
  	</select>
@@ -14,6 +17,7 @@
  		tbl_member(code,name,isadmin,age,regdate,password) values
  		(#{code},#{name},'N',#{age},sysdate,#{password})
  	</insert>
+ 	
  	<delete id="drop">
 		DELETE FROM TBL_MEMBER WHERE code=#{code}
 	</delete>
@@ -44,10 +48,8 @@
        TBL_MEMBER(CODE,NAME,ISADMIN,AGE,REGDATE,PASSWORD) VALUES
        (#{code},#{name},'Y','99',SYSDATE,#{password})
     </insert>
+    <delete id="delete" parameterType="String">
+		DELETE FROM  TBL_MEMBER WHERE code=#{code}
+	</delete>
  </mapper>
- 
- 
- 
- 
- 
  

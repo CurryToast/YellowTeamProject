@@ -1,32 +1,16 @@
 @charset "UTF-8";
-
+@import url("fontawesome-all.min.css");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
 body{
    font-family: 'Roboto', 'Noto Sans KR';
 }
-
 #detail {
-	margin-top:20px; font-size:20px;
-	font-weight: bold;
+	margin-top:20px; font-size:18px;
+	color: #FFA200;
 }
-
- .green {
-        color: green;
-    }
-
-    .blue {
-        color: blue;
-    }
-
-    .orange {
-        color: #FFA200;
-    }
-
-    .red {
-        color: red;
-    }
 
 img {
 	margin: 10px;
@@ -34,16 +18,12 @@ img {
     height: 451px;
 	object-fit: cover;
 	border-radius: 10px;
-	margin-left: 100px;
-	margin-top: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 	}
 
 .p2 {clear: both;}
 
 p {
-	margin-left: 50px;
-	margin-top: 30px;
+	margin-left: 10px;
 }
 
 .btn-design {
@@ -112,39 +92,15 @@ a {
     display: inline-block;
 }
 
-a.clicked {
-    color: gray; 
+/* .boxdesign {
+	text-align: center;
+	border: 2px solid #000;
+	width: 500px;
+	height: 200px;
+	margin: 30px 50px;
+	box-sizing:border-box;
+	display: flex;
+	 justify-content: center; 가로 방향 가운데 정렬합니다.
+        align-items: center; 세로 방향 가운데 정렬합니다.
 }
-
-#movieList {
-    padding-top: 170px; 
-}
-
-#synopsys {
-	padding-top: 30px;
-	padding-left: 200px;
-	padding-right: 200px;
-}
-
-#info {
-	padding-top: 30px;
-	padding-left: 200px;
-	padding-right: 200px;
-}
-
-#movie-list {
-	display:grid;
-	align-items: flex-start;
-}
-
-#movie-list.row-5{
-	grid-template-rows: repeat(5,1fr);
-	row-gap: 6rem;
-}
-
-#movie-list.col-5{
-	grid-template-columns: repeat(5,1fr);
-	column-gap:2rem;
-}
-
-
+ */

@@ -13,7 +13,6 @@ import mybatis.dao.MovieCommentsDao;
 import mybatis.vo.MovieComments;
 
 public class MovieCommentsGetController implements Controller {
-
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MovieCommentsDao dao = MovieCommentsDao.getInstance();

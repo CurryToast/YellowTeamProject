@@ -35,6 +35,8 @@ public class LoginActionController implements Controller {
 		String url = request.getContextPath();
 		if (user != null) {
 		    session.setAttribute("user", user);
+		    
+		    System.out.println("아이디"+session.getAttribute("user"));
 		} else {
 		    Cookie cookie = new Cookie("incorrect", "y");
 		    cookie.setPath("/");
@@ -43,5 +45,4 @@ public class LoginActionController implements Controller {
 		}
 		response.sendRedirect(url);
 	}
-
 }

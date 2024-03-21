@@ -1,24 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>영화관</title>
+<title>스타라이트 시네마</title>
 <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-		<meta http-equiv="Pragma" content="no-cache">
-		<meta http-equiv="Expires" content="0">
-  <link rel="stylesheet" href="assets/css/main.css" />
- <link rel="stylesheet" href="css/layout.css" />
- <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 </head>
 <body class="is-preload">
-			<%@ include file="./layout/header.jsp" %>
 <div id="page-wrapper">
+		<!-- Header -->
+		<%@ include file="../layout/header.jsp" %>
 		<div class="mycol-2" style="width:450px;">
 		</div>
 		<div class="mycol-2" style="width:600px;">				
@@ -37,14 +37,14 @@
 				    </div>
 				    <div class="form-check mb-3">
 				      <label class="form-check-label">
-				        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+				        <input class="form-check-input" type="checkbox" name="remember"> remember me
 				      </label>
 				    </div>
 				    <button class="btn btn-primary">로그인</button>
 				  </form>
 				  <hr>
 				  <a href="join" class="f-sm">아직 회원이 아니시면 회원 가입을 해주세요.</a><br>
-            	  <a href="help" class="f-sm">😑 비밀번호 찾기가 필요하신가요?</a>
+            	 
 				</div>
 		</div>
 </div>
@@ -61,13 +61,14 @@
 	    }
 	});
 </script>
-  		<!-- Scripts -->
-		<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-		<script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
-		<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
-		<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
-		<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
-		<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-		<script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
+
+<!-- Scripts -->
+<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
 </body>
 </html>

@@ -80,7 +80,6 @@ const createMovieCommentsList = (arr) => {
 		anchor.classList.add('image');
 		anchor.classList.add('left');
 		anchor.href = `${window.location.href}/movie/read?mcode=${item.mcode}&page=1`;
-		anchor.target = "blank_";
 
 		const img = document.createElement('img');
 		img.src= `https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${item.poster}.jpg`;
@@ -118,7 +117,7 @@ const createMovieCommentsList = (arr) => {
 	});
 };
 
-const loadMovieList = () => {
+const homeInitialize = () => {
 	const xhr = new XMLHttpRequest();
 	xhr.open('GET', 'api/movie?allComments=true');
 	xhr.send();
@@ -133,4 +132,4 @@ const loadMovieList = () => {
 	}
 }
 
-loadMovieList();
+homeInitialize();

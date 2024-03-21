@@ -4,19 +4,18 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import mybatis.controller.Controller;
 import mybatis.dao.ReserveDao;
 import mybatis.vo.Member;
 import mybatis.vo.ReserveList;
 
 public class MyPageController implements Controller {
+
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
@@ -37,8 +36,10 @@ public class MyPageController implements Controller {
 		}
 
 		request.setAttribute("list", list);
+		request.setAttribute("isEmpty", list.isEmpty());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("myPage.jsp");
         dispatcher.forward(request, response);
 	}
 }
+

@@ -2,28 +2,25 @@
 <%@ page import="mybatis.vo.Schedule" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>스타 라이트 시네마</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css"/>
-	<link rel="stylesheet" href="../assets/css/movieList.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/movieList.css"/>
 </head>
 <body>
-	<%@ include file="../layout/header.jsp" %>
-	
+<%@ include file="../layout/header.jsp" %>
 <section id = "movieList">
-			<a href="list?type=all" class ="line" >전체 보기</a> |
-			<a href="list?type=ing" class = "line" >현재 상영작</a> | 
-			<a href="list?type=later" class = "line" >상영 예정작</a> |
-			<a href="list?type=end" class = "line" >상영 종료작</a>
-			<hr>
-			
-			<div class="movie-container">
+<h3>상영 일정</h3>
+<hr style="color:white;">
+<a href="list?type=all" class ="line" >전체 보기</a> |
+<a href="list?type=ing" class = "line" >현재 상영작</a> | 
+<a href="list?type=later" class = "line" >상영 예정작</a> |
+<a href="list?type=end" class = "line" >상영 종료작</a>
+<div class="movie-container">
     <ul class="movie-list col-5 row-5">
         <c:forEach var="movie" items="${list}">
             <li class="movie-item">
@@ -52,14 +49,8 @@
         </c:forEach>
     </ul>
 </div>
-			
-<!-- 상세 페이지 안내 메시지 -->
-<br>
-<br>
 <hr>
-<p style = "font-size: 10pt; font-color:gray;">&nbsp; &nbsp; &nbsp; &nbsp; 클릭 시 상세 페이지로 넘어갑니다.</p>
-
-		</section>
-		<script src = "../assets/js/list.js"></script>
+</section>
+<script src="${pageContext.request.contextPath}/assets/js/list.js"></script>
 </body>
 </html>
