@@ -60,12 +60,14 @@ ul#user {
     text-decoration: none !important;
     padding-right: 20px;
     font-size: 1.3rem;
+    font-weight: bold;
 }
 #user span {
     color: white;
     text-decoration: none;
     padding-right: 20px;
     font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .sub-wrap .sub-con .site-tab {
