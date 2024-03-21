@@ -24,7 +24,7 @@
 		        <div style = "display: inlince-block; margin-left:10px;">
 		            <h2 style="margin-left:50px; margin-top: 30px;">${movie.mname}</h2>
 		            <p id="detail" class ="${color}">${movie.rating}세 이상 관람가</p>
-		            <p>${movie.release_date} 개봉</p>
+		            <p>{movie.release_date} 개봉 | ${date.schedule} 상영</p>
 		            <p>상영 시간: ${movie.running_time}분</p>
 		            <p>평점 | ★ ${movie.mgrade} / 10.0 </p>
 		            <p>장르: ${movie.genre}</p>
@@ -48,6 +48,22 @@
 	    </c:otherwise>
 	</c:choose>
 </div>
+<input type="hidden" name="mcode" id="mcode" value="${movie.mcode}">
+<script type="text/javascript">
+	function reserve() {
+		const mcode= document.querySelector("#mcode").value;
+		let yn;
+
+		if('${user.userid}' == ''){
+			yn=confirm('예매는 로그인이 필요합니다. 로그인 하시겠습니까?');
+			if(yn) {
+				location.href = '/YellowTeamProject/login';
+			}
+		}else{
+			location.href = '#';
+		}
+	}
+</script>
 <script src="${pageContext.request.contextPath}/assets/js/show.js"></script>
 <script type="text/javascript">
 	const color = '${color}';
