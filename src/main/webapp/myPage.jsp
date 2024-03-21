@@ -11,16 +11,8 @@
 		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 		<meta http-equiv="Pragma" content="no-cache">
 		<meta http-equiv="Expires" content="0">
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" />
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/memberReserve.css" />
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	    <link rel="stylesheet" href="assets/css/header.css" />
+	    <link rel="stylesheet" href="assets/css/myPage.css" />
 		<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
 		
 	</head>
@@ -53,6 +45,10 @@
 	            <p><strong>고객  ID </strong><c:out value="${ele.member_code}"/></p>
 	            <p><strong>관람등급 </strong><c:out value="${ele.rating}"/>세</p>
 	         </div>
+    <form method="post" action="myPage">
+    <input type="hidden" name="rcode" value="${ele.rcode}">
+    <button class="cancel" type="button">예매 취소</button>
+    </form>
         </div>
     </div>
     <hr>
@@ -120,6 +116,7 @@ do_not_disturb_on
 <p><span class="red2"> ※ 예매내용을 변경할 때는, 취소가능시간 내에 취소하고 다시 예매해 주시기 바랍니다.</span></p>
 </div>
 
+<script src="assets/js/myPage.js"></script>
 </body>
 </html>
 

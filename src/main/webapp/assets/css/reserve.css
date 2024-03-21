@@ -113,9 +113,6 @@ table#seatsBlock {
 button{
 	border:0; 
 	background:transparent;
-	
-}
-button{
     display: flex;
     align-items: center;
     border-radius: 4px;
@@ -124,7 +121,9 @@ button{
     border: 1.5px solid #4388cc;
     color: #FFFFFf;
     }
-  
+button#complete {
+    margin-top: 10px;
+}
     
 form{
     display: flex;

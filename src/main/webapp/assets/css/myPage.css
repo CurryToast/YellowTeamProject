@@ -1,4 +1,84 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+* {
+    box-sizing: border-box;
+    margin:0
+}
+button.cancel:hover {
+    cursor: pointer;
+}
+button.cancel {
+    margin-top: 25px;
+}
+.tabs1  {
+    padding-top: 150px;
+}
+
+.reserve {
+    padding-top: 150px;
+}
+
+body {
+    font-family: 'Roboto', 'Noto Sans KR';
+}
+
+h2 {
+    text-align: center;
+}
+button{
+	border:0; 
+	background:transparent;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #4388cc;
+    height: 30px;
+    border: 1.5px solid #4388cc;
+    color: #FFFFFf;
+    }
+button#cancel {
+    margin-top: 25px;
+}
+
+.container-in {
+    width: 1000px;
+}
+.top-container {
+    display: flex;
+    border: none;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.wrap {
+    padding-left: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 30px;
+    width: 1000px;
+}
+.img-container {
+    width: 150px; /* 이미지 너비 */
+    margin-right: 50px; /* 이미지와 텍스트 사이 간격 */
+}
+
+.text-container {
+    flex-grow: 1; /* 텍스트 컨테이너가 남은 공간을 모두 차지하도록 설정 */
+}
+
+.poster {
+    width: 210px;
+    height: 300px;
+    margin-right: 50px;
+    margin-bottom: 31px;
+}
+
+.inform p {
+    font-size: 1.5rem;
+    word-spacing: 5px;
+}
+
 .description{
 	padding: 24px;
 	background: #fff5ee;

@@ -229,9 +229,9 @@
 	</tr>
 	</table>
 	</div>
+		<button id="complete" type="button">선택완료</button>
 	</div>	
 	<br/>
-		<button id="complete" type="button">선택완료</button>
 		
 </form>
 </div>

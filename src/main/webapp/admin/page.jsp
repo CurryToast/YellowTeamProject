@@ -13,15 +13,19 @@
 		<meta http-equiv="Expires" content="0">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" />
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/memberReserve.css" />
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css" />
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" />
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+	    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 		<script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
+		<style>
+		form#cont {
+   		 padding-top: 150px;
+		}
+		</style>
 <title>관리자 페이지</title>
 </head>
 <body>
@@ -59,7 +63,7 @@ btnCloseModal.addEventListener("click", () => {
 });
 </script>
 <script type="text/javascript" src="../assets/js/adminlist.js"></script>
- <script type="text/javascript" src="../assets/js/admindelete.js"></script>\
+ <script type="text/javascript" src="../assets/js/admindelete.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

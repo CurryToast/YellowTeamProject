@@ -2,6 +2,7 @@ package mybatis.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import mybatis.controller.api.ApiAdminDeleteController;
 import mybatis.controller.api.ApiAdminJoinController;
 import mybatis.controller.api.ApiCheckIdController;
@@ -21,6 +22,7 @@ import mybatis.controller.member.MemberDropController;
 import mybatis.controller.member.MemberJoinController;
 import mybatis.controller.member.MemberModifyController;
 import mybatis.controller.member.MemberSaveController;
+import mybatis.controller.member.MovieDeleteController;
 import mybatis.controller.member.MyPageController;
 import mybatis.controller.movie.MovieDetailController;
 import mybatis.controller.movie.MovieListController;
@@ -53,6 +55,7 @@ public class RequestControllerMapping {
 		
 		//마이페이지
 		mapping.put(new RequestKeyValue("/myPage","GET"), new MyPageController());
+		mapping.put(new RequestKeyValue("/myPage","POST"), new MovieDeleteController());
 		mapping.put(new RequestKeyValue("/member/modify","GET"), new MemberModifyController());
 		mapping.put(new RequestKeyValue("/api/modify","POST"), new ApiMemberModifyController());
 		mapping.put(new RequestKeyValue("/member/drop","GET"),new MemberDropController());
