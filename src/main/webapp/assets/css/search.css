@@ -52,7 +52,7 @@ form{
     margin-left: 27px;
 }
       
-    
+
 
 
 .movieCard>h3{
@@ -80,10 +80,10 @@ form{
 	display: block;
 	align-items: center;
 } */
-
 #read{
-	
+	position:absolute;
 }
+
 #read>#imgbox{
 	display: flex;    
     /* grid-template-columns: repeat(3, 2fr); */
@@ -105,17 +105,20 @@ form{
     align-items: flex-end;
     flex-wrap: wrap;
     flex-direction: row;
-    margin: 0 0 0 5%;
+    margin: 0 0 5% 5%;
+   
 	
 }
 
 #read>#imgbox>#ima_size>img{
 	width: 500px;
 	height: 710px;
-	margin: 0 0 50px 0;
+	margin: 0 0 0 0;
 	border-radius: 40px / 40px;
 		
 }
+
+
 
 #box>h1{
 	width:800px;
@@ -180,7 +183,7 @@ form{
 } 
 
 #page-wrapper{
-		
+	
 	background:white;
 }
 

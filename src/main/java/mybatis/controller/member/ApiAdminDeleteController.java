@@ -1,4 +1,4 @@
-package mybatis.controller.api;
+package mybatis.controller.member;
 
 import java.io.IOException;
 
