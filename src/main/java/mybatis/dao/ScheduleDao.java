@@ -1,7 +1,5 @@
 package mybatis.dao;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +8,11 @@ import mybatis.vo.Schedule;
 
 @Slf4j
 public class ScheduleDao {
+	private static ScheduleDao dao = new ScheduleDao();
+	private ScheduleDao() {};
+	public static ScheduleDao getInstance() {
+		return dao;
+	}
 	
 	public Schedule selectDate(long mcode){
 	    SqlSession sqlSession = SqlSessionBean.getSession();
