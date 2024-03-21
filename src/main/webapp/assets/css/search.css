@@ -81,7 +81,7 @@ form{
 	align-items: center;
 } */
 #read{
-	position:absolute;
+	
 }
 
 #read>#imgbox{
@@ -192,6 +192,7 @@ form{
 	background:aliceblue;
 	border-radius: 40px / 40px;
 	box-shadow: 0px 5px 10px 0px #6d6d6d;
+	
 }
 
 
