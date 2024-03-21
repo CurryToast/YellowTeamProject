@@ -51,6 +51,9 @@
     <delete id="delete" parameterType="String">
 		DELETE FROM  TBL_MEMBER WHERE code=#{code}
 	</delete>
+	<update id="demotion" parameterType="String">
+		UPDATE TBL_MEMBER SET ISADMIN = 'N' WHERE code=#{code}	
+	</update>
  </mapper>
  
  

@@ -88,5 +88,13 @@ public class MemberDao {
 		sqlSession.close();
 		return result;
 	}
+	public int demotion(String code) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		int result = 0;
+		result = sqlSession.update("members.demotion", code);
+		sqlSession.commit();
+		sqlSession.close();
+		return result;
+	}
 	}
 

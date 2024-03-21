@@ -10,6 +10,7 @@ import mybatis.controller.member.LoginViewController;
 import mybatis.controller.member.LogoutController;
 import mybatis.controller.member.MemberDropController;
 import mybatis.controller.api.ApiAdminDeleteController;
+import mybatis.controller.api.ApiAdminDemotionController;
 import mybatis.controller.api.ApiAdminJoinController;
 import mybatis.controller.api.ApiCheckIdController;
 import mybatis.controller.api.ApiGetAllMembersController;
@@ -67,6 +68,7 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/admin/join","GET"),new AdminJoinController());
 		mapping.put(new RequestKeyValue("/admin/save","POST"),new AdminSaveController());
 		mapping.put(new RequestKeyValue("/api/auth/adminJoin","POST"),new ApiAdminJoinController());
+		mapping.put(new RequestKeyValue("/api/demotion","POST"),new ApiAdminDemotionController());
 		
 		//마이페이지
 		mapping.put(new RequestKeyValue("/myPage","GET"), new MyPageController());

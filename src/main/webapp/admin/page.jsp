@@ -30,14 +30,15 @@
 <c:if test="${sessionScope.user.isadmin == 'Y' }">
 <form id="cont">
 <button class="join-btn" type="button" onclick="location.href='../admin/join.jsp'">관리자 등록</button><br>
-<button class="join-btn" type="button" id="delete">관리자 해지</button><br>
+<button class="join-btn" type="button" id="delete">관리자 삭제</button><br>
 <button class="join-btn" type="button" id="btn-open-modal">관리자 목록 보기</button><br>
+<button class="join-btn" type="button" id="demotion">관리자 권한 해지</button><br>
 </form>
 </c:if>
 </div>
 <div class="modal">
     <div class="modal_body">
-        <h2>모달창 제목</h2>
+        <h2>관리자 목록</h2>
         <ul class="list" id="list">
         </ul>
         <button class="btn-close-modal">CLOSE</button>
@@ -58,8 +59,7 @@ btnCloseModal.addEventListener("click", () => {
     modal.style.display = "none";
 });
 </script>
-<script type="text/javascript" src="../assets/js/adminlist.js"></script>
- <script type="text/javascript" src="../assets/js/admindelete.js"></script>\
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="../assets/js/admin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
