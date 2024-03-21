@@ -17,9 +17,12 @@
 					</a>
 					<ul class="submenu">
 						<li><a href="${pageContext.request.contextPath}/movie/complete">예매확인</a></li>
+						<c:if test="${sessionScope.user.isadmin == 'Y'}">
+							<li><a href="${pageContext.request.contextPath}/movie/register">영화 등록</a></li>
+						</c:if>
 					</ul>
 				</li>
-				<li><a href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
+				<li><a href="${pageContext.request.contextPath}/logout">로그아웃</a></li>
 			</c:if>
 		</ul>
 		<ul id="menu">

@@ -1,5 +1,7 @@
 package mybatis.vo;
 
+import java.util.Map;
+
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -26,5 +28,7 @@ public class Movie {
 	private String country;	//국가
 	private String mcast;	//배우
 	private String poster; // 포스터
-	private String posterUrl;
+	private int comments; // select, search할때 TBL_MOVIECOMMENTS에서 가져오는 CONTENT수
+	@Setter
+	private Map<String, String> commentMap; // content로 이루어진 list. 컨트롤러나 비동기 api에서 임의로 넣어줌
 }

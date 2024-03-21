@@ -11,6 +11,7 @@ import mybatis.controller.member.MemberDropController;
 import mybatis.controller.api.ApiAdminJoinController;
 import mybatis.controller.api.ApiCheckIdController;
 import mybatis.controller.api.ApiGetAllMembersController;
+import mybatis.controller.api.ApiGetAllMovieCommentsController;
 import mybatis.controller.api.ApiGetAllMoviesController;
 import mybatis.controller.api.ApiMemberJoinController;
 import mybatis.controller.api.ApiMemberModifyController;
@@ -23,11 +24,14 @@ import mybatis.controller.member.MemberModifyController;
 import mybatis.controller.member.MemberReserveController;
 import mybatis.controller.member.MemberSaveController;
 import mybatis.controller.member.MyPageViewController;
-import mybatis.movie.MovieListController;
-import mybatis.movie.MovieReserveController;
-import mybatis.movie.MovieSearchController;
-import mybatis.movie.MoviecompleteController;
-import mybatis.movie.ReadController;
+import mybatis.controller.movie.MovieListController;
+import mybatis.controller.movie.MovieRegisterPostController;
+import mybatis.controller.movie.MovieReserveController;
+import mybatis.controller.movie.MovieReserveGetController;
+import mybatis.controller.movie.MovieSearchController;
+import mybatis.controller.movie.MovieCommentsGetController;
+import mybatis.controller.movie.MovieCompleteController;
+import mybatis.controller.movie.ReadController;
 
 public class RequestControllerMapping {
 	private static final Map<RequestKeyValue,Controller> mapping = new HashMap<>();
@@ -41,7 +45,8 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/api/auth/adminJoin", "POST"), new ApiAdminJoinController());
 		mapping.put(new RequestKeyValue("/api/movie", "GET"), new ApiGetAllMoviesController());
 		mapping.put(new RequestKeyValue("/api/movie", "PUT"), new ApiMovieSearchController());
-		
+		mapping.put(new RequestKeyValue("/api/movie/comments", "GET"), new ApiGetAllMovieCommentsController());
+
 		//회원가입
 		mapping.put(new RequestKeyValue("/admin/join","GET"), new AdminJoinController());
 		mapping.put(new RequestKeyValue("/admin/join","POST"), new AdminSaveController());
@@ -66,16 +71,20 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/admin/join","GET"),new AdminJoinController());
 		mapping.put(new RequestKeyValue("/admin/save","POST"),new AdminSaveController());
 
-	
-		
 		// Movie
 		mapping.put(new RequestKeyValue("/movie/search", "GET"), new MovieSearchController());
 		mapping.put(new RequestKeyValue("/movie/search", "PUT"), new MovieSearchController());
-		mapping.put(new RequestKeyValue("/movie/read", "GET"), new ReadController() );
-		mapping.put(new RequestKeyValue("/movie/reserve", "GET"), new MovieReserveController() );
-		mapping.put(new RequestKeyValue("/movie/reserve", "POST"), new MovieReserveController() );
-		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MoviecompleteController() );
-		mapping.put(new RequestKeyValue("/movie/list", "GET"), new MovieListController() );
+		mapping.put(new RequestKeyValue("/movie/read", "GET"), new ReadController());
+		mapping.put(new RequestKeyValue("/movie/reserve", "GET"), new MovieReserveController());
+		mapping.put(new RequestKeyValue("/movie/reserve", "POST"), new MovieReserveController());
+		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MovieCompleteController());
+		mapping.put(new RequestKeyValue("/movie/list", "GET"), new MovieListController());
+		mapping.put(new RequestKeyValue("/movie/reserve", "GET"), new MovieReserveGetController());
+	    mapping.put(new RequestKeyValue("/movie/reserve", "POST"), new MovieReserveController());
+	    mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MovieCompleteController());
+	    mapping.put(new RequestKeyValue("/movie/register", "GET"), new MovieRegisterController());
+	    mapping.put(new RequestKeyValue("/movie/register", "POST"), new MovieRegisterPostController());
+	    mapping.put(new RequestKeyValue("/movie/comments", "GET"), new MovieCommentsGetController());
 		//mapping.put(new RequestKeyValue("/movie/list", "POST"), new MovieListController() );
 	}
 

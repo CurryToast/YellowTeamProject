@@ -1,4 +1,4 @@
-package mybatis.movie;
+package mybatis.controller.movie;
 
 import java.io.IOException;
 

@@ -14,10 +14,11 @@
 <body>
 	<%@ include file="../layout/header.jsp" %>
 	<main>
-		<form>
+		<form action="" method="post" enctype="multipart/form-data">
+	        <input type="hidden" name="Content-Type" value="image/jpg" />
 			<h3>영화 등록</h3>
 			<div class="file-wrapper">
-				<input type="file" id="poster" accept="image/jpg">
+				<input type="file" id="poster" name="poster" accept="image/jpg">
 				<label id="upload-section" for="poster">
 					<span id="upload-button">영화 포스터 업로드</span>
 				</label>

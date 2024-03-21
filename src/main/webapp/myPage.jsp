@@ -28,7 +28,13 @@
 						<img class="poster" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${ele.mname}.jpg" alt="${ele.mname}">
 					     <div class="container-in">
 					      <div class="top-container">
-					         <h3><c:out value="${ele.mname}"/></h3><p><strong>예매번호 </strong><c:out value="${ele.rcode}"/></p>
+					         <h3>
+					         	<c:out value="${ele.mname}"/>
+					         </h3>
+					         <p>
+					         	<strong>예매번호</strong>
+					         	<c:out value="${ele.rcode}"/>
+					         </p>
 					      </div>
 					      <hr>
 					        <div class="inform">
@@ -43,10 +49,10 @@
 				    </div>
 				    <hr>
 				</c:forEach>
-				<c:if test="${sessionScope.user.isadmin == 'Y' }">
+				<c:if test="${sessionScope.user.isadmin == 'Y'}">
 					<form id="cont">
-						<button class="join-btn  "type="button" onclick="location.href='admin/join.jsp'">관리자 등록</button>
-						<button class="join-btn  "type="button" onclick="drop()">관리자 해지</button>
+						<button class="join-btn" type="button" onclick="location.href='admin/join.jsp'">관리자 등록</button>
+						<button class="join-btn" type="button" onclick="drop()">관리자 해지</button>
 					</form>
 					<ul>
 						<li>
@@ -65,7 +71,7 @@
 	  else
 		  alert('입력하신 글자를 다시 확인하세요.');
   }
-</script>	
+</script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>

@@ -43,7 +43,6 @@ public class MovieDao {
 	public List<Movie> getSearch(Map<String, Object> map) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		List<Movie> list = sqlSession.selectList("movies.search", map);
-		log.info("getOne :{}", list);
 		sqlSession.close();
 		return list;
 	}

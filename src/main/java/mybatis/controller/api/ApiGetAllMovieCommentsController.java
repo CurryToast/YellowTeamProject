@@ -18,9 +18,11 @@ import mybatis.dao.MovieDao;
 import mybatis.vo.Movie;
 import mybatis.vo.MovieComments;
 
-public class ApiGetAllMoviesController implements Controller {
+public class ApiGetAllMovieCommentsController implements Controller {
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NumberFormatException {
+		Map<String, Object> map = new HashMap<String, Object>();
+
 		int num = 0;
 		if (
 			request.getParameter("comments") != null &&
@@ -28,33 +30,24 @@ public class ApiGetAllMoviesController implements Controller {
 		) {
 			num = Integer.parseInt(request.getParameter("comments"));
 		}
-
-		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("comments", num);
 
 		ObjectMapper objmapper = new ObjectMapper();
-		MovieDao dao = MovieDao.getInstance();
-		List<Movie> list = dao.getSearch(map);
-		
-		if (
-			request.getParameter("allComments") != null &&
-			request.getParameter("allComments").equals("true")
-		) {
-			MovieCommentsDao comDao = MovieCommentsDao.getInstance();
-			List<MovieComments> comments = comDao.selectAll();
-			list.forEach((item) -> {
-				if (item.getComments() > 0) {
-					Map<String, String> cl = new HashMap<String, String>();
-					comments.forEach(cm -> {
-						if (cm.getMcode() == item.getMcode()) {
-							cl.put(cm.getWriter(), cm.getContent());
-						}
-					});
+		MovieDao moviedao = MovieDao.getInstance();
+		List<Movie> list = moviedao.getSearch(map);
 
-					item.setCommentMap(cl);
+		MovieCommentsDao comDao = MovieCommentsDao.getInstance();
+		List<MovieComments> comments = comDao.selectAll();
+		list.forEach((item) -> {
+			Map<String, String> cl = new HashMap<String, String>();
+			comments.forEach(cm -> {
+				if (cm.getMcode() == item.getMcode()) {
+					cl.put(cm.getWriter(), cm.getContent());
 				}
 			});
-		}
+
+			item.setCommentMap(cl);
+		});
 
 		String jsonData = objmapper.writeValueAsString(list);
 		response.setContentType("application/json; charset=UTF-8");

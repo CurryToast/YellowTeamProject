@@ -4,57 +4,75 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="movies">
  	<select id="selectAll" resultType="mybatis.vo.Movie">
- 		SELECT * FROM TBL_MOVIE
+ 		SELECT tlm.*, tv.comments FROM TBL_MOVIE tlm, (
+			SELECT tm.MCODE, count(tm2.CONTENT) as comments FROM TBL_MOVIE tm
+			LEFT OUTER JOIN TBL_MOVIECOMMENTS tm2
+			on tm.MCODE = tm2.MCODE 
+			GROUP BY tm.MCODE 
+		) tv WHERE tlm.MCODE = tv.mcode ORDER BY tlm.MCODE 
  	</select>
  	<select id="search" resultType="mybatis.vo.Movie" parameterType="java.util.Map">
- 		SELECT * FROM TBL_MOVIE
+ 		SELECT tlm.*, tv.comments FROM TBL_MOVIE tlm, (
+			SELECT tm.MCODE, count(tm2.CONTENT) as comments FROM TBL_MOVIE tm
+			LEFT OUTER JOIN TBL_MOVIECOMMENTS tm2
+			on tm.MCODE = tm2.MCODE 
+			GROUP BY tm.MCODE 
+		) tv 
  		<where>
+ 			tlm.MCODE = tv.mcode
 	 		<if test="mname!=null">
-	 			mname = #{mname}
+	 			<trim prefix="and">
+	 				mname like '%' || #{mname} || '%'
+	 			</trim>
 	 		</if>
 	 		<if test="genre!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					genre like '%' || #{genre} || '%'				
+					genre like '%' || #{genre} || '%'
 	 			</trim>
 	 		</if>
 	 		<if test="director!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					director like '%' || #{director} || '%'				
+					director like '%' || #{director} || '%'
 	 			</trim>
 	 		</if>
 	 		<if test="release_date!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					release_date like '%' || #{release_date} || '%'			
+					release_date like '%' || #{release_date} || '%'
 	 			</trim>
 	 		</if>
 	 		<if test="producer!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					producer like '%' || #{producer} || '%'					
+					producer like '%' || #{producer} || '%'	
 	 			</trim>
 	 		</if>
 	 		<if test="rating!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					rating = #{rating}					
+					rating = #{rating}
 	 			</trim>
 	 		</if>
 	 		<if test="running_time!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					running_time = #{running_time}						
+					running_time = #{running_time}
 	 			</trim>
 	 		</if>
 	 		<if test="mgrade!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					mgrade = #{mgrade}			
+					mgrade = #{mgrade}
 	 			</trim>
 	 		</if>
 	 		<if test="country!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					country like '%' || #{country} || '%'					
+					country like '%' || #{country} || '%'
 	 			</trim>
 	 		</if>
 	 		<if test="mcast!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					mcast like '%' || #{mcast} || '%'					
+					mcast like '%' || #{mcast} || '%'
+	 			</trim>
+	 		</if>
+	 		<if test="comments!=null">
+	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
+					tv.comments >= #{comments}
 	 			</trim>
 	 		</if>
  		</where>
@@ -62,7 +80,7 @@
  	<select id="getOne" parameterType="int" resultType="mybatis.vo.Movie">
  		SELECT * 
 		FROM tbl_movie
-		WHERE mcode = #{mcode} 
+		WHERE mcode = #{mcode}
  	</select>
  	<select id="selectByIdx" parameterType="long" resultType="mybatis.vo.Movie">
  		SELECT * 
