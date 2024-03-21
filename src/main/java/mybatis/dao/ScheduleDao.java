@@ -1,7 +1,6 @@
 package mybatis.dao;
 
 import org.apache.ibatis.session.SqlSession;
-
 import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
 import mybatis.vo.Schedule;
@@ -21,4 +20,5 @@ public class ScheduleDao {
 	    sqlSession.close();
 	    return schedule;
 	}
+
 }

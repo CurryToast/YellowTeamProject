@@ -5,14 +5,14 @@
     box-sizing: border-box;
     margin:0
 }
+.container {
+    padding-top: 150px;
+}
 button.cancel:hover {
     cursor: pointer;
 }
 button.cancel {
     margin-top: 25px;
-}
-.tabs1  {
-    padding-top: 150px;
 }
 
 .reserve {

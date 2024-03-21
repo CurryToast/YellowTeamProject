@@ -31,14 +31,6 @@ public class MemberDao {
 		return list;
 	}
 
-	public List<Member> selectById(String code) {
-		SqlSession sqlSession = SqlSessionBean.getSession();
-		List<Member> list = sqlSession.selectList("members.selectAdmin");
-		log.info("selectAdmin :{}", list);
-		sqlSession.close();
-		return list;
-	}
-
 	public void join(Member member) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		sqlSession.insert("members.join", member);
@@ -96,4 +88,12 @@ public class MemberDao {
       sqlSession.commit();
       sqlSession.close();
    }
+
+	public int getAge(String code) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		int age = sqlSession.selectOne("members.getAge",code);
+		sqlSession.close();
+		return age;
+	}
 }
+

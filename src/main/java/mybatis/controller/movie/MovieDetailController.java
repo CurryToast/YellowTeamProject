@@ -6,44 +6,56 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import mybatis.controller.Controller;
+import mybatis.dao.MemberDao;
 import mybatis.dao.MovieDao;
 import mybatis.dao.ScheduleDao;
+import mybatis.vo.Member;
 import mybatis.vo.Movie;
 import mybatis.vo.Schedule;
 
 public class MovieDetailController implements Controller {
-   @Override
-    public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	   MovieDao dao = MovieDao.getInstance();
-	   ScheduleDao schedule = ScheduleDao.getInstance();
-	   long mcode = Long.parseLong(request.getParameter("mcode"));
-        
-	   	Movie movie = dao.selectByIdx(mcode);
-	   	int rating = movie.getRating();
-	   	
-	   Schedule date = schedule.selectDate(mcode);
-        
-	   String color=null;
-	   
-	   if (rating == 0) {
-		   color = "green";
-	   } else if (rating == 12) {
-		   color = "orange";
-	   } else if (rating == 15) {
-		   color = "blue";
-	   } else if (rating == 18) {
-		   color = "red";
-	   } else {
-		   color = "";
+	   @Override
+	    public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		   MovieDao dao = MovieDao.getInstance();
+		   ScheduleDao schedule = ScheduleDao.getInstance();
+		   long mcode = Long.parseLong(request.getParameter("mcode"));
+
+		   Movie movie = dao.selectByIdx(mcode);
+		   int rating = movie.getRating();
+
+		   Schedule date = schedule.selectDate(mcode);
+
+		   String color=null;
+		   
+		   if (rating == 0) {
+			   color = "green";
+		   } else if (rating == 12) {
+			   color = "orange";
+		   } else if (rating == 15) {
+			   color = "blue";
+		   } else if (rating == 18) {
+			   color = "red";
+		   } else {
+			   color = "";
+		   }
+
+		   HttpSession session = request.getSession();
+		   String member_code = ((Member)session.getAttribute("user")).getCode();
+		   
+		   MemberDao mdao = new MemberDao();
+		   int age = mdao.getAge(member_code);
+		   	
+		   request.setAttribute("member_age", age);
+		   request.setAttribute("member_code", member_code);
+	       request.setAttribute("color", color);
+	       request.setAttribute("movie", movie); 
+	       request.setAttribute("date", date);
+
+	       RequestDispatcher dispatcher = request.getRequestDispatcher("showMovieDetail.jsp");
+	       dispatcher.forward(request, response);
+	        
 	   }
-
-        request.setAttribute("color", color);
-		request.setAttribute("movie", movie); 
-		request.setAttribute("date", date);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("showMovieDetail.jsp");
-        dispatcher.forward(request, response);
-    }
 }
