@@ -1964,7 +1964,7 @@ input, select, textarea {
 		color: #999;
 	/* 	font-size: 1.25em; */
 		position: relative;
-		margin-top: -1.25em;
+		/* margin-top: -1.25em; */
 		margin-bottom: 2.25em;
 	}
 
@@ -2417,7 +2417,7 @@ input, select, textarea {
 		/* background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png"); */
 		background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
 		background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15)), url("images/bg01.png");
-		background-color: #FFA200;
+		background-color: #0D255E;
 		border-radius: 60px 60px;
 		border: 1px;
 		color: #fff;

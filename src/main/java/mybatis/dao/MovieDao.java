@@ -68,4 +68,54 @@ public class MovieDao {
 		mapperSession.close();
 		return result;
 	}
+	
+	public Movie selectMovieById(long mcode) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		Movie movie = sqlSession.selectOne("movies.selectMovieById", mcode);
+		sqlSession.close();
+		return movie;
+	}
+			// 현재 상영 중
+		public List<Movie> selectCurrentMovies() {
+		    SqlSession sqlSession = SqlSessionBean.getSession();
+		    List<Movie> movies = sqlSession.selectList("movies.selectCurrentMovies");
+		    sqlSession.close();
+		    return movies;
+		}
+		
+		 public List<Schedule> getCurrentMovies() {
+		        SqlSession sqlSession = SqlSessionBean.getSession();
+		        List<Schedule> schedules = sqlSession.selectList("movies.getCurrentMovies");
+		        sqlSession.close();
+		        return schedules;
+		    }
+		
+		// 상영 예정작
+		public List<Movie> selectUpcomingMovies(){
+			SqlSession sqlSession = SqlSessionBean.getSession();
+			List<Movie> movies = sqlSession.selectList("movies.selectUpcomingMovies");
+			sqlSession.close();
+			return movies;
+		}
+		public List<Schedule> getUpcomingMovies() {
+		    SqlSession sqlSession = SqlSessionBean.getSession();
+		    List<Schedule> schedules = sqlSession.selectList("movies.getUpcomingMovies");
+		    sqlSession.close();
+		    return schedules;
+		}
+	
+	// 상영 종료작
+		public List<Movie> selectEndMovies(){
+			SqlSession sqlSession = SqlSessionBean.getSession();
+			List<Movie> movies = sqlSession.selectList("movies.selectEndMovies");
+			sqlSession.close();
+			return movies;
+		}
+		
+		public List<Schedule> getEndMovies() {
+	        SqlSession sqlSession = SqlSessionBean.getSession();
+	        List<Schedule> schedules = sqlSession.selectList("movies.getEndMovies");
+	        sqlSession.close();
+	        return schedules;
+	    }
 }

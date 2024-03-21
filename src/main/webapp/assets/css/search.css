@@ -194,8 +194,8 @@ form{
 
 
 .reverse_button{
-   background-color: #FFA200;
-   border-bottom-color: #FFA200;
+   background-color: #0D255E;
+   border-bottom-color: #0D255E;
    border-bottom-left-radius: 60px;
    border-bottom-right-radius: 60px;
    border-bottom-style: solid;
@@ -205,10 +205,10 @@ form{
    border-image-slice: 100%;
    border-image-source: none;
    border-image-width: 1;
-   border-left-color: #FFA200;
+   border-left-color: #0D255E;
    border-left-style: solid;
    border-left-width: 1.26984px;
-   border-right-color: #FFA200;
+   border-right-color: #0D255E;
    border-right-style: solid;
    border-right-width: 1.26984px;
    border-top-color: yellow;
@@ -221,14 +221,13 @@ form{
    cursor: ponter;
    display: inline-block;
    font-family: "Noto Sans KR", Roboto, dotum, "sans-serif";
+  	border: 1px;
    font-size: 24px;
-   height: 59.9802px;
-   letter-spacing: -0.36px;
+   font-weight: 600;
+   width: 168px;
+   letter-spacing: -0.025em;
    line-height: 58px;
-   padding-bottom: 0px;
-   padding-left: 24px;
-   padding-right: 24px;
-   padding-top: 0px;
+   padding: 0 24px;
    text-align: center;
    text-decoration-color: white;
    text-decoration-line: none;
