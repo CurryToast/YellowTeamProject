@@ -6,9 +6,7 @@
 body{
    font-family: 'Roboto', 'Noto Sans KR';
 }
-#reservebtn:hover{
-	cursor: pointer;
-}
+
 
 
 #detail {
@@ -95,51 +93,8 @@ p {
 	vertical-align: middle;
 	width: 322.996px;
 }
-
-.reserve {
-	background-color: #FFA200;
-	border-bottom-color: #FFA200;
-	border-bottom-left-radius: 60px;
-	border-bottom-right-radius: 60px;
-	border-bottom-style: solid;
-	border-bottom-width: 1.26984px;
-	border-image-outset: 0;
-	border-image-repeat: stretch;
-	border-image-slice: 100%;
-	border-image-source: none;
-	border-image-width: 1;
-	border-left-color: #FFA200;
-	border-left-style: solid;
-	border-left-width: 1.26984px;
-	border-right-color: #FFA200;
-	border-right-style: solid;
-	border-right-width: 1.26984px;
-	border-top-color: yellow;
-	border-top-left-radius: 60px;
-	border-top-right-radius: 60px;
-	border-top-style: solid;
-	border-top-width: 1.26984px;
-	box-sizing: border-box;
-	color: white;
-	cursor: ponter;
-	display: inline-block;
-	font-family: "Noto Sans KR", Roboto, dotum, "sans-serif";
-	font-size: 24px;
-	height: 59.9802px;
-	letter-spacing: -0.36px;
-	line-height: 58px;
-	padding-bottom: 0px;
-	padding-left: 24px;
-	padding-right: 24px;
-	padding-top: 0px;
-	text-align: center;
-	text-decoration-color: white;
-	text-decoration-line: none;
-	text-decoration-style: solid;
-	text-decoration-thickness: auto;
-	user-select: auto;
-	vertical-align: middle;
-	width: 322.996px;
+.btn-design:hover{
+	cursor: pointer;
 }
 
 div {

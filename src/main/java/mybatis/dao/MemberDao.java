@@ -87,5 +87,11 @@ public class MemberDao {
 		sqlSession.close();
 		return result;
 	}
+	public int getAge(String code) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		int age = sqlSession.selectOne("members.getAge",code);
+		sqlSession.close();
+		return age;
+	}
 	}
 

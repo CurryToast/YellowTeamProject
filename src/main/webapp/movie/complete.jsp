@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="../assets/css/myPage.css" />
 </head>
 <body>
-<div class="container">
 <%@ include file="../layout/header.jsp" %>
+<div class="container">
 <c:forEach var="ele" items="${list}">
     <div class="wrap">
 		<img class="poster" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${ele.poster}.jpg" alt="${ele.mname}">

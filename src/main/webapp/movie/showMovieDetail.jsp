@@ -53,17 +53,27 @@
 </c:choose>
 </div>
 <input type="hidden" name="mcode" id="mcode" value="${movie.mcode}">
+<input type="hidden" name="age" id="age" value="${member_age}">
+<input type="hidden" name="rating" id="rating" value="${movie.rating}">
+
 <script type="text/javascript">
 	function reserve() {
 		const mcode= document.querySelector("#mcode").value;
+		const age= document.querySelector("#age").value;
+		const rating= document.querySelector("#rating").value;
+		
 		let yn
-		if('${user.userid}'==''){
+		if('${member_code}'==''){
 			yn=confirm('예매는 로그인이 필요합니다. 로그인 하시겠습니까?')
 			if(yn) {
 				location.href='/YellowTeamProject/login'
 			}
-		}else{
-			location.href='#'
+		} else {
+			if(age<rating){
+				alert('관람 연령이 부적합합니다.')
+			} else {
+				location.href='/YellowTeamProject/movie/reserve?movie_code='+mcode
+			}
 		}
 	}
 </script>

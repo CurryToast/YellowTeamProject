@@ -1,15 +1,22 @@
 package mybatis.controller.movie;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import mybatis.controller.Controller;
+import mybatis.dao.MemberDao;
 import mybatis.dao.MovieDao;
 import mybatis.dao.ScheduleDao;
+import mybatis.vo.Member;
 import mybatis.vo.Movie;
 import mybatis.vo.Schedule;
 
@@ -40,7 +47,15 @@ public class MovieDetailController implements Controller {
 		   } else {
 			   color = "";
 		   }
-	        
+		   HttpSession session = request.getSession();
+		   String member_code = ((Member)session.getAttribute("user")).getCode();
+		   
+		   MemberDao mdao = new MemberDao();
+		   int age = mdao.getAge(member_code);
+		   
+		   	
+		   request.setAttribute("member_age", age);
+		    request.setAttribute("member_code", member_code);
 	        request.setAttribute("color", color);
 			request.setAttribute("movie", movie); 
 			request.setAttribute("date", date);

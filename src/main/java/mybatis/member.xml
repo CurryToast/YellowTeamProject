@@ -51,5 +51,8 @@
     <delete id="delete" parameterType="String">
 		DELETE FROM  TBL_MEMBER WHERE code=#{code}
 	</delete>
+	<select id="getAge" resultType="int" parameterType="String">
+	SELECT AGE  FROM TBL_MEMBER  WHERE code = #{code}
+	</select>
  </mapper>
  
