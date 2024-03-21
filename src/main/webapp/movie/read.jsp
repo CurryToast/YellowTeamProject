@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>커피24 북카페</title>
+	<title>영화 정보</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -30,12 +30,10 @@
 	<div id=ima_size>
 	<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${bo.poster }.jpg" >
 	</div>
-	
+	<div id=x>
 	<div id=box>
 		<!-- <div id=box_sizing> -->
-	<h1><c:out value="${bo.mname}"/>
-	</h1>
-	
+	<h1><c:out value="${bo.mname}"/></h1>
 	관람등급
 	<h5><c:out value="${bo.rating}"/>세 이용가</h5>
 	개봉일
@@ -60,7 +58,7 @@
 	출연
 	<h5><c:out value="${bo.mcast}"/></h5>	
 	</div>
-<!-- 	</div> -->
+	</div> 
 	<div id=synop_but>
 	줄거리
 	<h5 id=synopsys><c:out value="${bo.synopsys}"/></h5>	
@@ -69,7 +67,9 @@
 		<a class="reverse_button" href="reserve">예매</a>	
 	</div>
 	</div>
+	<h5><c:out value="${reserve.content}"/></h5>	
 	</div>		
+	
 	
 	<!-- 메인글 출력 끝 -->
 </section>	

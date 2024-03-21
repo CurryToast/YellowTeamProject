@@ -42,4 +42,3 @@ public class MyPageController implements Controller {
         dispatcher.forward(request, response);
 	}
 }
-		

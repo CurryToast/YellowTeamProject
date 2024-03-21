@@ -52,7 +52,7 @@
 	 		</if>
 	 		<if test="running_time!=null">
 	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					running_time = #{running_time}
+					running_time like '%' || #{running_time} || '%'			
 	 			</trim>
 	 		</if>
 	 		<if test="mgrade!=null">

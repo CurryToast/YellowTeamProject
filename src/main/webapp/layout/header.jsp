@@ -26,7 +26,7 @@
 			</c:if>
 		</ul>
 		<ul id="menu">
-			<li><a class="mainmenu" href="${pageContext.request.contextPath}">Home</a></li>								
+									
 	   		<li>
 				<a class="mainmenu" href="${pageContext.request.contextPath}/movie/reserve">영화예매</a>
 				<ul class="submenu">
@@ -34,9 +34,15 @@
 					<li><a href="${pageContext.request.contextPath}/movie/reserve">예매하기</a></li>
 				</ul>
 			</li>
+			<li><a class="mainmenu" href="${pageContext.request.contextPath}"><img src="/upload/starlight.png" alt="" style="width : 200px"/></a></li>		
 			<li>
 				<a class="mainmenu" href="${pageContext.request.contextPath}/movie/search">영화검색</a>
 			<li>
-		</ul>
+	<%-- 			<a class="mainmenu" href="${pageContext.request.contextPath}/movie/reserve">영화예매</a> --%>
+				<%-- <li><a href="${pageContext.request.contextPath}/movie/list">상영일정</a></li> --%>
+					<%-- <li><a href="${pageContext.request.contextPath}/movie/reserve">예매하기</a></li> --%>
+				<%-- 	<li><a href="${pageContext.request.contextPath}/movie/complete">예매확인</a></li> --%>
+	</li>
+	</ul>
 	</nav>
 </div>
