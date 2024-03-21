@@ -64,7 +64,7 @@
 	<h5 id=synopsys><c:out value="${bo.synopsys}"/></h5>	
 	<div id=buttons>
 		<a class="button" href="search?page=${page }">목록</a> 
-		<a class="reverse_button" href="reserve">예매</a>	
+		<a class="button" href="reserve">예매</a>	
 	</div>
 	</div>
 	<h5><c:out value="${reserve.content}"/></h5>	

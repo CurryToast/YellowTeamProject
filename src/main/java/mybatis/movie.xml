@@ -107,6 +107,42 @@
 			#{synopsys}, #{mgrade}, #{country}, #{mcast}, #{poster}
 		)
  	</insert>
+ 	
+ 		<!-- 상영 중 조회  -->
+ 		 <select id="selectCurrentMovies" resultType="mybatis.vo.Movie">
+		    SELECT m.*, s.schedule
+		    FROM TBL_MOVIE m
+		    INNER JOIN TBL_SCHEDULE s ON m.mcode = s.mcode
+		    WHERE s.schedule BETWEEN SYSDATE AND ADD_MONTHS(SYSDATE, 1)
+		 </select>
+		 
+		 <!-- 상영 종료  -->
+		 <select id = "selectEndMovies" resultType = "mybatis.vo.Movie">
+		  <![CDATA[
+			SELECT m.*, s.schedule 
+			FROM TBL_MOVIE m 
+			INNER JOIN TBL_SCHEDULE s ON m.mcode = s.mcode 
+			WHERE s.schedule < ADD_MONTHS(SYSDATE, -1)
+			]]>
+		 </select>
+		 
+		 <!-- 상영 예정 -->
+		 	<select id = "selectUpcomingMovies" resultType = "mybatis.vo.Movie">
+		 	SELECT m.*, s.schedule 
+			FROM TBL_MOVIE m 
+			INNER JOIN TBL_SCHEDULE s ON m.mcode = s.mcode 
+			WHERE s.schedule > ADD_MONTHS(SYSDATE, 1)
+		 	</select>
+ 		
+		 <select id = "todayLater" resultType="mybatis.vo.Schedule">
+				 SELECT ADD_MONTHS(schedule, 1), 'YYYY-MM-DD' FROM TBL_SCHEDULE
+		 </select>
+		 
+ 		<select id = "selectMovieById" parameterType = "long" resultType="mybatis.vo.Movie">
+ 				SELECT *
+ 				FROM TBL_MOVIE
+ 				WHERE mcode=#{mcode}
+ 		</select>
  </mapper>
  
  

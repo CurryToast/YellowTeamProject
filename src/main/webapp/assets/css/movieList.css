@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+body{
+   font-family: 'Roboto', 'Noto Sans KR';
+}
+
+.movie-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.detail {
+	margin-top:10px; font-size:20px;
+	margin-bottom: -1-px;
+	font-weight: bold;
+}
+
+
+.movie-list {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    margin: 0; 
+    padding: 0; 
+}
+
+.movie-item {
+    width: calc(20% - 10px);
+    margin: 10px;
+    list-style: none;
+    text-align: center;
+    height: auto; /* 또는 적절한 min-height 설정 */
+}
+
+.image-style {
+    width: 100%;
+    height: 500px; /* 예시로 300px을 줬지만, 원하는 높이에 맞춰 조정하세요 */
+}
+
+.img-style {
+    width: 100%;
+    height: 100%; /* 이 부분이 추가되었습니다 */
+    object-fit: cover; /* 이미지 비율을 유지하면서 컨테이너를 채우도록 설정 */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mname {
+    font-weight: bold; 
+    margin-top: 10px; 
+    margin-bottom: 2px; 
+}
+
+.runt {
+	margin-top: -15px;
+    margin-bottom: 15px; 
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#movieList {
+    padding-top: 170px; 
+}
+
+a {
+    text-decoration: none; 
+    color: black; 
+}
+
+.line {
+	margin-top:20px;
+    margin-right: 50px; 
+    text-decoration: none; 
+    margin-left: 50px;
+    color: black;
+}
+
+.line.active {
+    text-decoration: underline;
+}
+
+hr {
+	color: white;
+	height: 1px;
+	border: 0;
+}
+
+.detail.green {
+	color: green;
+	margin-top: -2px;
+}
+.detail.yellow {
+	color: #FFA200;
+	margin-top: -2px;
+}
+.detail.blue {
+	color: blue;
+	margin-top: -2px;
+}
+.detail.red {
+	color: red;
+	margin-top: -2px;
+}
+

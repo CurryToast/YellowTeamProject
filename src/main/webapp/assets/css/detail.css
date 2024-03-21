@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+body{
+   font-family: 'Roboto', 'Noto Sans KR';
+}
+
+#detail {
+	margin-top:20px; font-size:20px;
+	font-weight: bold;
+}
+
+ .green {
+        color: green;
+    }
+
+    .blue {
+        color: blue;
+    }
+
+    .orange {
+        color: #FFA200;
+    }
+
+    .red {
+        color: red;
+    }
+
+img {
+	margin: 10px;
+	width: 316px;
+    height: 451px;
+	object-fit: cover;
+	border-radius: 10px;
+	margin-left: 100px;
+	margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+	}
+
+.p2 {clear: both;}
+
+p {
+	margin-left: 50px;
+	margin-top: 30px;
+}
+
+.btn-design {
+	background-color: #FFA200;
+	border-bottom-color: #FFA200;
+	border-bottom-left-radius: 60px;
+	border-bottom-right-radius: 60px;
+	border-bottom-style: solid;
+	border-bottom-width: 1.26984px;
+	border-image-outset: 0;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-left-color: #FFA200;
+	border-left-style: solid;
+	border-left-width: 1.26984px;
+	border-right-color: #FFA200;
+	border-right-style: solid;
+	border-right-width: 1.26984px;
+	border-top-color: yellow;
+	border-top-left-radius: 60px;
+	border-top-right-radius: 60px;
+	border-top-style: solid;
+	border-top-width: 1.26984px;
+	box-sizing: border-box;
+	color: white;
+	cursor: ponter;
+	display: inline-block;
+	font-family: "Noto Sans KR", Roboto, dotum, "sans-serif";
+	font-size: 24px;
+	height: 59.9802px;
+	letter-spacing: -0.36px;
+	line-height: 58px;
+	padding-bottom: 0px;
+	padding-left: 24px;
+	padding-right: 24px;
+	padding-top: 0px;
+	text-align: center;
+	text-decoration-color: white;
+	text-decoration-line: none;
+	text-decoration-style: solid;
+	text-decoration-thickness: auto;
+	user-select: auto;
+	vertical-align: middle;
+	width: 322.996px;
+	
+}
+
+div {
+	text-align: center;
+}
+
+ #info div {
+        display: block;
+        margin-bottom: 5px; 
+    }
+
+a {
+	text-decoration: none;
+	font-size: 18pt;
+    color: #FFA200;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a.clicked {
+    color: gray; 
+}
+
+#movieList {
+    padding-top: 170px; 
+}
+
+#synopsys {
+	padding-top: 30px;
+	padding-left: 200px;
+	padding-right: 200px;
+}
+
+#info {
+	padding-top: 30px;
+	padding-left: 200px;
+	padding-right: 200px;
+}
+
+#movie-list {
+	display:grid;
+	align-items: flex-start;
+}
+
+#movie-list.row-5{
+	grid-template-rows: repeat(5,1fr);
+	row-gap: 6rem;
+}
+
+#movie-list.col-5{
+	grid-template-columns: repeat(5,1fr);
+	column-gap:2rem;
+}
+
+

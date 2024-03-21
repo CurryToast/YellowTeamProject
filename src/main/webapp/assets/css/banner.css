@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
 .home > #banner {
+	font-size: medium;
+    text-wrap: balance;
+    text-align: center;
 	margin-top: 30px;
 	margin-bottom:30px;
 	background: linear-gradient(to right, #b8d1e7 0%, #e3e8eb 50%, #dbeeff 100%);
