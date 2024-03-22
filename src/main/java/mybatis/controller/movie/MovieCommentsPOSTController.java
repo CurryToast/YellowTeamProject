@@ -27,6 +27,7 @@ public class MovieCommentsPOSTController implements Controller {
 		  String movie_code=request.getParameter("movie_code"); 
 		  String scheduleDate=request.getParameter("schedule"); 
 		  String seatsAll= request.getParameter("seatsAll");
+		  int price = 10000;
 		  //String seats= request.getParameter("seats");
 		  //logger.info("seat:{}",seats);
 		  //System.out.println("seat:"+seats);
@@ -47,7 +48,7 @@ public class MovieCommentsPOSTController implements Controller {
 		
 		for (String seat : seatarr) {
 		    System.out.println(seat);
-		    reserve = new Reserve(0, member_code, theater, movie_code, scheduleDate, null, seat);
+		    reserve = new Reserve(0, member_code, theater, movie_code, scheduleDate, null, seat, price);
 		    result = dao.insert(reserve);
 		    reservearr.add(reserve);
 		    System.out.println("reserve"+reserve);

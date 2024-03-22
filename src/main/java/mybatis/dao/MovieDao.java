@@ -93,5 +93,13 @@ public class MovieDao {
 		mapperSession.close();
 		return result;
 	}
+	// mcode(클릭하게 되면) -> 영화 정보 가져오기
+		public Movie selectMovieById(long mcode) {
+			SqlSession sqlSession = SqlSessionBean.getSession();
+			Movie movie = sqlSession.selectOne("movies.selectMovieById", mcode);
+			log.info("영화 정보: {}", movie);
+			sqlSession.close();
+			return movie;
+		}
 
 }

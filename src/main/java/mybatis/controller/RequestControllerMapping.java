@@ -12,6 +12,7 @@ import mybatis.controller.api.ApiGetAllMoviesController;
 import mybatis.controller.api.ApiMemberJoinController;
 import mybatis.controller.api.ApiMemberModifyController;
 import mybatis.controller.api.ApiMovieSearchController;
+import mybatis.controller.api.ApiPaymentSaveController;
 import mybatis.controller.member.AdminJoinController;
 import mybatis.controller.member.AdminListController;
 import mybatis.controller.member.AdminSaveController;
@@ -32,6 +33,8 @@ import mybatis.controller.movie.MovieRegisterPostController;
 import mybatis.controller.movie.MovieReserveController;
 import mybatis.controller.movie.MovieReserveGetController;
 import mybatis.controller.movie.MoviecompleteController;
+import mybatis.controller.movie.PayRequestFailController;
+import mybatis.controller.movie.PayRequestSuccessController;
 
 
 public class RequestControllerMapping {
@@ -66,6 +69,12 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/myPage","POST"), new MovieDeleteController());
 		mapping.put(new RequestKeyValue("/member/modify","GET"),new MemberModifyController());
 		mapping.put(new RequestKeyValue("/member/drop","GET"),new MemberDropController());
+	
+		
+		//결제
+		mapping.put(new RequestKeyValue("/api/pay", "POST"), new ApiPaymentSaveController() );
+		mapping.put(new RequestKeyValue("/pay/success","GET"), new PayRequestSuccessController());
+		mapping.put(new RequestKeyValue("/pay/fail","GET"), new PayRequestFailController());
 		
 		// 로그인
 		mapping.put(new RequestKeyValue("/login", "GET"), new LoginViewController());

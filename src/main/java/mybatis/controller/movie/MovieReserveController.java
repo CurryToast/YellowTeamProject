@@ -24,6 +24,7 @@ public class MovieReserveController implements Controller {
 	    String movie_code=request.getParameter("movie_code"); 
 	    String scheduleDate=request.getParameter("schedule"); 
 	    String seatsAll= request.getParameter("seatsAll");
+	    int price = 10000;
 
 	    int theater = 0;
 	    if (temp2.length() != 0) {
@@ -37,7 +38,7 @@ public class MovieReserveController implements Controller {
 		List<Reserve> reservearr = new ArrayList<Reserve>();
 
 		for (String seat : seatarr) {
-		    reserve = new Reserve(0, member_code, theater, movie_code, scheduleDate, null, seat);
+			reserve = new Reserve(0, member_code, theater, movie_code, scheduleDate, null, seat, price);
 		    result = dao.insert(reserve);
 		    reservearr.add(reserve);
 		}

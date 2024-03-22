@@ -133,4 +133,9 @@
 	<select id="todayLater" resultType="mybatis.vo.Schedule">
 		SELECT ADD_MONTHS(schedule, 1), 'YYYY-MM-DD' FROM TBL_SCHEDULE
 	</select>
+	<select id = "selectMovieById" parameterType = "long" resultType="mybatis.vo.Movie">
+ 				SELECT *
+ 				FROM TBL_MOVIE
+ 				WHERE mcode=#{mcode}
+ 	</select>
  </mapper>

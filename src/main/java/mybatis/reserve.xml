@@ -5,7 +5,7 @@
  <mapper namespace="reserves">
   	<select id="insert" resultType="int" parameterType="mybatis.vo.Reserve">
  		INSERT INTO TBL_RESERVE
-  		VALUES(reserve_idx_seq.nextval, #{member_code}, #{theater}, #{movie_code}, sysdate ,#{scheduleDate}, #{seat})
+  		VALUES(reserve_idx_seq.nextval, #{member_code}, #{theater}, #{movie_code}, sysdate ,#{scheduleDate}, #{seat},10000)
  	</select>
  	<select id="delete" resultType="int" parameterType="java.util.Map">
  		DELETE FROM TBL_RESERVE
@@ -29,6 +29,23 @@
 		AND tr.MOVIE_CODE =#{movie_code}
 		AND TO_CHAR(TR.RESERVE_DATE,'YYYY-MM-DD')=TO_CHAR(SYSDATE,'YYYY-MM-DD')
  	</select>
+ 	<insert id="saleOne" parameterType="mybatis.vo.Payment">
+ 		INSERT INTO sale_details 
+ 		VALUES (#{mcode},#{id},#{amount},#{paydate},#{paytype},#{paymentkey})
+ 	</insert>
+ 	<select id="paymentId" parameterType="String" resultType="mybatis.vo.ReserveList">
+ 	SELECT *
+	FROM TBL_PAYMENT , TBL_RESERVE 
+	WHERE TBL_PAYMENT.MCODE =TBL_RESERVE.MOVIE_CODE AND TBL_PAYMENT.PAYDATE =TBL_RESERVE.RESERVE_DATE AND TBL_PAYMENT.ID =#{member_code}
+ 	</select>
+ 	<select id="payment" parameterType="java.util.Map" resultType="mybatis.vo.ReserveList">
+ 	SELECT *
+	FROM TBL_PAYMENT , TBL_RESERVE 
+	WHERE TBL_PAYMENT.MCODE =#{mcode} AND TBL_PAYMENT.PAYDATE =sysdate AND TBL_PAYMENT.ID =#{member_code}
+ 	</select>
+ 	
+ 	
+ 	
  </mapper>
 
  

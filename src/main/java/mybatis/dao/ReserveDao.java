@@ -5,6 +5,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
+import mybatis.vo.Payment;
 import mybatis.vo.Reserve;
 import mybatis.vo.ReserveList;
 
@@ -46,4 +47,39 @@ public class ReserveDao {
 		sqlSession.close();
 		return list;
 	}
+	public int saleOne(Payment movie) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		int result=0;	
+		try{
+			result = sqlSession.insert("movie.saleOne",movie);
+			sqlSession.commit();
+		}catch(Exception e) {
+			log.warn("영화 결제 오류 : {}",e.getMessage());
+			sqlSession.rollback();
+		}finally {
+			sqlSession.close();
+		}	
+		return result;
+	}
+
+	public static ReserveDao getInstance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public List<ReserveList> paymentId(String id){
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		List<ReserveList> list = sqlSession.selectList("reserves.paymentId",id);
+		log.info("reserve :{}", list);
+		sqlSession.close();
+		return list;
+	}
+	public List<ReserveList> payment(Map map){
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		List<ReserveList> list = sqlSession.selectList("reserves.payment",map);
+		log.info("reserve :{}", list);
+		sqlSession.close();
+		return list;
+	}
+
 }

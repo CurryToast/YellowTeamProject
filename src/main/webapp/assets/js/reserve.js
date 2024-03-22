@@ -1,7 +1,7 @@
 
 function onLoaderFunc(){
 	$("#seatsBlock :checkbox").prop('disabled', true);
-$(".seatStructure").click(function() {
+    $(".seatStructure").click(function() {
     var SeatsCount = document.querySelector("#Numseats").value;
     if (SeatsCount.length === 0) {
         alert("예매 인원을 먼저 선택해주세요");

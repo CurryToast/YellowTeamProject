@@ -66,6 +66,7 @@
 		if('${member_code}'==''){
 			yn=confirm('예매는 로그인이 필요합니다. 로그인 하시겠습니까?')
 			if(yn) {
+				sessionStorage.setItem('back', 'movie/showMovieDetail?mcode='+mcode);
 				location.href='/YellowTeamProject/login'
 			}
 		} else {
