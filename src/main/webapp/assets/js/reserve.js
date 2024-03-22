@@ -1,12 +1,13 @@
+document.querySelector('#body').addEventListener( 'load' , onLoaderFunc);
 
 function onLoaderFunc(){
 	$("#seatsBlock :checkbox").prop('disabled', true);
-    $(".seatStructure").click(function() {
-    var SeatsCount = document.querySelector("#Numseats").value;
-    if (SeatsCount.length === 0) {
-        alert("예매 인원을 먼저 선택해주세요");
-    }
-});
+	$(".wrap2").click(function() {
+	    var SeatsCount = document.querySelector("#Numseats").value;
+	    if (SeatsCount.length === 0) {
+	        alert("예매 인원을 먼저 선택해주세요");
+	    }
+	});
 }
 
 
@@ -29,23 +30,9 @@ function select() {
 	}
 
 
+document.querySelector('#complete').addEventListener('click', complete);
 
-/*작동안함 .. 인원수만큼만 클릭할 수 있도록 하고 싶음*/
- document.querySelector("input[type='checkbox']").addEventListener('change', function() {
- var SeatsCount =  document.querySelector("#Numseats").value
-     console.log($("#seatsBlock input[type='checkbox']:checked").length)
-  if ($("#seatsBlock input[type='checkbox']:checked").length == SeatsCount) {
-    $("#seatsBlock input[type='checkbox']").prop('disabled', true);
-    $("#seatsBlock input[type='checkbox']:checked").prop('disabled', false);
-  }else{
-      $("#seatsBlock input[type='checkbox']").prop('disabled', false);
-  }
-});
-
-
-document.querySelector('#complete').addEventListener('click', reserve);
-
-function reserve() {
+function complete() {
     if ($("input:checked").length == ($("#Numseats").val())){
        
        var allSeatsVals = [];
@@ -54,14 +41,11 @@ function reserve() {
      	});
        console.log(allSeatsVals)
        const message = allSeatsVals + ' 좌석을 선택하시겠습니까?';
-       const yn = confirm(message);
-
+       const yn = confirm(message)
         if (yn) {
-            const form = document.forms[0]  
             $('#seatsAll').val(allSeatsVals);
-            form.submit(); 
-            alert(document.getElementById(seatsAll).value);
-            alert('예매가 완료되었습니다.');
+            alert('결제창으로 넘어갑니다');
+            pay();
         } else {
             alert("취소되었습니다.");
         }
@@ -70,4 +54,88 @@ function reserve() {
     }
     
 }
+
+function payment(){
+	const form = document.forms[0]  
+	form.submit(); 
+}
+
    
+   function tossPayInit() {
+	    const obj ={}
+	   	obj.mcode = document.querySelector("#movie_code")
+		obj.title  = document.querySelector("#mname")
+		obj.id = document.querySelector("#member_code")
+		obj.price = document.querySelector("#total")
+	// 토스페이먼츠 회원가입하기 전이라면, 아래 문서용 테스트 키를 사용하세요. 문서용 테스트 키는 _docs_가 포함되어 있어요.
+	// 토스페이먼츠에 회원가입했다면, 개발자센터에서 내 테스트 상점 키를 확인하세요.
+	// 로그인한 상태라면, 문서에 있는 클라이언트 키, 시크릿 키가 내 테스트 키로 바뀌어요.
+	const clientKey = 'test_ck_yL0qZ4G1VO5nAe7JXkbO8oWb2MQY'
+
+   const customerKey = crypto.randomUUID()  //"VUEWF1yYWn17zOh3L6Wot" // 내 상점에서 고객을 구분하기 위해 발급한 고객의 고유 ID(임의값)
+//    const coupon = document.getElementById("coupon-box")
+    const button = document.getElementById("payment-button")
+    // ------  결제위젯 초기화 ------ 
+    // 비회원 결제에는 customerKey 대신 ANONYMOUS를 사용하세요.
+    const paymentWidget = PaymentWidget(clientKey, customerKey) // 회원 결제
+    // const paymentWidget = PaymentWidget(clientKey, PaymentWidget.ANONYMOUS) // 비회원 결제
+    // ------  결제 UI 렌더링 ------ 
+    // 결제 UI를 렌더링할 위치를 지정합니다. `#payment-method`와 같은 CSS 선택자와 결제 금액 객체를 추가하세요.
+    // DOM이 생성된 이후에 렌더링 메서드를 호출하세요.
+    // https://docs.tosspayments.com/reference/widget-sdk#renderpaymentmethods선택자-결제-금액-옵션
+    const paymentMethodWidget = paymentWidget.renderPaymentMethods(
+      "#payment-method", 
+      { value: Number(obj.price) },
+      // 렌더링하고 싶은 결제 UI의 variantKey
+      // 결제 수단 및 스타일이 다른 멀티 UI를 직접 만들고 싶다면 계약이 필요해요.
+      // https://docs.tosspayments.com/guides/payment-widget/admin#멀티-결제-ui
+      { variantKey: "DEFAULT" } 
+    )
+    // ------  이용약관 UI 렌더링 ------
+    // 이용약관 UI를 렌더링할 위치를 지정합니다. `#agreement`와 같은 CSS 선택자를 추가하세요.
+    // https://docs.tosspayments.com/reference/widget-sdk#renderagreement선택자-옵션
+    paymentWidget.renderAgreement(
+      '#agreement',
+      { variantKey: "AGREEMENT" } // 기본 이용약관 UI 렌더링
+    )
+   console.log("obj :",obj.total)
+   paymentMethodWidget.updateAmount(Number(obj.total))
+   const selectedPaymentMethod = paymentMethodWidget.getSelectedPaymentMethod()
+      
+    // ------ '결제하기' 버튼 누르면 결제창 띄우기 ------
+    // 더 많은 결제 정보 파라미터는 결제위젯 SDK에서 확인하세요.
+    // https://docs.tosspayments.com/reference/widget-sdk#requestpayment결제-정보
+    const payObj = {
+        orderId: obj.mcode +'_' + obj.id,            
+        orderName: obj.mname,                 
+        successUrl: window.location.origin + "/YellowTeamProject/pay/success",  
+        failUrl: window.location.origin + "/YellowTeamProject/pay/fail",        
+        customerName: obj.id
+    }
+    console.log(payObj)
+    button.addEventListener("click", function () {
+      paymentWidget.requestPayment(payObj)
+    })
+    payment()
+}
+
+function pay(){
+		const obj ={}
+		const modal = new bootstrap.Modal(document.querySelector("#modal"))  /* 부트스트랩의 모달 기능을 제공하는 객체*/
+		const aTag = document.querySelector('a[data-all]');
+		const datas = aTag.getAttribute('data-all');
+		const arr = datas.split(",");
+		console.log("datas{}",datas)
+		obj.mcode = arr[0];
+		obj.title = arr[1];
+		obj.id = arr[2];
+		obj.price = arr[3];
+		obj.mcode = document.querySelector("#movie_code").innerHTML
+		obj.title  = document.querySelector("#mname").innerHTML
+		obj.id = document.querySelector("#member_code").innerHTML
+		obj.price = document.querySelector("#total").innerHTML 
+		modal.show();
+		tossPayInit();
+		
+   }
+
