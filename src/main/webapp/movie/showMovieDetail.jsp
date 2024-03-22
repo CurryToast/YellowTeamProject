@@ -35,7 +35,7 @@
             			 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 		        <button class="btn-design" onclick="reserve()">예매하기</button>
             <hr>
-            <a href="#" onclick = "showSynopsys()">줄거리</a> |
+            <a href="#" onclick = "showSynopsys()">줄거리</a> 
             <a href="#" onclick = "showInfo()">주요 정보</a>
             </div>
             

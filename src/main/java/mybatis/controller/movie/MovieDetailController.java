@@ -43,13 +43,18 @@ public class MovieDetailController implements Controller {
 		   }
 
 		   HttpSession session = request.getSession();
-		   String member_code = ((Member)session.getAttribute("user")).getCode();
+		   String member_code;
+		try {
+			member_code = ((Member)session.getAttribute("user")).getCode();
+		    request.setAttribute("member_code", member_code);
+		    MemberDao mdao = new MemberDao();
+		    int age = mdao.getAge(member_code);
+		    request.setAttribute("member_age", age);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		   
-		   MemberDao mdao = new MemberDao();
-		   int age = mdao.getAge(member_code);
 		   	
-		   request.setAttribute("member_age", age);
-		   request.setAttribute("member_code", member_code);
 	       request.setAttribute("color", color);
 	       request.setAttribute("movie", movie); 
 	       request.setAttribute("date", date);
