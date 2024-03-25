@@ -266,9 +266,9 @@
 
     </script>
  </head>
-<body class="is-preload">
+<body class="is-preload" style="background-color:white">
 <%@include file="../layout/header.jsp" %>
-<div id="page-wrapper">
+<div id="page-wrapper" style="padding-top:130px">
 <hr>
 <jsp:include page="joinagree.jsp"/>
 <hr>

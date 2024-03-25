@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 </head>
-<body class="is-preload">
+<body class="is-preload" style="padding-top:100px">
 <div id="page-wrapper">
 		<!-- Header -->
 		<%@ include file="../layout/header.jsp" %>
@@ -48,6 +48,7 @@
 				</div>
 		</div>
 </div>
+
 <script type="text/javascript">
 	console.log('${cookie.incorrect}')
 	var cookies = document.cookie.split(';');
@@ -70,5 +71,6 @@
 <script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
+
 </body>
 </html>

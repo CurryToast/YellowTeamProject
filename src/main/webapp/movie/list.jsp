@@ -56,6 +56,7 @@
 </div>
 <hr>
 </section>
+<%@ include file="../layout/footer.jsp" %>
 <script src="${pageContext.request.contextPath}/assets/js/list.js"></script>
 </body>
 </html>

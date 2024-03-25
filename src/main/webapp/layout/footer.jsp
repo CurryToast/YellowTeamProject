@@ -12,9 +12,11 @@
     font-size: 1rem;
     padding-top: 0.5rem;
     padding-left: 1rem;
-    word-spacing: 0.5rem;
-    color: gray;
+    word-spacing: 0.3rem;
+    color: white;
 }
+.footer
+{background-color: #1f1a4d;}
 </style>
 <title>footer</title>
 

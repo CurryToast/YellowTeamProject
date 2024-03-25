@@ -35,6 +35,6 @@
     <hr>
 </c:forEach>
 </div>
-           
+<%@ include file="../layout/footer.jsp" %>           
 </body>
 </html>

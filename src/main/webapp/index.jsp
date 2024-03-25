@@ -40,34 +40,8 @@
 	<!-- Banner -->
 	<section id="banner">
 	</section>
-	<!-- Highlights -->
-	<section class="wrapper style1">
-		<div class="container">
-			<div class="row gtr-200">
-				<section class="col-4 col-12-narrower">
-				</section>
-				<section class="col-4 col-12-narrower">
-				</section>
-				<section class="col-4 col-12-narrower">
-				</section>
-			</div>
-		</div>
-	</section>
-	<!-- Gigantic Heading -->
-	<section class="wrapper style2">
-		<div class="container">
-		</div>
-	</section>
-	<!-- Posts -->
-	 <section class="wrapper style1">
-		<div id="movie-posts" class="container">
-		</div>
-	</section> -->
-	<!-- CTA -->
-	<section id="cta" class="wrapper style3">
-	</section>
-	<div data-num="0" id="datanum"></div>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/home.js"></script>
 </div>
+<%@ include file="./layout/footer.jsp" %>
 </body>
 </html>
