@@ -54,11 +54,6 @@
 						<button class="join-btn" type="button" onclick="location.href='admin/join.jsp'">관리자 등록</button>
 						<button class="join-btn" type="button" onclick="drop()">관리자 해지</button>
 					</form>
-					<ul>
-						<li>
-							<a href="${pageContext.request.contextPath}/movie/register">영화 등록</a>
-						</li>
-					</ul>
 				</c:if>
 			</div>
 		</div>

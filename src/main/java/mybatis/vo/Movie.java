@@ -1,6 +1,9 @@
 package mybatis.vo;
 
+import java.sql.Date;
 import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -31,4 +34,7 @@ public class Movie {
 	private int comments; // select, search할때 TBL_MOVIECOMMENTS에서 가져오는 CONTENT수
 	@Setter
 	private Map<String, String> commentMap; // content로 이루어진 list. 컨트롤러나 비동기 api에서 임의로 넣어줌
+	private int cidx; // 일부 쿼리문에서 JOIN으로 가져오는 스케쥴 테이블 내용 
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
+	private Date schedule; // 일부 쿼리문에서 JOIN으로 가져오는 스케쥴 테이블 내용 
 }

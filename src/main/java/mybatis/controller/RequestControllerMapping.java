@@ -28,10 +28,16 @@ import mybatis.controller.member.MyPageController;
 import mybatis.controller.movie.MovieCommentsGetController;
 import mybatis.controller.movie.MovieDetailController;
 import mybatis.controller.movie.MovieListController;
+import mybatis.controller.movie.MovieManageController;
+import mybatis.controller.movie.MovieModifyController;
+import mybatis.controller.movie.MovieModifyPostController;
+import mybatis.controller.movie.MovieRegisterController;
 import mybatis.controller.movie.MovieRegisterPostController;
 import mybatis.controller.movie.MovieReserveController;
 import mybatis.controller.movie.MovieReserveGetController;
+import mybatis.controller.movie.MovieSearchController;
 import mybatis.controller.movie.MoviecompleteController;
+import mybatis.controller.movie.ReadController;
 
 
 public class RequestControllerMapping {
@@ -80,10 +86,13 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/movie/reserve", "POST"), new MovieReserveController() );
 		mapping.put(new RequestKeyValue("/movie/search", "GET"), new MovieSearchController());
 		mapping.put(new RequestKeyValue("/movie/search", "PUT"), new MovieSearchController());
-		mapping.put(new RequestKeyValue("/movie/read", "GET"), new ReadController() );
+		mapping.put(new RequestKeyValue("/movie/read", "GET"), new ReadController());
 		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MoviecompleteController());
+		mapping.put(new RequestKeyValue("/movie/manage", "GET"), new MovieManageController());
 	    mapping.put(new RequestKeyValue("/movie/register", "GET"), new MovieRegisterController());
 	    mapping.put(new RequestKeyValue("/movie/register", "POST"), new MovieRegisterPostController());
+	    mapping.put(new RequestKeyValue("/movie/modify", "GET"), new MovieModifyController());
+	    mapping.put(new RequestKeyValue("/movie/modify", "POST"), new MovieModifyPostController());
 	    mapping.put(new RequestKeyValue("/movie/comments", "GET"), new MovieCommentsGetController());
 	}
 

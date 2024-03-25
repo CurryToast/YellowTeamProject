@@ -94,4 +94,11 @@ public class MovieDao {
 		return result;
 	}
 
+	public int modify(Map<String, Object> map) {
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		int result = mapperSession.update("movies.modify", map);
+		mapperSession.commit();
+		mapperSession.close();
+		return result;
+	}
 }

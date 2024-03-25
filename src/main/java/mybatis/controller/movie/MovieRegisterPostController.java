@@ -58,7 +58,7 @@ public class MovieRegisterPostController implements Controller {
 		int result = dao.insert(new Movie(
 			0, mname, genre, director, release_date,
 			producer, rating, running_time, synopsys, mgrade,
-			country, mcast, poster.replace(".jpg", ""), 0, null
+			country, mcast, poster.replace(".jpg", ""), 0, null, 0, null
 		));
 
 		if (result == 1) {
