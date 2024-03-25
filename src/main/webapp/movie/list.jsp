@@ -8,18 +8,23 @@
 <head>
 <meta charset="UTF-8">
 <title>스타 라이트 시네마</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css"/>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/movieList.css"/>
+
+<link rel="stylesheet" href="../assets/css/header.css"/>
+<link rel="stylesheet" href="../assets/css/movielist.css"/>
 </head>
 <body>
 <%@ include file="../layout/header.jsp" %>
 <section id = "movieList">
 <h3>상영 일정</h3>
 <hr style="color:white;">
-<a href="list?type=all" class ="line" >전체 보기</a> |
-<a href="list?type=ing" class = "line" >현재 상영작</a> | 
-<a href="list?type=later" class = "line" >상영 예정작</a> |
-<a href="list?type=end" class = "line" >상영 종료작</a>
+<div id=listnow>
+<a href="list?type=all" class ="line" >전체 보기</a> 
+<a href="list?type=ing" class = "line">현재 상영작</a> 
+<a href="list?type=later" class = "line">상영 예정작</a>
+<a href="list?type=end" class = "line">상영 종료작</a>
+<script>
+</script>
+</div>
 <div class="movie-container">
     <ul class="movie-list col-5 row-5">
         <c:forEach var="movie" items="${list}">
@@ -32,16 +37,16 @@
                 <p class="mname">${movie.mname}</p>
                 <c:choose>
                     <c:when test="${movie.rating == 0}">
-                        <p class="detail green">${movie.rating}세 이상 관람가</p>
+                        <p class="green" style="color:green;">${movie.rating}세 이상 관람가</p>
                     </c:when>
                     <c:when test="${movie.rating == 12}">
-                        <p class="detail yellow">${movie.rating}세 이상 관람가</p>
+                        <p class="orange" style="color:#FFA200;">${movie.rating}세 이상 관람가</p>
                     </c:when>
                     <c:when test="${movie.rating == 15}">
-                        <p class="detail blue">${movie.rating}세 이상 관람가</p>
+                        <p class="blue" style="color:blue;">${movie.rating}세 이상 관람가</p>
                     </c:when>
                     <c:when test="${movie.rating == 18}">
-                        <p class="detail red">${movie.rating}세 이상 관람가</p>
+                        <p class="red" style="color:red;">${movie.rating}세 이상 관람가</p>
                     </c:when>
                 </c:choose>
                 <p class="runt">${movie.running_time}분</p>
