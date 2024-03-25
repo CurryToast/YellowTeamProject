@@ -23,9 +23,7 @@
 	  ID &nbsp;<input class="in" type="text" name="member_code"  value="${member_code}" disabled >
 	  영화 제목 &nbsp; <input class="in"type="text" name="mname"  value="${movie.mname }" disabled >
 	  <input type="hidden" name="mname"  value="${movie.mcode }" disabled >
-	<%-- <c:forEach var="schedule" items="${schedules}"> --%>
     <fmt:formatDate value="${schedule.schedule}" pattern="yyyy-MM-dd" />
-	<%-- </c:forEach> --%>
 	<form method="post" action="reserve">
 	<div class="cinema">
 	 영화관 선택 &nbsp;
@@ -39,7 +37,7 @@
       </select>
       </div>
 	  영화 시간 &nbsp; <input class="in" type="date" name="schedule" value="${schedules.schedule }" disabled>
-	  예매 인원 &nbsp; <input @input="calculateTotal" type="number" id="Numseats" required>
+	  예매 인원 &nbsp; <input input="calculateTotal" type="number" id="Numseats" required>
   	  &nbsp; <button type="button" onclick="select()">인원 선택 완료</button>	  <br/><br/></div>
 	  <!-- hidden -->
 	  <input type="hidden" id="theater" name="theater" value="${param.theater }" >  
@@ -47,9 +45,7 @@
 	  <input type="hidden" name="member_code" id="member_code" value="${param.member_code }">
 	  <input type="hidden" id="movie_code" name="movie_code" value="${movie.mcode }">
 	  <input type="hidden" name="schedule" id="schedule" value="${schedules.schedule }">
- 	  <input @input="calculateTotal" type="hidden" name="price" id="price" value="10000">
-  	  <input type="hidden" name="total" id="total" oninput="calculateTotal()">
-	  <input type="hidden" id="seatsAll" name="seatsAll">
+ 	  <input type="hidden" name="totalPrice2" id="totalPrice2" value="${total}">
 	  <br/><br/>
 	<div class="wrap2">
 	<div class="seatStructure">
@@ -230,11 +226,10 @@
 	</tr>
 	</table>
 		<button id="complete" type="button">좌석 선택완료</button>
-	<a data-all="${movie.mcode},${movie.mname},${member_code}"></a>
+	<a data-all="${movie.mcode},${movie.mname},${member_code},${totalPrice2}"></a>
 	</form>
 	</div>
 
-	
 <!-- The Modal -->
 <div class="modal" tabindex="-1" id="modal">
 		<div class="modal-dialog">
@@ -246,10 +241,9 @@
 				<div class="modal-body">
 					<div class="pay">
 						<hr> 
-						<div>제목</div>
-						<input type="text" name="mname" id="mname" value="${movie.mname }">
-						<div>가격</div>
-						<input type="text" name="total" id="total" oninput="calculateTotal()">원
+						<p><strong>영화 제목: </strong>${movie.mname }</p>
+						<p><strong>선택 좌석 수: </strong><span id="numSeats"></span></p>
+						<p><strong>총 가격: </strong><span id="totalPrice"></span></p>
 					</div>	
 					<div class="pay">
 							<!-- 결제 UI, 이용약관 UI 영역 -->
@@ -266,14 +260,7 @@
 		</div>
 	</div>
 
-		<script>
-		function calculateTotal() {
-	  	const price = document.getElementById("price").value;
-	  	const numSeats = document.getElementById("Numseats").value;
-	    const total = parseInt(price) * parseInt(numSeats);
-	  	document.getElementById("total").value = total;
-	}
-	</script>
+
 	<script src="../assets/js/reserve.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="../assets/js/jquery.min.js"></script>

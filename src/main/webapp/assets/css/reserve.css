@@ -89,6 +89,11 @@ input[type=checkbox]:checked:before {
     font-size: 15px;
 }
 
+.modal-footer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+}
 table#seatsBlock {
     display: flex;
     justify-content: center;
@@ -164,7 +169,8 @@ select {
 
 .seatStructure {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    align-items: center;
 }
    
   

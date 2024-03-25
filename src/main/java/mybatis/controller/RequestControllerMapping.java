@@ -90,7 +90,11 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/movie/search", "GET"), new MovieSearchController());
 		mapping.put(new RequestKeyValue("/movie/search", "PUT"), new MovieSearchController());
 		mapping.put(new RequestKeyValue("/movie/read", "GET"), new ReadController() );
-		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MoviecompleteController());
+		/*
+		 * mapping.put(new RequestKeyValue("/movie/complete", "GET"), new
+		 * MoviecompleteController());
+		 */
+		mapping.put(new RequestKeyValue("/pay/success", "GET"), new MoviecompleteController());
 	    mapping.put(new RequestKeyValue("/movie/register", "GET"), new MovieRegisterController());
 	    mapping.put(new RequestKeyValue("/movie/register", "POST"), new MovieRegisterPostController());
 	    mapping.put(new RequestKeyValue("/movie/comments", "GET"), new MovieCommentsGetController());
