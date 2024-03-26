@@ -34,7 +34,7 @@ const createMovieList = (arr) => {
 		const div = document.createElement('div');
 		
 		const link = document.createElement('a');
-		link.href = `../movie/showMovieDetail?mcode=${el.mcode}`;
+		link.href = `movie/showMovieDetail?mcode=${el.mcode}`;
 		div.appendChild(link);
 
 		const poster = document.createElement('img');
@@ -87,7 +87,7 @@ const createMovieCommentsList = (arr) => {
 		const anchor = document.createElement('a');
 		anchor.classList.add('image');
 		anchor.classList.add('left');
-		anchor.href = `${window.location.href}/movie/read?mcode=${item.mcode}&page=1`;
+		anchor.href = `movie/read?mcode=${item.mcode}&page=1`;
 
 		const img = document.createElement('img');
 		img.src= `https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${item.poster}.jpg`;
