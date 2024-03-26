@@ -11,7 +11,6 @@
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Expires" content="0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
- <!--   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" /> 
@@ -268,7 +267,7 @@
  </head>
 <body class="is-preload">
 <%@include file="../layout/header.jsp" %>
-<div id="page-wrapper">
+<div id="page-wrapper" style="margin-top: 150px;">
 <hr>
 <jsp:include page="joinagree.jsp"/>
 <hr>

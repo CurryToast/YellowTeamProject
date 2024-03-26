@@ -27,14 +27,12 @@
 <%@include file="../layout/header.jsp" %>
 <div id="page-wrapper">
 	<div class="tabs1">
-	<a href="${pageContext.request.contextPath}/myPage" class="active">예매내역</a>
-	<a href="${pageContext.request.contextPath}/member/modify" class="">회원정보수정</a>
+		<a href="${pageContext.request.contextPath}/myPage" class="active">예매내역</a>
+		<a href="${pageContext.request.contextPath}/member/modify">회원정보수정</a>
+		<c:if test="${sessionScope.user.isadmin == 'Y' }">
+			<a href="${pageContext.request.contextPath}/admin/page">관리자 페이지</a>
+		</c:if>
 	</div>
-	<c:if test="${sessionScope.user.isadmin == 'Y' }">
-	<form id="cont">
-	<button class="join-btn" type="button" onclick="location.href='admin/page.jsp'">관리자 페이지</button>
-	</form>
-	</c:if>
 	<div class="container">
 	<h2>예매 내역</h2>
 	<c:forEach var="ele" items="${list}">

@@ -36,13 +36,14 @@
 </head>
 <body class="is-preload">
 	<%@include file="../layout/header.jsp" %>
-	
-	<div class="tabs1">
-	<a href="${pageContext.request.contextPath}/myPage" class="">예매내역</a>
-	<a href="${pageContext.request.contextPath}/member/modify" class="active">회원정보수정</a>
-	</div>
-	
 	<div id="page-wrapper">
+		<div class="tabs1">
+			<a href="${pageContext.request.contextPath}/myPage">예매내역</a>
+			<a href="${pageContext.request.contextPath}/member/modify" class="active">회원정보수정</a>
+			<c:if test="${sessionScope.user.isadmin == 'Y' }">
+				<a href="${pageContext.request.contextPath}/admin/page">관리자 페이지</a>
+			</c:if>
+		</div>
     <hr>
   	<div class="cont">
                  <form id="form">

@@ -15,6 +15,7 @@ import mybatis.controller.api.ApiMovieModifyController;
 import mybatis.controller.api.ApiMovieSearchController;
 import mybatis.controller.member.AdminJoinController;
 import mybatis.controller.member.AdminListController;
+import mybatis.controller.member.AdminPageController;
 import mybatis.controller.member.AdminSaveController;
 import mybatis.controller.member.AuthCertSMSController;
 import mybatis.controller.member.LoginActionController;
@@ -64,6 +65,7 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/api/admin","DELETE"), new ApiAdminDeleteController());
 		mapping.put(new RequestKeyValue("/admin/join","GET"),new AdminJoinController());
 		mapping.put(new RequestKeyValue("/admin/save","POST"),new AdminSaveController());
+		mapping.put(new RequestKeyValue("/admin/page","GET"),new AdminPageController());
 
 		// 마이페이지
 		mapping.put(new RequestKeyValue("/myPage","GET"), new MyPageController());

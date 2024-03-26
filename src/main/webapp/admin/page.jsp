@@ -30,16 +30,24 @@
 </head>
 <body>
 <%@include file="../layout/header.jsp" %>
-<div>
-<c:if test="${sessionScope.user.isadmin == 'Y' }">
-<form id="cont">
-	<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/join.jsp'">관리자 등록</button><br>
-	<button class="join-btn" type="button" id="delete">관리자 해지</button><br>
-	<button class="join-btn" type="button" id="btn-open-modal">관리자 목록 보기</button><br>
-	<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/movie/register'">영화 등록</button>
-	<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/movie/modify'">영화 수정</button>
-</form>
-</c:if>
+<div id="page-wrapper">
+	<div class="tabs1">
+		<a href="${pageContext.request.contextPath}/myPage">예매내역</a>
+		<a href="${pageContext.request.contextPath}/member/modify">회원정보수정</a>
+		<c:if test="${sessionScope.user.isadmin == 'Y' }">
+			<a href="${pageContext.request.contextPath}/admin/page" class="active">회원정보수정</a>
+		</c:if>
+	</div>
+	<hr>
+	<c:if test="${sessionScope.user.isadmin == 'Y' }">
+		<form id="cont">
+		<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/join.jsp'">관리자 등록</button><br>
+		<button class="join-btn" type="button" id="delete">관리자 해지</button><br>
+		<button class="join-btn" type="button" id="btn-open-modal">관리자 목록 보기</button><br>
+		<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/movie/register'">영화 등록</button>
+		<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/movie/modify'">영화 수정</button>
+		</form>
+	</c:if>
 </div>
 <div class="modal">
     <div class="modal_body">
@@ -49,7 +57,6 @@
         <button class="btn-close-modal">CLOSE</button>
     </div>
 </div>
-
 <script>
 	const modal = document.querySelector('.modal');
 	const btnOpenModal = document.querySelector('#btn-open-modal');
