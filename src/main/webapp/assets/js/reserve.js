@@ -133,7 +133,7 @@ function payment(){
     button.addEventListener("click", function () {
       paymentWidget.requestPayment(payObj)
     })
-   /* payment()*/
+  /* payment()*/
 }
 
 function pay(){

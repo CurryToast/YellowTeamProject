@@ -35,21 +35,14 @@
 												<h2>결제 완료</h2>
 												<h3 id="result">결제 내역입니다.</h3>
 											</header>
-											
-											<div style="margin-bottom: 1em;">
-												<img class="poster" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${list.poster}.jpg" alt="${list.mname}">
-											</div>
 											<div  class="info">
 												<p>
 												<c:out value="${list.mname}"/>
 												<span class="title" id="id"></span>
 												</p>
-												<p><strong>예매번호 </strong><c:out value="${list.rcode}"/></p>
+												<p><strong>예매번호 </strong><span id="orderId"></span></p>
 												<p>
-												<span>가격:</span>
-												<span class="title"><fmt:formatNumber value="10000" pattern="###,###"/> 원</span>
-												</P>
-												<p><strong>총 결제금액</strong><c:out value="${list.amount}"/></p>
+												<p><strong>총 결제금액</strong><span id="amount"></span></p>
 												<br>
 												결제카드 : <span id="cardtype"></span> <span id="method"></span> (<span id="cardno"></span>)<br> 
 												승인날짜 : <span class="title" id="paydate"></span>

@@ -67,6 +67,14 @@ public class ReserveDao {
 		return null;
 	}
 	
+	
+	public Payment getOne(String mcode) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		Payment pay = sqlSession.selectOne("reserves.getOne",mcode);
+		sqlSession.close();
+		return pay;
+	}
+	
 	public List<ReserveList> paymentId(String id){
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		List<ReserveList> list = sqlSession.selectList("reserves.paymentId",id);

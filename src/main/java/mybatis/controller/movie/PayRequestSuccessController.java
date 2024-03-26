@@ -11,13 +11,11 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import mybatis.controller.Controller;
@@ -32,12 +30,20 @@ public class PayRequestSuccessController implements Controller {
 
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		String orderId = request.getParameter("orderId");
+		int amount = Integer.parseInt(request.getParameter("amount"));
+		ReserveDao dao = new ReserveDao();
+		/*
+		 * Payment item = dao.getOne(orderId.substring(0, 7)); if(item.getPrice() !=
+		 * amount) throw new IOException("금액에 문제가 있습니다.");
+		 */
+		
+		
 		HttpSession session = request.getSession();
 		String member_code = ((Member)session.getAttribute("user")).getCode();
 		String movie_code = request.getParameter("movie_code"); 
 			
-		ReserveDao dao = new ReserveDao(); 
 		Map<String, String> map = new HashMap<>();
 		map.put("movie_code", movie_code); 
 		map.put("member_code", member_code);
@@ -48,10 +54,6 @@ public class PayRequestSuccessController implements Controller {
 		logger.info("movie_code: {}", movie_code);
 		logger.info("member_code: {}", member_code);
         logger.info("list: {}", list);
-        
-        int price = Integer.parseInt(request.getParameter("amount"));
-
-        
         
 
         // API 엔드포인트 및 요청 데이터
@@ -64,7 +66,7 @@ public class PayRequestSuccessController implements Controller {
         String authorizationHeader = createAuthorizationHeader(secretKey);
 
         // JSON 데이터 생성
-        String jsonData = String.format("{\"paymentKey\":\"%s\",\"amount\":%d,\"orderId\":\"%s\"}", paymentKey, price, member_code);
+        String jsonData = String.format("{\"paymentKey\":\"%s\",\"amount\":%d,\"orderId\":\"%s\"}", paymentKey, amount, orderId);
 
         // HTTP POST 요청 보내기
         URL url = new URL(apiUrl);
