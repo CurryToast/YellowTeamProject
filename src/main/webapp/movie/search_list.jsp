@@ -22,8 +22,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/search.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/list.css?v=3">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/search.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/list.css?v=3"/>
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
