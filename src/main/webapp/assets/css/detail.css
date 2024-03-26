@@ -38,12 +38,12 @@ img {
 .p2 {clear: both;}
 
 p {
-	margin-left: 10px;
+	/* font-size:50px; */
 }
 
 .btn-design {
-	background-color: #FFA200;
-	border-bottom-color: #FFA200;
+	background-color: #0D255E;
+	border-bottom-color: #0D255E;
 	border-bottom-left-radius: 60px;
 	border-bottom-right-radius: 60px;
 	border-bottom-style: solid;
@@ -53,10 +53,10 @@ p {
 	border-image-slice: 100%;
 	border-image-source: none;
 	border-image-width: 1;
-	border-left-color: #FFA200;
+	border-left-color: #0D255E;
 	border-left-style: solid;
 	border-left-width: 1.26984px;
-	border-right-color: #FFA200;
+	border-right-color: #0D255E;
 	border-right-style: solid;
 	border-right-width: 1.26984px;
 	border-top-color: yellow;
@@ -103,7 +103,7 @@ div {
 a {
 	text-decoration: none;
 	font-size: 18pt;
-    color: #FFA200;
+    color: #0D255E;
     padding: 15px 25px;
     text-align: center;
     text-decoration: none;
@@ -119,15 +119,13 @@ a.clicked {
 }
 
 #synopsys {
-	padding-top: 30px;
-	padding-left: 200px;
-	padding-right: 200px;
+	padding:20px 300px 40px;
+	text-wrap: balance;
 }
 
 #info {
-	padding-top: 30px;
-	padding-left: 200px;
-	padding-right: 200px;
+	padding:20px 300px 40px;
+	text-wrap: balance;
 }
 
 #movie-list {

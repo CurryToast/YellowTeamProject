@@ -15,7 +15,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/search.css" />
 </head>
@@ -59,14 +58,11 @@
 	줄거리
 	<h5 id=synopsys><c:out value="${bo.synopsys}"/></h5>	
 	<div id=buttons>
-		<a class="button" href="search?page=${page }">목록</a> 
-		<a class="button" href="reserve">예매</a>	
+		<a class="button" href="search?page=${page }">돌아가기</a> 
+		<a class="button" href="showMovieDetail?mcode=${bo.mcode}">예매창</a> 
 	</div>
 	</div>
-	<h5>
-		<c:out value="${reserve.content}"/>
-	</h5>	
-	</div>		
+	</div>	
 </section>	
 </div>
 </body>
