@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,9 +26,4 @@ public class ReserveList {
 	private String name;
 	private int rcode;
 	private String seat;
-//	private String movie_code;
-	
-	
-	
-	
 }

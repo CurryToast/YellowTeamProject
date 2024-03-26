@@ -1,15 +1,12 @@
 package mybatis.vo;
-
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import java.util.Date;
-
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode
+
 public class Reserve {
 	private int rcode;
 	private String member_code;
@@ -31,5 +28,4 @@ public class Reserve {
 		this.reserve_date = reserve_date;
 		this.seat = seat;
 	}
-	
 }

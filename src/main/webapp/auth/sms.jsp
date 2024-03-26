@@ -11,7 +11,7 @@
 <body>
 <div class="card">
 <div class = "card-header" id="messageBot">
-		<h3><em>본인인증</em></h3>
+<h3><em>본인인증</em></h3>
 </div>
 		<div class = "form-group card-body">
 				<div class ="form-text" id="idMessage">

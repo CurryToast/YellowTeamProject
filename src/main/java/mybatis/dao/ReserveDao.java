@@ -1,16 +1,12 @@
 package mybatis.dao;
 
-
 import java.util.List;
 import java.util.Map;
-
 import org.apache.ibatis.session.SqlSession;
-
 import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
 import mybatis.vo.Reserve;
 import mybatis.vo.ReserveList;
-
 
 @Slf4j
 public class ReserveDao {
@@ -50,14 +46,4 @@ public class ReserveDao {
 		sqlSession.close();
 		return list;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

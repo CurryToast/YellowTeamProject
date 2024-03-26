@@ -7,49 +7,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<style>
+.fot-l li {
+    font-size: 1rem;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    word-spacing: 0.5rem;
+    color: gray;
+}
+</style>
+<title>footer</title>
+
 </head>
 <body>
-<div id="footer">
-		<div class="container">
-			<div class="row">
-				<section class="col-3 col-6-narrower col-12-mobilep">
-					<h4>지역 공공도서관</h4>
-					<ul class="links">
-						<li><a href="#">국립어린이청소년도서관</a></li>
-						<li><a href="#">역삼도서관</a></li>
-						<li><a href="#">역삼푸른솔도서관</a></li>
-						<li><a href="#">지식재산전문도서관</a></li>
-					</ul>
-				</section>
-				<section class="col-3 col-6-narrower col-12-mobilep">
-					<h4>지역 유명서점</h4>
-					<ul class="links">
-						<li><a href="#">알라딘 중고서점(강남점)</a></li>
-						<li><a href="#">영풍문고 강남역점</a></li>
-						<li><a href="#">영풍문고 강남포스코점</a></li>
-						<li><a href="#">교보문고 강남점</a></li>
-						<li><a href="#">한티문고</a></li>
-						<li><a href="#">최인아 책방</a></li>
-					</ul>
-				</section>
-			</div>
-		</div>
-		<!-- Icons -->
-		<ul class="icons">
-			<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-			<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-			<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-			<li><a href="#" class="icon brands fa-google-plus-g"><span class="label">Google+</span></a></li>
-		</ul>
-		<!-- Copyright -->
-		<div class="copyright">
-			<ul class="menu">
-				<li>&copy; BookCafe24🧵SHiKim. All rights reserved</li>
-			</ul>
-		</div>
-	</div>
-</div>
+<div class="footer">
+    <div class="foot-box-b">
+        <div class="fot-l">
+            <ul>
+                <li>(02123)서울특별시 강남구 영화로 17 시네마빌딩 3,4층  전화문의 : 1588-8888  </li>
+                <li>대표이사 스타라이트 김옐로  사업자등록번호 100-11-42423  통신판매업신고번호 2024-서울역삼-1772 </li>
+                <li>E-mail : starlight@cinema.com   Fax : 02-2135-1234   개인정보책임자 : 배한국 </li>
+            </ul>
+        </div>
+
+    </div>
+ </div>		
 
 </body>
 </html>

@@ -46,3 +46,10 @@
 .movieCard > .name-wrapper > .label {
 	vertical-align: text-bottom;
 }
+
+.movieCard > ul {
+	width:50px;
+	padding:0;
+	margin:0;
+	display:flex;
+}

@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>회원정보수정</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
@@ -53,20 +52,14 @@
                             <input class="id-input" type="text" value="${sessionScope.user.code }" disabled/>
                             <input name="code" type="hidden" value="${sessionScope.user.code }"/>
                         </li>
-                        
                         <li>이름</li>
                         <li><input id="name" name="name" type="text" value="${sessionScope.user.name}"/></li>
-                       
-                      
                     </ul>
                     <button type="button" class="join-btn" id="modify">저장</button>
                     <button class="join-btn drop" type="button" id="drop">회원 탈퇴</button>
                 </form>
                     </div>
                     </div>
-                   
-             
-   
     
     <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
@@ -109,7 +102,6 @@
         		   else
         			   alert('입력한 단어가 일치하지 않습니다')
            }
-
            $("#modify").on("click", () => { modify(); }); 
            $("#drop").on("click", () => { drop(); }); 
            </script>

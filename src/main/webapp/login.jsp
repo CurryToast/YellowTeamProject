@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>영화관</title>
+<title>스타라이트 시네마</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -18,7 +18,7 @@
 <body class="is-preload">
 <div id="page-wrapper">
 		<!-- Header -->
-		<%@ include file="./layout/header.jsp" %>
+		<%@ include file="../layout/header.jsp" %>
 		<div class="mycol-2" style="width:450px;">
 		</div>
 		<div class="mycol-2" style="width:600px;">				

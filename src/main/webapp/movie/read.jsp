@@ -6,38 +6,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>커피24 북카페</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Expires" content="0"> -->
-	<link rel="stylesheet" href="../assets/css/main.css" />
-<!-- 	  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+<title>영화 정보 - 스타라이트 시네마</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/search.css" />
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
 	<%@include file="../layout/header.jsp" %>
-	<section id="read" style="overflow: hidden;">
-	<hr style="color:white;">
+	<section id="read" >
+	<div id=imgbox>
+	<div id=ima_size>
 	<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${bo.poster }.jpg" >
-	<h5><c:out value="${bo.mname}"/></h5>
-	<h6>관람등급 : <c:out value="${bo.rating}"/></h6>
-	<h5>개봉일 : <c:out value="${bo.release_date }"/></h5>
-	<p>줄거리 : <c:out value="${bo.synopsys}"/></p>	
-			
-<!-- <textarea rows="20" disabled="disabled" 
-style="background-color:#f3f3f3;font-size:inherit;resize: none;border:none;"> -->
-
-<!-- </textarea> -->
-		
-
-		<a class="button" href="search?page=${page }">목록</a>   <!-- 현재페이지 번호 전달 - 순서3) -->
-	<!-- 메인글 출력 끝 -->
+	</div>
+	<div id=x>
+	<div id=box>
+	<h1><c:out value="${bo.mname}"/></h1>
+	관람등급
+	<h5><c:out value="${bo.rating}"/>세 이용가</h5>
+	개봉일
+	<h5><c:out value="${bo.release_date }"/></h5>
+	장르 
+	<h5><c:out value="${bo.genre}"/></h5>	
+	<div id=box2>
+	<br>
+	상영 시간
+	<h5><c:out value="${bo.running_time}"/>분</h5>
+	감독
+	<h5><c:out value="${bo.director}"/></h5>	
+	제작사 및 배급사
+	<h5><c:out value="${bo.producer}"/></h5>	
+	</div>
+	</div>
+	<div id=box3>
+	평점
+	<h5><c:out value="${bo.mgrade}"/></h5>	
+	제작 국가
+	<h5><c:out value="${bo.country}"/></h5>	
+	출연
+	<h5><c:out value="${bo.mcast}"/></h5>	
+	</div>
+	</div> 
+	<div id=synop_but>
+	줄거리
+	<h5 id=synopsys><c:out value="${bo.synopsys}"/></h5>	
+	<div id=buttons>
+		<a class="button" href="search?page=${page }">목록</a> 
+		<a class="button" href="reserve">예매</a>	
+	</div>
+	</div>
+	<h5>
+		<c:out value="${reserve.content}"/>
+	</h5>	
+	</div>		
 </section>	
-<!-- <div data-num="5" id="datanum"></div> -->
 </div>
-<!-- <script src="../js/nav.js"></script> -->
-
-			
 </body>
 </html>

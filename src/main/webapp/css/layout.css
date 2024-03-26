@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url("../assets/css/fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
+
 @font-face {
 		    font-family: 'SUIT-Regular';
 		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
@@ -12,7 +13,7 @@ section {
 	    overflow: hidden;
 }
 h1 a , div.container,h3 ,th {
-			font-family: 'SUIT-Regular';
+	font-family: 'SUIT-Regular';
 }		
 
   .login h2{
@@ -55,10 +56,9 @@ h1 a , div.container,h3 ,th {
 	#user{ 
 		float:right;
 		font-size: 0.9em;
-		color : orange;
+		
 	}
-  	#user > li a {color : orange;}		
-  	#user > li span {color : orange;}		
+  			
 	.f-sm {
 		font-size: 0.9em;
 	}

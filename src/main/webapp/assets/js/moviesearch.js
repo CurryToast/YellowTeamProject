@@ -7,27 +7,55 @@ const createMovieList = (arr) => {
 		const card = document.createElement('div');
 		card.className = 'movieCard';
 		
+		const anchor = document.createElement('a');
+		anchor.href=`read?mcode=${el.mcode}&page=1`;
+		
 		const poster = document.createElement('img');
 		poster.src = `https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${el.poster}.jpg`;
 		poster.alt = el.mcode;
-		card.appendChild(poster);
+		anchor.appendChild(poster);
+		card.appendChild(anchor);
 		
-		const name = document.createElement('h3');
+		const name = document.createElement('p');
 		name.innerHTML = el.mname;
-		card.appendChild(name);
+		anchor.appendChild(name);
+		card.appendChild(anchor);
 		
-		const release_date = document.createElement('ul');
+		const release_date = document.createElement('p');
+		release_date.innerHTML='개봉일';
 		release_date.innerHTML = el.release_date;
-		card.appendChild(release_date);
+		anchor.appendChild(release_date);
+		card.appendChild(anchor);
 		
-		const synopsys = document.createElement('p');
+		let status = "playing";
+		let statusText = "상영중";
+
+				const today = new Date();
+				const startDate = new Date(el.release_date);
+				const endDate = new Date(el.release_date).setDate(startDate.getDate() + 14);
+
+				if (today > endDate) {
+					status = "closed";
+					statusText = "상영 종료";
+				} else if (today < startDate) {
+					status = "reserved";
+					statusText = "개봉 예정";
+				}
+		const statusLabel = document.createElement('span');
+			statusLabel.classList.add('p', status);
+			statusLabel.innerHTML = statusText;
+			anchor.appendChild(statusLabel);
+			card.appendChild(anchor);
+
+	
+		
+		/*const synopsys = document.createElement('p');
 		synopsys.innerHTML = el.synopsys;
-		card.appendChild(synopsys);
+		card.appendChild(synopsys);*/
 		
 		movieBanner.appendChild(card);
 	});
 }
-
 
 
 
@@ -50,8 +78,9 @@ document.querySelectorAll('option').forEach(ele => {
 		ele.selected=true;
 	else	
 		ele.selected=false;
-})
-document.querySelector('#search-btn').addEventListener('click', () => {
+});
+
+document.querySelector('#search-btn').addEventListener('click',  () => {
 	const find = document.forms[0].findText;
 	const column = document.forms[0].column;
 	let obj = {};
@@ -96,6 +125,7 @@ document.querySelector('#search-btn').addEventListener('click', () => {
 		    break;
 		}
 	}
+	
 	
 	const xhr = new XMLHttpRequest();
 	xhr.open('PUT', '/YellowTeamProject/api/movie');

@@ -15,7 +15,5 @@ public class AdminSaveController implements Controller {
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/join.jsp");
 		dispatcher.forward(request, response);
-
 	}
-
 }

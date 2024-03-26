@@ -1,14 +1,21 @@
 @charset "UTF-8";
 
 .home > #banner {
+font-size: medium;
+    text-wrap: balance;
+    text-align: center;
 	margin-top: 30px;
+	margin-bottom:30px;
+	background: linear-gradient(to right, #4D628C 0%, #0D255E 50%, #4D628C 100%);
+	border-radius:40px/40px;
+	color:white;
 }
 
 /* Banner */
 #banner {
-	width: 70%;
+	width: 75%;
 	margin: 0 auto;
-	height: 720px;
+	height: 840px;
 	text-align: center;
 	position: relative;
 
@@ -122,6 +129,6 @@
 	/* Banner */
 	#banner {
 		width: 1240px;
-		height: 700px;
+		height: 800px;
 	}
 }
