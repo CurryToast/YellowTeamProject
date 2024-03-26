@@ -1,4 +1,4 @@
-package mybatis.controller.movie;
+package mybatis.controller.api;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,20 +18,20 @@ import mybatis.controller.Controller;
 import mybatis.dao.MovieDao;
 
 @Slf4j
-public class MovieModifyPostController implements Controller {
+public class ApiMovieModifyController implements Controller {
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		
+
 		InputStream inputStream = request.getInputStream();
 		BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
 		StringBuffer sb = new StringBuffer();
 		String line = null;
-		
+
 		while((line = br.readLine()) != null) {
 			sb.append(line);
 		}
-		log.info("json : {}",sb.toString());
+		log.info("json : {}", sb.toString());
 
 		ObjectMapper objMapper = new ObjectMapper();
 		@SuppressWarnings("unchecked")
@@ -40,9 +40,13 @@ public class MovieModifyPostController implements Controller {
 
 		MovieDao dao = MovieDao.getInstance();
 		int result = dao.modify(map);
-		
-		if (result == 1) {
-			response.sendRedirect("");
-		}
+		log.info("result: {}", result);
+
+		String jsonData = "{ \"result\": " + result + " }";
+		response.setHeader("Cache-Control", "no-cache");
+		response.setHeader("Pragma", "no-cache");
+		response.setDateHeader("Expires", 0);
+		response.setContentType("application/json; charset=UTF-8");
+		response.getWriter().print(jsonData);
 	}
 }

@@ -11,6 +11,7 @@ import mybatis.controller.api.ApiGetAllMovieCommentsController;
 import mybatis.controller.api.ApiGetAllMoviesController;
 import mybatis.controller.api.ApiMemberJoinController;
 import mybatis.controller.api.ApiMemberModifyController;
+import mybatis.controller.api.ApiMovieModifyController;
 import mybatis.controller.api.ApiMovieSearchController;
 import mybatis.controller.member.AdminJoinController;
 import mybatis.controller.member.AdminListController;
@@ -28,9 +29,7 @@ import mybatis.controller.member.MyPageController;
 import mybatis.controller.movie.MovieCommentsGetController;
 import mybatis.controller.movie.MovieDetailController;
 import mybatis.controller.movie.MovieListController;
-import mybatis.controller.movie.MovieManageController;
 import mybatis.controller.movie.MovieModifyController;
-import mybatis.controller.movie.MovieModifyPostController;
 import mybatis.controller.movie.MovieRegisterController;
 import mybatis.controller.movie.MovieRegisterPostController;
 import mybatis.controller.movie.MovieReserveController;
@@ -53,9 +52,8 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/api/movie", "GET"), new ApiGetAllMoviesController());
 		mapping.put(new RequestKeyValue("/api/movie", "PUT"), new ApiMovieSearchController());
 		mapping.put(new RequestKeyValue("/api/movie/comments", "GET"), new ApiGetAllMovieCommentsController());
-		mapping.put(new RequestKeyValue("/api/auth/adminJoin","POST"),new ApiAdminJoinController());
-		mapping.put(new RequestKeyValue("/api/modify","POST"), new ApiMemberModifyController());
-		
+		mapping.put(new RequestKeyValue("/api/movie/modify", "PUT"), new ApiMovieModifyController());
+
 		// 회원가입
 		mapping.put(new RequestKeyValue("/join","GET"), new MemberJoinController());
 		mapping.put(new RequestKeyValue("/join","POST"), new MemberSaveController());
@@ -66,13 +64,13 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/api/admin","DELETE"), new ApiAdminDeleteController());
 		mapping.put(new RequestKeyValue("/admin/join","GET"),new AdminJoinController());
 		mapping.put(new RequestKeyValue("/admin/save","POST"),new AdminSaveController());
-		
+
 		// 마이페이지
 		mapping.put(new RequestKeyValue("/myPage","GET"), new MyPageController());
 		mapping.put(new RequestKeyValue("/myPage","POST"), new MovieDeleteController());
 		mapping.put(new RequestKeyValue("/member/modify","GET"),new MemberModifyController());
 		mapping.put(new RequestKeyValue("/member/drop","GET"),new MemberDropController());
-		
+
 		// 로그인
 		mapping.put(new RequestKeyValue("/login", "GET"), new LoginViewController());
 		mapping.put(new RequestKeyValue("/login", "POST"), new LoginActionController());
@@ -88,11 +86,9 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/movie/search", "PUT"), new MovieSearchController());
 		mapping.put(new RequestKeyValue("/movie/read", "GET"), new ReadController());
 		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MoviecompleteController());
-		mapping.put(new RequestKeyValue("/movie/manage", "GET"), new MovieManageController());
 	    mapping.put(new RequestKeyValue("/movie/register", "GET"), new MovieRegisterController());
 	    mapping.put(new RequestKeyValue("/movie/register", "POST"), new MovieRegisterPostController());
 	    mapping.put(new RequestKeyValue("/movie/modify", "GET"), new MovieModifyController());
-	    mapping.put(new RequestKeyValue("/movie/modify", "POST"), new MovieModifyPostController());
 	    mapping.put(new RequestKeyValue("/movie/comments", "GET"), new MovieCommentsGetController());
 	}
 

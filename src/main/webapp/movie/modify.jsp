@@ -48,7 +48,7 @@
 		</main>
 	</div>
 	<div class="modify-modal close">
-		<form action="" method="post">
+		<form>
 			<input type="hidden" name="mcode">
 			<div class="modal-field">
 				<p>영화 제목</p>
@@ -84,6 +84,6 @@
 			</div>
 		</form>
 	</div>
-	<script src="${pageContext.request.contextPath}/assets/js/movieModify.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/movieModify.js"></script>
 </body>
 </html>

@@ -138,50 +138,35 @@
 	</select>
 	<update id="modify" parameterType="java.util.Map">
 		UPDATE TBL_MOVIE
-		SET
+		<trim prefix="SET" suffixOverrides=",">
 			<if test="mname!=null">
-				mname = #{mname}
+				mname = #{mname},
 			</if>
 			<if test="genre!=null">
-				<trim prefix=",">
-					GENRE = #{genre}
-				</trim>
+				GENRE = #{genre},
 			</if>
 			<if test="director!=null">
-				<trim prefix=",">
-					director = #{director}
-				</trim>
+				director = #{director},
 			</if>
 			<if test="producer!=null">
-				<trim prefix=",">
-					producer = #{producer}
-				</trim>
+				producer = #{producer},
 			</if>
 			<if test="running_time!=null">
-				<trim prefix=",">
-					running_time = #{running_time}
-				</trim>
+				running_time = #{running_time},
 			</if>
 			<if test="synopsys!=null">
-				<trim prefix=",">
-					synopsys = #{synopsys}
-				</trim>
+				synopsys = #{synopsys},
 			</if>
 			<if test="mgrade!=null">
-				<trim prefix=",">
-					mgrade = #{mgrade}
-				</trim>
+				mgrade = #{mgrade},
 			</if>
 			<if test="country!=null">
-				<trim prefix=",">
-					country = #{country}
-				</trim>
+				country = #{country},
 			</if>
 			<if test="mcast!=null">
-				<trim prefix=",">
-					mcast = #{mcast}
-				</trim>
+				mcast = #{mcast}
 			</if>
+		</trim>
 		WHERE mcode = #{mcode}
 	</update>
  </mapper>
