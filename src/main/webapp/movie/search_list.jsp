@@ -75,5 +75,8 @@
 <script type="text/javascript"src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/nav.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/moviesearch.js"></script>
+<section id="cta" class="wrapper style3">
+	<%@include file="../layout/footer.jsp" %>
+	</section>
 </body>
 </html>

@@ -62,12 +62,14 @@
 	 <section class="wrapper style1">
 		<div id="movie-posts" class="container">
 		</div>
-	</section> -->
+	</section>
 	<!-- CTA -->
 	<section id="cta" class="wrapper style3">
+	<%@include file="../layout/footer.jsp" %>
 	</section>
 	<div data-num="0" id="datanum"></div>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/home.js"></script>
+
 </div>
 </body>
 </html>

@@ -14,12 +14,14 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
 		<!-- Header -->
 		<%@ include file="../layout/header.jsp" %>
-		<%@ include file="../layout/footer.jsp" %>
+		<hr>
+		<hr>
 		<div class="mycol-2" style="width:450px;">
 		</div>
 		<div class="mycol-2" style="width:600px;">				
@@ -38,7 +40,7 @@
 				    </div>
 				    <div class="form-check mb-3">
 				      <label class="form-check-label">
-				        <input class="form-check-input" type="checkbox" name="remember"> remember me
+				        <input class="form-check-input" type="checkbox" name="remember">remember me
 				      </label>
 				    </div>
 				    <button class="btn btn-primary" style= background-color:#0E2759;>로그인</button>
@@ -47,8 +49,11 @@
 				  <a href="join" class="f-sm" style= color:#000000;>아직 회원이 아니시면 회원 가입을 해주세요.</a><br>
             	 
 				</div>
+				
 		</div>
+		
 </div>
+
 <script type="text/javascript">
 	console.log('${cookie.incorrect}')
 	var cookies = document.cookie.split(';');
@@ -71,5 +76,6 @@
 <script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
+
 </body>
 </html>

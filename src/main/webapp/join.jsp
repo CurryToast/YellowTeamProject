@@ -14,7 +14,11 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" /> 
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" /> 
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css?v=3" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/banner.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/movieCard.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/label.css">
     <script>
     /* sms.jsp 에서 인증하기 성공하면 메시지를 보낸것 window.opener.postMessage(~~~)을 받는 이벤트 입니다.  */
       window.addEventListener('message', (e) => {			//윈도우에서 메시지 수신이 있을 때
@@ -271,7 +275,12 @@
 <hr>
 <jsp:include page="joinagree.jsp"/>
 <hr>
-<%@include file="../layout/footer.jsp" %>
+<hr>
+<hr>
+<hr>
+<section id="cta" class="wrapper style3">
+	<%@include file="../layout/footer.jsp" %>
+	</section>
 </div>
  
 <!-- Scripts -->

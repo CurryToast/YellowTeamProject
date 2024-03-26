@@ -2542,7 +2542,7 @@ input, select, textarea {
 /* CTA */
 
 	#cta {
-		text-align: center;
+		/* text-align: center; */
 		padding: 3.5em 0;
 	}
 

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id = "header">
-  <ul id="user">
+  <ul id="user" style="list-style:none;">
 	<c:if test="${sessionScope.user == null }">		
 		<li><a href="${pageContext.request.contextPath }/join"><span>회원가입</span></a></li>
 		<li><a href="${pageContext.request.contextPath }/login">로그인</a></li>
@@ -12,7 +12,7 @@
 		<li><a href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
 	</c:if>
   </ul>
-  <ul class="menu">
+  <ul class="menu" style="list-style:none;">
     <li class="site-tab">
         <img src="${pageContext.request.contextPath}/assets/img/logo.png" alt="logo" onclick="location.href='${pageContext.request.contextPath}/index.jsp'">
     </li>

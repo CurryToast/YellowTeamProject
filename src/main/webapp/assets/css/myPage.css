@@ -84,10 +84,10 @@ button#cancel {
 
 .description{
 	padding: 24px;
-	background: #000C4B;
+	background: #ffffff;
 	border-radius: 4px;
 	font-size: 14px;
-	color: #ffffff;
+	color: black;
 	line-height: 1.5;
 	margin-bottom:40px;
 }
