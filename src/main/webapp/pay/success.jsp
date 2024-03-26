@@ -38,7 +38,6 @@
 											<div  class="info">
 												<p>
 												<c:out value="${list.mname}"/>
-												<span class="title" id="id"></span>
 												</p>
 												<p><strong>예매번호 </strong><span id="orderId"></span></p>
 												<p>
