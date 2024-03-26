@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../assets/css/reserve.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css"/>
 <title>스타 라이트 시네마</title>
 </head>
 <body onload="onLoaderFunc()">

@@ -30,6 +30,9 @@ button.drop {
 	background-color: transparent;
 	color: gray;
 }
+form {
+padding-top: 150px;
+}
 </style>
 </head>
 <body class="is-preload">
