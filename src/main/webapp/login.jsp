@@ -19,6 +19,7 @@
 <div id="page-wrapper">
 		<!-- Header -->
 		<%@ include file="../layout/header.jsp" %>
+		<%@ include file="../layout/footer.jsp" %>
 		<div class="mycol-2" style="width:450px;">
 		</div>
 		<div class="mycol-2" style="width:600px;">				
