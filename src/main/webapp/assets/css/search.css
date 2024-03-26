@@ -4,7 +4,6 @@ form {
 	margin-bottom: 1em;
 }
 
-
 #searchlist {
 	display: grid;
     grid-template-rows: repeat(4, 1fr);
@@ -63,7 +62,7 @@ form {
   	justify-content: center;
 }
 
-#read > #imgbox> #x {
+#read > #imgbox > #x {
 	display: flex;
     align-items: flex-end;
     flex-wrap: wrap;
@@ -71,14 +70,14 @@ form {
     margin: 0 0 5% 5%;
 }
 
-#read>#imgbox>#ima_size>img{
+#read > #imgbox > #ima_size > img {
 	width: 500px;
 	height: 710px;
 	margin: 0 0 0 0;
 	border-radius: 40px / 40px;
 }
 
-#box>h1{
+#box > h1 {
 	width:800px;
 	font-size:50px;
 	text-align: start;
@@ -111,16 +110,16 @@ form {
 	
 }
 #synop_but > * {
-   justify-self: center;
+    justify-self: center;
 }
 #synopsys {
-	  text-align: center;
-	  text-wrap: balance;
-	  width:80%;
-	 	background:white;
-		padding:20px;
-		border-radius: 40px / 40px;
-		box-shadow: 0px 5px 6px 0px #6d6d6d;
+    text-align: center;
+    text-wrap: balance;
+    width:80%;
+ 	background:white;
+	padding:20px;
+	border-radius: 40px / 40px;
+	box-shadow: 0px 5px 6px 0px #6d6d6d;
 }
 
 #page-wrapper {
