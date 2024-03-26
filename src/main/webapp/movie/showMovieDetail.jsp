@@ -8,7 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>스타 라이트 시네마</title>
-		<link rel="stylesheet" href="../assets/css/detail.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/detail.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 </head>
 <body>
 <%@ include file="../layout/header.jsp" %>
@@ -18,11 +19,12 @@
     <c:when test="${empty movie}">
         <p>해당하는 영화 정보가 없습니다.</p>
     </c:when>
-    <c:otherwise>
-        <div style = "display: flex;">
+</c:choose>
+   
+        <div style = "display: flex; justify-content: center; margin-bottom: 30px;">
             <img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster}.jpg" alt="${movie.mname}">
-        <div style = "display: inlince-block; margin-left:10px;">
-            <h2 style="margin-left:50px; margin-top: 30px;">${movie.mname}</h2>
+        <div style = "text-align: center; margin-left:20px;">
+            <h2 style="margin-top: 30px;">${movie.mname}</h2>
             <p id = "detail" class ="${color }">${movie.rating }세 이상 관람가</p>
             <p>${ movie.release_date} 개봉 | ${date.schedule } 상영</p>
             <p>상영 시간: ${ movie.running_time}분</p>
@@ -49,13 +51,9 @@
 			 <div> ㆍ 제작사/배급사: ${movie.producer } </div>
 			 <div> ㆍ 출연진: ${movie.mcast } </div>
 			</div>
-    </c:otherwise>
-</c:choose>
-</div>
 <input type="hidden" name="mcode" id="mcode" value="${movie.mcode}">
 <input type="hidden" name="age" id="age" value="${member_age}">
 <input type="hidden" name="rating" id="rating" value="${movie.rating}">
-
 <script type="text/javascript">
 	function reserve() {
 		const mcode= document.querySelector("#mcode").value;
@@ -77,7 +75,6 @@
 		}
 	}
 </script>
-
 		<script src="../assets/js/show.js"></script>
 		<script type="text/javascript">
 			const color = '${color}'

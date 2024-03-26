@@ -5,6 +5,9 @@
     box-sizing: border-box;
     margin:0
 }
+#page-wrapper {
+	margin-top: 150px;
+}
 .container {
     padding-top: 150px;
 }
@@ -81,10 +84,10 @@ button#cancel {
 
 .description{
 	padding: 24px;
-	background: #fff5ee;
+	background: #000C4B;
 	border-radius: 4px;
 	font-size: 14px;
-	color: #606060;
+	color: #ffffff;
 	line-height: 1.5;
 	margin-bottom:40px;
 }
