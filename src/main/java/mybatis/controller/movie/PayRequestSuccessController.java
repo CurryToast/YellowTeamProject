@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import mybatis.controller.Controller;
 import mybatis.dao.ReserveDao;
 import mybatis.vo.Member;
+import mybatis.vo.Movie;
 import mybatis.vo.ReserveList;
 
 
@@ -34,24 +35,20 @@ public class PayRequestSuccessController implements Controller {
 		String orderId = request.getParameter("orderId");
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		ReserveDao dao = new ReserveDao();
-		/*
-		 * Payment item = dao.getOne(orderId.substring(0, 7)); if(item.getPrice() !=
-		 * amount) throw new IOException("금액에 문제가 있습니다.");
-		 */
 		
 		
 		HttpSession session = request.getSession();
 		String member_code = ((Member)session.getAttribute("user")).getCode();
-		String movie_code = request.getParameter("movie_code"); 
 			
 		Map<String, String> map = new HashMap<>();
-		map.put("movie_code", movie_code); 
+		map.put("movie_code", orderId.substring(0, 5)); 
 		map.put("member_code", member_code);
+		List<ReserveList> item = dao.reserve(map); 
 		  
 		List<ReserveList> list= dao.payment(map); 
 		request.setAttribute("list", list);
 		 
-		logger.info("movie_code: {}", movie_code);
+		logger.info("movie_code: {}", orderId.substring(0, 5));
 		logger.info("member_code: {}", member_code);
         logger.info("list: {}", list);
         
@@ -109,6 +106,7 @@ public class PayRequestSuccessController implements Controller {
         // 연결 종료
         connection.disconnect();
 		request.setAttribute("payment", payment);
+		request.setAttribute("item", item);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
 		dispatcher.forward(request, response);
 

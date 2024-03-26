@@ -37,7 +37,7 @@
 											</header>
 											<div  class="info">
 												<p>
-												<c:out value="${list.mname}"/>
+												<c:out value="${item.mname}"/>
 												</p>
 												<p><strong>예매번호 </strong><span id="orderId"></span></p>
 												<p>
@@ -88,8 +88,7 @@
 			return result.data
 		}
 		
-		const payReq = {bcode: payment.orderId.substring(0,7),
-						orderid: payment.orderId , 
+		const payReq = {orderid: payment.orderId , 
 						amount: payment.totalAmount, 
 						buyuser:buyuser, 
 						paydate:payment.approvedAt ,
