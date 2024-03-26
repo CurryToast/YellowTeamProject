@@ -40,10 +40,10 @@
 				        <input class="form-check-input" type="checkbox" name="remember"> remember me
 				      </label>
 				    </div>
-				    <button class="btn btn-primary">로그인</button>
+				    <button class="btn btn-primary" style= background-color:#0E2759;>로그인</button>
 				  </form>
 				  <hr>
-				  <a href="join" class="f-sm">아직 회원이 아니시면 회원 가입을 해주세요.</a><br>
+				  <a href="join" class="f-sm" style= color:#000000;>아직 회원이 아니시면 회원 가입을 해주세요.</a><br>
             	 
 				</div>
 		</div>
