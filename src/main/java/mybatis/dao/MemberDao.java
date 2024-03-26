@@ -10,7 +10,7 @@ import mybatis.vo.Member;
 @Slf4j
 public class MemberDao {
 	private static MemberDao dao = new MemberDao();
-	public MemberDao() {}
+	private MemberDao() {}
 	public static MemberDao getInstance() {
 		return dao;
 	}

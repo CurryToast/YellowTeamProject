@@ -17,7 +17,7 @@ public class ApiAdminDeleteController implements Controller {
 
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MemberDao dao =  new MemberDao();
+        MemberDao dao =  MemberDao.getInstance();
         String code = request.getParameter("code");
         logger.info("\t 입력값 code : {}", code);
         int result = 0;
