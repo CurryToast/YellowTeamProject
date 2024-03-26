@@ -14,72 +14,85 @@
 			GROUP BY tm.MCODE, ts.CIDX, ts.SCHEDULE 
 		) tv WHERE tlm.MCODE = tv.mcode ORDER BY tlm.MCODE 
  	</select>
- 	<select id="search" resultType="mybatis.vo.Movie" parameterType="java.util.Map">
- 		SELECT tlm.*, tv.comments FROM TBL_MOVIE tlm, (
-			SELECT tm.MCODE, count(tm2.CONTENT) as comments FROM TBL_MOVIE tm
-			LEFT OUTER JOIN TBL_MOVIECOMMENTS tm2
-			on tm.MCODE = tm2.MCODE 
-			GROUP BY tm.MCODE 
-		) tv 
- 		<where>
- 			tlm.MCODE = tv.mcode
-	 		<if test="mname!=null">
-	 			<trim prefix="and">
-	 				mname like '%' || #{mname} || '%'
-	 			</trim>
-	 		</if>
-	 		<if test="genre!=null">
-	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
+ 	<select id="search" resultType="mybatis.vo.Movie"
+		parameterType="java.util.Map">
+		SELECT tlm.*, tv.comments FROM TBL_MOVIE tlm, (
+		SELECT tm.MCODE,
+		count(tm2.CONTENT) as comments FROM TBL_MOVIE tm
+		LEFT OUTER JOIN
+		TBL_MOVIECOMMENTS tm2
+		on tm.MCODE = tm2.MCODE
+		GROUP BY tm.MCODE
+		) tv
+		<where>
+			tlm.MCODE = tv.mcode
+			<if test="mname!=null">
+				<trim prefix="and">
+					mname like '%' || #{mname} || '%'
+				</trim>
+			</if>
+			<if test="genre!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
 					genre like '%' || #{genre} || '%'
-	 			</trim>
-	 		</if>
-	 		<if test="director!=null">
-	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
+				</trim>
+			</if>
+			<if test="director!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
 					director like '%' || #{director} || '%'
-	 			</trim>
-	 		</if>
-	 		<if test="release_date!=null">
-	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
+				</trim>
+			</if>
+			<if test="release_date!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
 					release_date like '%' || #{release_date} || '%'
-	 			</trim>
-	 		</if>
-	 		<if test="producer!=null">
-	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					producer like '%' || #{producer} || '%'	
-	 			</trim>
-	 		</if>
-	 		<if test="rating!=null">
-	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					rating = #{rating}
-	 			</trim>
-	 		</if>
-	 		<if test="running_time!=null">
-	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					running_time like '%' || #{running_time} || '%'			
-	 			</trim>
-	 		</if>
-	 		<if test="mgrade!=null">
-	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
-					mgrade = #{mgrade}
-	 			</trim>
-	 		</if>
-	 		<if test="country!=null">
-	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
+					ORDER BY release_date ASC
+				</trim>
+			</if>
+			<if test="producer!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					producer like '%' || #{producer} || '%'
+				</trim>
+			</if>
+			<if test="rating != null">
+				<choose>
+					<when test="rating == '성인' || '청불'">
+						AND rating = 18
+					</when>
+					<otherwise>
+						<trim prefix="AND" prefixOverrides="AND">
+							rating = #{rating}
+						</trim>
+					</otherwise>
+				</choose>
+			</if>
+			<if test="running_time!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					running_time BETWEEN #{running_time} AND #{running_time} + 9
+					ORDER BY running_time ASC
+				</trim>
+			</if>
+			<if test="mgrade!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
+					mgrade BETWEEN #{mgrade} AND #{mgrade} + 0.9
+					ORDER BY mgrade ASC
+				</trim>
+			</if>
+			<if test="country!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
 					country like '%' || #{country} || '%'
-	 			</trim>
-	 		</if>
-	 		<if test="mcast!=null">
-	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
+				</trim>
+			</if>
+			<if test="mcast!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
 					mcast like '%' || #{mcast} || '%'
-	 			</trim>
-	 		</if>
-	 		<if test="comments!=null">
-	 			<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가  -->
+				</trim>
+			</if>
+			<if test="comments!=null">
+				<trim prefix="and">  <!-- 앞의 검색 조건 여부에 따라 and 추가 -->
 					tv.comments >= #{comments}
-	 			</trim>
-	 		</if>
- 		</where>
- 	</select>
+				</trim>
+			</if>
+		</where>
+	</select>
  	<select id="getOne" parameterType="int" resultType="mybatis.vo.Movie">
  		SELECT * 
 		FROM tbl_movie

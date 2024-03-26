@@ -23,7 +23,7 @@
 		<a class="mainmenu" href="${pageContext.request.contextPath}/movie/list">영화예매</a>
 	</li>
 	<li>
-		<a class="mainmenu" href="${pageContext.request.contextPath}/movie/list">영화후기</a>
+		<a class="mainmenu" href="${pageContext.request.contextPath}/movie/comments">영화후기</a>
 	</li>
   </ul>
 </div>
