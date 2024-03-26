@@ -51,22 +51,12 @@
 				</c:forEach>
 				<c:if test="${sessionScope.user.isadmin == 'Y'}">
 					<form id="cont">
-						<button class="join-btn" type="button" onclick="location.href='admin/join.jsp'">관리자 등록</button>
-						<button class="join-btn" type="button" onclick="drop()">관리자 해지</button>
+						<button class="join-btn" type="button" onclick="location.href='admin/page.jsp'">관리자 페이지</button>
 					</form>
 				</c:if>
 			</div>
 		</div>
 	</div>
-<script type="text/javascript">
-  function drop() {
-	  const res = prompt('관리자 권환을 해지 하시겠습니까?  \'해지\' 라고 입력해주세요.')
-	  if(res==='해지')
-		  location.href='member/drop';
-	  else
-		  alert('입력하신 글자를 다시 확인하세요.');
-  }
-</script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
