@@ -2,7 +2,6 @@ package mybatis.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import mybatis.controller.api.ApiAdminDeleteController;
 import mybatis.controller.api.ApiAdminJoinController;
 import mybatis.controller.api.ApiCheckIdController;
@@ -94,7 +93,11 @@ public class RequestControllerMapping {
 		 * mapping.put(new RequestKeyValue("/movie/complete", "GET"), new
 		 * MoviecompleteController());
 		 */
+		/*
+		 * mapping.put(new RequestKeyValue("/pay/success", "GET"), new
+		 * MoviecompleteController());
 		mapping.put(new RequestKeyValue("/pay/success", "GET"), new MoviecompleteController());
+		 */
 	    mapping.put(new RequestKeyValue("/movie/register", "GET"), new MovieRegisterController());
 	    mapping.put(new RequestKeyValue("/movie/register", "POST"), new MovieRegisterPostController());
 	    mapping.put(new RequestKeyValue("/movie/comments", "GET"), new MovieCommentsGetController());

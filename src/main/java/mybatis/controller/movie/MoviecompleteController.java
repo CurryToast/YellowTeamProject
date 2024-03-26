@@ -39,7 +39,7 @@ public void handle(HttpServletRequest request, HttpServletResponse response) thr
 			logger.info("member_code: {}", member_code);
             logger.info("list: {}", list);
             
-            RequestDispatcher dispatcher = request.getRequestDispatcher("complete.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
             dispatcher.forward(request, response);
 		
 		}

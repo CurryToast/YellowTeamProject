@@ -49,9 +49,19 @@ function complete() {
 		    var total = numSeats * price;
 		    console.log("numSeats",numSeats)
 		    console.log("total",total)
-		    document.getElementById("totalPrice").innerText = formatPrice(total) + "원";
+		    /*document.getElementById("totalPrice").innerText = formatPrice(total) + "원";*/
 		    document.getElementById("totalPrice2").innerText = total;
 		    document.getElementById("numSeats").innerText = numSeats;
+		    const obj ={}
+	    obj.mcode =document.querySelector("#movie_code").value
+		obj.title =document.querySelector("#mname").value
+		obj.id =document.querySelector("#member_code").value
+		obj.price =total;
+	    document.querySelector("#movie_code").innerHTML=obj.mcode
+		document.querySelector(".modal-body #title").innerHTML=obj.title
+		document.querySelector("#member_code").innerHTML=obj.id
+		document.querySelector(".modal-body #price").innerHTML = Number(obj.price).toLocaleString("ko-KR")
+		console.log(obj);
             pay();
         } else {
             alert("취소되었습니다.");
@@ -72,17 +82,14 @@ function payment(){
 
    
    function tossPayInit() {
+	    var numSeats = parseInt(document.getElementById("Numseats").value);
+		var price = 10000; // 좌석당 가격
+		var total = numSeats * price;
 	    const obj ={}
-	    obj.mcode =document.querySelector("#movie_code")
-		obj.title =document.querySelector("#mname")
-		obj.id =document.querySelector("#member_code")
-		obj.price =document.querySelector("#totalPrice2")
-	    document.querySelector("#movie_code").innerHTML=obj.mcode
-		document.querySelector("#mname").innerHTML=obj.title
-		document.querySelector("#member_code").innerHTML=obj.id
-		document.querySelector("#totalPrice2").innerHTML=obj.price
-		console.log(obj);
-		const totalPrice = document.getElementById("totalPrice2").innerHTML;
+	    obj.mcode =document.querySelector("#movie_code").value
+		obj.title =document.querySelector("#mname").value
+		obj.id =document.querySelector("#member_code").value
+		obj.price =total
 	// 토스페이먼츠 회원가입하기 전이라면, 아래 문서용 테스트 키를 사용하세요. 문서용 테스트 키는 _docs_가 포함되어 있어요.
 	// 토스페이먼츠에 회원가입했다면, 개발자센터에서 내 테스트 상점 키를 확인하세요.
 	// 로그인한 상태라면, 문서에 있는 클라이언트 키, 시크릿 키가 내 테스트 키로 바뀌어요.
@@ -99,11 +106,6 @@ function payment(){
     // 결제 UI를 렌더링할 위치를 지정합니다. `#payment-method`와 같은 CSS 선택자와 결제 금액 객체를 추가하세요.
     // DOM이 생성된 이후에 렌더링 메서드를 호출하세요.
     // https://docs.tosspayments.com/reference/widget-sdk#renderpaymentmethods선택자-결제-금액-옵션
-   /* const paymentMethodWidget = paymentWidget.renderPaymentMethods(
-      "#payment-method", 
-      { value: Number(totalPrice) }, // totalPrice를 숫자로 변환하여 전달합니다.
-      { variantKey: "DEFAULT" } 
-    );*/
     // ------  이용약관 UI 렌더링 ------
     // 이용약관 UI를 렌더링할 위치를 지정합니다. `#agreement`와 같은 CSS 선택자를 추가하세요.
     // https://docs.tosspayments.com/reference/widget-sdk#renderagreement선택자-옵션
@@ -131,13 +133,13 @@ function payment(){
     button.addEventListener("click", function () {
       paymentWidget.requestPayment(payObj)
     })
-    /*payment()*/
+   /* payment()*/
 }
 
 function pay(){
-/*		const obj ={}
-		const modal = new bootstrap.Modal(document.querySelector("#modal"))   부트스트랩의 모달 기능을 제공하는 객체
-		const aTag = document.querySelector('a[data-all]');
+		const obj ={}
+		const modal = new bootstrap.Modal(document.querySelector("#modal"))  
+/*		const aTag = document.querySelector('a[data-all]');
 		const datas = aTag.getAttribute('data-all');
 		const arr = datas.split(",");
 		console.log("datas{}",datas)

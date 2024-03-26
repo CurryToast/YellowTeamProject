@@ -49,10 +49,9 @@ public class PayRequestSuccessController implements Controller {
 		logger.info("member_code: {}", member_code);
         logger.info("list: {}", list);
         
-        String seatsAll= request.getParameter("seatsAll");
-        String[] seatarr= seatsAll.split(",");
-        int seatcount = seatarr.length;
-        int amount = seatcount*10000;
+        int price = Integer.parseInt(request.getParameter("amount"));
+
+        
         
 
         // API 엔드포인트 및 요청 데이터
@@ -65,7 +64,7 @@ public class PayRequestSuccessController implements Controller {
         String authorizationHeader = createAuthorizationHeader(secretKey);
 
         // JSON 데이터 생성
-        String jsonData = String.format("{\"paymentKey\":\"%s\",\"amount\":%d,\"orderId\":\"%s\"}", paymentKey, amount, member_code);
+        String jsonData = String.format("{\"paymentKey\":\"%s\",\"amount\":%d,\"orderId\":\"%s\"}", paymentKey, price, member_code);
 
         // HTTP POST 요청 보내기
         URL url = new URL(apiUrl);

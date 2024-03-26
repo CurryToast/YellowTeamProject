@@ -46,6 +46,7 @@
 	  <input type="hidden" id="movie_code" name="movie_code" value="${movie.mcode }">
 	  <input type="hidden" name="schedule" id="schedule" value="${schedules.schedule }">
  	  <input type="hidden" name="totalPrice2" id="totalPrice2" value="${total}">
+	  <input type="hidden" id="seatsAll" name="seatsAll">
 	  <br/><br/>
 	<div class="wrap2">
 	<div class="seatStructure">
@@ -241,9 +242,9 @@
 				<div class="modal-body">
 					<div class="pay">
 						<hr> 
-						<p><strong>영화 제목: </strong>${movie.mname }</p>
+						<p><strong>영화 제목: </strong><span id="title"></span></p>
 						<p><strong>선택 좌석 수: </strong><span id="numSeats"></span></p>
-						<p><strong>총 가격: </strong><span id="totalPrice"></span></p>
+						<p><strong>총 가격: </strong><span id="price"></span></p>
 					</div>	
 					<div class="pay">
 							<!-- 결제 UI, 이용약관 UI 영역 -->
