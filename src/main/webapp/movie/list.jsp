@@ -11,6 +11,9 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/movielist.css"/>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css?v=3" />
+
 </head>
 <body>
 <%@ include file="../layout/header.jsp" %>
@@ -54,8 +57,11 @@
         </c:forEach>
     </ul>
 </div>
-<hr>
+
 </section>
 <script src="${pageContext.request.contextPath}/assets/js/list.js"></script>
+ <section id="cta" class="wrapper style3">
+	<%@include file="../layout/footer.jsp" %>
+	</section>
 </body>
 </html>

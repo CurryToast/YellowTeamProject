@@ -66,18 +66,31 @@
 								<option value="mgrade">평점</option>
 								<option value="country">제작 국가</option>
 								<option value="mcast">배우</option>
-							</select> <input type="text" id="findText" name="findText"
-								placeholder="검색할 단어를 입력하세요.">
+							</select>
+							<input type="text" id="findText" name="findText" placeholder="검색할 단어를 입력하세요.">
 							<button type="button" id="search-btn">검색</button>
 							<button type="button" onclick="location.href='search'">전체보기</button>
 						</form>
 					</div>
+					
 					<section id="searchlist"></section>
 					<hr>
 				</div>
 			</div>
 		</section>
 	</div>
+<!-- Scripts -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+<script type="text/javascript"src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/nav.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/moviesearch.js"></script>
+<section id="cta" class="wrapper style3">
+	<%@include file="../layout/footer.jsp" %>
+	</section>
+
 	<!-- Scripts -->
 	<script type="text/javascript">
 		document.addEventListener("DOMContentLoaded", function() {
@@ -100,20 +113,6 @@
 						}
 					});
 		});
-	</script>
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/js/nav.js"></script>
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/assets/js/moviesearch.js"></script>
+		</script>
 </body>
 </html>

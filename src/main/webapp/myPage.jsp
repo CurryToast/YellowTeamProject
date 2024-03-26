@@ -118,7 +118,9 @@
 <br>
 <p><span class="red2"> ※ 예매내용을 변경할 때는, 취소가능시간 내에 취소하고 다시 예매해 주시기 바랍니다.</span></p>
 </div>
-
+	<section id="cta" class="wrapper style3">
+	<%@include file="../layout/footer.jsp" %>
+	</section>
 </body>
 </html>
 
