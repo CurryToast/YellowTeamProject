@@ -1,58 +1,84 @@
 package mybatis.controller.movie;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
+import org.json.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import mybatis.controller.Controller;
-import mybatis.dao.ReserveDao;
 import mybatis.vo.Reserve;
 
 @Slf4j
 public class MovieReserveController implements Controller {
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int result=0;
 		request.setCharacterEncoding("UTF-8");
-	    String member_code= request.getParameter("member_code"); 
-	    String temp2=request.getParameter("theater"); 
-	    String movie_code=request.getParameter("movie_code"); 
-	    String scheduleDate=request.getParameter("schedule"); 
-	    String seatsAll= request.getParameter("seatsAll");
-	    int price = 10000;
-
-	    int theater = 0;
-	    if (temp2.length() != 0) {
-	    	theater = Integer.parseInt(temp2);
-	    }
-
+		    BufferedReader reader = request.getReader();
+		    StringBuilder sb = new StringBuilder();
+		    String line;
+		    while ((line = reader.readLine()) != null) {
+		        sb.append(line);
+		    }
+		    
+		    ObjectMapper objMapper = new ObjectMapper();
+			Reserve reserve = objMapper.readValue(sb.toString(), Reserve.class);
+		
+		
+		/*
+		 * int result=0; String member_code= request.getParameter("member_code"); String
+		 * temp2=request.getParameter("cinemas"); String
+		 * movie_code=request.getParameter("movie_code"); String
+		 * scheduleDate=request.getParameter("schedule"); String seatsAll=
+		 * request.getParameter("seatsAll"); int price = 10000;
+		 * System.out.println(temp2);
+		
+		 * int theater = 0; if (temp2.length() != 0) { theater =
+		 * Integer.parseInt(temp2); }
+		 */
+		String seatsAll= reserve.getSeat();
 		String[] seatarr= seatsAll.split(",");
-
-		ReserveDao dao = new ReserveDao();
-		Reserve reserve=null;
+		System.out.println(seatarr);
+		System.out.println(seatsAll);
 		List<Reserve> reservearr = new ArrayList<Reserve>();
-
+		
 		for (String seat : seatarr) {
-			reserve = new Reserve(0, member_code, theater, movie_code, scheduleDate, null, seat, price);
-		    result = dao.insert(reserve);
-		    reservearr.add(reserve);
+			reserve = new Reserve(0, 
+					   reserve.getMember_code(), 
+					   reserve.getTheater(),
+					   reserve.getMovie_code(),
+					   reserve.getScheduleDate(),
+					   null,
+					   seat,
+					   reserve.getPrice());
+			log.info("reserve!!:{}",reserve);
+			System.out.println("reserve"+reserve);
+			reservearr.add(reserve);
 		}
+		HttpSession session = request.getSession();
+		session.setAttribute("reservearr", reservearr);
+		log.info("Reserve: {}", reservearr);
+		System.out.println("reservearr"+reservearr);
 
-		request.setAttribute("reserve", reservearr);
-		log.info("Reserve: {}", reserve);
-		log.info("Result: {}", result);
 
-		if (result == 0) {
-			response.setContentType("text/html; charset=UTF-8");
-			response.sendRedirect("reserve");
-		}
+		/*
+		 * if (result == 0) { response.setContentType("text/html; charset=UTF-8");
+		 * response.sendRedirect("reserve"); }
+		   response.sendRedirect("complete"+"?movie_code="+movie_code+"&member_code="+member_code);*/
 
-		response.sendRedirect("complete"+"?movie_code="+movie_code+"&member_code="+member_code);
-
+		response.setHeader("Cache-Control", "no-cache");
+		response.setHeader("Pragma", "no-cache");
+		response.setDateHeader("Expires", 0);
+		response.setContentType("text/plain;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print("1");
 	}
 }
+

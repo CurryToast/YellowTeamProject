@@ -53,16 +53,17 @@ function complete() {
 		    document.getElementById("totalPrice2").innerText = total;
 		    document.getElementById("numSeats").innerText = numSeats;
 		    const obj ={}
-	    obj.mcode =document.querySelector("#movie_code").value
-		obj.title =document.querySelector("#mname").value
-		obj.id =document.querySelector("#member_code").value
-		obj.price =total;
-	    document.querySelector("#movie_code").innerHTML=obj.mcode
-		document.querySelector(".modal-body #title").innerHTML=obj.title
-		document.querySelector("#member_code").innerHTML=obj.id
-		document.querySelector(".modal-body #price").innerHTML = Number(obj.price).toLocaleString("ko-KR")
-		console.log(obj);
-            pay();
+		    obj.mcode =document.querySelector("#movie_code").value
+			obj.title =document.querySelector("#mname").value
+			obj.id =document.querySelector("#member_code").value
+			obj.price =total;
+		    document.querySelector("#movie_code").innerHTML=obj.mcode
+			document.querySelector(".modal-body #title").innerHTML=obj.title
+			document.querySelector("#member_code").innerHTML=obj.id
+			document.querySelector(".modal-body #price").innerHTML = Number(obj.price).toLocaleString("ko-KR")
+			console.log(obj);
+            json()
+            
         } else {
             alert("취소되었습니다.");
         }
@@ -75,9 +76,37 @@ function formatPrice(price) {
     return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-function payment(){
-	const form = document.forms[0]  
-	form.submit(); 
+function json(){
+	var member_code = document.querySelector("#member_code").value 
+	var theater = document.querySelector("#cinemas").value
+	var movie_code = document.querySelector("#movie_code").value
+	var schedule = document.querySelector("#schedule").value
+	var seat = document.querySelector("#seatsAll").value
+	var price = document.querySelector("#price").value
+	
+	var data = {
+	    member_code: member_code,
+	    theater: theater,
+	    movie_code: movie_code,
+	    scheduleDate: schedule,
+	    seat: seat,
+	    price:price
+	};
+	console.log(data);
+	// AJAX 요청
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "/movie/reserve", true);
+	xhr.setRequestHeader("Content-Type", "application/json");
+	 
+	xhr.send(JSON.stringify(data));
+	xhr.onreadystatechange = function () {
+	    if (xhr.readyState === 4 && xhr.status === 200) {
+	        // 서버로부터 응답을 받았을 때 실행할 코드
+	        var response = xhr.responseText;
+	        console.log(response);
+	        pay();
+    }
+};
 }
 
    
@@ -88,7 +117,7 @@ function payment(){
 	    const obj ={}
 	    obj.mcode =document.querySelector("#movie_code").value
 		obj.title =document.querySelector("#mname").value
-		obj.id =document.querySelector("#member_code").value
+		obj.id = document.querySelector("#member_code").value
 		obj.price =total
 	// 토스페이먼츠 회원가입하기 전이라면, 아래 문서용 테스트 키를 사용하세요. 문서용 테스트 키는 _docs_가 포함되어 있어요.
 	// 토스페이먼츠에 회원가입했다면, 개발자센터에서 내 테스트 상점 키를 확인하세요.
@@ -123,7 +152,7 @@ function payment(){
     // 더 많은 결제 정보 파라미터는 결제위젯 SDK에서 확인하세요.
     // https://docs.tosspayments.com/reference/widget-sdk#requestpayment결제-정보
     const payObj = {
-        orderId: obj.mcode +'_' + obj.id,            
+        orderId: obj.mcode +'_' +obj.id,            
         orderName: obj.title,                 
         successUrl: window.location.origin + "/YellowTeamProject/pay/success",  
         failUrl: window.location.origin + "/YellowTeamProject/pay/fail",        
@@ -133,13 +162,13 @@ function payment(){
     button.addEventListener("click", function () {
       paymentWidget.requestPayment(payObj)
     })
-  /* payment()*/
+  
 }
 
 function pay(){
 		const obj ={}
 		const modal = new bootstrap.Modal(document.querySelector("#modal"))  
-/*		const aTag = document.querySelector('a[data-all]');
+		const aTag = document.querySelector('a[data-all]');
 		const datas = aTag.getAttribute('data-all');
 		const arr = datas.split(",");
 		console.log("datas{}",datas)
@@ -150,10 +179,13 @@ function pay(){
 		obj.mcode = document.querySelector("#movie_code").innerHTML
 		obj.title  = document.querySelector("#mname").innerHTML
 		obj.id = document.querySelector("#member_code").innerHTML
-		obj.price = document.querySelector("#totalPrice2").innerHTML */
+		obj.price = document.querySelector("#totalPrice2").innerHTML 
 		modal.show();
 		tossPayInit();
 		
    }
+   
+   
+   
 
 

@@ -29,14 +29,20 @@
 #banner .movieCard {
 	margin: 0 7px;
 	padding: 0 3px;
+	text-align: center;
 }
 #banner .movieCard:last-of-type {
 	margin-right: 0;
 }
 
 #banner .movieCard > img {
+	width: 100%;
+	height: 100%;
+}
+#banner .movieCard > div {
 	width: 330px;
 	height: 480px;
+	display: inline-block;
 }
 
 .movieCard > .release-date {
@@ -52,4 +58,9 @@
 	padding:0;
 	margin:0;
 	display:flex;
+}
+
+.imgsize {
+	width: 300px;
+	height: 480px;
 }

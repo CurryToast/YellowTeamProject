@@ -2,6 +2,8 @@ package mybatis.vo;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 @Getter
 @AllArgsConstructor
@@ -15,6 +17,7 @@ public class Reserve {
 	private String scheduleDate;
 	private Date reserve_date;
 	private Date schedule;
+	@Setter
 	private String seat;
 	private int price;
 	

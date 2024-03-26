@@ -7,6 +7,17 @@
  		INSERT INTO TBL_RESERVE
   		VALUES(reserve_idx_seq.nextval, #{member_code}, #{theater}, #{movie_code}, sysdate ,#{scheduleDate}, #{seat},10000)
  	</select>
+ 	<insert id="insertArr" parameterType="mybatis.vo.Reserve">
+ 		INSERT INTO TBL_RESERVE
+ 		<foreach collection = "reservearr" item="reserve" separator="UNION ALL">
+  			SELECET(
+  			reserve_idx_seq.nextval, 
+  			#{reserve.member_code}, 
+  			#{reserve.theater}, 
+  			#{reserve.movie_code}, 
+  			sysdate ,#{reserve.scheduleDate}, #{reserve.seat},10000) FROM DUAL
+  		</foreach>
+ 	</insert>
  	<select id="delete" resultType="int" parameterType="java.util.Map">
  		DELETE FROM TBL_RESERVE
 		WHERE RCODE=#{rcode} AND MEMBER_CODE= #{member_code} 
@@ -31,7 +42,7 @@
  	</select>
  	<insert id="saleOne" parameterType="mybatis.vo.Payment">
  		INSERT INTO TBL_PAYMENT
- 		VALUES (#{orderid},#{id},#{amount},#{paydate},#{paytype},#{paymentkey})
+ 		VALUES (#{orderid},#{id},sysdate,#{paytype},#{paymentkey},#{amount})
  	</insert>
  	<select id="paymentId" parameterType="String" resultType="mybatis.vo.ReserveList">
  	SELECT *

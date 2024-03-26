@@ -27,13 +27,14 @@ public void handle(HttpServletRequest request, HttpServletResponse response) thr
 			String member_code = ((Member)session.getAttribute("user")).getCode();
 			String movie_code = request.getParameter("movie_code"); 
 				
-			ReserveDao dao = new ReserveDao(); 
+			ReserveDao dao = ReserveDao.getInstance(); 
 			Map<String, String> map = new HashMap<>();
 			map.put("movie_code", movie_code); 
 			map.put("member_code", member_code);
 			  
 			List<ReserveList> list= dao.reserve(map); 
 			request.setAttribute("list", list);
+			request.setAttribute("member_code", member_code);
 			 
 			logger.info("movie_code: {}", movie_code);
 			logger.info("member_code: {}", member_code);

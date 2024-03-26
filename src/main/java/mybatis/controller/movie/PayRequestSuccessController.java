@@ -21,7 +21,6 @@ import org.slf4j.LoggerFactory;
 import mybatis.controller.Controller;
 import mybatis.dao.ReserveDao;
 import mybatis.vo.Member;
-import mybatis.vo.Movie;
 import mybatis.vo.ReserveList;
 
 
@@ -34,7 +33,7 @@ public class PayRequestSuccessController implements Controller {
 		
 		String orderId = request.getParameter("orderId");
 		int amount = Integer.parseInt(request.getParameter("amount"));
-		ReserveDao dao = new ReserveDao();
+		ReserveDao dao = ReserveDao.getInstance();
 		
 		
 		HttpSession session = request.getSession();
@@ -43,14 +42,14 @@ public class PayRequestSuccessController implements Controller {
 		Map<String, String> map = new HashMap<>();
 		map.put("movie_code", orderId.substring(0, 5)); 
 		map.put("member_code", member_code);
-		List<ReserveList> item = dao.reserve(map); 
+		List<ReserveList> reserveList = dao.reserve(map); 
 		  
-		List<ReserveList> list= dao.payment(map); 
-		request.setAttribute("list", list);
+		List<ReserveList> paylist= dao.payment(map); 
+		request.setAttribute("paylist", paylist);
+		request.setAttribute("member_code", member_code);
 		 
 		logger.info("movie_code: {}", orderId.substring(0, 5));
 		logger.info("member_code: {}", member_code);
-        logger.info("list: {}", list);
         
 
         // API 엔드포인트 및 요청 데이터
@@ -63,8 +62,9 @@ public class PayRequestSuccessController implements Controller {
         String authorizationHeader = createAuthorizationHeader(secretKey);
 
         // JSON 데이터 생성
-        String jsonData = String.format("{\"paymentKey\":\"%s\",\"amount\":%d,\"orderId\":\"%s\"}", paymentKey, amount, orderId);
-
+        String jsonData = String.format("{\"paymentKey\":\"%s\",\"amount\":%d,\"orderId\":\"%s\",\"id\":\"%s\"}", paymentKey, amount, orderId, member_code);
+        System.out.println(jsonData);
+        
         // HTTP POST 요청 보내기
         URL url = new URL(apiUrl);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -106,7 +106,8 @@ public class PayRequestSuccessController implements Controller {
         // 연결 종료
         connection.disconnect();
 		request.setAttribute("payment", payment);
-		request.setAttribute("item", item);
+		request.setAttribute("reserveList", reserveList);
+		request.setAttribute("paylist", paylist);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
 		dispatcher.forward(request, response);
 

@@ -6,14 +6,20 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import mybatis.dao.ReserveDao;
+import mybatis.service.MovieService;
 import mybatis.vo.Payment;
+import mybatis.vo.Reserve;
 
 public class ApiPaymentSaveController implements mybatis.controller.Controller{
 	private static final Logger logger = LoggerFactory.getLogger(ApiPaymentSaveController.class);
@@ -32,22 +38,30 @@ public class ApiPaymentSaveController implements mybatis.controller.Controller{
 			sb.append(line);
 		}
 		logger.info("json : {}",sb.toString());
+		logger.info("line : {}",line);
 		
 		ObjectMapper objMapper = new ObjectMapper();
 		Payment pay = objMapper.readValue(sb.toString(), Payment.class);
 		
-		logger.info("member : {}",pay);
+		HttpSession session = request.getSession();
 		
-		ReserveDao dao = ReserveDao.getInstance();
-		int cnt =dao.saleOne(pay);
+		MovieService ms = new MovieService();
+		List<Reserve> rList = (List<Reserve>) session.getAttribute("reservearr");
+		logger.info("List<Reserve> : {}",(List<Reserve>)session.getAttribute("reservearr"));
+		logger.info("pay : {}",pay);
+		System.out.println("List<Reserve> : "+(List<Reserve>)session.getAttribute("reservearr"));
+		System.out.println("pay : "+pay);
+		int result = ms.mService(rList, pay);
+		
 		
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
 		response.setDateHeader("Expires", 0);
 		response.setContentType("text/plain;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		if(cnt==1)
+		if(result==1) {
 			out.print("결제가 완료되었습니다.");
+		session.removeAttribute("reservearr");}
 		else
 			out.print("결제 오류가 발생했습니다.");
 	}

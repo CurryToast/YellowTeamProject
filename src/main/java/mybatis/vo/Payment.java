@@ -1,8 +1,5 @@
 package mybatis.vo;
-
-import java.sql.Timestamp;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,11 +12,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 public class Payment {
-	private int orderid;
+	private String orderid;
 	private String id;
 	private int amount;
-	@JsonFormat(shape = Shape.STRING,pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
-	private Timestamp paydate;
+	private Date paydate;
 	private String paytype;
 	private String paymentkey;
 

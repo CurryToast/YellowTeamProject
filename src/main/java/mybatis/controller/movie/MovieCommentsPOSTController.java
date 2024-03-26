@@ -42,7 +42,7 @@ public class MovieCommentsPOSTController implements Controller {
 		  String[] seatarr= seatsAll.split(",");
 		
 
-		ReserveDao dao = new ReserveDao();
+		ReserveDao dao = ReserveDao.getInstance();
 		Reserve reserve=null;
 		List<Reserve> reservearr = new ArrayList<Reserve>();
 		

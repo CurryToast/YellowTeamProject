@@ -27,7 +27,7 @@
 	<form method="post" action="reserve">
 	<div class="cinema">
 	 영화관 선택 &nbsp;
-	  <select name="cinemas">
+	  <select name="cinemas" id="cinemas">
          <option value="">영화관</option>
          <c:forEach items="${cinelist}" var="cinema">
             <option value="${cinema.idx}" >
@@ -38,13 +38,18 @@
       </div>
 	  영화 시간 &nbsp; <input class="in" type="date" name="schedule" value="${schedules.schedule }" disabled>
 	  예매 인원 &nbsp; <input input="calculateTotal" type="number" id="Numseats" required>
-  	  &nbsp; <button type="button" onclick="select()">인원 선택 완료</button>	  <br/><br/></div>
+  	  &nbsp; 
+  	  <form action="#" method="POST">
+  	  <button type="button" onclick="select()">인원 선택 완료</button>	  <br/><br/></div>
+  	  
+  	  </form>
 	  <!-- hidden -->
-	  <input type="hidden" id="theater" name="theater" value="${param.theater }" >  
+	 <%--  <input type="hidden" id="theater" name="theater" value="${theater }" >  --%> 
 	  <input type="hidden" name="mname" id="mname" value="${movie.mname }">
-	  <input type="hidden" name="member_code" id="member_code" value="${param.member_code }">
+	  <input type="hidden" name="member_code" id="member_code" value="${member_code }">
 	  <input type="hidden" id="movie_code" name="movie_code" value="${movie.mcode }">
 	  <input type="hidden" name="schedule" id="schedule" value="${schedules.schedule }">
+	  <input type="hidden" name="price" id="price" value="10000">
  	  <input type="hidden" name="totalPrice2" id="totalPrice2" value="${total}">
 	  <input type="hidden" id="seatsAll" name="seatsAll">
 	  <br/><br/>

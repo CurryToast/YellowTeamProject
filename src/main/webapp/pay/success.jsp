@@ -32,22 +32,23 @@
 
 										<article>
 											<header>
-												<h2>결제 완료</h2>
-												<h3 id="result">결제 내역입니다.</h3>
+												<h3 id="result">결제 내역</h3>
 											</header>
 											<div  class="info">
-												<p>
-												<c:out value="${item.mname}"/>
-												</p>
-												<p><strong>예매번호 </strong><span id="orderId"></span></p>
+											<c:forEach var="ele" items="${reserveList}">
+												<p><c:out value="${ele.mname}"/></p>
+												<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${ele.poster }.jpg" alt="${ele.mname }">
+												
+												<p><strong>결제번호 </strong><span id="orderId"></span></p>
 												<p>
 												<p><strong>총 결제금액</strong><span id="amount"></span></p>
 												<br>
 												결제카드 : <span id="cardtype"></span> <span id="method"></span> (<span id="cardno"></span>)<br> 
 												승인날짜 : <span class="title" id="paydate"></span>
+											</c:forEach>
 											</div>
 											<div class="paybtn">
-												<a class="btn btn-primary ok" href="/YellowTeamProject">⛪홈</a>&nbsp;&nbsp;&nbsp;
+												<a class="btn btn-primary ok" href="/YellowTeamProject">홈</a>&nbsp;&nbsp;&nbsp;
 											</div>
 										</article>
 
@@ -76,12 +77,12 @@
 			<script src="../js/nav.js"></script>
 			<!-- 비동기 http 통신 axios api-->
 			<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	<script type="text/javascript">
+		<script type="text/javascript">
 		const responseData='${payment}'
 		const payment = JSON.parse(responseData)
-		const buyuser ='${member_code}'
+		const id = '${member_code}'
 		console.dir(payment)
-
+		console.log(id)
 		async function requestPaymentSave(payReq){
 			const result = await axios.post('../api/pay',payReq)
 			console.log(result)
@@ -90,7 +91,7 @@
 		
 		const payReq = {orderid: payment.orderId , 
 						amount: payment.totalAmount, 
-						buyuser:buyuser, 
+						id: '${member_code}', 
 						paydate:payment.approvedAt ,
 						paytype : payment.card.cardType + ' ' + payment.method, 
 						paymentkey:payment.paymentKey }
