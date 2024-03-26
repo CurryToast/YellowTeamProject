@@ -16,7 +16,7 @@ public class MovieDao {
 	public static MovieDao getInstance() {
 		return dao;
 	}
-	
+
 	public List<Movie> selectAll() {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		List<Movie> list = sqlSession.selectList("movies.selectAll");
@@ -48,7 +48,7 @@ public class MovieDao {
 	    sqlSession.close();
 	    return movies;
 	}
-		
+
 	// 상영 예정작
 	public List<Movie> selectUpcomingMovies(){
 		SqlSession sqlSession = SqlSessionBean.getSession();
@@ -56,7 +56,7 @@ public class MovieDao {
 		sqlSession.close();
 		return movies;
 	}
-	
+
 	// 상영 종료작
 	public List<Movie> selectEndMovies(){
 		SqlSession sqlSession = SqlSessionBean.getSession();
@@ -64,7 +64,7 @@ public class MovieDao {
 		sqlSession.close();
 		return movies;
 	}
-	
+
 	public List<Movie> getSearch(Map<String, Object> map) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		List<Movie> list = sqlSession.selectList("movies.search", map);
@@ -78,14 +78,14 @@ public class MovieDao {
 		mapperSession.close();
 		return result;
 	}
-	
+
 	public List<Movie> pagelist(Map<String,Integer> map) {
 		SqlSession mapperSession = SqlSessionBean.getSession();
 		List<Movie> list = mapperSession.selectList("movies.pagelist",map);
 		mapperSession.close();
 		return list;
 	}
-	
+
 	public int insert(Movie vo) {
 		SqlSession mapperSession = SqlSessionBean.getSession();
 		int result = mapperSession.insert("movies.insert", vo);
@@ -99,6 +99,25 @@ public class MovieDao {
 		int result = mapperSession.update("movies.modify", map);
 		mapperSession.commit();
 		mapperSession.close();
+		return result;
+	}
+	
+	public int updateMovie(Map<String, Object> map) {
+		SqlSession mapperSession = SqlSessionBean.getSession();
+		int result = 0;
+		try {
+			result = mapperSession.update("movies.modify", map);
+			if (map.get("scheduleChange") != null) {
+				mapperSession.update("schedules.update", map);
+			}
+
+			mapperSession.commit();
+		} catch (Exception e) {
+			mapperSession.rollback();
+		} finally {
+			mapperSession.close();
+		}
+
 		return result;
 	}
 }

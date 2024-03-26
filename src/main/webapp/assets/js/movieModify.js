@@ -1,3 +1,11 @@
+function dateFormat(vdate) { // vdate: 날짜 타입 인자
+    const year = vdate.getFullYear();
+    const month = (vdate.getMonth() + 2).toString().padStart(2, '0');
+    const day = vdate.getDate().toString().padStart(2, '0');
+
+    return [year,month,day].join('-');
+}
+
 document.querySelectorAll('.movie-box').forEach((el, idx) => {
 	el.addEventListener('click', () => {
 		const modifyModal = document.querySelector('.modify-modal');
@@ -16,8 +24,25 @@ document.querySelectorAll('.movie-box').forEach((el, idx) => {
 			modifyModal.querySelector('form').running_time.value = running_time;
 			modifyModal.querySelector('form').director.value = director;
 			modifyModal.querySelector('form').mcast.value = mcast;
+
 			modifyModal.querySelector('form').cidx.value = cidx;
-			modifyModal.querySelector('form').schedule.value = schedule;
+			if (!cidx || !Number(cidx)) {
+				modifyModal.querySelector('form').cidx.disabled = true;
+			} else {
+				modifyModal.querySelector('form').cidx.disabled = false;
+			}
+
+			if (!schedule.length) {
+				modifyModal.querySelector('form').schedule.disabled = true;
+				modifyModal.querySelector('form').schedule.value = undefined;
+				modifyModal.querySelector('input[name="schedule-end"]').disabled = true;
+				modifyModal.querySelector('input[name="schedule-end"]').value = 0;
+			} else {
+				modifyModal.querySelector('form').schedule.disabled = false;
+				modifyModal.querySelector('form').schedule.value = schedule;
+				modifyModal.querySelector('input[name="schedule-end"]').disabled = false;
+				modifyModal.querySelector('input[name="schedule-end"]').value = dateFormat(new Date(schedule));
+			}
 			modifyModal.querySelector('form').synopsys.value = synopsys;
 
 			modifyModal.classList.remove('close');
@@ -34,24 +59,20 @@ document.querySelector('#modal-save').addEventListener('click', () => {
 		const running_time	= modifyModal.querySelector('form').running_time.value;
 		const director	= modifyModal.querySelector('form').director.value;
 		const mcast	= modifyModal.querySelector('form').mcast.value;
-		const cidx	= Number(modifyModal.querySelector('form').cidx.value);
-		const schedule	= modifyModal.querySelector('form').schedule.value;
+		const tempCidx	= modifyModal.querySelector('form').cidx;
+		const cidx = tempCidx.disabled ? undefined : Number(tempCidx.value);
+		const tempSchedule	= modifyModal.querySelector('form').schedule;
+		const schedule = tempSchedule.disabled ? undefined : tempSchedule.value;
 		const synopsys	= modifyModal.querySelector('form').synopsys.value;
 
 		const jsObj = {
-			mcode,
-			mname,
-			running_time,
-			director,
-			mcast,
-			// cidx,
-			// schedule,
-			synopsys
+			mcode, mname, running_time, director, mcast,
+			cidx, schedule,
+			synopsys,
+			scheduleChange: (!tempCidx.disabled && !tempSchedule.disabled) ? "true" : undefined
 		};
-		console.log('jsObj: ', jsObj);
 		const jsStr = JSON.stringify(jsObj);
-		console.log('jsStr: ', jsStr);
-	
+
 		const xhr = new XMLHttpRequest();
 		xhr.open('PUT', '/YellowTeamProject/api/movie/modify', true);
 		xhr.setRequestHeader("Content-Type", "application/json");
@@ -67,6 +88,13 @@ document.querySelector('#modal-save').addEventListener('click', () => {
 				console.error("오류2 ", xhr.response);
 			}
 		}
+	}
+});
+
+document.querySelector('input[name="schedule"]').addEventListener('change', (e) => {
+	if (e.target.value.length > 0) {
+		const end = dateFormat(new Date(e.target.value));
+		document.querySelector('input[name="schedule-end"]').value = end;
 	}
 });
 
