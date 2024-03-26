@@ -129,6 +129,8 @@ ul#user {
 /* 메뉴 스타일 */
 .menu img {
     height: 50px;
+    max-width: initial;
+    vertical-align: baseline;
 }
 
 #header img:hover{
