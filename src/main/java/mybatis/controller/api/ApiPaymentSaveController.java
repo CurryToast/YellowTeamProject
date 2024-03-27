@@ -17,7 +17,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import mybatis.dao.ReserveDao;
-import mybatis.service.MovieService;
 import mybatis.vo.Payment;
 import mybatis.vo.Reserve;
 

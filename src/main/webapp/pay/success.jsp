@@ -1,3 +1,9 @@
+<%@page import="mybatis.vo.ReserveList"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="mybatis.vo.Member"%>
+<%@page import="mybatis.dao.ReserveDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
@@ -32,24 +38,8 @@
 
 										<article>
 											<header>
-												<h3 id="result">결제 내역</h3>
+												<h3 id="result">결제가 완료되었습니다</h3>
 											</header>
-											<div  class="info">
-											<c:forEach var="ele" items="${reserveList}">
-												<p><c:out value="${ele.mname}"/></p>
-												<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${ele.poster }.jpg" alt="${ele.mname }">
-												
-												<p><strong>결제번호 </strong><span id="orderId"></span></p>
-												<p>
-												<p><strong>총 결제금액</strong><span id="amount"></span></p>
-												<br>
-												결제카드 : <span id="cardtype"></span> <span id="method"></span> (<span id="cardno"></span>)<br> 
-												승인날짜 : <span class="title" id="paydate"></span>
-											</c:forEach>
-											</div>
-											<div class="paybtn">
-												<a class="btn btn-primary ok" href="/YellowTeamProject">홈</a>&nbsp;&nbsp;&nbsp;
-											</div>
 										</article>
 
 								</div>
@@ -74,7 +64,6 @@
 			<script src="../assets/js/breakpoints.min.js"></script>
 			<script src="../assets/js/util.js"></script>
 			<script src="../assets/js/main.js"></script>
-			<script src="../js/nav.js"></script>
 			<!-- 비동기 http 통신 axios api-->
 			<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 		<script type="text/javascript">
@@ -93,26 +82,22 @@
 						amount: payment.totalAmount, 
 						id: '${member_code}', 
 						paydate:payment.approvedAt ,
-						paytype : payment.card.cardType + ' ' + payment.method, 
-						paymentkey:payment.paymentKey }
+						paytype : payment.card.cardType+' '+payment.method, 
+						paymentkey:payment.paymentKey,
+						orderName: payment.orderName}
 		
 		requestPaymentSave(payReq)
-		.then(result => {
-			document.querySelector('#result').innerHTML = result
-			document.querySelector('#orderId').innerHTML = payment.orderId
+		 .then(result => {
 			document.querySelector('#orderName').innerHTML = payment.orderName
-			document.querySelector('#cardtype').innerHTML = payment.card.cardType
-			document.querySelector('#method').innerHTML = payment.method
-			document.querySelector('#cardno').innerHTML = payment.card.number
+			document.querySelector('#paytype').innerHTML = payment.card.number
+			document.querySelector('#orderId').innerHTML = payment.orderId
 			document.querySelector('#paydate').innerHTML = payment.approvedAt
 			document.querySelector('#amount').innerHTML = payment.totalAmount.toLocaleString() + '원'
-		})
+		}) 
 		.catch(e=> {
 			console.error(e.response)
-			location.href='../invalid.html'
-		})
-		
-		
+			/* location.href='../invalid.html' */
+		}) 
 	</script>
 	</body>
 </html>

@@ -151,11 +151,17 @@ function json(){
       { value: Number(obj.price) },
          { variantKey: "DEFAULT" } 
     )
+    let today = new Date();   
+    var month = ('0' + (today.getMonth() + 1)).slice(-2);
+	var day = ('0' + today.getDate()).slice(-2);
+    var hours = ('0' + today.getHours()).slice(-2); 
+	var minutes = ('0' + today.getMinutes()).slice(-2);
+	var dateString = month+day+hours+ minutes;
     // ------ '결제하기' 버튼 누르면 결제창 띄우기 ------
     // 더 많은 결제 정보 파라미터는 결제위젯 SDK에서 확인하세요.
     // https://docs.tosspayments.com/reference/widget-sdk#requestpayment결제-정보
     const payObj = {
-        orderId: obj.mcode +'_' +obj.id,            
+        orderId: obj.mcode +'_' +obj.id_+dateString,            
         orderName: obj.title,                 
         successUrl: window.location.origin + "/YellowTeamProject/pay/success",  
         failUrl: window.location.origin + "/YellowTeamProject/pay/fail",        

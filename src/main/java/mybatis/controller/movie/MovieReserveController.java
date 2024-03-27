@@ -68,6 +68,7 @@ public class MovieReserveController implements Controller {
 		session.setAttribute("reservearr", reservearr);
 		System.out.println("reservearr"+reservearr);
 
+		
 
 		/*
 		 * if (result == 0) { response.setContentType("text/html; charset=UTF-8");
