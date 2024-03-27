@@ -81,7 +81,7 @@ button.join-gor:hover {
 .join-agree > li button {text-decoration: underline; font-size: .8rem; cursor: pointer; color: #8d91a2; vertical-align: middle; font-weight: initial;}
 .join-agree > li > ul {margin-top: .5rem; margin-left: 1.125rem;}
 .join-agree input[type="checkbox"] + label + a {text-decoration: underline; color: #747474; font-size: .9rem; margin-left: .5rem;}
-.join-btn {margin: 1.429rem auto 0; width: 32.857rem; background-color: #071d3d; height: 3.429rem; line-height: 3.429rem; color: #fff; font-size: 1rem; display: block;}
+.join-btn {margin: 2rem auto 0; width: 32.857rem; background-color: #071d3d; height: 3.429rem; line-height: 3.429rem; color: #fff; font-size: 1rem; display: block;}
 	
 .popup {width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.5); position: fixed; top: 0; left: 0; z-index: 999; display: none}
 .popup .pop-wrap {width: 40rem; background-color: #fff; box-sizing: border-box; padding: 2rem; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}

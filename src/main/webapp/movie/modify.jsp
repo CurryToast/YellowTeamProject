@@ -34,9 +34,18 @@
 							<input type="hidden" name="${status.index}-cidx" value="${vo.cidx}" />
 							<input type="hidden" name="${status.index}-schedule" value="${vo.schedule}" />
 							<p>감독: <c:out value="${vo.director}" /></p>
-							<p>출연진: <c:out value="${vo.mcast}" /></p>
+							<p style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+								출연진: <c:out value="${vo.mcast}" />
+							</p>
 							<p>상영관: <c:out value="${vo.cidx}" /></p>
-							<p>상영일시: <c:out value="${vo.schedule}" /></p>
+							<c:choose>
+								<c:when test="${vo.schedule != null}">
+									<p class="schedule-label">상영일시: <c:out value="${vo.schedule}" /></p>
+								</c:when>
+								<c:otherwise>
+									<p class="schedule-label close">상영종료</p>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<div class="movie-synopsys">
 							<input type="hidden" name="${status.index}-synopsys" value="${vo.synopsys}" />
@@ -68,11 +77,15 @@
 			</div>
 			<div class="modal-field">
 				<p>상영관</p>
-				<input type="text" name="cidx" readonly="readonly" />
+				<input type="text" name="cidx" />
 			</div>
 			<div class="modal-field">
-				<p>상영기간</p>
-				<input type="date" name="schedule" readonly="readonly" />
+				<p class="schedule-label">상영기간</p>
+				<div>
+					<input type="date" name="schedule"/>
+					~
+					<input type="date" name="schedule-end" readonly="readonly" />
+				</div>
 			</div>
 			<div class="modal-field">
 				<p>줄거리</p>

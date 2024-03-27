@@ -21,11 +21,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
-<style>
-	form#cont {
-  		  padding-top: 150px;
-	}
-</style>
 <title>관리자 페이지 - 스타라이트 시네마</title>
 </head>
 <body>
@@ -35,17 +30,17 @@
 		<a href="${pageContext.request.contextPath}/myPage">예매내역</a>
 		<a href="${pageContext.request.contextPath}/member/modify">회원정보수정</a>
 		<c:if test="${sessionScope.user.isadmin == 'Y' }">
-			<a href="${pageContext.request.contextPath}/admin/page" class="active">회원정보수정</a>
+			<a href="${pageContext.request.contextPath}/admin/page" class="active">관리자 페이지</a>
 		</c:if>
 	</div>
 	<hr>
 	<c:if test="${sessionScope.user.isadmin == 'Y' }">
 		<form id="cont">
-		<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/join.jsp'">관리자 등록</button><br>
-		<button class="join-btn" type="button" id="delete">관리자 해지</button><br>
-		<button class="join-btn" type="button" id="btn-open-modal">관리자 목록 보기</button><br>
-		<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/movie/register'">영화 등록</button>
-		<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/movie/modify'">영화 수정</button>
+			<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/join.jsp'">관리자 등록</button>
+			<button class="join-btn" type="button" id="delete">관리자 해지</button>
+			<button class="join-btn" type="button" id="btn-open-modal">관리자 목록 보기</button>
+			<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/movie/register'">영화 등록</button>
+			<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/movie/modify'">영화 수정</button>
 		</form>
 	</c:if>
 </div>

@@ -14,15 +14,13 @@
 			GROUP BY tm.MCODE, ts.CIDX, ts.SCHEDULE 
 		) tv WHERE tlm.MCODE = tv.mcode ORDER BY tlm.MCODE 
  	</select>
- 	<select id="search" resultType="mybatis.vo.Movie"
-		parameterType="java.util.Map">
+ 	<select id="search" resultType="mybatis.vo.Movie" parameterType="java.util.Map">
 		SELECT tlm.*, tv.comments FROM TBL_MOVIE tlm, (
-		SELECT tm.MCODE,
-		count(tm2.CONTENT) as comments FROM TBL_MOVIE tm
-		LEFT OUTER JOIN
-		TBL_MOVIECOMMENTS tm2
-		on tm.MCODE = tm2.MCODE
-		GROUP BY tm.MCODE
+			SELECT tm.MCODE, count(tm2.CONTENT) as comments
+			FROM TBL_MOVIE tm
+			LEFT OUTER JOIN TBL_MOVIECOMMENTS tm2
+			on tm.MCODE = tm2.MCODE
+			GROUP BY tm.MCODE
 		) tv
 		<where>
 			tlm.MCODE = tv.mcode
