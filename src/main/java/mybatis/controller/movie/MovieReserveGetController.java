@@ -13,6 +13,7 @@ public class MovieReserveGetController implements Controller {
 
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("reserve.jsp");
 		dispatcher.forward(request, response);
 	}

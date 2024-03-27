@@ -6,21 +6,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
+<style type="text/css">
+.admin {
+	display: inline;
+	font-size: 20px;
+	padding-right: 120px;
+	margin: 30px;
+}
+li {
+	padding: 50px;
+	margin: 1px 150px 1px 30px;
+}
+h2 {
+	padding-bottom: 10px;
+}
+</style>
 <title>관리자 페이지 - 스타라이트 시네마</title>
 </head>
 <body>
@@ -47,6 +54,11 @@
 <div class="modal">
     <div class="modal_body">
         <h2>관리자 목록</h2>
+        <ul>
+        	<li class="admin">아이디</li>
+        	<li class="admin" style="padding-right: 145px;">닉네임</li>
+        	<li class="admin" style="padding-right: 400px;">가입날짜</li>
+        </ul>
         <ul class="list" id="list">
         </ul>
         <button class="btn-close-modal">CLOSE</button>
