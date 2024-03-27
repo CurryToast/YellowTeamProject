@@ -13,7 +13,7 @@
 </head>
 <body>
 	<%@ include file="../layout/header.jsp" %>
-	<main>
+	<main id="movie-register-main">
 		<form action="" method="post" enctype="multipart/form-data">
 	        <input type="hidden" name="Content-Type" value="image/jpg" />
 			<h3>영화 등록</h3>
@@ -73,7 +73,9 @@
 				<p>출연진</p>
 				<input type="text" name="mcast" placeholder="쉼표(,)로 구분">
 			</div>
-			<button id="movie-register" type="button">등록</button>
+			<div class="button-wrapper">
+				<button id="movie-register" type="button">등록</button>
+			</div>
 		</form>
 	</main>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/movieRegister.js"></script>

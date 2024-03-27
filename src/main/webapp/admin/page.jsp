@@ -12,28 +12,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/adminpage.css" />
 <script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
-<style type="text/css">
-#admin-page {
-	.admin {
-		display: inline;
-		font-size: 20px;
-		padding-right: 120px;
-		margin: 30px;
-	}
-
-	#page-wrapper {
-		li {
-			padding: 50px;
-			margin: 1px 150px 1px 30px;
-		}
-	
-		h2 {
-			padding-bottom: 10px;
-		}
-	}
-}
-</style>
 <title>관리자 페이지 - 스타라이트 시네마</title>
 </head>
 <body id="admin-page">
@@ -51,7 +31,7 @@
 		<form id="cont">
 			<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/admin/join.jsp'">관리자 등록</button>
 			<button class="join-btn" type="button" id="delete">관리자 해지</button>
-			<button class="join-btn" type="button" id="btn-open-modal">관리자 목록 보기</button>
+			<button class="join-btn" type="button" id="btn-open-modal">관리자 목록</button>
 			<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/movie/register'">영화 등록</button>
 			<button class="join-btn" type="button" onclick="location.href='${pageContext.request.contextPath}/movie/modify'">영화 수정</button>
 		</form>
@@ -60,12 +40,7 @@
 <div class="modal">
     <div class="modal_body">
         <h2>관리자 목록</h2>
-        <ul>
-        	<li class="admin">아이디</li>
-        	<li class="admin" style="padding-right: 145px;">닉네임</li>
-        	<li class="admin" style="padding-right: 400px;">가입날짜</li>
-        </ul>
-        <ul class="list" id="list">
+        <ul id="list">
         </ul>
         <button class="btn-close-modal">CLOSE</button>
     </div>

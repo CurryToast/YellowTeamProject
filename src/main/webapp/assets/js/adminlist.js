@@ -7,21 +7,31 @@ const selectAdmin = function(){
 			console.log("요청응답: ", xhr.response); 
             const arr = JSON.parse(xhr.response); 
             console.log("get admin/list", arr);
-            
+
             const list = document.querySelector('#list');
-            list.innerHTML = '';
+            list.innerHTML = `
+            	<li>
+	        		<ul>
+	        			<li class="admin"></li>
+			        	<li class="admin">아이디</li>
+			        	<li class="admin">닉네임</li>
+			        	<li class="admin">가입날짜</li>
+			        </ul>
+	        	</li>
+            `;
             arr.forEach((ele, index) => {
 				const li = document.createElement('li');
 				const ul = document.createElement('ul');
-				ul.className = 'row';
                 ul.id = 'row';
-                ul.innerHTML =
-                `<li>${index + 1}</li>
-                 <li>${ele.code}</li>
-                 <li>${ele.name}</li>
-                 <li>${new Date(ele.regdate).toLocaleDateString()}</li>`;
-                    li.appendChild(ul);
-                    list.appendChild(li);
+                ul.innerHTML = `
+	            	<li class="admin">${index + 1}</li>
+	             	<li class="admin">${ele.code}</li>
+	             	<li class="admin">${ele.name}</li>
+	             	<li class="admin">${new Date(ele.regdate).toLocaleDateString()}</li>
+                `;
+
+                li.appendChild(ul);
+                list.appendChild(li);
 			})
             
 		}
