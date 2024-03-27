@@ -29,7 +29,7 @@ h2 {
 }
 </style>
 <title>관리자 페이지 - 스타라이트 시네마</title>
-</head>s
+</head>
 <body>
 <%@include file="../layout/header.jsp" %>
 <div id="page-wrapper">
