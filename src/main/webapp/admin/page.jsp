@@ -14,23 +14,29 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css" />
 <script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
 <style type="text/css">
-.admin {
-	display: inline;
-	font-size: 20px;
-	padding-right: 120px;
-	margin: 30px;
-}
-li {
-	padding: 50px;
-	margin: 1px 150px 1px 30px;
-}
-h2 {
-	padding-bottom: 10px;
+#admin-page {
+	.admin {
+		display: inline;
+		font-size: 20px;
+		padding-right: 120px;
+		margin: 30px;
+	}
+
+	#page-wrapper {
+		li {
+			padding: 50px;
+			margin: 1px 150px 1px 30px;
+		}
+	
+		h2 {
+			padding-bottom: 10px;
+		}
+	}
 }
 </style>
 <title>관리자 페이지 - 스타라이트 시네마</title>
 </head>
-<body>
+<body id="admin-page">
 <%@include file="../layout/header.jsp" %>
 <div id="page-wrapper">
 	<div class="tabs1">
