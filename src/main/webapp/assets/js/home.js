@@ -7,7 +7,9 @@ const movieBarArrowAction = (x) => {
 
 const createMovieList = (arr) => {
 	const movieBanner = document.querySelector('#banner');
-	movieBanner.innerHTML = `<span class="arrow left material-symbols-outlined" onclick="movieBarArrowAction('-350')">chevron_left</span>`;
+	movieBanner.innerHTML = `
+		<span class="arrow left material-symbols-outlined" onclick="movieBarArrowAction('-350')">chevron_left</span>
+	`;
 
 	const cardWrapper = document.createElement('div');
 	cardWrapper.classList.add('card-wrapper');
@@ -68,7 +70,9 @@ const createMovieList = (arr) => {
 	});
 
 	movieBanner.appendChild(cardWrapper);
-	movieBanner.innerHTML += `<span class="arrow right material-symbols-outlined" onclick="movieBarArrowAction('350')">chevron_right</span>`;
+	movieBanner.innerHTML += `
+		<span class="arrow right material-symbols-outlined" onclick="movieBarArrowAction('350')">chevron_right</span>
+	`;
 };
 
 const createMovieCommentsList = (arr) => {

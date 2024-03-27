@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="schedules">
 	 <select id="selectDate" resultType="mybatis.vo.Schedule">
-	 	SELECT TBL_SCHEDULE FROM TBL_SCHEDULE WHERE MCODE = #{mcode}
+	 	SELECT SCHEDULE FROM TBL_SCHEDULE WHERE MCODE = #{mcode}
 	 </select>
 	 <select id="checkByMcode" resultType="mybatis.vo.Schedule" parameterType="int">
 	 	SELECT * FROM TBL_SCHEDULE WHERE MCODE = #{mcode}
