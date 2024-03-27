@@ -95,7 +95,10 @@ function json(){
 	console.log(data);
 	// AJAX 요청
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "/movie/reserve", true);
+	/*var paramVal = "/movie/reserve";
+	var target="URL";
+	xhr.open("POST",target+"?paramName="+paramVal)*/
+	xhr.open("POST", "reserve", true);
 	xhr.setRequestHeader("Content-Type", "application/json");
 	 
 	xhr.send(JSON.stringify(data));

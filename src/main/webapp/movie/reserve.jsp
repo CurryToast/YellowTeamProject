@@ -39,10 +39,7 @@
 	  영화 시간 &nbsp; <input class="in" type="date" name="schedule" value="${schedules.schedule }" disabled>
 	  예매 인원 &nbsp; <input input="calculateTotal" type="number" id="Numseats" required>
   	  &nbsp; 
-  	  <form action="#" method="POST">
   	  <button type="button" onclick="select()">인원 선택 완료</button>	  <br/><br/></div>
-  	  
-  	  </form>
 	  <!-- hidden -->
 	 <%--  <input type="hidden" id="theater" name="theater" value="${theater }" >  --%> 
 	  <input type="hidden" name="mname" id="mname" value="${movie.mname }">
@@ -267,7 +264,6 @@
 	</div>
 
 
-	<script src="../assets/js/reserve.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="../assets/js/jquery.min.js"></script>
 	<script src="../assets/js/jquery.dropotron.min.js"></script>
@@ -281,5 +277,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<!-- 결제위젯 SDK 추가 -->
 	<script src="https://js.tosspayments.com/v1/payment-widget"></script>
+	<script src="../assets/js/reserve.js"></script>
 </body>
 </html>

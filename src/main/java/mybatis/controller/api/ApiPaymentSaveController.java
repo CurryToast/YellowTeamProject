@@ -45,13 +45,13 @@ public class ApiPaymentSaveController implements mybatis.controller.Controller{
 		
 		HttpSession session = request.getSession();
 		
-		MovieService ms = new MovieService();
+		ReserveDao rdao = ReserveDao.getInstance();
 		List<Reserve> rList = (List<Reserve>) session.getAttribute("reservearr");
 		logger.info("List<Reserve> : {}",(List<Reserve>)session.getAttribute("reservearr"));
 		logger.info("pay : {}",pay);
 		System.out.println("List<Reserve> : "+(List<Reserve>)session.getAttribute("reservearr"));
 		System.out.println("pay : "+pay);
-		int result = ms.mService(rList, pay);
+		int result = rdao.insertAll(rList, pay);
 		
 		
 		response.setHeader("Cache-Control", "no-cache");

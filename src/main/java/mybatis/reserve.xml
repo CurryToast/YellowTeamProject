@@ -7,15 +7,18 @@
  		INSERT INTO TBL_RESERVE
   		VALUES(reserve_idx_seq.nextval, #{member_code}, #{theater}, #{movie_code}, sysdate ,#{scheduleDate}, #{seat},10000)
  	</select>
- 	<insert id="insertArr" parameterType="mybatis.vo.Reserve">
- 		INSERT INTO TBL_RESERVE
- 		<foreach collection = "reservearr" item="reserve" separator="UNION ALL">
-  			SELECET(
-  			reserve_idx_seq.nextval, 
+ 	<insert id="insertArr"  parameterType="java.util.List">
+ 		<selectKey keyProperty = "maxseq" resultType="int" order="BEFORE">
+ 			SELECT NVL(MAX(rcode),0)+1 from TBL_RESERVE	
+ 		</selectKey>
+ 		INSERT INTO TBL_RESERVE (RCODE, MEMBER_CODE, THEATER, MOVIE_CODE, RESERVE_DATE, SCHEDULE, SEAT, PRICE) 
+ 		<foreach collection = "list" item="reserve" separator="UNION ALL " index="idx" >
+ 			SELECT 
+  			#{maxseq}+#{idx},
   			#{reserve.member_code}, 
   			#{reserve.theater}, 
   			#{reserve.movie_code}, 
-  			sysdate ,#{reserve.scheduleDate}, #{reserve.seat},10000) FROM DUAL
+  			sysdate ,#{reserve.scheduleDate}, #{reserve.seat},#{reserve.price} FROM DUAL
   		</foreach>
  	</insert>
  	<select id="delete" resultType="int" parameterType="java.util.Map">

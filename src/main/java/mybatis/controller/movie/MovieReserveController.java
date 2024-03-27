@@ -4,13 +4,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.json.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import mybatis.controller.Controller;
@@ -20,6 +19,7 @@ import mybatis.vo.Reserve;
 public class MovieReserveController implements Controller {
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("컨트롤러 진입");
 		request.setCharacterEncoding("UTF-8");
 		    BufferedReader reader = request.getReader();
 		    StringBuilder sb = new StringBuilder();
@@ -27,7 +27,7 @@ public class MovieReserveController implements Controller {
 		    while ((line = reader.readLine()) != null) {
 		        sb.append(line);
 		    }
-		    
+		    System.out.println("컨트롤러 line"+sb.toString());
 		    ObjectMapper objMapper = new ObjectMapper();
 			Reserve reserve = objMapper.readValue(sb.toString(), Reserve.class);
 		
@@ -45,26 +45,27 @@ public class MovieReserveController implements Controller {
 		 */
 		String seatsAll= reserve.getSeat();
 		String[] seatarr= seatsAll.split(",");
-		System.out.println(seatarr);
-		System.out.println(seatsAll);
+//		System.out.println("seatarr"+seatarr);
+		System.out.println("seatsAll"+seatsAll);
+		log.info("seatarr: {}", Arrays.toString(seatarr));
+		log.info("seatsAll: {}", seatsAll);
 		List<Reserve> reservearr = new ArrayList<Reserve>();
 		
 		for (String seat : seatarr) {
-			reserve = new Reserve(0, 
+			reserve = new Reserve(
 					   reserve.getMember_code(), 
 					   reserve.getTheater(),
 					   reserve.getMovie_code(),
 					   reserve.getScheduleDate(),
-					   null,
 					   seat,
 					   reserve.getPrice());
 			log.info("reserve!!:{}",reserve);
 			System.out.println("reserve"+reserve);
 			reservearr.add(reserve);
-		}
+			 } 
+			
 		HttpSession session = request.getSession();
 		session.setAttribute("reservearr", reservearr);
-		log.info("Reserve: {}", reservearr);
 		System.out.println("reservearr"+reservearr);
 
 
