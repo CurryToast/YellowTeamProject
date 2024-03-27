@@ -24,7 +24,7 @@
 	  영화 제목 &nbsp; <input class="in"type="text" name="mname"  value="${movie.mname }" disabled >
 	  <input type="hidden" name="mname"  value="${movie.mcode }" disabled >
     <fmt:formatDate value="${schedule.schedule}" pattern="yyyy-MM-dd" />
-	<form method="post" action="reserve">
+
 	<div class="cinema">
 	 영화관 선택 &nbsp;
 	  <select name="cinemas" id="cinemas">
@@ -230,7 +230,6 @@
 	</table>
 		<button id="complete" type="button">좌석 선택완료</button>
 	<a data-all="${movie.mcode},${movie.mname},${member_code},${totalPrice2}"></a>
-	</form>
 	</div>
 
 <!-- The Modal -->

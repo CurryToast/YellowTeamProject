@@ -161,7 +161,7 @@ function json(){
     // 더 많은 결제 정보 파라미터는 결제위젯 SDK에서 확인하세요.
     // https://docs.tosspayments.com/reference/widget-sdk#requestpayment결제-정보
     const payObj = {
-        orderId: obj.mcode +'_' +obj.id_+dateString,            
+        orderId: obj.mcode +'_' +dateString,            
         orderName: obj.title,                 
         successUrl: window.location.origin + "/YellowTeamProject/pay/success",  
         failUrl: window.location.origin + "/YellowTeamProject/pay/fail",        

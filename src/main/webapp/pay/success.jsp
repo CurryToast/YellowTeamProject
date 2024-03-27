@@ -84,15 +84,15 @@
 						paydate:payment.approvedAt ,
 						paytype : payment.card.cardType+' '+payment.method, 
 						paymentkey:payment.paymentKey,
-						orderName: payment.orderName}
+						}
 		
 		requestPaymentSave(payReq)
 		 .then(result => {
-			document.querySelector('#orderName').innerHTML = payment.orderName
-			document.querySelector('#paytype').innerHTML = payment.card.number
+			 location.href='../myPage'
+			/* document.querySelector('#paytype').innerHTML = payment.card.number
 			document.querySelector('#orderId').innerHTML = payment.orderId
 			document.querySelector('#paydate').innerHTML = payment.approvedAt
-			document.querySelector('#amount').innerHTML = payment.totalAmount.toLocaleString() + '원'
+			document.querySelector('#amount').innerHTML = payment.totalAmount.toLocaleString() + '원' */
 		}) 
 		.catch(e=> {
 			console.error(e.response)
