@@ -1,5 +1,6 @@
 package mybatis.dao;
 
+import java.sql.Date;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,7 +16,7 @@ public class ScheduleDao {
 		return dao;
 	}
 
-	public Schedule selectDate(long mcode){
+	public Schedule selectDate(int mcode){
 	    SqlSession sqlSession = SqlSessionBean.getSession();
 	    Schedule schedule = sqlSession.selectOne("schedules.selectDate", mcode);
 	    log.info("schedule 정보: {}", schedule);
@@ -33,7 +34,9 @@ public class ScheduleDao {
 
 	public int insert(Map<String, Object> map) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		int result = sqlSession.insert("schedules.insert", map);
+		int result = sqlSession.insert("schedules.insert", new Schedule(
+			(long)map.get("mcode"), (int)map.get("cidx"), (Date)map.get("schedule")
+		));
 		sqlSession.commit();
 		sqlSession.close();
 		return result;

@@ -127,7 +127,7 @@ document.querySelector('#modal-save').addEventListener('click', () => {
 		xhr.onload = function() {
 			if (xhr.status === 200 || xhr.status === 201) {
 				const rs = JSON.parse(xhr.response);
-				if (rs.result === 1) {
+				if (rs.result > 0) {
 					location.href = location.origin + "/YellowTeamProject/movie/modify";
 				}
 			} else {

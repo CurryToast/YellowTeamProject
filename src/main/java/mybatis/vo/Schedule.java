@@ -17,5 +17,4 @@ public class Schedule {
 	private long mcode;
 	private int cidx;
 	private Date schedule;
-
 }

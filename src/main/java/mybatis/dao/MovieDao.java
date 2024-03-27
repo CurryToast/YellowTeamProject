@@ -1,5 +1,7 @@
 package mybatis.dao;
 
+import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -103,25 +105,33 @@ public class MovieDao {
 		return result;
 	}
 
-	public int updateMovie(Map<String, Object> map) {
+	public Map<String, Integer> updateMovie(Map<String, Object> map) {
 		SqlSession mapperSession = SqlSessionBean.getSession();
-		int result = 0;
+		Map<String, Integer> result = new HashMap<String, Integer>();
+		int temp = 0;
+
 		try {
 			map.forEach((String key, Object value) -> {
-				log.info("{}: {}    {}", key, value);
+				log.info("map {}: {}", key, value);
 			});
-			result = mapperSession.update("movies.modify", map);
+
+			temp = mapperSession.update("movies.modify", map);
+			result.put("movie", temp);
 			if (map.get("cidx") != null) {
 				Schedule schedule = mapperSession.selectOne("schedules.checkByMcode", map.get("mcode"));
+				log.info("schedule: {}", schedule);
 				if (schedule == null) {
-					result += mapperSession.insert("schedules.insert", map);
+					temp = mapperSession.insert("schedules.insert", map);
 				} else {
-					result += mapperSession.update("schedules.update", map);
+					temp = mapperSession.update("schedules.update", map);
 				}
+
+				result.put("schedule", temp);
 			}
 
 			mapperSession.commit();
 		} catch (Exception e) {
+			log.info("예외 발생 : {}", e.getMessage());
 			mapperSession.rollback();
 		} finally {
 			mapperSession.close();

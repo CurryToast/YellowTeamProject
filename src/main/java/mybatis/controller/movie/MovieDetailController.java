@@ -33,7 +33,7 @@ public class MovieDetailController implements Controller {
 		   Movie movie = movieDao.selectByIdx(mcode);
 		   int rating = movie.getRating();
 
-		   Schedule date = schedule.selectDate((long)mcode);
+		   Schedule date = schedule.selectDate(mcode);
 		   String color = null;
 
 		   if (rating == 0) {
