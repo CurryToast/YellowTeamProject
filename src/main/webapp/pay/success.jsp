@@ -21,7 +21,6 @@
 	<body class="is-preload">
 		<div id="page-wrapper">
 
-			<%@ include file="../layout/header.jsp" %>
 
 			<!-- Main -->
 				<section class="wrapper style1">

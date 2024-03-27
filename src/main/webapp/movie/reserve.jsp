@@ -8,10 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/reserve.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/modal.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
-<title>예매하기 - 스타 라이트 시네마</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+<title>스타 라이트 시네마</title>
 </head>
 <body id="body">
 <%@ include file="../layout/header.jsp" %>
@@ -26,6 +25,7 @@
 	  영화 제목 &nbsp; <input class="in"type="text" name="mname"  value="${movie.mname }" disabled >
 	  <input type="hidden" name="mname"  value="${movie.mcode }" disabled >
     <fmt:formatDate value="${schedule.schedule}" pattern="yyyy-MM-dd" />
+
 	<div class="cinema">
 	 영화관 선택 &nbsp;
 	  <select name="cinemas" id="cinemas">
@@ -232,12 +232,9 @@
 		<button id="complete" type="button">좌석 선택완료</button>
 	<a data-all="${movie.mcode},${movie.mname},${member_code},${totalPrice2}"></a>
 	</div>
-		<button id="complete" type="button">선택완료</button>
-	</div>
-	<br/>
 
-	<!-- The Modal -->
- 	<div class="modal" tabindex="-1" id="modal">
+<!-- The Modal -->
+<div class="modal" tabindex="-1" id="modal">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -265,9 +262,19 @@
 			</div>
 		</div>
 	</div>
-</div>
-<script src="../assets/js/reserve.js"></script>
- <script src="https://code.jquery.com/jquery-3.6.0.min.js">
- </script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+	<script src="${pageContext.request.contextPath}./assets/js/breakpoints.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+	<!-- 부트스트랩 - 모달 사용 -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- 비동기 http 통신 axios api-->  <!-- 비동기 통신을 위한 자바스크립트 api -->
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<!-- 결제위젯 SDK 추가 -->
+	<script src="https://js.tosspayments.com/v1/payment-widget"></script>
+	<script src="../assets/js/reserve.js"></script>
 </body>
 </html>

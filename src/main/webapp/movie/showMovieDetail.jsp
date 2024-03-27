@@ -21,7 +21,7 @@
         <p>해당하는 영화 정보가 없습니다.</p>
     </c:when>
     <c:otherwise>
-         <div style = "display: flex;">
+         <div style = "display: flex; justify-content: center;">
             <img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster}.jpg" alt="${movie.mname}">
 	        <div style = "display: inlince-block; margin-left:10px;">
 	            <h2 style="margin-left:50px; margin-top: 30px;">${movie.mname}</h2>

@@ -58,13 +58,13 @@
 	</div>
 	<hr>
 	<c:if test="${empty list}">
-	<div class= "no-reser">
-	<span class="material-symbols-outlined" style= font-size:90px;>
-	do_not_disturb_on
-	</span>
-	<p style=font-size:30px;>예매한 내역이 존재하지 않습니다.</p>
-	</div>
-  </c:if>
+		<div class= "no-reser">
+		<span class="material-symbols-outlined" style= font-size:90px;>
+		do_not_disturb_on
+		</span>
+		<p style=font-size:30px;>예매한 내역이 존재하지 않습니다.</p>
+		</div>
+    </c:if>
 </div>
 	<div class="modal">
         <div class="modal_body">

@@ -69,7 +69,6 @@
 	</section>
 	<div data-num="0" id="datanum"></div>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/home.js"></script>
-
 </div>
 </body>
 </html>

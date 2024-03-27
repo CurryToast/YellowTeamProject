@@ -30,8 +30,7 @@ public class MovieReserveController implements Controller {
 		    System.out.println("컨트롤러 line"+sb.toString());
 		    ObjectMapper objMapper = new ObjectMapper();
 			Reserve reserve = objMapper.readValue(sb.toString(), Reserve.class);
-		
-		
+
 		/*
 		 * int result=0; String member_code= request.getParameter("member_code"); String
 		 * temp2=request.getParameter("cinemas"); String
@@ -43,6 +42,7 @@ public class MovieReserveController implements Controller {
 		 * int theater = 0; if (temp2.length() != 0) { theater =
 		 * Integer.parseInt(temp2); }
 		 */
+
 		String seatsAll= reserve.getSeat();
 		String[] seatarr= seatsAll.split(",");
 //		System.out.println("seatarr"+seatarr);
@@ -50,7 +50,7 @@ public class MovieReserveController implements Controller {
 		log.info("seatarr: {}", Arrays.toString(seatarr));
 		log.info("seatsAll: {}", seatsAll);
 		List<Reserve> reservearr = new ArrayList<Reserve>();
-		
+
 		for (String seat : seatarr) {
 			reserve = new Reserve(
 					   reserve.getMember_code(), 
@@ -62,8 +62,8 @@ public class MovieReserveController implements Controller {
 			log.info("reserve!!:{}",reserve);
 			System.out.println("reserve"+reserve);
 			reservearr.add(reserve);
-			 } 
-			
+		} 
+
 		HttpSession session = request.getSession();
 		session.setAttribute("reservearr", reservearr);
 		System.out.println("reservearr"+reservearr);
