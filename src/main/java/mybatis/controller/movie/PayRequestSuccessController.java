@@ -34,8 +34,7 @@ public class PayRequestSuccessController implements Controller {
 		String orderId = request.getParameter("orderId");
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		ReserveDao dao = ReserveDao.getInstance();
-		
-		
+
 		HttpSession session = request.getSession();
 		String member_code = ((Member)session.getAttribute("user")).getCode();
 			

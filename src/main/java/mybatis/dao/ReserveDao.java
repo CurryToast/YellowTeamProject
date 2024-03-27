@@ -77,31 +77,30 @@ public class ReserveDao {
 		sqlSession.close();
 		return list;
 	}
+
 	public int saleOne(Payment movie) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
-		int result=0;	
-		try{
+		int result = 0;	
+		try {
 			result = sqlSession.insert("reserves.saleOne",movie);
 			sqlSession.commit();
-		}catch(Exception e) {
+		} catch(Exception e) {
 			log.warn("영화 결제 오류 : {}",e.getMessage());
 			sqlSession.rollback();
-		}finally {
+		} finally {
 			sqlSession.close();
-		}	
+		}
+
 		return result;
 	}
 
-
-	
-	
 	public Payment getOne(String mcode) {
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		Payment pay = sqlSession.selectOne("reserves.getOne",mcode);
 		sqlSession.close();
 		return pay;
 	}
-	
+
 	public List<ReserveList> paymentId(String id){
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		List<ReserveList> list = sqlSession.selectList("reserves.paymentId",id);
@@ -109,7 +108,8 @@ public class ReserveDao {
 		sqlSession.close();
 		return list;
 	}
-	public List<ReserveList> payment(Map map){
+
+	public List<ReserveList> payment(Map<String, String> map){
 		SqlSession sqlSession = SqlSessionBean.getSession();
 		List<ReserveList> list = sqlSession.selectList("reserves.payment",map);
 		log.info("reserve :{}", list);
