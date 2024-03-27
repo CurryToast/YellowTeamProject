@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.Date" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,19 +34,18 @@
 							<input type="hidden" name="${status.index}-mcast" value="${vo.mcast}" />
 							<input type="hidden" name="${status.index}-cidx" value="${vo.cidx}" />
 							<input type="hidden" name="${status.index}-schedule" value="${vo.schedule}" />
-							<p>감독: <c:out value="${vo.director}" /></p>
+							<p style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+								감독: <c:out value="${vo.director}" />
+							</p>
 							<p style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
 								출연진: <c:out value="${vo.mcast}" />
 							</p>
 							<p>상영관: <c:out value="${vo.cidx}" /></p>
-							<c:choose>
-								<c:when test="${vo.schedule != null}">
-									<p class="schedule-label">상영일시: <c:out value="${vo.schedule}" /></p>
-								</c:when>
-								<c:otherwise>
-									<p class="schedule-label close">상영종료</p>
-								</c:otherwise>
-							</c:choose>
+							<p class="schedule-label">
+								상영기간:
+								<span class="startDate"><c:out value="${vo.schedule}" /></span>
+								<span class="endDate"></span>
+							</p>
 						</div>
 						<div class="movie-synopsys">
 							<input type="hidden" name="${status.index}-synopsys" value="${vo.synopsys}" />
@@ -85,6 +85,7 @@
 					<input type="date" name="schedule"/>
 					~
 					<input type="date" name="schedule-end" readonly="readonly" />
+					<button id="changeSchedule" type="button">상영으로 변경</button>
 				</div>
 			</div>
 			<div class="modal-field">

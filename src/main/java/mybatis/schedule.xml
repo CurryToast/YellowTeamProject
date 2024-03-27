@@ -6,6 +6,12 @@
 	 <select id="selectDate" resultType="mybatis.vo.Schedule">
 	 	SELECT TBL_SCHEDULE FROM TBL_SCHEDULE WHERE MCODE = #{mcode}
 	 </select>
+	 <select id="checkByMcode" resultType="mybatis.vo.Schedule" parameterType="long">
+	 	SELECT * FROM TBL_SCHEDULE WHERE MCODE = #{mcode}
+	 </select>
+	 <insert id="insert" parameterType="java.util.Map">
+	 	INSERT INTO TBL_SCHEDULE VALUES (#{mcode}, #{cidx}, to_date('#{schedule}', 'YYYY-MM-DD'))
+	 </insert>
 	 <update id="update" parameterType="java.util.Map">
 	 	update TBL_SCHEDULE
 	 	<trim prefix="SET" suffixOverrides=",">

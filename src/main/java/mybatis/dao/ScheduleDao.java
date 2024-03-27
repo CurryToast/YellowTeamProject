@@ -1,5 +1,7 @@
 package mybatis.dao;
 
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
@@ -12,7 +14,7 @@ public class ScheduleDao {
 	public static ScheduleDao getInstance() {
 		return dao;
 	}
-	
+
 	public Schedule selectDate(long mcode){
 	    SqlSession sqlSession = SqlSessionBean.getSession();
 	    Schedule schedule = sqlSession.selectOne("schedules.selectDate", mcode);
@@ -21,4 +23,19 @@ public class ScheduleDao {
 	    return schedule;
 	}
 
+	public Schedule checkByMcode(long mcode) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+	    Schedule schedule = sqlSession.selectOne("schedules.checkByMcode", mcode);
+	    log.info("schedule: {}", schedule);
+	    sqlSession.close();
+	    return schedule;
+	}
+
+	public int insert(Map<String, Object> map) {
+		SqlSession sqlSession = SqlSessionBean.getSession();
+		int result = sqlSession.insert("schedules.insert", map);
+		sqlSession.commit();
+		sqlSession.close();
+		return result;
+	}
 }

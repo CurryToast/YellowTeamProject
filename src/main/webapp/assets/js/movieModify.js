@@ -1,4 +1,4 @@
-function dateFormat(vdate) { // vdate: 날짜 타입 인자
+const dateFormat = (vdate) => { // vdate: 날짜 타입 인자
     const year = vdate.getFullYear();
     const month = (vdate.getMonth() + 2).toString().padStart(2, '0');
     const day = vdate.getDate().toString().padStart(2, '0');
@@ -6,9 +6,37 @@ function dateFormat(vdate) { // vdate: 날짜 타입 인자
     return [year,month,day].join('-');
 }
 
+const printEndDate = () => {
+	document.querySelectorAll('.schedule-label').forEach(e => {
+		const startDate = e.querySelector('.startDate');
+		const endDate = e.querySelector('.endDate');
+		if (startDate && endDate) {
+			if (!startDate.innerHTML) {
+				endDate.style.display = 'none';
+			} else {
+				endDate.innerHTML = ` ~ ${dateFormat(new Date(startDate.innerHTML))}`;
+			}
+		}
+	});
+};
+printEndDate();
+
+const getIsScheduled = (modal) => {
+	const modifyModal = modal || document.querySelector('.modify-modal');
+	const tempCidx	= modifyModal.querySelector('form').cidx;
+	const tempSchedule	= modifyModal.querySelector('form').schedule;
+	const tempScheduleEnd = modifyModal.querySelector('input[name="schedule-end"]');
+
+	return {
+		tempCidx, tempSchedule, tempScheduleEnd,
+		isNotScheduled: tempCidx.disabled || tempSchedule.disabled
+	};
+};
+
 document.querySelectorAll('.movie-box').forEach((el, idx) => {
 	el.addEventListener('click', () => {
 		const modifyModal = document.querySelector('.modify-modal');
+
 		if (modifyModal) {
 			const mcode = document.querySelector(`input[name="${idx}-mcode"]`).value;
 			const mname = document.querySelector(`input[name="${idx}-mname"]`).value;
@@ -25,30 +53,43 @@ document.querySelectorAll('.movie-box').forEach((el, idx) => {
 			modifyModal.querySelector('form').director.value = director;
 			modifyModal.querySelector('form').mcast.value = mcast;
 
-			modifyModal.querySelector('form').cidx.value = cidx;
+			const cidxInput = modifyModal.querySelector('form').cidx;
+			cidxInput.value = cidx;
 			if (!cidx || !Number(cidx)) {
-				modifyModal.querySelector('form').cidx.disabled = true;
+				cidxInput.disabled = true;
 			} else {
-				modifyModal.querySelector('form').cidx.disabled = false;
+				cidxInput.disabled = false;
 			}
 
+			const scheduleInput = modifyModal.querySelector('form').schedule;
+			const scheduleEndInput = modifyModal.querySelector('input[name="schedule-end"]');
 			if (!schedule.length) {
-				modifyModal.querySelector('form').schedule.disabled = true;
-				modifyModal.querySelector('form').schedule.value = undefined;
-				modifyModal.querySelector('input[name="schedule-end"]').disabled = true;
-				modifyModal.querySelector('input[name="schedule-end"]').value = 0;
+				scheduleInput.disabled = true;
+				scheduleInput.value = "";
+				scheduleEndInput.disabled = true;
+				scheduleEndInput.value = "";
 			} else {
-				modifyModal.querySelector('form').schedule.disabled = false;
-				modifyModal.querySelector('form').schedule.value = schedule;
-				modifyModal.querySelector('input[name="schedule-end"]').disabled = false;
-				modifyModal.querySelector('input[name="schedule-end"]').value = dateFormat(new Date(schedule));
+				scheduleInput.disabled = false;
+				scheduleInput.value = schedule;
+				scheduleEndInput.disabled = false;
+				scheduleEndInput.value = dateFormat(new Date(schedule));
 			}
+
 			modifyModal.querySelector('form').synopsys.value = synopsys;
 
 			modifyModal.classList.remove('close');
 			document.body.style.overflow = 'hidden';
 		}
 	});
+});
+
+document.querySelector('#changeSchedule').addEventListener('click', () => {
+	const { tempCidx, tempSchedule, tempScheduleEnd, isNotScheduled } = getIsScheduled();
+	if (isNotScheduled) {
+		tempCidx.disabled = false;
+		tempSchedule.disabled = false;
+		tempScheduleEnd.disabled = false;
+	}
 });
 
 document.querySelector('#modal-save').addEventListener('click', () => {
@@ -59,17 +100,23 @@ document.querySelector('#modal-save').addEventListener('click', () => {
 		const running_time	= modifyModal.querySelector('form').running_time.value;
 		const director	= modifyModal.querySelector('form').director.value;
 		const mcast	= modifyModal.querySelector('form').mcast.value;
-		const tempCidx	= modifyModal.querySelector('form').cidx;
-		const cidx = tempCidx.disabled ? undefined : Number(tempCidx.value);
-		const tempSchedule	= modifyModal.querySelector('form').schedule;
-		const schedule = tempSchedule.disabled ? undefined : tempSchedule.value;
+		const { tempCidx, tempSchedule, isNotScheduled } = getIsScheduled();
+		const cidx = isNotScheduled ? undefined : Number(tempCidx.value);
+		const schedule = isNotScheduled ? undefined : tempSchedule.value;
 		const synopsys	= modifyModal.querySelector('form').synopsys.value;
+
+		if (
+			!isNotScheduled &&
+			(!cidx || !schedule)
+		) {
+			alert('상영관 또는 상영 기간을 입력하세요.');
+			return;
+		}
 
 		const jsObj = {
 			mcode, mname, running_time, director, mcast,
-			cidx, schedule,
-			synopsys,
-			scheduleChange: (!tempCidx.disabled && !tempSchedule.disabled) ? "true" : undefined
+			cidx: cidx === 0 ? undefined : cidx,
+			schedule, synopsys
 		};
 		const jsStr = JSON.stringify(jsObj);
 

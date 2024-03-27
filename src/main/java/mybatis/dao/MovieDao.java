@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import lombok.extern.slf4j.Slf4j;
 import mybatis.SqlSessionBean;
 import mybatis.vo.Movie;
+import mybatis.vo.Schedule;
 
 @Slf4j
 public class MovieDao {
@@ -101,14 +102,22 @@ public class MovieDao {
 		mapperSession.close();
 		return result;
 	}
-	
+
 	public int updateMovie(Map<String, Object> map) {
 		SqlSession mapperSession = SqlSessionBean.getSession();
 		int result = 0;
 		try {
+			map.forEach((String key, Object value) -> {
+				log.info("{}: {}    {}", key, value);
+			});
 			result = mapperSession.update("movies.modify", map);
-			if (map.get("scheduleChange") != null) {
-				mapperSession.update("schedules.update", map);
+			if (map.get("cidx") != null) {
+				Schedule schedule = mapperSession.selectOne("schedules.checkByMcode", map.get("mcode"));
+				if (schedule == null) {
+					result += mapperSession.insert("schedules.insert", map);
+				} else {
+					result += mapperSession.update("schedules.update", map);
+				}
 			}
 
 			mapperSession.commit();

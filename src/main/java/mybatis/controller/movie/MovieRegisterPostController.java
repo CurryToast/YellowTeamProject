@@ -94,7 +94,7 @@ public class MovieRegisterPostController implements Controller {
 	        CompletedFileUpload uploadResult = upload.completionFuture().join();
 	        String rs = uploadResult.response().eTag();
 	        if (!rs.isEmpty()) {
-	        	response.sendRedirect("../myPage");
+	        	response.sendRedirect("modify");
 	        }
 		} else {
 			response.setContentType("text/plain;charset=UTF-8");

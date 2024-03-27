@@ -39,7 +39,7 @@ public class ApiMovieModifyController implements Controller {
 		log.info("map : {}", map);
 
 		MovieDao dao = MovieDao.getInstance();
-		int result = dao.modify(map);
+		int result = dao.updateMovie(map);
 		log.info("result: {}", result);
 
 		String jsonData = "{ \"result\": " + result + " }";
