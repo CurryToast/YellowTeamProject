@@ -8,7 +8,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>스타 라이트 시네마</title>
+<title>영화 상세 - 스타 라이트 시네마</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/detail.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 </head>

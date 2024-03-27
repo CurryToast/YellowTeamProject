@@ -21,7 +21,7 @@ public class MyPageController implements Controller {
 		HttpSession session = request.getSession();
 		String member_code = ((Member)session.getAttribute("user")).getCode();
 
-		ReserveDao dao = new ReserveDao(); 
+		ReserveDao dao = ReserveDao.getInstance(); 
 		List<ReserveList> list= dao.reserveAll(member_code); 
 		String strNewFormatDate = null;
 

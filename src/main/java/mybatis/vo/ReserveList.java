@@ -1,7 +1,9 @@
 package mybatis.vo;
 
+import java.sql.Timestamp;
 import java.util.Date;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -26,4 +28,14 @@ public class ReserveList {
 	private String name;
 	private int rcode;
 	private String seat;
+	
+	private int mcode;
+	private String id;
+	private int amount;
+	@JsonFormat(shape = Shape.STRING,pattern = "yyyy-MM-dd'T'HH:mm:ssXXX")
+	private Timestamp paydate;
+	private String paytype;
+	private String paymentkey;
+
 }
+

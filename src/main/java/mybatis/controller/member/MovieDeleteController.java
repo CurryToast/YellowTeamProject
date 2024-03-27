@@ -20,7 +20,7 @@ public class MovieDeleteController implements Controller {
 
 	@Override
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ReserveDao dao = new ReserveDao();
+		ReserveDao dao = ReserveDao.getInstance();
 		HttpSession session = request.getSession();
 		String member_code = ((Member)session.getAttribute("user")).getCode();
 		Object rcode= (String)request.getParameter("rcode");

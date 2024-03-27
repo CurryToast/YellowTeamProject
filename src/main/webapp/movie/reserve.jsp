@@ -9,13 +9,13 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/reserve.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/modal.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
-<title>스타 라이트 시네마</title>
+<title>예매하기 - 스타 라이트 시네마</title>
 </head>
-<body onload="onLoaderFunc()">
+<body id="body">
 <%@ include file="../layout/header.jsp" %>
 <br/><br/>
-
 <!--disabled 는 데이터를 넘길 수 없기에 고객이 볼 외관용과 넘기기용 hidden 두개  -->
 	<div class="wrap"> 
 	<div class="poster">
@@ -25,13 +25,10 @@
 	  ID &nbsp;<input class="in" type="text" name="member_code"  value="${member_code}" disabled >
 	  영화 제목 &nbsp; <input class="in"type="text" name="mname"  value="${movie.mname }" disabled >
 	  <input type="hidden" name="mname"  value="${movie.mcode }" disabled >
-	<%-- <c:forEach var="schedule" items="${schedules}"> --%>
     <fmt:formatDate value="${schedule.schedule}" pattern="yyyy-MM-dd" />
-	<%-- </c:forEach> --%>
-	<form method="post" action="reserve">
 	<div class="cinema">
 	 영화관 선택 &nbsp;
-	  <select name="cinemas">
+	  <select name="cinemas" id="cinemas">
          <option value="">영화관</option>
          <c:forEach items="${cinelist}" var="cinema">
             <option value="${cinema.idx}" >
@@ -41,15 +38,17 @@
       </select>
       </div>
 	  영화 시간 &nbsp; <input class="in" type="date" name="schedule" value="${schedules.schedule }" disabled>
-	  예매 인원 &nbsp; <input class="in" type="number" id="Numseats" required>
-  	  &nbsp; <button type="button" onclick="select()">인원 선택 완료</button>	  <br/><br/></div>
+	  예매 인원 &nbsp; <input input="calculateTotal" type="number" id="Numseats" required>
+  	  &nbsp; 
+  	  <button type="button" onclick="select()">인원 선택 완료</button>	  <br/><br/></div>
 	  <!-- hidden -->
-	  <input type="hidden" id="theater" name="theater" value="${param.theater }" >  
+	 <%--  <input type="hidden" id="theater" name="theater" value="${theater }" >  --%> 
 	  <input type="hidden" name="mname" id="mname" value="${movie.mname }">
-	  <input type="hidden" name="member_code" id="member_code" value="${param.member_code }">
+	  <input type="hidden" name="member_code" id="member_code" value="${member_code }">
 	  <input type="hidden" id="movie_code" name="movie_code" value="${movie.mcode }">
 	  <input type="hidden" name="schedule" id="schedule" value="${schedules.schedule }">
-	  <input type="hidden" id="Numseats">
+	  <input type="hidden" name="price" id="price" value="10000">
+ 	  <input type="hidden" name="totalPrice2" id="totalPrice2" value="${total}">
 	  <input type="hidden" id="seatsAll" name="seatsAll">
 	  <br/><br/>
 	<div class="wrap2">
@@ -230,17 +229,45 @@
 	    </td>
 	</tr>
 	</table>
+		<button id="complete" type="button">좌석 선택완료</button>
+	<a data-all="${movie.mcode},${movie.mname},${member_code},${totalPrice2}"></a>
 	</div>
 		<button id="complete" type="button">선택완료</button>
-	</div>	
+	</div>
 	<br/>
-		
-</form>
+
+	<!-- The Modal -->
+ 	<div class="modal" tabindex="-1" id="modal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h6 class="modal-title">영화 결제</h6>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="pay">
+						<hr> 
+						<p><strong>영화 제목: </strong><span id="title"></span></p>
+						<p><strong>선택 좌석 수: </strong><span id="numSeats"></span></p>
+						<p><strong>총 가격: </strong><span id="price"></span></p>
+					</div>	
+					<div class="pay">
+							<!-- 결제 UI, 이용약관 UI 영역 -->
+							  <div id="payment-method"></div>
+							  <div id="agreement"></div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					  <!-- 결제하기 버튼 -->
+					  <button id="payment-button" type="button" class="btn btn-primary">결제하기</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <script src="../assets/js/reserve.js"></script>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js">
- 
  </script>
-
 </body>
 </html>

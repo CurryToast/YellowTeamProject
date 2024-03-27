@@ -34,7 +34,6 @@ const createMovieList = (arr) => {
 		card.className = 'movieCard';
 
 		const div = document.createElement('div');
-		
 		const link = document.createElement('a');
 		link.href = `movie/showMovieDetail?mcode=${el.mcode}`;
 		div.appendChild(link);
