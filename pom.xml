@@ -47,6 +47,15 @@
 		<artifactId>jstl</artifactId>
 		<version>1.2</version>
 	</dependency>
+	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api 
+      maven 빌드할 때 필요합니다.
+  	-->
+  	<dependency>
+     	<groupId>javax.servlet</groupId>
+     	<artifactId>javax.servlet-api</artifactId>
+     	<version>4.0.1</version>
+     	<scope>provided</scope>
+  	</dependency>
 	<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api : 로그 라이브러리 -->
 	<dependency>
 	    <groupId>org.slf4j</groupId>
