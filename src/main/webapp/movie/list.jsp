@@ -18,12 +18,10 @@
 <h3>상영 일정</h3>
 <hr style="color:white;">
 <div id=listnow>
-<a href="list?type=all" class ="line" >전체 보기</a> 
-<a href="list?type=ing" class = "line">현재 상영작</a> 
-<a href="list?type=later" class = "line">상영 예정작</a>
-<a href="list?type=end" class = "line">상영 종료작</a>
-<script>
-</script>
+	<a href="list?type=all" class="line">전체 보기</a> 
+	<a href="list?type=ing" class="line">현재 상영작</a> 
+	<a href="list?type=later" class="line">상영 예정작</a>
+	<a href="list?type=end" class="line">상영 종료작</a>
 </div>
 <div class="movie-container">
     <ul class="movie-list col-5 row-5">
@@ -31,7 +29,11 @@
             <li class="movie-item">
             <p class = "image-style">
                 <a href="showMovieDetail?mcode=${movie.mcode}">
-                    <img class="img-style" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster}.jpg" alt="${movie.mname}">
+                    <img
+                    	class="img-style"
+                    	src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster}.jpg"
+                    	alt="${movie.mname}"
+                    >
                 </a>
              </p>
                 <p class="mname">${movie.mname}</p>
@@ -54,11 +56,10 @@
         </c:forEach>
     </ul>
 </div>
-
 </section>
 <script src="${pageContext.request.contextPath}/assets/js/list.js"></script>
- <section id="cta" class="wrapper style3">
-	<%@include file="../layout/footer.jsp" %>
-	</section>
+<section id="cta" class="wrapper style3">
+<%@include file="../layout/footer.jsp" %>
+</section>
 </body>
 </html>

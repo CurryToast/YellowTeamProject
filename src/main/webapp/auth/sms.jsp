@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <title>스타라이트 시네마</title>
 <meta charset="UTF-8">
-  	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
 <div class="card">
-<div class = "card-header" id="messageBot">
+<div class="card-header" id="messageBot">
 <h3><em>본인인증</em></h3>
 </div>
 		<div class = "form-group card-body">
@@ -34,7 +34,7 @@
 <script>
 	document.querySelector('#confirm').addEventListener('click',()=>{
 		var message = {successYn : 'Y'};
-		message = JSON.stringify(message)
+		message = JSON.stringify(message);
 		var targetOrigin = window.location.origin + '/YellowTeamProject/join';
 		window.opener.postMessage(message,targetOrigin);
 		self.close();

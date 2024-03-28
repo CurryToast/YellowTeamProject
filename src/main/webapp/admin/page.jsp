@@ -6,10 +6,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/layout.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/join.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/adminpage.css" />

@@ -10,29 +10,26 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>스타라이트 시네마</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/header.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/join.css" />
 <style type="text/css">
-.change {
-	background-color: bisque !important;
-}
-
-button.drop {
-	font-size: 0.85em;
-	border: none;
-	background-color: transparent;
-	color: gray;
-}
-form {
-padding-top: 150px;
-}
+	.change {
+		background-color: bisque !important;
+	}
+	
+	button.drop {
+		font-size: 0.85em;
+		border: none;
+		background-color: transparent;
+		color: gray;
+	}
+	form {
+	padding-top: 150px;
+	}
 </style>
 </head>
 <body class="is-preload">
@@ -41,7 +38,6 @@ padding-top: 150px;
 		<h1>관리자 등록</h1>
 		<form id="form">
 			<ul class="join-wrap">
-
 				<li>아이디</li>
 				<li><input class="id-input" id="username" name="code"
 					type="text" onchange="resetCheckId()" placeholder="아이디를 입력해 주세요." />

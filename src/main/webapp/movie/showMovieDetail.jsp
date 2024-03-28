@@ -15,7 +15,7 @@
 <body>
 <%@ include file="../layout/header.jsp" %>
 <hr>
-<div id = "movieList">
+<div id="movieList">
 <c:choose>
     <c:when test="${empty movie}">
         <p>해당하는 영화 정보가 없습니다.</p>
@@ -32,7 +32,7 @@
 	            <p>장르: ${movie.genre}</p>
 	        </div>
      	 </div>
-	     <a href="list" id = "reservebtn" class="btn-design">목록</a>
+	     <a href="list" id="reservebtn" class="btn-design">목록</a>
 	            			 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	     <button id="reservebtn" class="btn-design" onclick="handleBooking()">예매하기</button>
 	     <hr>

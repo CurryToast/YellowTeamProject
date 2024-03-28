@@ -5,20 +5,20 @@
 <html>
 <head>
 <title>스타라이트 시네마</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Expires" content="0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" /> 
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css?v=3" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/banner.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/movieCard.css">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/label.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/join.css" /> 
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/layout.css?v=3" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/banner.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/movieCard.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/label.css">
     <script>
     /* sms.jsp 에서 인증하기 성공하면 메시지를 보낸것 window.opener.postMessage(~~~)을 받는 이벤트 입니다.  */
       window.addEventListener('message', (e) => {			//윈도우에서 메시지 수신이 있을 때
@@ -282,7 +282,6 @@
 	<%@include file="../layout/footer.jsp" %>
 	</section>
 </div>
- 
 <!-- Scripts -->
 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
@@ -293,7 +292,5 @@
 <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/map.daum.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/script.js"></script>
-
-<!-- 계정 : wonder , 패스워드 : thGH123!@4 -->
 </body>
 </html>

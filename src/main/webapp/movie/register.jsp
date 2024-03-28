@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css?v=3" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css?v=3" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/layout.css?v=3" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/movieRegister.css" />
 <title>영화 등록 - 스타라이트 시네마</title>

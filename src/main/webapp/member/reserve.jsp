@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>스타 라이트 영화관</title>
+<title>예매 목록 - 스타 라이트 영화관</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/memberReserve.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
 </head>
@@ -36,6 +36,5 @@
     <hr>
 </c:forEach>
 </div>
-           
 </body>
 </html>
