@@ -19,7 +19,7 @@
 				<div class="movie-box">
 					<div class="movie-poster">
 						<input type="hidden" name="${status.index}-mcode" value="${vo.mcode}" />
-						<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${vo.poster}.jpg" alt="">
+						<img src="/upload/${vo.poster}.jpg" alt="">
 					</div>
 					<div class="movie-info">
 						<div class="movie-info-unit">

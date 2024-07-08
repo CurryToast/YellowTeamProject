@@ -24,7 +24,7 @@
 	<section id="read" >
 	<div id=imgbox>
 	<div id=ima_size>
-	<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${bo.poster }.jpg" >
+	<img src="/upload/${bo.poster }.jpg" >
 	</div>
 	<div id=x>
 	<div id=box>

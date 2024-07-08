@@ -13,7 +13,7 @@
 <div class="container">
 <c:forEach var="ele" items="${list}">
     <div class="wrap">
-		<img class="poster" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${ele.poster}.jpg" alt="${ele.mname}">
+		<img class="poster" src="/upload/${ele.poster}.jpg" alt="${ele.mname}">
 	     <div class="container-in">
 	      <div class="top-container">
 	         <h3><c:out value="${ele.mname}"/></h3><p><strong>예매번호 </strong><c:out value="${ele.rcode}"/></p>

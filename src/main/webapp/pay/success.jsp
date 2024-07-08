@@ -66,7 +66,7 @@
 			const id = '${member_code}';
 			console.dir(payment);
 			console.log(id);
-	
+
 			async function requestPaymentSave(payReq){
 				const result = await axios.post('../api/pay',payReq);
 				console.log(result);

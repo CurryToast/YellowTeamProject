@@ -16,7 +16,7 @@
 <h2>예매 내역</h2>
 <c:forEach var="ele" items="${list}">
     <div class="wrap">
-		<img class="poster" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${ele.mname}.jpg" alt="${ele.mname}">
+		<img class="poster" src="/upload/${ele.mname}.jpg" alt="${ele.mname}">
 	     <div class="container-in">
 	      <div class="top-container">
 	         <h3>

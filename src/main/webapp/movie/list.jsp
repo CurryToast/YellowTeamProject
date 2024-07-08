@@ -31,7 +31,7 @@
                 <a href="showMovieDetail?mcode=${movie.mcode}">
                     <img
                     	class="img-style"
-                    	src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster}.jpg"
+                    	src="/YellowTeamProject/assets/img/poster/${movie.poster}.jpg"
                     	alt="${movie.mname}"
                     >
                 </a>

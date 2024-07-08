@@ -18,7 +18,7 @@
 <!--disabled 는 데이터를 넘길 수 없기에 고객이 볼 외관용과 넘기기용 hidden 두개  -->
 	<div class="wrap"> 
 	<div class="poster">
-		<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster }.jpg" alt="${movie.mname }">
+		<img src="/upload/${movie.poster }.jpg" alt="${movie.mname }">
 	</div> 
 	<div class="inputForm">
 	  ID &nbsp;<input class="in" type="text" name="member_code"  value="${member_code}" disabled >

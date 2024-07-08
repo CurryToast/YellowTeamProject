@@ -33,7 +33,7 @@
 		             	<p class="image-style">
 			                <img
 			                	class="img-style"
-			                	src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster}.jpg"
+			                	src="/upload/${movie.poster}.jpg"
 			                	alt="${movie.mname}"
 			                >
 			            </p>
