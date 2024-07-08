@@ -13,7 +13,7 @@
 </head>
 <body>
 <%@ include file="../layout/header.jsp" %>
-<section id = "movieList">
+<section id="movieList">
 <h3>영화 후기</h3>
 <hr style="color:white;">
 <div id=listnow>
@@ -30,8 +30,12 @@
         	<c:if test="${movie.comments > 0}">
         		<li class="movie-item" onclick="location.href='showMovieDetail?mcode=${movie.mcode}'">
 		             <div class="left">
-		             	<p class = "image-style">
-			                <img class="img-style" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster}.jpg" alt="${movie.mname}">
+		             	<p class="image-style">
+			                <img
+			                	class="img-style"
+			                	src="/upload/${movie.poster}.jpg"
+			                	alt="${movie.mname}"
+			                >
 			            </p>
 		             </div>
 		             <div class="right">

@@ -47,8 +47,8 @@ public class RequestControllerMapping {
 
 	public static void init() {
 		// API
-		mapping.put(new RequestKeyValue("/api/auth/checkId", "POST"), new ApiCheckIdController());
 		mapping.put(new RequestKeyValue("/api/member", "POST"), new ApiGetAllMembersController()); // 메소드 수정 필요
+		mapping.put(new RequestKeyValue("/api/auth/checkId", "POST"), new ApiCheckIdController());
 		mapping.put(new RequestKeyValue("/api/auth/join", "POST"), new ApiMemberJoinController());
 		mapping.put(new RequestKeyValue("/api/modify","POST"),new ApiMemberModifyController());
 		mapping.put(new RequestKeyValue("/api/auth/adminJoin", "POST"), new ApiAdminJoinController());
@@ -56,6 +56,7 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/api/movie", "PUT"), new ApiMovieSearchController());
 		mapping.put(new RequestKeyValue("/api/movie/comments", "GET"), new ApiGetAllMovieCommentsController());
 		mapping.put(new RequestKeyValue("/api/movie/modify", "PUT"), new ApiMovieModifyController());
+		mapping.put(new RequestKeyValue("/api/pay", "POST"), new ApiPaymentSaveController());
 
 		// 회원가입
 		mapping.put(new RequestKeyValue("/join","GET"), new MemberJoinController());
@@ -81,11 +82,10 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/logout", "GET"), new LogoutController());
 
 		// 결제
-		mapping.put(new RequestKeyValue("/api/pay", "POST"), new ApiPaymentSaveController() );
 		mapping.put(new RequestKeyValue("/pay/success","GET"), new PayRequestSuccessController());
 		mapping.put(new RequestKeyValue("/pay/fail","GET"), new PayRequestFailController());
 
-		// Movie
+		// 영화
 		mapping.put(new RequestKeyValue("/movie/list", "GET"), new MovieListController() );
 		mapping.put(new RequestKeyValue("/movie/list", "POST"), new MovieListController() );
 		mapping.put(new RequestKeyValue("/movie/showMovieDetail", "GET"), new MovieDetailController());
@@ -95,7 +95,6 @@ public class RequestControllerMapping {
 		mapping.put(new RequestKeyValue("/movie/search", "PUT"), new MovieSearchController());
 		mapping.put(new RequestKeyValue("/movie/read", "GET"), new ReadController());
 		mapping.put(new RequestKeyValue("/movie/complete", "GET"), new MoviecompleteController());
-		 
 	    mapping.put(new RequestKeyValue("/movie/register", "GET"), new MovieRegisterController());
 	    mapping.put(new RequestKeyValue("/movie/register", "POST"), new MovieRegisterPostController());
 	    mapping.put(new RequestKeyValue("/movie/modify", "GET"), new MovieModifyController());

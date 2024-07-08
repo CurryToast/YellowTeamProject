@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div id = "header">
+<div id="header">
   <ul id="user" style="list-style:none;">
-	<c:if test="${sessionScope.user == null }">		
-		<li><a href="${pageContext.request.contextPath }/join"><span>회원가입</span></a></li>
-		<li><a href="${pageContext.request.contextPath }/login">로그인</a></li>
+	<c:if test="${sessionScope.user == null}">		
+		<li><a href="${pageContext.request.contextPath}/join"><span>회원가입</span></a></li>
+		<li><a href="${pageContext.request.contextPath}/login">로그인</a></li>
 	</c:if>	
 	<c:if test="${sessionScope.user != null }">		
-		<li><a href="${pageContext.request.contextPath }/myPage"><span>마이페이지</span></a>
-		<li><a href="${pageContext.request.contextPath }/logout">로그아웃</a></li>
+		<li><a href="${pageContext.request.contextPath}/myPage"><span>마이페이지</span></a>
+		<li><a href="${pageContext.request.contextPath}/logout">로그아웃</a></li>
 	</c:if>
   </ul>
   <ul class="menu" style="list-style:none;">

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="java.util.Date" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +8,7 @@
 <title>영화 수정 - 스타라이트 시네마</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />	
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/layout.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/movieManage.css" />
 </head>
 <body class="is-preload">
@@ -20,7 +19,7 @@
 				<div class="movie-box">
 					<div class="movie-poster">
 						<input type="hidden" name="${status.index}-mcode" value="${vo.mcode}" />
-						<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${vo.poster}.jpg" alt="">
+						<img src="/upload/${vo.poster}.jpg" alt="">
 					</div>
 					<div class="movie-info">
 						<div class="movie-info-unit">

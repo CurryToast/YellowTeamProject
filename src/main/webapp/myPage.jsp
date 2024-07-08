@@ -5,20 +5,20 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>스타라이트 시네마</title>
+<title>마이페이지 - 스타라이트 시네마</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
- <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  
- <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" />
- <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
- <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/memberReserve.css" />
- <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/layout.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/join.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/memberReserve.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script src="https://kit.fontawesome.com/352c53403e.js" crossorigin="anonymous"></script>
@@ -29,7 +29,7 @@
 	<div class="tabs1">
 		<a href="${pageContext.request.contextPath}/myPage" class="active">예매내역</a>
 		<a href="${pageContext.request.contextPath}/member/modify">회원정보수정</a>
-		<c:if test="${sessionScope.user.isadmin == 'Y' }">
+		<c:if test="${sessionScope.user.isadmin == 'Y'}">
 			<a href="${pageContext.request.contextPath}/admin/page">관리자 페이지</a>
 		</c:if>
 	</div>
@@ -37,7 +37,7 @@
 	<h2>예매 내역</h2>
 	<c:forEach var="ele" items="${list}">
 	    <div class="wrap">
-	      <img class="poster" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${ele.poster}.jpg" alt="${ele.poster}">
+	      <img class="poster" src="/upload/${ele.poster}.jpg" alt="${ele.poster}">
 	        <div class="container-in">
 	         <div class="top-container">
 	            <h3><c:out value="${ele.mname}"/></h3><p><strong>예매번호</strong><c:out value="${ele.rcode}"/></p>
@@ -118,9 +118,8 @@
 <br>
 <p><span class="red2"> ※ 예매내용을 변경할 때는, 취소가능시간 내에 취소하고 다시 예매해 주시기 바랍니다.</span></p>
 </div>
-	<section id="cta" class="wrapper style3">
+<section id="cta" class="wrapper style3">
 	<%@include file="../layout/footer.jsp" %>
-	</section>
+</section>
 </body>
 </html>
-

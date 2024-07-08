@@ -14,7 +14,7 @@
 <meta http-equiv="Expires" content="0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/layout.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/search.css" />
 </head>
@@ -24,7 +24,7 @@
 	<section id="read" >
 	<div id=imgbox>
 	<div id=ima_size>
-	<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${bo.poster }.jpg" >
+	<img src="/upload/${bo.poster }.jpg" >
 	</div>
 	<div id=x>
 	<div id=box>

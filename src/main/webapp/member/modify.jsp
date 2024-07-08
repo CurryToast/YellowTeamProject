@@ -9,10 +9,10 @@
 <meta http-equiv="Expires" content="0">
 <title>회원정보수정</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/layout.css" />
 	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />  <!-- 회원가입 (temp.css 는 미사용)-->
 	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
-	  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" />
+	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/join.css" />
 	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" /> 
 	  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/myPage.css" /> 
 	   <style type="text/css">
@@ -61,7 +61,6 @@
                 </form>
                     </div>
                     </div>
-    
     <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
 			<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>

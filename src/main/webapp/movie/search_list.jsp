@@ -14,11 +14,11 @@
 <title>영화 검색 - 스타라이트 시네마</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/layout.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/style.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/search.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/list.css?v=3">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/list.css?v=3">
 </head>
 <body class="is-preload">
 	<div id="page-wrapper">
@@ -69,7 +69,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/nav.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/nav.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/moviesearch.js"></script>
 <section id="cta" class="wrapper style3">
 	<%@include file="../layout/footer.jsp" %>

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/reserve.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/modal.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
-<title>스타 라이트 시네마</title>
+<title>영화 예매 - 스타 라이트 시네마</title>
 </head>
 <body id="body">
 <%@ include file="../layout/header.jsp" %>
@@ -18,7 +18,7 @@
 <!--disabled 는 데이터를 넘길 수 없기에 고객이 볼 외관용과 넘기기용 hidden 두개  -->
 	<div class="wrap"> 
 	<div class="poster">
-		<img src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${movie.poster }.jpg" alt="${movie.mname }">
+		<img src="/upload/${movie.poster }.jpg" alt="${movie.mname }">
 	</div> 
 	<div class="inputForm">
 	  ID &nbsp;<input class="in" type="text" name="member_code"  value="${member_code}" disabled >
@@ -38,7 +38,7 @@
       </select>
       </div>
 	  영화 시간 &nbsp; <input class="in" type="date" name="schedule" value="${schedules.schedule }" disabled>
-	  예매 인원 &nbsp; <input input="calculateTotal" type="number" id="Numseats" required>
+	  예매 인원 &nbsp; <input type="number" id="Numseats" required>
   	  &nbsp; 
   	  <button type="button" onclick="select()">인원 선택 완료</button>	  <br/><br/></div>
 	  <!-- hidden -->
@@ -232,7 +232,6 @@
 		<button id="complete" type="button">좌석 선택완료</button>
 	<a data-all="${movie.mcode},${movie.mname},${member_code},${totalPrice2}"></a>
 	</div>
-
 <!-- The Modal -->
 <div class="modal" tabindex="-1" id="modal">
 		<div class="modal-dialog">
@@ -266,7 +265,7 @@
 	<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/jquery.dropotron.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
-	<script src="${pageContext.request.contextPath}./assets/js/breakpoints.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 	<!-- 부트스트랩 - 모달 사용 -->

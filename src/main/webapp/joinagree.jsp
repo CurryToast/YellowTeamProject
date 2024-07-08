@@ -7,7 +7,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>스타라이트 시네마 회원가입</title>
+<title>회원가입 - 스타라이트 시네마</title>
 </head>
 <body>
 <div class="join">

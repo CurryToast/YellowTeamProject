@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>스타 라이트 영화관</title>
-<link rel="stylesheet" href="../assets/css/memberReserve.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/memberReserve.css" />
 </head>
 <body>
 <%@ include file="../layout/header.jsp" %>
@@ -16,10 +16,15 @@
 <h2>예매 내역</h2>
 <c:forEach var="ele" items="${list}">
     <div class="wrap">
-		<img class="poster" src="https://yellows3.s3.ap-northeast-2.amazonaws.com/share/poster/${ele.mname}.jpg" alt="${ele.mname}">
+		<img class="poster" src="/upload/${ele.mname}.jpg" alt="${ele.mname}">
 	     <div class="container-in">
 	      <div class="top-container">
-	         <h3><c:out value="${ele.mname}"/></h3><p><strong>예매번호 </strong><c:out value="${ele.rcode}"/></p>
+	         <h3>
+	         	<c:out value="${ele.mname}"/>
+	         </h3>
+	         <p>
+	         	<strong>예매번호 </strong><c:out value="${ele.rcode}"/>
+	         </p>
 	      </div>
 	      <hr>
 	        <div class="inform">
@@ -35,6 +40,5 @@
     <hr>
 </c:forEach>
 </div>
-           
 </body>
 </html>
